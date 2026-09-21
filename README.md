@@ -1,31 +1,33 @@
 # Homemade TOEFL Trainer — C1/C2
 
-Site statique prêt à déposer sur GitHub Pages.
+A static, GitHub Pages-ready TOEFL iBT training site for advanced learners aiming at CEFR C1/C2.
 
-## Contenu
+## What is included
 
-- Accueil et parcours « Start here » inspiré du Homemade TOEIC Trainer
-- Présentation du TOEFL iBT en vigueur depuis le 21 janvier 2026
-- Diagnostic pédagogique de 24 questions (Reading, Listening, Speaking, Writing)
-- Tableau de bord avec sauvegarde locale, objectif 5 / 5.5 / 6, export/import JSON
-- Reading : Complete the Words, Read in Daily Life, Read an Academic Passage
-- Listening : Choose a Response, Conversation, Announcement, Academic Talk
-- Speaking : Listen and Repeat + Take an Interview avec enregistrement micro local
-- Writing : Build a Sentence, Write an Email, Academic Discussion
-- Academic Vocabulary C1/C2 avec synthèse vocale et My Words
-- C-Level Lab : hedging, nominalisation, complex sentences, paraphrase, stance, cohesion
-- Accessibilité : taille du texte, contraste, police de lecture, réduction des animations, mode focus
-- PWA légère / service worker
+- English-only interface and instructions
+- Current TOEFL iBT structure used from 21 January 2026
+- 40-item C1/C2-oriented diagnostic: 10 items per skill
+- Balanced A/B/C/D answer positions in the diagnostic
+- Progress dashboard with a 5 / 5.5 / 6 target, local saving, JSON export and import
+- Reading: Complete the Words, Read in Daily Life, Read an Academic Passage
+- Listening: Choose a Response, Conversation, Announcement, Academic Talk
+- Speaking: Listen and Repeat, Take an Interview, local microphone recording
+- Writing: Build a Sentence, Write an Email, Academic Discussion
+- 51-item advanced academic vocabulary bank with pronunciation and My Words
+- C-Level Lab: hedging, nominalisation, complex syntax, paraphrase, stance and cohesion
+- Resources page with official ETS links, advanced English websites, and verified Lyon 1 library/SCEL resources
+- Accessibility controls: text size, high contrast, readable font, reduced motion and focus mode
+- Responsive smartphone layout and lightweight service-worker caching
 
-## Déploiement GitHub Pages
+## GitHub Pages deployment
 
-1. Créer un nouveau dépôt GitHub, par exemple `homemade-toefl-trainer`.
-2. Déposer **tout le contenu de ce dossier à la racine** du dépôt.
-3. Dans GitHub : **Settings → Pages**.
-4. Sous **Build and deployment**, choisir **Deploy from a branch**.
-5. Sélectionner la branche `main` et le dossier `/ (root)` puis enregistrer.
+1. Create a new GitHub repository, for example `homemade-toefl-trainer`.
+2. Upload **all files from this folder to the repository root**.
+3. In GitHub, open **Settings → Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select `main` and `/ (root)`, then save.
 
-## Fichiers indispensables
+## Required files
 
 - `index.html`
 - `styles.css`
@@ -34,16 +36,24 @@ Site statique prêt à déposer sur GitHub Pages.
 - `manifest.webmanifest`
 - `sw.js`
 
-## Données et confidentialité
+## Privacy and local data
 
-La progression est stockée uniquement dans `localStorage` sur l'appareil de l'utilisateur. Aucun serveur, compte ou base de données n'est nécessaire.
+Progress is stored in the learner's browser with `localStorage`. No account, server or database is required. The site remains usable if browser storage is blocked, although progress will then not persist.
 
-L'enregistrement audio Speaking utilise l'API `MediaRecorder` du navigateur. Il fonctionne sur GitHub Pages (HTTPS) si l'utilisateur autorise le micro. L'audio n'est pas envoyé ailleurs et n'est pas conservé après rechargement de la page.
+Speaking recording uses the browser `MediaRecorder` API. On GitHub Pages it requires microphone permission. Recordings stay in the browser and are not uploaded by this site.
 
-## Sources officielles utilisées pour le format du test
+## Important note about scoring
 
-Format vérifié en septembre 2026 :
+Any score produced by the diagnostic is a **pedagogical estimate**, not an official ETS score. Productive skills cannot be fully assessed by multiple-choice items; learners should also use the speaking and writing tasks with the C-level self-assessment criteria provided on the site.
+
+## Current TOEFL format references
+
+The test structure was checked in September 2026 against official ETS information:
+
 - https://www.ets.org/toefl/test-takers/ibt/about/content.html
+- https://www.ets.org/toefl/test-takers/ibt/prepare.html
 - https://www.ets.org/toefl/test-takers/ibt/scores/understand-scores.html
 
-Le site est indépendant et non affilié à ETS. TOEFL et ETS sont des marques déposées d'ETS. Les exercices sont originaux.
+The site is independent and is not affiliated with ETS. TOEFL and ETS are registered trademarks of ETS. All practice tasks are original.
+
+Designed and developed by Eglantine Lecomte — Claude Bernard Lyon 1 University — with the assistance of ChatGPT.

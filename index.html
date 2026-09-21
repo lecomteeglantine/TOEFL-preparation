@@ -1,60 +1,61 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a3d">
-  <meta name="description" content="Homemade TOEFL Trainer — préparation C1/C2 au TOEFL iBT 2026 : diagnostic, Reading, Listening, Speaking, Writing, vocabulaire et progression.">
+  <meta name="description" content="Homemade TOEFL Trainer — demanding C1/C2 preparation for the TOEFL iBT format introduced in January 2026: diagnostic, Reading, Listening, Speaking, Writing, academic vocabulary and progress tracking.">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="topbar">
-  <a class="brand" href="#home" data-nav="home" aria-label="Accueil Homemade TOEFL Trainer">
+  <a class="brand" href="#home" data-nav="home" aria-label="Homemade TOEFL Trainer home">
     <span class="brand-mark">HT</span>
-    <span><strong>Homemade TOEFL Trainer</strong><small>Créé par Eglantine Lecomte</small></span>
+    <span><strong>Homemade TOEFL Trainer</strong><small>Created by Eglantine Lecomte</small></span>
   </a>
-  <nav class="top-actions" aria-label="Actions rapides">
-    <button class="icon-btn" id="accessibilityBtn" type="button">⚙ <span>Accessibilité</span></button>
-    <button class="icon-btn" id="saveBtn" type="button">💾 <span>Sauvegarde</span></button>
-    <button class="icon-btn" data-nav="about" type="button">ⓘ <span>À propos</span></button>
+  <nav class="top-actions" aria-label="Quick actions">
+    <button class="icon-btn" id="accessibilityBtn" type="button">⚙ <span>Accessibility</span></button>
+    <button class="icon-btn" id="saveBtn" type="button">💾 <span>Save</span></button>
+    <button class="icon-btn" data-nav="about" type="button">ⓘ <span>About</span></button>
   </nav>
 </header>
 
-<div class="accent-bar" aria-label="Réglage de la voix de synthèse">
-  <span>🔊 Voix :</span>
+<div class="accent-bar" aria-label="Text-to-speech voice setting">
+  <span>🔊 Voice:</span>
   <button class="accent-choice is-active" data-accent="en-US" type="button">🇺🇸 US</button>
   <button class="accent-choice" data-accent="en-GB" type="button">🇬🇧 UK</button>
   <button class="accent-choice" data-accent="en-AU" type="button">🇦🇺 AU</button>
-  <span class="accent-note">pour les entraînements audio générés par l’appareil</span>
+  <span class="accent-note">for device-generated listening practice</span>
 </div>
 
 <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
-<nav class="main-nav" id="mainNav" aria-label="Navigation principale">
-  <button data-nav="home" class="is-active">Accueil</button>
-  <button data-nav="test">Comprendre le test</button>
+<nav class="main-nav" id="mainNav" aria-label="Main navigation">
+  <button data-nav="home" class="is-active">Home</button>
+  <button data-nav="test">Test Format</button>
   <button data-nav="diagnostic">Diagnostic</button>
-  <button data-nav="dashboard">Progression</button>
+  <button data-nav="dashboard">Progress</button>
   <button data-nav="reading">Reading</button>
   <button data-nav="listening">Listening</button>
   <button data-nav="speaking">Speaking</button>
   <button data-nav="writing">Writing</button>
   <button data-nav="vocabulary">Vocabulary</button>
   <button data-nav="clevel">C-Level Lab</button>
-  <button data-nav="examday">Jour J</button>
+  <button data-nav="resources">Resources</button>
+  <button data-nav="examday">Test Day</button>
 </nav>
 
 <main id="main" tabindex="-1">
   <section class="view is-active" id="view-home" data-view="home">
     <div class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">TOEFL iBT · format depuis le 21 janvier 2026 · objectif C1/C2</span>
-        <h1>Know your level.<br><span>Push it to C.</span></h1>
-        <p>Un entraînement fait maison pour préparer le TOEFL actuel : diagnostic, tâches courtes, anglais académique avancé, oral enregistré et progression enregistrée sur ton appareil.</p>
-        <div class="hero-badges"><span>🎯 Cible 5–6</span><span>🧠 C1/C2</span><span>🎧 4 skills</span><span>🔒 Local & privé</span></div>
-        <div class="cta-row"><button class="btn primary" data-nav="diagnostic">⚡ Démarrer mon diagnostic</button><button class="btn secondary" data-nav="vocabulary">Explorer le vocabulaire</button></div>
+        <span class="eyebrow">TOEFL iBT · January 2026 format · C1/C2 target</span>
+        <h1>Do not practise easy.<br><span>Train for C.</span></h1>
+        <p>A demanding TOEFL trainer for students already operating around upper-B2/C1 and aiming for a strong C-level performance: dense academic input, plausible distractors, inference, stance, synthesis, precision and timed production.</p>
+        <div class="hero-badges"><span>🎯 Target 5–6</span><span>🧠 C1/C2</span><span>🎧 4 skills</span><span>🔒 Local progress</span></div>
+        <div class="cta-row"><button class="btn primary" data-nav="diagnostic">⚡ Take the C-Level Diagnostic</button><button class="btn secondary" data-nav="resources">Open Resources</button></div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="score-orbit"><div class="score-core"><strong>5.5</strong><span>C1 target</span></div><span class="orbit o1">READ</span><span class="orbit o2">LISTEN</span><span class="orbit o3">SPEAK</span><span class="orbit o4">WRITE</span></div>
@@ -65,165 +66,223 @@
       <div><span class="tag coral">TODAY'S C-LEVEL TRAP</span><h2 id="trapTitle">Loading…</h2><p id="trapPrompt"></p></div>
       <div id="trapOptions" class="trap-options"></div>
       <div id="trapFeedback" class="feedback" aria-live="polite"></div>
-      <button id="nextTrap" class="text-btn" type="button">Un autre piège →</button>
+      <button id="nextTrap" class="text-btn" type="button">Another challenge →</button>
     </div>
 
     <section class="section-block">
-      <span class="section-kicker">Nouveau ici ? Commence par là</span>
-      <h2>🚦 Start here — 15 minutes pour savoir quoi travailler</h2>
-      <p>Le TOEFL 2026 n'est plus le TOEFL d'avant. Suis ces quatre étapes : format, diagnostic, parcours ciblé, entraînement.</p>
-      <div class="step-line" aria-hidden="true"><span>1 Comprendre</span><b>→</b><span>2 Diagnostiquer</span><b>→</b><span>3 Cibler</span><b>→</b><span>4 Progresser</span></div>
+      <span class="section-kicker">START HERE</span>
+      <h2>🚦 A serious route to C1/C2</h2>
+      <p>This version deliberately avoids low-level confidence boosters. The diagnostic and drills focus on the decisions advanced learners still get wrong under time pressure.</p>
+      <div class="step-line" aria-hidden="true"><span>1 Understand</span><b>→</b><span>2 Diagnose</span><b>→</b><span>3 Prioritise</span><b>→</b><span>4 Push to C</span></div>
       <div class="grid four">
-        <article class="step-card"><b>1</b><h3>Comprendre le TOEFL actuel</h3><p>Les nouvelles tâches, l'adaptativité en Reading/Listening et l'échelle 1–6.</p><button class="text-btn" data-nav="test">📘 Découvrir le format</button></article>
-        <article class="step-card"><b>2</b><h3>Faire le diagnostic C</h3><p>24 items ciblés pour repérer la compétence qui bloque ta montée vers C1/C2.</p><button class="text-btn" data-nav="diagnostic">⚡ Faire mon diagnostic</button></article>
-        <article class="step-card"><b>3</b><h3>Suivre le parcours conseillé</h3><p>Le tableau de bord classe Reading, Listening, Speaking et Writing par priorité.</p><button class="text-btn" data-nav="dashboard">📊 Voir mon parcours</button></article>
-        <article class="step-card"><b>4</b><h3>Passer en mode C</h3><p>Travaille précision, synthèse, inférence, hedging et lexique académique.</p><button class="text-btn" data-nav="clevel">🚀 Ouvrir le C-Level Lab</button></article>
+        <article class="step-card"><b>1</b><h3>Know the current test</h3><p>Learn the post-January-2026 task types, multistage Reading/Listening and 1–6 score scale.</p><button class="text-btn" data-nav="test">📘 View the format</button></article>
+        <article class="step-card"><b>2</b><h3>Take a harder diagnostic</h3><p>32 C-oriented items test inference, discourse, stance, syntax, lexical precision and response quality.</p><button class="text-btn" data-nav="diagnostic">⚡ Start diagnostic</button></article>
+        <article class="step-card"><b>3</b><h3>Follow your weak skill</h3><p>Your dashboard ranks the four skills and points you towards the weakest current area.</p><button class="text-btn" data-nav="dashboard">📊 Open progress</button></article>
+        <article class="step-card"><b>4</b><h3>Train academic control</h3><p>Practise calibrated claims, compression, syntactic control, cohesion, paraphrase and evaluation.</p><button class="text-btn" data-nav="clevel">🚀 Enter the C-Level Lab</button></article>
       </div>
     </section>
 
     <section class="section-block games-zone">
-      <span class="section-kicker">Apprendre en s'amusant</span>
-      <h2>🎮 Mini-challenges pour cerveau universitaire</h2>
+      <span class="section-kicker">HIGH-LEVEL MICRO-DRILLS</span>
+      <h2>🎮 Short tasks, difficult decisions</h2>
       <div class="grid three">
-        <article class="game-card game-indigo"><span>READING</span><h3>🔎 Inference Lab</h3><p>Repère ce que le texte implique sans jamais le dire explicitement.</p><button class="btn ghost" data-drill="inference">Lancer</button></article>
-        <article class="game-card game-teal"><span>WRITING</span><h3>🧪 Hedging Duel</h3><p>Transforme des affirmations trop absolues en anglais académique crédible.</p><button class="btn ghost" data-drill="hedging">Lancer</button></article>
-        <article class="game-card game-coral"><span>LISTENING</span><h3>🗺 Lecture Mapper</h3><p>Écoute un mini-talk et reconstruis sa structure logique.</p><button class="btn ghost" data-drill="lecture">Lancer</button></article>
+        <article class="game-card game-indigo"><span>READING</span><h3>🔎 Inference Lab</h3><p>Distinguish warranted inference from attractive overinterpretation.</p><button class="btn ghost" data-drill="inference">Launch</button></article>
+        <article class="game-card game-teal"><span>WRITING</span><h3>🧪 Calibration Duel</h3><p>Match the strength of a claim to the strength of the evidence.</p><button class="btn ghost" data-drill="hedging">Launch</button></article>
+        <article class="game-card game-coral"><span>LISTENING</span><h3>🗺 Lecture Mapper</h3><p>Track concession, correction, example, limitation and conclusion in a short academic talk.</p><button class="btn ghost" data-drill="lecture">Launch</button></article>
       </div>
     </section>
 
     <section class="notice-grid">
-      <article><span>Entraînement</span><h3>Leçons & drills courts</h3><p>5 à 12 minutes : format TOEFL + compétence académique avancée.</p></article>
-      <article><span>Vocabulaire</span><h3>Chaque mot a son audio</h3><p>Définition anglaise, traduction française, exemple académique et sauvegarde.</p></article>
-      <article><span>Speaking</span><h3>Enregistre-toi</h3><p>Préparation chronométrée, enregistrement local et grille C1/C2.</p></article>
-      <article><span>Confidentialité</span><h3>Rien n'est envoyé</h3><p>La progression et les réponses restent dans ton navigateur.</p></article>
+      <article><span>Difficulty</span><h3>C1/C2, not B2 in disguise</h3><p>Distractors are intentionally plausible and explanations focus on nuance rather than keywords.</p></article>
+      <article><span>Vocabulary</span><h3>Academic use, not translation</h3><p>Each entry includes pronunciation, definition, high-value usage and an academic example.</p></article>
+      <article><span>Speaking</span><h3>Record and review</h3><p>Use timed preparation, local recording and a stricter C-level self-assessment grid.</p></article>
+      <article><span>Privacy</span><h3>Your work stays local</h3><p>Progress and saved vocabulary are stored in your browser, not sent to a server.</p></article>
     </section>
   </section>
 
   <section class="view" id="view-test" data-view="test">
-    <div class="page-head"><span class="section-kicker">Comprendre le test</span><h1>Le TOEFL iBT actuel, en un coup d'œil</h1><p>Cette plateforme suit le format introduit le 21 janvier 2026. Les durées et nombres d'items peuvent varier car Reading et Listening sont adaptatifs.</p></div>
-    <div class="score-banner"><strong>Objectif niveau C :</strong><span>5.0 = C1</span><span>5.5 = C1</span><span>6.0 = C2</span></div>
+    <div class="page-head"><span class="section-kicker">TEST FORMAT</span><h1>The current TOEFL iBT at a glance</h1><p>This trainer follows the TOEFL iBT structure in use since 21 January 2026. Reading and Listening are multistage/adaptive, so exact item counts and timing can vary.</p></div>
+    <div class="score-banner"><strong>C-level target:</strong><span>5.0 = C1</span><span>5.5 = C1</span><span>6.0 = C2</span></div>
     <div class="grid four format-grid">
-      <article class="skill-card"><div class="skill-icon">📖</div><h2>Reading</h2><p class="metric">≈ 50 items · ≈ 30 min</p><ul><li>Complete the Words</li><li>Read in Daily Life</li><li>Read an Academic Passage</li></ul><span class="pill">adaptive</span></article>
-      <article class="skill-card"><div class="skill-icon">🎧</div><h2>Listening</h2><p class="metric">≈ 47 items · ≈ 29 min</p><ul><li>Listen and Choose a Response</li><li>Conversation</li><li>Announcement</li><li>Academic Talk</li></ul><span class="pill">adaptive</span></article>
-      <article class="skill-card"><div class="skill-icon">✍️</div><h2>Writing</h2><p class="metric">≈ 12 items · ≈ 23 min</p><ul><li>Build a Sentence</li><li>Write an Email</li><li>Academic Discussion</li></ul></article>
-      <article class="skill-card"><div class="skill-icon">🎙️</div><h2>Speaking</h2><p class="metric">≈ 11 items · ≈ 8 min</p><ul><li>Listen and Repeat</li><li>Take an Interview</li></ul></article>
+      <article class="skill-card"><div class="skill-icon">📖</div><h2>Reading</h2><p class="metric">up to 50 items · up to 30 min</p><ul><li>Complete the Words</li><li>Read in Daily Life</li><li>Read an Academic Passage</li></ul><span class="pill">multistage</span></article>
+      <article class="skill-card"><div class="skill-icon">🎧</div><h2>Listening</h2><p class="metric">up to 47 items · up to 29 min</p><ul><li>Listen and Choose a Response</li><li>Conversation</li><li>Announcement</li><li>Academic Talk</li></ul><span class="pill">multistage</span></article>
+      <article class="skill-card"><div class="skill-icon">✍️</div><h2>Writing</h2><p class="metric">up to 12 items · up to 23 min</p><ul><li>Build a Sentence</li><li>Write an Email</li><li>Academic Discussion</li></ul></article>
+      <article class="skill-card"><div class="skill-icon">🎙️</div><h2>Speaking</h2><p class="metric">up to 11 items · up to 8 min</p><ul><li>Listen and Repeat</li><li>Take an Interview</li></ul></article>
     </div>
-    <div class="card info-card"><h2>Ce qui compte pour viser C1/C2</h2><div class="grid two"><div><h3>Compréhension</h3><p>Comprendre l'organisation du discours, l'implicite, la fonction d'un détail, les relations logiques et les changements de position ou d'attitude.</p></div><div><h3>Production</h3><p>Répondre directement, développer avec précision, varier le lexique et la syntaxe, gérer le registre, nuancer les affirmations et rester cohérent sous contrainte de temps.</p></div></div></div>
-    <div class="official-note"><strong>Référence :</strong> site pédagogique indépendant, non affilié à ETS. Le format présenté est basé sur les informations publiques d'ETS disponibles en septembre 2026. Vérifie toujours le site officiel avant ton inscription.</div>
-    <div class="cta-row"><button class="btn primary" data-nav="diagnostic">Faire le diagnostic</button><button class="btn secondary" data-nav="reading">Commencer Reading</button></div>
+    <div class="card info-card"><h2>What changes at C1/C2?</h2><div class="grid two"><div><h3>Comprehension</h3><p>You must follow implicit relationships, rhetorical purpose, qualification, speaker stance, local contrast and the limits of a claim—not merely identify explicit facts.</p></div><div><h3>Production</h3><p>You need direct task fulfilment, controlled complexity, precise vocabulary, natural cohesion, proportionate hedging and enough fluency to make the structure easy to follow under time pressure.</p></div></div></div>
+    <div class="official-note"><strong>Important:</strong> This is an independent educational site and is not affiliated with ETS. Test structure and score information are based on public ETS information checked in September 2026. Always verify the official ETS website before registering.</div>
+    <div class="cta-row"><button class="btn primary" data-nav="diagnostic">Take the diagnostic</button><button class="btn secondary" data-nav="resources">Open official resources</button></div>
   </section>
 
   <section class="view" id="view-diagnostic" data-view="diagnostic">
-    <div class="page-head"><span class="section-kicker">Diagnostic C1/C2</span><h1>Voyons ce qui te sépare du niveau C</h1><p>24 questions, 6 par compétence. Ce diagnostic mesure des micro-compétences compatibles avec le TOEFL, pas un score TOEFL officiel.</p></div>
-    <div id="diagIntro" class="card centered"><div class="diag-ring">24</div><h2>≈ 12–18 minutes</h2><p>Réponds sans dictionnaire. Pour Listening, écoute une seule fois si possible.</p><button class="btn primary" id="startDiagnostic">Commencer</button></div>
-    <div id="diagRunner" class="card quiz-shell hidden"><div class="quiz-top"><span id="diagSkill" class="tag"></span><span id="diagCount"></span></div><div class="progress"><span id="diagProgress"></span></div><h2 id="diagQuestion"></h2><div id="diagStimulus"></div><div id="diagAnswers" class="answer-list"></div><div id="diagFeedback" class="feedback" aria-live="polite"></div><button class="btn primary hidden" id="diagNext">Question suivante</button></div>
+    <div class="page-head"><span class="section-kicker">C1/C2 DIAGNOSTIC</span><h1>A diagnostic designed to be uncomfortable</h1><p>40 items, ten per skill. The questions target advanced distinctions, plausible distractors and a deliberately strict internal scale: 5.0+ is meant to be earned, not handed out. This is not an official TOEFL score.</p></div>
+    <div id="diagIntro" class="card centered"><div class="diag-ring">32</div><h2>About 20–25 minutes</h2><p>Use headphones for Listening. Do not use a dictionary. Several options may sound reasonable; choose the one best supported by the wording, logic, register or evidence.</p><button class="btn primary" id="startDiagnostic">Start the C-Level Diagnostic</button></div>
+    <div id="diagRunner" class="quiz-shell hidden"><div class="quiz-top"><span id="diagSkill" class="tag teal"></span><strong id="diagCount"></strong></div><div class="progress"><span id="diagProgress"></span></div><h2 id="diagQuestion"></h2><div id="diagStimulus"></div><div id="diagAnswers" class="choice-row"></div><div id="diagFeedback" class="feedback" aria-live="polite"></div><div class="question-nav"><span></span><button id="diagNext" class="btn primary hidden">Next →</button></div></div>
     <div id="diagResult" class="hidden"></div>
   </section>
 
   <section class="view" id="view-dashboard" data-view="dashboard">
-    <div class="page-head"><span class="section-kicker">Mon tableau de bord</span><h1>Ta progression vers C</h1><p>Les données ci-dessous sont uniquement enregistrées sur cet appareil.</p></div>
+    <div class="page-head"><span class="section-kicker">PROGRESS</span><h1>Your route to a 5–6 band</h1><p>Your dashboard combines the diagnostic with practice data saved in this browser.</p></div>
     <div class="dashboard-top">
-      <article class="score-card"><span>Estimation pédagogique</span><strong id="overallBand">—</strong><small id="overallCefr">Fais le diagnostic</small></article>
-      <article class="target-card"><h3>Mon objectif</h3><label>Score visé <select id="targetBand"><option value="5">5.0 · C1</option><option value="5.5" selected>5.5 · C1 solide</option><option value="6">6.0 · C2</option></select></label><button class="btn small" id="saveTarget">Enregistrer</button></article>
-      <article class="streak-card"><strong id="streakValue">0</strong><span>jours d'affilée</span><small><b id="questionsDone">0</b> questions traitées</small></article>
-      <article class="words-card"><strong id="savedWordsCount">0</strong><span>mots dans My Words</span><small><b id="practiceMinutes">0</b> min d'entraînement</small></article>
+      <article class="score-card"><span>Current estimate</span><strong id="overallBand">—</strong><small id="overallCefr">Take the diagnostic</small></article>
+      <article class="target-card"><span>Your target</span><label>Band <select id="targetBand"><option value="5">5.0</option><option value="5.5" selected>5.5</option><option value="6">6.0</option></select></label><button class="btn secondary small" id="saveTarget">Save target</button></article>
+      <article class="streak-card"><span>Practice streak</span><strong id="streakValue">0</strong><small>days</small></article>
+      <article class="words-card"><span>My Words</span><strong id="savedWordsCount">0</strong><small>saved items</small></article>
     </div>
-    <h2>Mes compétences</h2>
-    <div id="skillDashboard" class="skill-dashboard"></div>
-    <div class="card route-card"><h2>Ton parcours conseillé</h2><div id="recommendedRoute"></div></div>
-    <div class="cta-row"><button class="btn secondary" id="exportProgress">Exporter ma progression</button><label class="btn secondary file-label">Importer<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Réinitialiser</button></div>
+    <div class="skill-dashboard" id="skillDashboard"></div>
+    <div class="card route-card"><h2>Recommended order</h2><p>The weakest current skill comes first. Do not spend all your time polishing your strongest section.</p><div id="recommendedRoute"></div></div>
+    <div class="card stats-card"><h2>Practice data</h2><div class="grid three"><div><strong id="questionsDone">0</strong><span>questions answered</span></div><div><strong id="practiceMinutes">0</strong><span>timed production minutes</span></div><div><button class="btn secondary" id="exportProgress">Export progress</button><label class="btn secondary file-label">Import progress<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Reset</button></div></div></div>
   </section>
 
   <section class="view" id="view-reading" data-view="reading">
-    <div class="page-head"><span class="section-kicker">Reading</span><h1>Read fast. Infer better. Stay precise.</h1><p>Les trois familles de tâches du TOEFL actuel, avec un niveau lexical et logique C1/C2.</p></div>
+    <div class="page-head"><span class="section-kicker">READING</span><h1>Read for structure, scope and inference</h1><p>The C-level version uses denser syntax, less obvious distractors and questions that punish overclaiming.</p></div>
     <div class="tab-row" data-tabs="reading"><button class="is-active" data-tab="word">Complete the Words</button><button data-tab="daily">Read in Daily Life</button><button data-tab="academic">Academic Passage</button></div>
     <div id="readingWorkspace" class="practice-workspace"></div>
   </section>
 
   <section class="view" id="view-listening" data-view="listening">
-    <div class="page-head"><span class="section-kicker">Listening</span><h1>Listen for structure, stance and implication</h1><p>Utilise les voix de synthèse de ton appareil pour entraîner la compréhension. L'audio est original et non officiel.</p></div>
+    <div class="page-head"><span class="section-kicker">LISTENING</span><h1>Track what the speaker is doing</h1><p>Listen for implication, correction, concession, speaker commitment, purpose and the relationship between examples and claims.</p></div>
     <div class="tab-row" data-tabs="listening"><button class="is-active" data-tab="response">Choose a Response</button><button data-tab="conversation">Conversation</button><button data-tab="announcement">Announcement</button><button data-tab="talk">Academic Talk</button></div>
     <div id="listeningWorkspace" class="practice-workspace"></div>
+    <div class="official-note"><strong>Audio note:</strong> Practice audio is generated locally by your device's text-to-speech engine. It is useful for comprehension and response work, but it cannot reproduce the exact voices or acoustics of an official TOEFL test.</div>
   </section>
 
   <section class="view" id="view-speaking" data-view="speaking">
-    <div class="page-head"><span class="section-kicker">Speaking</span><h1>Clarity under pressure</h1><p>Deux familles de tâches : Listen and Repeat, puis Take an Interview. L'enregistrement reste local et disparaît au rechargement.</p></div>
+    <div class="page-head"><span class="section-kicker">SPEAKING</span><h1>Precision under pressure</h1><p>Use the current task families, but train above the minimum: longer clauses for repetition and interview questions that require qualification, comparison and prioritisation.</p></div>
     <div class="grid two">
-      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Shadowing precision</h2><p id="repeatSentence">Clique pour charger une phrase.</p><div class="cta-row"><button class="btn secondary" id="newRepeat">Nouvelle phrase</button><button class="btn primary" id="playRepeat">▶ Écouter</button></div><p class="micro-note">Concentre-toi sur groupes de sens, accentuation, consonnes finales et intonation.</p></article>
-      <article class="card speaking-card"><span class="tag coral">TAKE AN INTERVIEW</span><h2 id="interviewQuestion">Charge une question d'entretien.</h2><p id="interviewFollowup"></p><div class="timer-display" id="speakTimer">00:00</div><div class="cta-row"><button class="btn secondary" id="newInterview">Nouvelle question</button><button class="btn primary" id="startRecording">🎙️ 15 s prep + record</button><button class="btn danger hidden" id="stopRecording">■ Stop</button></div><audio id="recordingPlayback" class="hidden" controls></audio></article>
+      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Advanced shadowing precision</h2><p id="repeatSentence">Load a sentence.</p><div class="cta-row"><button class="btn secondary" id="newRepeat">New sentence</button><button class="btn primary" id="playRepeat">▶ Listen</button></div><p class="micro-note">Reproduce thought groups, stress placement, reduced function words, linking and final consonants—not merely the individual words.</p></article>
+      <article class="card speaking-card"><span class="tag coral">TAKE AN INTERVIEW</span><h2 id="interviewQuestion">Load an interview question.</h2><p id="interviewFollowup"></p><div class="timer-display" id="speakTimer">00:00</div><div class="cta-row"><button class="btn secondary" id="newInterview">New question</button><button class="btn primary" id="startRecording">🎙️ 15 s prep + record</button><button class="btn danger hidden" id="stopRecording">■ Stop</button></div><audio id="recordingPlayback" class="hidden" controls></audio></article>
     </div>
-    <div class="card rubric"><h2>Grille d'auto-évaluation C1/C2</h2><div class="rubric-grid"><label><input type="checkbox"> Je réponds directement à la question.</label><label><input type="checkbox"> Mon développement est structuré sans longues hésitations.</label><label><input type="checkbox"> Mon vocabulaire est précis et non répétitif.</label><label><input type="checkbox"> J'utilise des connecteurs naturels, pas une liste apprise.</label><label><input type="checkbox"> Mes erreurs ne gênent pas le sens.</label><label><input type="checkbox"> Mon intonation aide l'auditeur à suivre les idées.</label></div></div>
+    <div class="card rubric"><h2>C1/C2 self-check</h2><div class="rubric-grid"><label><input type="checkbox"> I answer the precise question before expanding.</label><label><input type="checkbox"> I distinguish my main claim from qualifications and examples.</label><label><input type="checkbox"> My lexical choices are precise rather than merely sophisticated.</label><label><input type="checkbox"> I use complex syntax without losing control of the sentence.</label><label><input type="checkbox"> Hesitation does not obscure the argument or force repeated restarts.</label><label><input type="checkbox"> Stress and intonation make the information structure easy to follow.</label></div></div>
   </section>
 
   <section class="view" id="view-writing" data-view="writing">
-    <div class="page-head"><span class="section-kicker">Writing</span><h1>Build. Respond. Argue.</h1><p>Travaille la syntaxe, l'e-mail et la discussion académique du format 2026.</p></div>
+    <div class="page-head"><span class="section-kicker">WRITING</span><h1>Build. Respond. Evaluate.</h1><p>Train syntactic control, pragmatic accuracy and evidence-sensitive argumentation for the 2026 Writing tasks.</p></div>
     <div class="tab-row" data-tabs="writing"><button class="is-active" data-tab="sentence">Build a Sentence</button><button data-tab="email">Write an Email</button><button data-tab="discussion">Academic Discussion</button></div>
     <div id="writingWorkspace" class="practice-workspace"></div>
   </section>
 
   <section class="view" id="view-vocabulary" data-view="vocabulary">
-    <div class="page-head"><span class="section-kicker">Academic Vocabulary</span><h1>Le lexique C1/C2 qui fait gagner en précision</h1><p>Recherche un mot, écoute-le, lis la définition anglaise et ajoute-le à My Words.</p></div>
-    <div class="search-row"><input id="vocabSearch" type="search" placeholder="Rechercher un mot, une définition ou une traduction…"><button class="btn secondary" id="showSavedWords">⭐ My Words</button></div>
+    <div class="page-head"><span class="section-kicker">ACADEMIC VOCABULARY</span><h1>Use advanced words accurately—or do not use them</h1><p>Search by word, definition, usage note or example. The emphasis is on collocation, scope and register rather than translation.</p></div>
+    <div class="search-row"><input id="vocabSearch" type="search" placeholder="Search a word, definition, usage note or example…"><button class="btn secondary" id="showSavedWords">⭐ My Words</button></div>
     <div id="vocabGrid" class="vocab-grid"></div>
   </section>
 
   <section class="view" id="view-clevel" data-view="clevel">
-    <div class="page-head"><span class="section-kicker">C-Level Lab</span><h1>Passer de “correct” à académique</h1><p>Le TOEFL n'est pas un test de grammaire isolée, mais le niveau C exige une maîtrise rapide de formes qui rendent les idées plus exactes.</p></div>
+    <div class="page-head"><span class="section-kicker">C-LEVEL LAB</span><h1>Move from fluent to controlled</h1><p>C-level performance depends on matching linguistic force to meaning: how much evidence you have, what you are conceding, what is causal, what is merely associated and which idea carries the sentence.</p></div>
     <div class="grid three lab-grid">
-      <article class="lab-card"><span>01</span><h2>Hedging & caution</h2><p>may, appears to, tends to, is likely to, arguably…</p><button class="btn secondary" data-lab="hedging">S'entraîner</button></article>
-      <article class="lab-card"><span>02</span><h2>Nominalisation</h2><p>Transformer une idée en groupe nominal dense sans la rendre obscure.</p><button class="btn secondary" data-lab="nominalisation">S'entraîner</button></article>
-      <article class="lab-card"><span>03</span><h2>Complex sentences</h2><p>Concession, cause, condition, relative clauses et contrôle de la ponctuation.</p><button class="btn secondary" data-lab="complex">S'entraîner</button></article>
-      <article class="lab-card"><span>04</span><h2>Paraphrase</h2><p>Reformuler l'idée, pas seulement remplacer des mots par des synonymes.</p><button class="btn secondary" data-lab="paraphrase">S'entraîner</button></article>
-      <article class="lab-card"><span>05</span><h2>Stance & evaluation</h2><p>Signaler accord, réserve, limites et force de la preuve.</p><button class="btn secondary" data-lab="stance">S'entraîner</button></article>
-      <article class="lab-card"><span>06</span><h2>Cohesion</h2><p>Références, répétition contrôlée, progression thème-rhème et connecteurs.</p><button class="btn secondary" data-lab="cohesion">S'entraîner</button></article>
+      <article class="lab-card"><span>01</span><h2>Hedging & calibration</h2><p>Distinguish possibility, probability, tendency, limitation and evidential strength.</p><button class="btn secondary" data-lab="hedging">Train</button></article>
+      <article class="lab-card"><span>02</span><h2>Nominalisation & density</h2><p>Compress information without producing unreadable noun stacks.</p><button class="btn secondary" data-lab="nominalisation">Train</button></article>
+      <article class="lab-card"><span>03</span><h2>Complex syntax</h2><p>Control concession, condition, subordination, attachment and punctuation.</p><button class="btn secondary" data-lab="complex">Train</button></article>
+      <article class="lab-card"><span>04</span><h2>Paraphrase & synthesis</h2><p>Preserve logic while changing structure, emphasis and lexical choices.</p><button class="btn secondary" data-lab="paraphrase">Train</button></article>
+      <article class="lab-card"><span>05</span><h2>Stance & evaluation</h2><p>Signal agreement, reservation, evidential limits and proportional criticism.</p><button class="btn secondary" data-lab="stance">Train</button></article>
+      <article class="lab-card"><span>06</span><h2>Cohesion & information flow</h2><p>Use reference, lexical chains and thematic progression rather than connector overload.</p><button class="btn secondary" data-lab="cohesion">Train</button></article>
     </div>
     <div id="labWorkspace" class="practice-workspace"></div>
   </section>
 
+  <section class="view" id="view-resources" data-view="resources">
+    <div class="page-head"><span class="section-kicker">RESOURCES</span><h1>Use resources that make C1/C2 students think</h1><p>This page separates official TOEFL preparation, serious C-level English input, and resources available through Claude Bernard Lyon 1 University. Use each source for a precise training purpose.</p></div>
+
+    <section class="resource-section">
+      <h2>1. Official TOEFL resources — check these first</h2>
+      <div class="grid three resource-grid">
+        <article class="card resource-card"><span class="tag teal">ETS · CURRENT FORMAT</span><h3>TOEFL iBT Test Content and Structure</h3><p>Verify the current task families, approximate timing and adaptive Reading/Listening structure before relying on a book or third-party simulator.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/about/content.html" target="_blank" rel="noopener">Check the current format</a></article>
+        <article class="card resource-card"><span class="tag teal">ETS · OFFICIAL PRACTICE</span><h3>TOEFL preparation and TestReady</h3><p>Use official samples and practice alongside this trainer so that you remain familiar with the live test interface and official task expectations.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/prepare.html" target="_blank" rel="noopener">Open official preparation</a></article>
+        <article class="card resource-card"><span class="tag teal">ETS · SCORES</span><h3>Understand the 1–6 scale</h3><p>The current score report uses a 1–6 scale in half-band increments. For C-level work, this trainer targets 5.0–5.5 for C1 and 6.0 for C2.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/scores/understand-scores.html" target="_blank" rel="noopener">Open score guidance</a></article>
+      </div>
+      <div class="official-note"><strong>Important for books and older websites:</strong> the TOEFL iBT changed substantially on 21 January 2026. Older materials can still be useful for academic English, note-taking, reading and listening, but do not trust their task sequence, timing or scoring unless the edition explicitly covers the current format.</div>
+    </section>
+
+    <section class="resource-section">
+      <h2>2. Websites for genuine C1/C2 development</h2>
+      <div class="grid three resource-grid">
+        <article class="card resource-card"><span class="tag coral">ACADEMIC WRITING</span><h3>Manchester Academic Phrasebank</h3><p>Study rhetorical functions: qualifying claims, comparing evidence, signalling limitations, reporting findings and moving from evidence to interpretation. Borrow patterns, not whole sentences.</p><a class="btn secondary resource-link" href="https://www.phrasebank.manchester.ac.uk/" target="_blank" rel="noopener">Open Academic Phrasebank</a></article>
+        <article class="card resource-card"><span class="tag coral">WRITING & EDITING</span><h3>Purdue OWL</h3><p>Use it for argument structure, sentence variety, concision, paragraph logic and editing. Diagnose why a grammatically correct paragraph can still be weak.</p><a class="btn secondary resource-link" href="https://owl.purdue.edu/owl/general_writing/academic_writing/index.html" target="_blank" rel="noopener">Open Purdue OWL</a></article>
+        <article class="card resource-card"><span class="tag coral">VOCABULARY</span><h3>Oxford OPAL</h3><p>Move beyond isolated “advanced words”. Focus on high-value academic phrases, collocations and the difference between spoken and written academic language.</p><a class="btn secondary resource-link" href="https://www.oxfordlearnersdictionaries.com/about/wordlists/opal" target="_blank" rel="noopener">Open OPAL</a></article>
+        <article class="card resource-card"><span class="tag indigo">ACADEMIC READING</span><h3>OpenStax</h3><p>Choose chapters outside your discipline. After reading, state the main claim, one mechanism, one limitation and a 60-word synthesis without copying source syntax.</p><a class="btn secondary resource-link" href="https://openstax.org/higher-education" target="_blank" rel="noopener">Open university textbooks</a></article>
+        <article class="card resource-card"><span class="tag indigo">LECTURES</span><h3>MIT OpenCourseWare</h3><p>Use real university lectures for note-taking. Listen without a transcript first; map the argument, examples, concessions and conclusion before checking what you missed.</p><a class="btn secondary resource-link" href="https://ocw.mit.edu/" target="_blank" rel="noopener">Open MIT OpenCourseWare</a></article>
+        <article class="card resource-card"><span class="tag indigo">LISTENING</span><h3>BBC In Our Time</h3><p>Train sustained comprehension, speaker tracking, reformulation, disagreement and synthesis across several expert voices.</p><a class="btn secondary resource-link" href="https://www.bbc.co.uk/programmes/b006qykl" target="_blank" rel="noopener">Open In Our Time</a></article>
+        <article class="card resource-card"><span class="tag indigo">READING</span><h3>The Conversation</h3><p>Read researchers explaining evidence to non-specialists. Identify the central claim, evidence type, qualifiers and any move from description to evaluation.</p><a class="btn secondary resource-link" href="https://theconversation.com/global" target="_blank" rel="noopener">Open The Conversation</a></article>
+        <article class="card resource-card"><span class="tag indigo">SCIENCE INPUT</span><h3>Nature — News & Features</h3><p>Useful for unfamiliar scientific topics and compressed argumentation. Practise deciding what is established, provisional, contested or still unknown.</p><a class="btn secondary resource-link" href="https://www.nature.com/news" target="_blank" rel="noopener">Open Nature</a></article>
+        <article class="card resource-card"><span class="tag indigo">LISTEN + TRANSCRIPT</span><h3>TED Talks</h3><p>Listen once without subtitles, reconstruct the line of reasoning, then check the transcript for missed reductions, linking and discourse markers.</p><a class="btn secondary resource-link" href="https://www.ted.com/talks" target="_blank" rel="noopener">Open TED Talks</a></article>
+      </div>
+    </section>
+
+    <section class="resource-section lyon-resource">
+      <h2>3. Claude Bernard Lyon 1 University — borrow, consult and practise</h2>
+      <p class="resource-lead">The University Library and the SCEL do not provide exactly the same service. The cards below distinguish catalogue items, resources explicitly listed as borrowable, online subscriptions and materials for on-site consultation.</p>
+      <div class="grid two resource-grid">
+        <article class="card resource-card"><span class="tag teal">BU LYON 1 · TOEFL</span><h3>TOEFL preparation books in the library selection</h3><p>The BU Languages page has a dedicated <strong>“Prepare for the TOEFL”</strong> catalogue selection. Use the live record to check the exact edition, holding library, availability and loan status before travelling.</p><div class="resource-status"><strong>Best use:</strong> strategy reference, extra academic practice, vocabulary and note-taking.</div><a class="btn primary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a><p class="micro-note">On that page, choose <strong>“Pour préparer le TOEFL”</strong>. For any pre-2026 book, ignore old timing, scoring and task sequence.</p></article>
+        <article class="card resource-card"><span class="tag teal">BU SCIENCES · BORROW</span><h3>English-language novels</h3><p>The BU Languages page explicitly lists <strong>English novels that can be borrowed from BU Sciences</strong>. They are not TOEFL manuals, but sustained reading is excellent for speed, lexical inferencing, syntax and automaticity at C level.</p><div class="resource-status"><strong>C1/C2 challenge:</strong> read 20 pages without a dictionary, mark only words that block meaning, then write a 100-word précis.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Find English novels</a></article>
+        <article class="card resource-card"><span class="tag indigo">LYON 1 ONLINE</span><h3>Streamglish</h3><p>Lyon 1 subscribes to Streamglish, based on current-affairs video, exercises and grammar. Use its level assessment and oral practice as supplementary work, not as a TOEFL-format simulator.</p><div class="resource-status"><strong>Access:</strong> through Lyon 1 authentication from the BU Languages page.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open Lyon 1 language resources</a></article>
+        <article class="card resource-card"><span class="tag indigo">LYON 1 ONLINE</span><h3>Vocable & Europresse</h3><p>Use Vocable for guided language work and Europresse to search authentic press in English. At C1/C2, compare how two outlets frame the same event and note changes in stance, attribution and lexical choice.</p><div class="resource-status"><strong>Access:</strong> online with Lyon 1 authentication.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a></article>
+        <article class="card resource-card"><span class="tag teal">BU SCIENCES · PRINT</span><h3>Scientific and general-interest magazines</h3><p>The BU Languages page lists print access at BU Sciences to titles including <strong>New Scientist, American Scientist, Discover</strong> and <strong>Time</strong>. These are excellent for timed reading outside your field.</p><div class="resource-status"><strong>Use:</strong> check current availability and any lending restrictions before assuming an issue can leave the library.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Check BU language collections</a></article>
+        <article class="card resource-card"><span class="tag teal">SCEL · ON SITE</span><h3>Language Space — Cargo, Quai 43</h3><p>The SCEL states that the Language Space is a multimedia language-resource centre where students can consult <strong>TOEFL and TOEIC preparation methods, grammar books, language-learning software, films and series</strong> and speak with language tutors.</p><div class="resource-status"><strong>Where:</strong> Building Quai 43, Room 218, Doua campus, 28 avenue Gaston Berger, Villeurbanne.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/espace-langues-cargo" target="_blank" rel="noopener">Open Language Space information</a></article>
+        <article class="card resource-card"><span class="tag teal">SCEL · COACHING</span><h3>Language tutoring and individual coaching</h3><p>Use tutoring to rehearse high-level speaking: defend a qualified position, receive correction, then repeat the same answer with tighter structure and more controlled prosody.</p><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/tutorat-des-langues-et-coaching" target="_blank" rel="noopener">Open tutoring information</a></article>
+        <article class="card resource-card"><span class="tag coral">LYON 1 · TOEFL COURSE</span><h3>TOEFL preparation for mobility students</h3><p>The SCEL currently describes two 20-hour preparation sessions at the <strong>Rockefeller site</strong>, organised as four hours per week for five weeks from October to December. The course is reserved for students with an approved mobility project.</p><div class="resource-status"><strong>Registration:</strong> through your mobility coordinator; Lyon 1 also directs students preparing for TOEFL as part of an approved mobility project to International Relations.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/preparation-au-toefl" target="_blank" rel="noopener">Open TOEFL course information</a></article>
+      </div>
+      <div class="official-note"><strong>Before you borrow:</strong> catalogue holdings and loan status can change. For TOEFL books, check the publication date and the live BU record. A pre-2026 book can still be useful for language development, but it is not a reliable model of the current exam.</div>
+    </section>
+
+    <section class="card resource-plan">
+      <h2>A demanding weekly C1/C2 resource routine</h2>
+      <div class="grid four">
+        <div><strong>Reading · 2 × 30 min</strong><p>Read outside your field. Write a 60-word synthesis, one limitation and one supported inference that is not explicitly stated.</p></div>
+        <div><strong>Listening · 2 × 30 min</strong><p>Listen once without a transcript. Reconstruct the lecture map: thesis, concessions, examples, correction and conclusion. Then verify.</p></div>
+        <div><strong>Speaking · 3 × 10 min</strong><p>Record one 60-second answer. Repeat it twice: first for clearer structure, then for better stress, linking and lexical precision.</p></div>
+        <div><strong>Writing · 2 × 20 min</strong><p>Rewrite one paragraph for scope, stance and compression. Remove one overclaim, one vague reference and one unnecessary connector.</p></div>
+      </div>
+    </section>
+  </section>
+
   <section class="view" id="view-examday" data-view="examday">
-    <div class="page-head"><span class="section-kicker">Le jour J</span><h1>Prépare le test, pas le stress</h1><p>Les procédures exactes dépendent du mode de passation et peuvent évoluer : ta convocation et les consignes ETS priment.</p></div>
+    <div class="page-head"><span class="section-kicker">TEST DAY</span><h1>Protect your performance</h1><p>Exact procedures depend on your test mode and can change. Your ETS appointment information and official instructions always take priority.</p></div>
     <div class="grid three">
-      <article class="card checklist"><h2>48 h avant</h2><ul><li>Vérifie l'heure, le lieu et les documents demandés.</li><li>Teste ton matériel si tu passes la Home Edition.</li><li>Dors normalement : ne compense pas par une nuit blanche.</li><li>Fais un entraînement court, pas un marathon.</li></ul></article>
-      <article class="card checklist"><h2>Pendant le test</h2><ul><li>Accepte de ne pas tout comprendre mot à mot.</li><li>En Reading/Listening adaptatifs, reste concentré à chaque étape.</li><li>En Speaking, réponds immédiatement puis développe.</li><li>En Writing, garde du temps pour relire la logique et les accords.</li></ul></article>
-      <article class="card checklist"><h2>Objectif C</h2><ul><li>Évite les réponses vagues.</li><li>Privilégie précision et structure à la sophistication artificielle.</li><li>Nuance les généralisations.</li><li>Fais entendre ou lire clairement la hiérarchie de tes idées.</li></ul></article>
+      <article class="card checklist"><h2>48 hours before</h2><ul><li>Verify the time, location and required identification.</li><li>Check technical requirements if you are taking the Home Edition.</li><li>Sleep normally; do not replace preparation with an all-night session.</li><li>Do one short, controlled practice session rather than a full marathon.</li></ul></article>
+      <article class="card checklist"><h2>During the test</h2><ul><li>Do not chase every unknown word; protect the structure of your understanding.</li><li>In multistage Reading/Listening, treat every item as consequential.</li><li>In Speaking, state the answer early and make the hierarchy of ideas audible.</li><li>In Writing, reserve a final check for logic, sentence boundaries and word form.</li></ul></article>
+      <article class="card checklist"><h2>C-level discipline</h2><ul><li>Avoid claims stronger than the evidence.</li><li>Prefer exact wording to ornamental vocabulary.</li><li>Use complexity only when you can control it.</li><li>Make contrast, concession and conclusion unmistakable.</li></ul></article>
     </div>
-    <div class="official-note"><strong>Important :</strong> cette page n'est pas une convocation officielle. Consulte toujours les instructions ETS correspondant à ta session.</div>
+    <div class="official-note"><strong>Important:</strong> This page is not an official test-day instruction sheet. Check ETS for the rules that apply to your specific appointment.</div>
   </section>
 
   <section class="view" id="view-about" data-view="about">
-    <div class="page-head"><span class="section-kicker">À propos</span><h1>Homemade TOEFL Trainer</h1><p>Conçu et créé par Eglantine Lecomte, enseignante d'anglais à l'Université Claude Bernard Lyon 1.</p></div>
+    <div class="page-head"><span class="section-kicker">ABOUT</span><h1>Homemade TOEFL Trainer</h1><p>Designed and created by Eglantine Lecomte, English teacher at Claude Bernard Lyon 1 University.</p></div>
     <div class="grid two">
-      <article class="card"><h2>Indépendance</h2><p>Site pédagogique indépendant, non affilié à ETS. TOEFL et ETS sont des marques déposées d'ETS. Tous les exercices de cette plateforme sont originaux et ne reproduisent pas de questions officielles.</p><p>Les scores affichés sont des estimations pédagogiques internes, pas des résultats TOEFL.</p></article>
-      <article class="card"><h2>Données & confidentialité</h2><p>Aucune donnée personnelle n'est envoyée à un serveur. La progression est stockée dans le navigateur de l'appareil via localStorage. Tu peux l'exporter, l'importer ou l'effacer.</p></article>
-      <article class="card"><h2>Accessibilité</h2><p>Navigation clavier, réglage de taille du texte, contraste élevé, police de lecture, réduction des animations et mode focus.</p></article>
-      <article class="card"><h2>Assistance IA</h2><p>© Eglantine Lecomte. Le contenu pédagogique, les parcours et le système d'entraînement ont été créés par Eglantine Lecomte, avec l'assistance de ChatGPT.</p></article>
+      <article class="card"><h2>Independence</h2><p>This is an independent educational website and is not affiliated with ETS. TOEFL and ETS are registered trademarks of ETS. All practice tasks on this site are original and do not reproduce official test questions.</p><p>Any score displayed here is an internal pedagogical estimate, not an official TOEFL result.</p></article>
+      <article class="card"><h2>Data & privacy</h2><p>No personal data is sent to a server. Progress is stored in your browser using localStorage. You can export, import or delete it at any time.</p></article>
+      <article class="card"><h2>Accessibility</h2><p>The site includes keyboard navigation, text-size controls, high contrast, a readable-font option, reduced motion and focus mode.</p></article>
+      <article class="card"><h2>AI assistance</h2><p>© Eglantine Lecomte. The educational concept, pathways and training system were created by Eglantine Lecomte with the assistance of ChatGPT.</p></article>
     </div>
-    <div class="card"><h2>À propos du format 2026</h2><p>Le site a été construit pour le TOEFL iBT en vigueur depuis le 21 janvier 2026 : Reading et Listening adaptatifs, score de 1 à 6 et nouvelles familles de tâches. Les informations officielles peuvent évoluer ; le site ETS reste la référence.</p></div>
+    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Official information can change, so ETS remains the reference.</p></div>
   </section>
 </main>
 
 <footer>
-  <div><strong>Homemade TOEFL Trainer</strong><p>Conçu et développé par Eglantine Lecomte — Université Claude Bernard Lyon 1.</p><p>© Eglantine Lecomte — avec l'assistance de ChatGPT.</p></div>
-  <div><strong>Indépendance</strong><p>Non affilié à ETS. TOEFL et ETS sont des marques déposées d'ETS.</p></div>
+  <div><strong>Homemade TOEFL Trainer</strong><p>Designed and developed by Eglantine Lecomte — Claude Bernard Lyon 1 University.</p><p>© Eglantine Lecomte — with the assistance of ChatGPT.</p></div>
+  <div><strong>Independent resource</strong><p>Not affiliated with ETS. TOEFL and ETS are registered trademarks of ETS.</p></div>
 </footer>
 
 <div class="modal-backdrop hidden" id="accessibilityModal" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
-  <div class="modal"><button class="modal-close" id="closeAccess" aria-label="Fermer">×</button><h2 id="accessTitle">Réglages d'accessibilité</h2><p>Tes réglages sont mémorisés sur cet appareil.</p>
-    <div class="setting"><span>Taille du texte</span><div><button data-font="normal">A</button><button data-font="large">A+</button><button data-font="xlarge">A++</button></div></div>
-    <label class="setting"><span>Contraste élevé</span><input type="checkbox" id="highContrast"></label>
-    <label class="setting"><span>Police de lecture</span><input type="checkbox" id="readableFont"></label>
-    <label class="setting"><span>Réduire les animations</span><input type="checkbox" id="reduceMotion"></label>
-    <label class="setting"><span>Mode focus</span><input type="checkbox" id="focusMode"></label>
+  <div class="modal"><button class="modal-close" id="closeAccess" aria-label="Close">×</button><h2 id="accessTitle">Accessibility settings</h2><p>Your settings are saved on this device.</p>
+    <div class="setting"><span>Text size</span><div><button data-font="normal">A</button><button data-font="large">A+</button><button data-font="xlarge">A++</button></div></div>
+    <label class="setting"><span>High contrast</span><input type="checkbox" id="highContrast"></label>
+    <label class="setting"><span>Readable font</span><input type="checkbox" id="readableFont"></label>
+    <label class="setting"><span>Reduce motion</span><input type="checkbox" id="reduceMotion"></label>
+    <label class="setting"><span>Focus mode</span><input type="checkbox" id="focusMode"></label>
   </div>
 </div>
 
 <div class="modal-backdrop hidden" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveTitle">
-  <div class="modal"><button class="modal-close" id="closeSave" aria-label="Fermer">×</button><h2 id="saveTitle">💾 Sauvegarde</h2><p>La progression reste dans ce navigateur. Exporte un fichier JSON si tu veux la transférer sur un autre appareil.</p><div class="cta-row"><button class="btn primary" id="exportProgressModal">Exporter</button><label class="btn secondary file-label">Importer<input id="importProgressModal" type="file" accept="application/json" hidden></label></div></div>
+  <div class="modal"><button class="modal-close" id="closeSave" aria-label="Close">×</button><h2 id="saveTitle">💾 Save your progress</h2><p>Progress remains in this browser. Export a JSON file if you want to move it to another device.</p><div class="cta-row"><button class="btn primary" id="exportProgressModal">Export</button><label class="btn secondary file-label">Import<input id="importProgressModal" type="file" accept="application/json" hidden></label></div></div>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>
+</body>
+</html>
+pt>
 </body>
 </html>
