@@ -11,3 +11,19 @@
 .resource-section{padding:1rem 0 2.25rem}.resource-section>h2{font-size:clamp(1.35rem,2vw,1.8rem);margin:0 0 1rem}.resource-grid{align-items:stretch}.resource-card{display:flex;flex-direction:column;gap:.55rem;height:100%}.resource-card h3{margin:.15rem 0}.resource-card p{margin:.1rem 0 .55rem}.resource-link{margin-top:auto;align-self:flex-start;text-decoration:none}.resource-plan{margin:1rem 0 2.5rem}.resource-plan .grid>div{padding:.8rem;border-radius:14px;background:var(--surface-2,#f6f7fb)}.tag.indigo{background:rgba(79,70,229,.12);color:#4338ca}.usage{padding:.65rem .75rem;border-radius:12px;background:rgba(15,118,110,.08);font-size:.94rem}.lyon-resource{border-top:1px solid var(--line,#e5e7eb);padding-top:2rem}
 @media(max-width:720px){.resource-section{padding-bottom:1.5rem}.resource-link{width:100%;text-align:center}}
 .resource-lead{max-width:900px;color:var(--muted);font-size:1.02rem;margin:-.25rem 0 1.25rem}.resource-status{padding:.72rem .82rem;border-radius:12px;background:#f5f7fc;border:1px solid var(--line);font-size:.9rem;color:var(--muted)}.resource-status strong{color:var(--ink)}
+
+/* Audit upgrade · 2026-09-21 */
+button:disabled,.btn:disabled{opacity:.48;cursor:not-allowed;transform:none!important}
+.selected-answer{outline:3px solid rgba(86,77,255,.24);outline-offset:2px}
+.ctest-passage{font-size:1.05rem;line-height:2.15}
+.ctest-input{display:inline-block;min-width:3.2rem;max-width:8rem;margin:0 .18rem;padding:.25rem .35rem;border:0;border-bottom:2px solid var(--ink);border-radius:.35rem;background:rgba(255,255,255,.82);font:inherit}
+.ctest-input.correct{border-color:#138a61;background:#e8f8f1}.ctest-input.wrong{border-color:#b23a48;background:#fff0f1}
+.ctest-answer{display:inline-block;margin-left:.2rem;padding:.12rem .28rem;border-radius:.35rem;background:#fff3bf;font-weight:800;font-size:.88em}
+.preserve-lines{white-space:pre-line}
+.task-list{margin:.8rem 0 1rem;padding-left:1.35rem}.task-list li{margin:.35rem 0}
+.speaking-scenario{padding:.8rem 1rem;border-radius:1rem;background:rgba(81,188,183,.10);line-height:1.55}
+.speaking-progress{display:inline-block;margin:.2rem 0 .7rem;padding:.28rem .65rem;border-radius:999px;background:rgba(86,77,255,.1);font-weight:800;font-size:.85rem}
+.transcript-hidden{min-height:5.5rem;padding:1rem;border:1px dashed rgba(26,31,54,.25);border-radius:1rem;display:flex;align-items:center}
+.diagnostic-review{margin-top:1.2rem}.diagnostic-review summary{cursor:pointer}.review-item{padding:1rem 0;border-top:1px solid rgba(26,31,54,.1)}
+.review-item:first-of-type{margin-top:1rem}.skill-progress p{min-height:2.8rem}.skill-progress .text-btn{margin-top:.25rem}
+@media(max-width:760px){.ctest-passage{line-height:2.3}.ctest-input{max-width:6rem}.speaking-card .cta-row{align-items:stretch}.speaking-card .cta-row>*{width:100%;justify-content:center}.diagnostic-review{padding:1rem}}

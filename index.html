@@ -7,7 +7,7 @@
   <meta name="description" content="Homemade TOEFL Trainer — demanding C1/C2 preparation for the TOEFL iBT format introduced in January 2026: diagnostic, Reading, Listening, Speaking, Writing, academic vocabulary and progress tracking.">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260921a">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -36,7 +36,7 @@
   <button data-nav="home" class="is-active">Home</button>
   <button data-nav="test">Test Format</button>
   <button data-nav="diagnostic">Diagnostic</button>
-  <button data-nav="dashboard">Progress</button>
+  <button data-nav="dashboard">My Progress</button>
   <button data-nav="reading">Reading</button>
   <button data-nav="listening">Listening</button>
   <button data-nav="speaking">Speaking</button>
@@ -76,7 +76,7 @@
       <div class="step-line" aria-hidden="true"><span>1 Understand</span><b>→</b><span>2 Diagnose</span><b>→</b><span>3 Prioritise</span><b>→</b><span>4 Push to C</span></div>
       <div class="grid four">
         <article class="step-card"><b>1</b><h3>Know the current test</h3><p>Learn the post-January-2026 task types, multistage Reading/Listening and 1–6 score scale.</p><button class="text-btn" data-nav="test">📘 View the format</button></article>
-        <article class="step-card"><b>2</b><h3>Take a harder diagnostic</h3><p>32 C-oriented items test inference, discourse, stance, syntax, lexical precision and response quality.</p><button class="text-btn" data-nav="diagnostic">⚡ Start diagnostic</button></article>
+        <article class="step-card"><b>2</b><h3>Take a harder diagnostic</h3><p>40 C-oriented items test inference, discourse, stance, syntax, lexical precision and response quality.</p><button class="text-btn" data-nav="diagnostic">⚡ Start diagnostic</button></article>
         <article class="step-card"><b>3</b><h3>Follow your weak skill</h3><p>Your dashboard ranks the four skills and points you towards the weakest current area.</p><button class="text-btn" data-nav="dashboard">📊 Open progress</button></article>
         <article class="step-card"><b>4</b><h3>Train academic control</h3><p>Practise calibrated claims, compression, syntactic control, cohesion, paraphrase and evaluation.</p><button class="text-btn" data-nav="clevel">🚀 Enter the C-Level Lab</button></article>
       </div>
@@ -95,7 +95,7 @@
     <section class="notice-grid">
       <article><span>Difficulty</span><h3>C1/C2, not B2 in disguise</h3><p>Distractors are intentionally plausible and explanations focus on nuance rather than keywords.</p></article>
       <article><span>Vocabulary</span><h3>Academic use, not translation</h3><p>Each entry includes pronunciation, definition, high-value usage and an academic example.</p></article>
-      <article><span>Speaking</span><h3>Record and review</h3><p>Use timed preparation, local recording and a stricter C-level self-assessment grid.</p></article>
+      <article><span>Speaking</span><h3>Record and review</h3><p>Use 45-second interview recording, local playback and a stricter C-level self-assessment grid.</p></article>
       <article><span>Privacy</span><h3>Your work stays local</h3><p>Progress and saved vocabulary are stored in your browser, not sent to a server.</p></article>
     </section>
   </section>
@@ -116,15 +116,15 @@
 
   <section class="view" id="view-diagnostic" data-view="diagnostic">
     <div class="page-head"><span class="section-kicker">C1/C2 DIAGNOSTIC</span><h1>A diagnostic designed to be uncomfortable</h1><p>40 items, ten per skill. The questions target advanced distinctions, plausible distractors and a deliberately strict internal scale: 5.0+ is meant to be earned, not handed out. This is not an official TOEFL score.</p></div>
-    <div id="diagIntro" class="card centered"><div class="diag-ring">32</div><h2>About 20–25 minutes</h2><p>Use headphones for Listening. Do not use a dictionary. Several options may sound reasonable; choose the one best supported by the wording, logic, register or evidence.</p><button class="btn primary" id="startDiagnostic">Start the C-Level Diagnostic</button></div>
+    <div id="diagIntro" class="card centered"><div class="diag-ring">40</div><h2>About 20–25 minutes</h2><p>Use headphones for Listening. Do not use a dictionary. Several options may sound reasonable; choose the one best supported by the wording, logic, register or evidence.</p><p class="micro-note"><strong>Important:</strong> the Speaking and Writing multiple-choice items measure language control only. Your productive performance is assessed through the recording and self-check tasks in the practice sections.</p><button class="btn primary" id="startDiagnostic">Start the C-Level Diagnostic</button></div>
     <div id="diagRunner" class="quiz-shell hidden"><div class="quiz-top"><span id="diagSkill" class="tag teal"></span><strong id="diagCount"></strong></div><div class="progress"><span id="diagProgress"></span></div><h2 id="diagQuestion"></h2><div id="diagStimulus"></div><div id="diagAnswers" class="choice-row"></div><div id="diagFeedback" class="feedback" aria-live="polite"></div><div class="question-nav"><span></span><button id="diagNext" class="btn primary hidden">Next →</button></div></div>
     <div id="diagResult" class="hidden"></div>
   </section>
 
   <section class="view" id="view-dashboard" data-view="dashboard">
-    <div class="page-head"><span class="section-kicker">PROGRESS</span><h1>Your route to a 5–6 band</h1><p>Your dashboard combines the diagnostic with practice data saved in this browser.</p></div>
+    <div class="page-head"><span class="section-kicker">PROGRESS</span><h1>Your route to a 5–6 band</h1><p>Your dashboard combines your diagnostic baseline with recent scored practice saved in this browser. Productive Speaking and Writing tasks use structured self-checks.</p></div>
     <div class="dashboard-top">
-      <article class="score-card"><span>Current estimate</span><strong id="overallBand">—</strong><small id="overallCefr">Take the diagnostic</small></article>
+      <article class="score-card"><span>Training estimate</span><strong id="overallBand">—</strong><small id="overallCefr">Take the diagnostic</small></article>
       <article class="target-card"><span>Your target</span><label>Band <select id="targetBand"><option value="5">5.0</option><option value="5.5" selected>5.5</option><option value="6">6.0</option></select></label><button class="btn secondary small" id="saveTarget">Save target</button></article>
       <article class="streak-card"><span>Practice streak</span><strong id="streakValue">0</strong><small>days</small></article>
       <article class="words-card"><span>My Words</span><strong id="savedWordsCount">0</strong><small>saved items</small></article>
@@ -135,7 +135,7 @@
   </section>
 
   <section class="view" id="view-reading" data-view="reading">
-    <div class="page-head"><span class="section-kicker">READING</span><h1>Read for structure, scope and inference</h1><p>The C-level version uses denser syntax, less obvious distractors and questions that punish overclaiming.</p></div>
+    <div class="page-head"><span class="section-kicker">READING</span><h1>Read for structure, scope and inference</h1><p>The C-level version uses denser syntax, less obvious distractors and questions that punish overclaiming. Complete the Words uses paragraph-level C-test items rather than isolated vocabulary gaps.</p></div>
     <div class="tab-row" data-tabs="reading"><button class="is-active" data-tab="word">Complete the Words</button><button data-tab="daily">Read in Daily Life</button><button data-tab="academic">Academic Passage</button></div>
     <div id="readingWorkspace" class="practice-workspace"></div>
   </section>
@@ -150,14 +150,14 @@
   <section class="view" id="view-speaking" data-view="speaking">
     <div class="page-head"><span class="section-kicker">SPEAKING</span><h1>Precision under pressure</h1><p>Use the current task families, but train above the minimum: longer clauses for repetition and interview questions that require qualification, comparison and prioritisation.</p></div>
     <div class="grid two">
-      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Advanced shadowing precision</h2><p id="repeatSentence">Load a sentence.</p><div class="cta-row"><button class="btn secondary" id="newRepeat">New sentence</button><button class="btn primary" id="playRepeat">▶ Listen</button></div><p class="micro-note">Reproduce thought groups, stress placement, reduced function words, linking and final consonants—not merely the individual words.</p></article>
-      <article class="card speaking-card"><span class="tag coral">TAKE AN INTERVIEW</span><h2 id="interviewQuestion">Load an interview question.</h2><p id="interviewFollowup"></p><div class="timer-display" id="speakTimer">00:00</div><div class="cta-row"><button class="btn secondary" id="newInterview">New question</button><button class="btn primary" id="startRecording">🎙️ 15 s prep + record</button><button class="btn danger hidden" id="stopRecording">■ Stop</button></div><audio id="recordingPlayback" class="hidden" controls></audio></article>
+      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Seven-sentence precision set</h2><p id="repeatScenario" class="speaking-scenario"></p><div id="repeatProgress" class="speaking-progress"></div><p id="repeatSentence" class="transcript-hidden">Transcript hidden. Listen first.</p><div class="cta-row"><button class="btn primary" id="playRepeat">▶ Listen</button><button class="btn secondary" id="revealRepeat">Reveal transcript</button><button class="btn secondary" id="nextRepeatSentence">Next sentence →</button><button class="text-btn" id="newRepeat">New scenario</button></div><p class="micro-note">Repeat each sentence exactly. The sequence becomes progressively longer; focus on wording, thought groups, stress, linking and final consonants.</p></article>
+      <article class="card speaking-card"><span class="tag coral">TAKE AN INTERVIEW</span><h2>Four-question interview</h2><p id="interviewScenario" class="speaking-scenario"></p><div id="interviewProgress" class="speaking-progress"></div><h3 id="interviewQuestion">Load an interview question.</h3><div class="timer-display" id="speakTimer">00:45</div><div class="cta-row"><button class="btn secondary" id="playInterview">▶ Hear question</button><button class="btn primary" id="startRecording">🎙️ Record 45 s</button><button class="btn danger hidden" id="stopRecording">■ Stop</button><button class="btn secondary" id="nextInterviewQ">Next question →</button><button class="text-btn" id="newInterview">New interview</button></div><audio id="recordingPlayback" class="hidden" controls></audio></article>
     </div>
-    <div class="card rubric"><h2>C1/C2 self-check</h2><div class="rubric-grid"><label><input type="checkbox"> I answer the precise question before expanding.</label><label><input type="checkbox"> I distinguish my main claim from qualifications and examples.</label><label><input type="checkbox"> My lexical choices are precise rather than merely sophisticated.</label><label><input type="checkbox"> I use complex syntax without losing control of the sentence.</label><label><input type="checkbox"> Hesitation does not obscure the argument or force repeated restarts.</label><label><input type="checkbox"> Stress and intonation make the information structure easy to follow.</label></div></div>
+    <div class="card rubric"><h2>C1/C2 speaking self-check</h2><p class="micro-note">After recording an interview answer, tick the criteria you genuinely met and save the self-check. This produces an internal practice signal, not an automated TOEFL score.</p><div class="rubric-grid"><label><input type="checkbox" class="speaking-check"> I answer the precise question before expanding.</label><label><input type="checkbox" class="speaking-check"> I distinguish my main claim from qualifications and examples.</label><label><input type="checkbox" class="speaking-check"> My lexical choices are precise rather than merely sophisticated.</label><label><input type="checkbox" class="speaking-check"> I use complex syntax without losing control of the sentence.</label><label><input type="checkbox" class="speaking-check"> Hesitation does not obscure the argument or force repeated restarts.</label><label><input type="checkbox" class="speaking-check"> Stress and intonation make the information structure easy to follow.</label></div><button class="btn secondary" id="logSpeakingReview" disabled>Save this self-check</button></div>
   </section>
 
   <section class="view" id="view-writing" data-view="writing">
-    <div class="page-head"><span class="section-kicker">WRITING</span><h1>Build. Respond. Evaluate.</h1><p>Train syntactic control, pragmatic accuracy and evidence-sensitive argumentation for the 2026 Writing tasks.</p></div>
+    <div class="page-head"><span class="section-kicker">WRITING</span><h1>Build. Respond. Evaluate.</h1><p>Train syntactic control, pragmatic accuracy and evidence-sensitive argumentation for the current Writing tasks. Timed practice uses 7 minutes for Email and 10 minutes for Academic Discussion.</p></div>
     <div class="tab-row" data-tabs="writing"><button class="is-active" data-tab="sentence">Build a Sentence</button><button data-tab="email">Write an Email</button><button data-tab="discussion">Academic Discussion</button></div>
     <div id="writingWorkspace" class="practice-workspace"></div>
   </section>
@@ -213,13 +213,13 @@
       <h2>3. Claude Bernard Lyon 1 University — borrow, consult and practise</h2>
       <p class="resource-lead">The University Library and the SCEL do not provide exactly the same service. The cards below distinguish catalogue items, resources explicitly listed as borrowable, online subscriptions and materials for on-site consultation.</p>
       <div class="grid two resource-grid">
-        <article class="card resource-card"><span class="tag teal">BU LYON 1 · TOEFL</span><h3>TOEFL preparation books in the library selection</h3><p>The BU Languages page has a dedicated <strong>“Prepare for the TOEFL”</strong> catalogue selection. Use the live record to check the exact edition, holding library, availability and loan status before travelling.</p><div class="resource-status"><strong>Best use:</strong> strategy reference, extra academic practice, vocabulary and note-taking.</div><a class="btn primary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a><p class="micro-note">On that page, choose <strong>“Pour préparer le TOEFL”</strong>. For any pre-2026 book, ignore old timing, scoring and task sequence.</p></article>
+        <article class="card resource-card"><span class="tag teal">BU LYON 1 · TOEFL</span><h3>TOEFL preparation books in the library selection</h3><p>The BU Languages page has a dedicated <strong>“Prepare for the TOEFL”</strong> catalogue selection. Use the live record to check the exact edition, holding library, availability and loan status before travelling.</p><div class="resource-status"><strong>Best use:</strong> strategy reference, extra academic practice, vocabulary and note-taking.</div><a class="btn primary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a><p class="micro-note">On that page, open the dedicated TOEFL preparation catalogue selection. For any pre-2026 book, ignore old timing, scoring and task sequence.</p></article>
         <article class="card resource-card"><span class="tag teal">BU SCIENCES · BORROW</span><h3>English-language novels</h3><p>The BU Languages page explicitly lists <strong>English novels that can be borrowed from BU Sciences</strong>. They are not TOEFL manuals, but sustained reading is excellent for speed, lexical inferencing, syntax and automaticity at C level.</p><div class="resource-status"><strong>C1/C2 challenge:</strong> read 20 pages without a dictionary, mark only words that block meaning, then write a 100-word précis.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Find English novels</a></article>
         <article class="card resource-card"><span class="tag indigo">LYON 1 ONLINE</span><h3>Streamglish</h3><p>Lyon 1 subscribes to Streamglish, based on current-affairs video, exercises and grammar. Use its level assessment and oral practice as supplementary work, not as a TOEFL-format simulator.</p><div class="resource-status"><strong>Access:</strong> through Lyon 1 authentication from the BU Languages page.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open Lyon 1 language resources</a></article>
         <article class="card resource-card"><span class="tag indigo">LYON 1 ONLINE</span><h3>Vocable & Europresse</h3><p>Use Vocable for guided language work and Europresse to search authentic press in English. At C1/C2, compare how two outlets frame the same event and note changes in stance, attribution and lexical choice.</p><div class="resource-status"><strong>Access:</strong> online with Lyon 1 authentication.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a></article>
         <article class="card resource-card"><span class="tag teal">BU SCIENCES · PRINT</span><h3>Scientific and general-interest magazines</h3><p>The BU Languages page lists print access at BU Sciences to titles including <strong>New Scientist, American Scientist, Discover</strong> and <strong>Time</strong>. These are excellent for timed reading outside your field.</p><div class="resource-status"><strong>Use:</strong> check current availability and any lending restrictions before assuming an issue can leave the library.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Check BU language collections</a></article>
         <article class="card resource-card"><span class="tag teal">SCEL · ON SITE</span><h3>Language Space — Cargo, Quai 43</h3><p>The SCEL states that the Language Space is a multimedia language-resource centre where students can consult <strong>TOEFL and TOEIC preparation methods, grammar books, language-learning software, films and series</strong> and speak with language tutors.</p><div class="resource-status"><strong>Where:</strong> Building Quai 43, Room 218, Doua campus, 28 avenue Gaston Berger, Villeurbanne.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/espace-langues-cargo" target="_blank" rel="noopener">Open Language Space information</a></article>
-        <article class="card resource-card"><span class="tag teal">SCEL · COACHING</span><h3>Language tutoring and individual coaching</h3><p>Use tutoring to rehearse high-level speaking: defend a qualified position, receive correction, then repeat the same answer with tighter structure and more controlled prosody.</p><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/tutorat-des-langues-et-coaching" target="_blank" rel="noopener">Open tutoring information</a></article>
+        <article class="card resource-card"><span class="tag teal">SCEL · COACHING</span><h3>Language tutoring and individual coaching</h3><p>Lyon 1 language tutoring is a useful place to rehearse high-level speaking: defend a qualified position, receive correction, then repeat the answer with tighter structure and more controlled prosody. Check the current SCEL tutoring page for locations and schedules.</p><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/tutorat" target="_blank" rel="noopener">Open tutoring information</a></article>
         <article class="card resource-card"><span class="tag coral">LYON 1 · TOEFL COURSE</span><h3>TOEFL preparation for mobility students</h3><p>The SCEL currently describes two 20-hour preparation sessions at the <strong>Rockefeller site</strong>, organised as four hours per week for five weeks from October to December. The course is reserved for students with an approved mobility project.</p><div class="resource-status"><strong>Registration:</strong> through your mobility coordinator; Lyon 1 also directs students preparing for TOEFL as part of an approved mobility project to International Relations.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/preparation-au-toefl" target="_blank" rel="noopener">Open TOEFL course information</a></article>
       </div>
       <div class="official-note"><strong>Before you borrow:</strong> catalogue holdings and loan status can change. For TOEFL books, check the publication date and the live BU record. A pre-2026 book can still be useful for language development, but it is not a reliable model of the current exam.</div>
@@ -278,11 +278,8 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js"></script>
-<script src="app.js"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>
-</body>
-</html>
-pt>
+<script src="data.js?v=20260921a"></script>
+<script src="app.js?v=20260921a"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260921a').then(r=>r.update()).catch(()=>{}));}</script>
 </body>
 </html>

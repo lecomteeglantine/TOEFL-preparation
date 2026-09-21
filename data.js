@@ -710,136 +710,24 @@ window.TOEFL_DATA = {
   "reading": {
     "word": [
       {
-        "stem": "The apparent contradiction can be rec_____ once the estimates are understood to refer to different counterfactuals.",
-        "options": [
-          "onciled",
-          "overed",
-          "orded",
-          "routed"
-        ],
-        "answer": 0,
-        "why": "Reconciled means made compatible despite an apparent contradiction."
+        "title": "C-test · Measurement validity",
+        "text": "A measure can be highly reliable without measuring the construct researchers actually care about. Reliability concerns consistency, whereas validity concerns interpretation. When a proxy be[[comes]] a target, peo[[ple]] may ad[[apt]] their beha[[viour]] to im[[prove]] the indi[[cator]] rather than the under[[lying]] outcome. This can gra[[dually]] weaken the rela[[tionship]] between the metric and the construct it was ori[[ginally]] intended to represent.",
+        "why": "At C level, use syntax, collocation and the argument as a whole. Do not solve each blank as an isolated spelling puzzle."
       },
       {
-        "stem": "The authors are careful not to ex_____ their conclusions beyond the population represented in the sample.",
-        "options": [
-          "pand",
-          "tend",
-          "ceed",
-          "tract"
-        ],
-        "answer": 1,
-        "why": "Extend conclusions beyond a population is the appropriate collocation here."
+        "title": "C-test · Causal inference",
+        "text": "Random assignment is valuable because, in expectation, it balances both observed and unobserved characteristics across groups. Yet randomisation does not auto[[matically]] guarantee a use[[ful]] estimate. Attr[[ition]] can reintro[[duce]] bias, noncom[[pliance]] can comp[[licate]] interpretation, and mea[[surement]] error can ob[[scure]] the outcome. Researchers therefore need to con[[sider]] the entire chain from assignment to analysis before making cau[[sal]] claims.",
+        "why": "The missing endings depend on grammatical category and disciplinary collocation as well as local meaning."
       },
       {
-        "stem": "Because the outcome is rare, the absolute risk difference is negli_____ even though the relative increase appears large.",
-        "options": [
-          "gent",
-          "gated",
-          "gible",
-          "giant"
-        ],
-        "answer": 2,
-        "why": "Negligible means too small to be important in practical terms."
+        "title": "C-test · Scientific uncertainty",
+        "text": "Uncertainty is not a defect that disappears once enough data have been collected. Some uncertainty reflects sampling variation, but other forms arise from model choice, measurement and incomplete theory. A respon[[sible]] interpretation distin[[guishes]] what the data con[[strain]] from what re[[mains]] assumption-depen[[dent]]. Overly pre[[cise]] language may con[[ceal]] this distinction, whereas exces[[sive]] caution can make well-sup[[ported]] findings sound arbi[[trary]] or uninformative.",
+        "why": "Strong readers use discourse logic to anticipate the form and meaning of each incomplete word."
       },
       {
-        "stem": "The revised model yielded a more parsi_____ account without sacrificing out-of-sample accuracy.",
-        "options": [
-          "ticular",
-          "metrical",
-          "doxical",
-          "monious"
-        ],
-        "answer": 3,
-        "why": "Parsimonious describes an explanation or model that achieves adequate performance with fewer assumptions or parameters."
-      },
-      {
-        "stem": "The apparent treatment effect was atten_____ after adjustment for baseline imbalance.",
-        "options": [
-          "uated",
-          "tive",
-          "dant",
-          "ched"
-        ],
-        "answer": 0,
-        "why": "Attenuated means reduced in magnitude or strength."
-      },
-      {
-        "stem": "The inference is cont_____ on the assumption that the missing observations are conditionally random.",
-        "options": [
-          "entious",
-          "ingent",
-          "inuous",
-          "ained"
-        ],
-        "answer": 1,
-        "why": "Contingent on means dependent on a specified condition."
-      },
-      {
-        "stem": "The new evidence does not refute the theory, but it does cir_____ the range of cases in which the strongest version remains plausible.",
-        "options": [
-          "culate",
-          "cumvent",
-          "cumscribe",
-          "cuit"
-        ],
-        "answer": 2,
-        "why": "Circumscribe means restrict the scope or range of something."
-      },
-      {
-        "stem": "The aggregate estimate obscures cons_____ heterogeneity between regions.",
-        "options": [
-          "picuous",
-          "ecutive",
-          "ensual",
-          "iderable"
-        ],
-        "answer": 3,
-        "why": "Considerable is the natural modifier meaning substantial in degree."
-      },
-      {
-        "stem": "The authors sub_____ the claim with two independent datasets and a preregistered replication.",
-        "options": [
-          "stantiate",
-          "ordinate",
-          "merge",
-          "tract"
-        ],
-        "answer": 0,
-        "why": "Substantiate means support a claim with evidence."
-      },
-      {
-        "stem": "The intervention may inad_____ widen inequalities if uptake is concentrated among already advantaged groups.",
-        "options": [
-          "equately",
-          "vertently",
-          "missibly",
-          "visably"
-        ],
-        "answer": 1,
-        "why": "Inadvertently means unintentionally, which fits an unintended distributional consequence."
-      },
-      {
-        "stem": "The evidence is comp_____ with several mechanisms and therefore does not identify any one of them uniquely.",
-        "options": [
-          "arable",
-          "etitive",
-          "atible",
-          "rehensive"
-        ],
-        "answer": 2,
-        "why": "Compatible with means consistent with or able to coexist with."
-      },
-      {
-        "stem": "The review del_____ the conditions under which the policy appears to transfer successfully across settings.",
-        "options": [
-          "egates",
-          "ivers",
-          "ays",
-          "ineates"
-        ],
-        "answer": 3,
-        "why": "Delineates means describes or marks boundaries precisely."
+        "title": "C-test · Generalisation",
+        "text": "A finding that replicates across several institutions may still fail elsewhere if the mechanism depends on conditions that have not varied in the observed settings. External validity is there[[fore]] not a sim[[ple]] property of a stu[[dy]]. It is an argu[[ment]] about which fea[[tures]] of a context are cau[[sally]] relevant. Strong gene[[ralisation]] requires researchers to iden[[tify]] those features, exam[[ine]] how they vary, and test whether the proposed mechanism re[[mains]] plausible when conditions change.",
+        "why": "Use the logical structure of the paragraph to distinguish a plausible-looking completion from the intended academic term."
       }
     ],
     "daily": [
@@ -1270,176 +1158,176 @@ window.TOEFL_DATA = {
     ],
     "conversation": [
       {
-        "audio": "Student: My literature review still reads like a series of article summaries. Tutor: Then your unit of organisation is probably the source rather than the question. Student: So I should stop giving each author a separate paragraph? Tutor: Usually, yes. Group studies by the claim they bear on, and make disagreements visible within those groups.",
+        "audio": "Student: I rewrote the literature review so that each paragraph summarises one paper, but my tutor says the argument is still difficult to follow. Tutor: That is because the organising principle is still the authors, not the question. Try grouping studies by the explanation they support, then show where the evidence converges or conflicts. Student: So I should not necessarily discuss each paper in a separate paragraph? Tutor: Exactly. A paper can appear wherever it contributes to the reasoning, provided the references remain clear.",
         "q": "What change does the tutor recommend?",
         "options": [
-          "Organise the review around analytical claims and disagreements rather than individual authors.",
-          "Reduce the number of sources so that each can be discussed in greater detail.",
-          "Move all methodological differences into a separate appendix.",
-          "Use one paragraph per theory and remove references to individual studies."
+          "Organise the review around competing explanations rather than individual papers.",
+          "Reduce the number of studies so that each one can have a separate paragraph.",
+          "Describe the methods of every study before discussing the findings.",
+          "Move all conflicting evidence to a final paragraph."
         ],
         "answer": 0,
-        "why": "The tutor explicitly changes the organising principle from source-by-source summary to question- or claim-based synthesis."
+        "why": "The tutor explicitly contrasts author-by-author organisation with grouping evidence by explanation."
       },
       {
-        "audio": "Researcher: Our pilot response rate is lower than expected. Statistician: Overall, yes, but the more interesting issue is that it is uneven. Researcher: By age? Statistician: By recruitment channel. Before increasing the sample, I would check whether the invitation process differed between channels.",
+        "audio": "Researcher: The treatment effect is much larger at Site C than anywhere else. Statistician: Before treating that as meaningful heterogeneity, I would check how the site entered the analysis. Researcher: You mean the sample size? Statistician: That too, but first look at whether the subgroup was specified before the outcomes were examined. If Site C became interesting only after we saw the result, the apparent difference may partly reflect selection among many possible comparisons.",
         "q": "What does the statistician want to investigate first?",
         "options": [
-          "Whether the response rate is statistically different from the target rate.",
-          "Whether recruitment procedures created differential non-response across channels.",
-          "Whether age explains all of the missing responses.",
-          "Whether the sample size can be increased without changing the budget."
+          "Whether Site C used a different treatment.",
+          "Whether the subgroup comparison was prespecified or selected after seeing the data.",
+          "Whether the overall sample is large enough to estimate any effect.",
+          "Whether Site C has the largest number of participants."
         ],
         "answer": 1,
-        "why": "The statistician suspects a procedural source of heterogeneous response rates and wants to examine it before simply recruiting more people."
+        "why": "The statistician focuses first on post-hoc subgroup selection, not merely sample size."
       },
       {
-        "audio": "Student: I cut three paragraphs, but the essay still feels repetitive. Lecturer: Repetition is not always about length. Look at the function of each paragraph. If two paragraphs both establish that the problem exists, combine them and use the space to explain why your proposed solution follows from the evidence.",
+        "audio": "Student: My conclusion says the policy is ineffective because the estimate is not statistically significant. Lecturer: That is too strong. What does the confidence interval look like? Student: It is wide and includes both a modest benefit and a small harm. Lecturer: Then the study is inconclusive about effects in that range. Failure to reject the null is not evidence that every practically important effect is absent. State what the data rule out and what they still permit.",
         "q": "What is the lecturer’s main advice?",
         "options": [
-          "Shorten every paragraph by the same amount.",
-          "Remove the evidence section and expand the proposed solution.",
-          "Reduce duplication of rhetorical function and strengthen the link from evidence to solution.",
-          "Keep both paragraphs but add more transitions between them."
+          "Report only the p-value because the confidence interval is too wide.",
+          "Describe the result as proof that the policy has no effect.",
+          "Interpret the range of effects compatible with the data rather than equating non-significance with no effect.",
+          "Remove the policy from the conclusion because the study is underpowered."
         ],
         "answer": 2,
-        "why": "The lecturer focuses on what each paragraph is doing, not merely on word count."
+        "why": "The lecturer asks the student to interpret what the confidence interval excludes and still allows."
       },
       {
-        "audio": "Supervisor: The effect is larger than in the preregistered model. Student: That sounds good. Supervisor: Perhaps, but first check why. The revised model drops the site fixed effects, and those sites differed substantially at baseline. A larger coefficient is not automatically stronger evidence.",
+        "audio": "Supervisor: Your model predicts admissions outcomes remarkably well. Student: Then can I argue that the variables with the largest weights are the main causes of student success? Supervisor: Not from prediction alone. A variable can improve prediction because it is correlated with an unobserved cause, or because it captures information generated after earlier decisions. Predictive usefulness and causal interpretation answer different questions, so you need a design that addresses the causal claim directly.",
         "q": "Why is the supervisor cautious?",
         "options": [
-          "The preregistered model used too many participants.",
-          "Fixed effects always make coefficients smaller, so the original model is biased.",
-          "A larger coefficient is less important than a smaller p-value.",
-          "The larger effect may result from a specification change that reintroduces baseline differences."
+          "The model is not accurate enough to be useful.",
+          "Large model weights are always unstable across samples.",
+          "Admissions outcomes cannot be studied quantitatively.",
+          "Predictive importance does not by itself identify causal importance."
         ],
         "answer": 3,
-        "why": "The supervisor links the larger estimate to a modelling change that may confound the comparison."
+        "why": "The supervisor distinguishes predictive performance from causal identification."
       },
       {
-        "audio": "Student: I want to say the intervention failed because the primary outcome was not significant. Tutor: Be careful. The estimate is imprecise and the confidence interval includes both modest benefit and modest harm. You can say the study did not provide clear evidence of benefit; that is not the same as showing no effect.",
+        "audio": "Student: Two papers estimate almost the same average effect, but one recommends immediate implementation and the other recommends another trial. Tutor: Look at what each paper treats as uncertain. Student: The first has a narrow interval in one health system; the second has a broader interval but includes several systems. Tutor: Right. They are not simply disagreeing about the number. One is more certain about a narrower setting, while the other is asking how much confidence we should have across settings.",
         "q": "What distinction is the tutor making?",
         "options": [
-          "Between failure to detect a clear effect and evidence that the true effect is zero.",
-          "Between statistical significance and the direction of the point estimate.",
-          "Between primary and secondary outcomes.",
-          "Between modest benefit and clinically important benefit."
+          "The difference between statistical significance and clinical importance.",
+          "The difference between precision within one setting and confidence about transfer across settings.",
+          "The difference between observational and experimental evidence.",
+          "The difference between average and subgroup effects."
         ],
-        "answer": 0,
-        "why": "The tutor distinguishes inconclusive evidence from evidence of no effect."
+        "answer": 1,
+        "why": "The tutor contrasts within-setting precision with external validity across settings."
       }
     ],
     "announcement": [
       {
-        "audio": "Tomorrow’s field methods workshop will begin in Room 3.12 rather than the laboratory. Equipment calibration will continue until noon, so the practical component has been moved to the afternoon. Bring your laptops to the morning session; protective clothing is required only after lunch.",
+        "audio": "The research methods workshop will still begin at nine, but the first hour has been moved online because the seminar room is being used for an examination. Participants should join through the link in the course platform. The practical session from ten fifteen will take place in the original room, so please bring a laptop and arrive by ten ten for the equipment check.",
         "q": "What should participants expect?",
         "options": [
-          "A morning classroom session with laptops and an afternoon practical component.",
-          "A morning practical session in the laboratory followed by discussion.",
-          "An entirely online workshop because the laboratory is unavailable.",
-          "Protective clothing throughout the day because calibration is continuing."
-        ],
-        "answer": 0,
-        "why": "The announcement changes both location and sequence: classroom first, practical work later."
-      },
-      {
-        "audio": "The silent floor will close at 17:00 today for electrical maintenance. Group-study rooms on level two remain open until 22:00, but reservations made for the silent floor cannot be transferred automatically. Please make a new booking if you need a room this evening.",
-        "q": "What must affected users do?",
-        "options": [
-          "Wait for staff to move their reservation to level two.",
-          "Create a new booking if they still need a room after 17:00.",
-          "Leave the library because all study areas close at 17:00.",
-          "Use any free group room without a reservation."
+          "The entire workshop is now online.",
+          "The first hour is online, then participants move to the original room for the practical session.",
+          "The workshop begins later because of an examination.",
+          "Only participants without laptops need to use the online link."
         ],
         "answer": 1,
-        "why": "The announcement explicitly states that bookings will not be transferred automatically."
+        "why": "The announcement changes the location of the first hour only."
       },
       {
-        "audio": "Due to the rail strike, Friday’s site visit will still take place, but the coach will leave campus at 07:15 rather than 08:00. Students who previously indicated that they would travel independently should email the coordinator by Thursday noon if their plans have changed. The return time is unchanged.",
-        "q": "Who needs to contact the coordinator?",
+        "audio": "Access to the statistics server will be interrupted tonight between seven and nine for a security update. Jobs already running at seven will be terminated rather than paused. If your analysis takes several hours, save the script and output locally and restart the job after the maintenance window. Webmail and the learning platform are not affected.",
+        "q": "What must affected users do?",
         "options": [
-          "Every student attending the site visit.",
-          "Only students who cannot arrive on campus by 08:00.",
-          "Students who planned independent travel but now need to change that plan.",
-          "Students who want to change the return time."
+          "Keep long jobs running because they will resume automatically.",
+          "Move all university work off the network before seven.",
+          "Save what they need and restart long analyses after maintenance.",
+          "Avoid webmail and the learning platform until nine."
         ],
         "answer": 2,
-        "why": "The email request is conditional on a change to previously declared independent travel plans."
+        "why": "Running jobs will be terminated, so long analyses must be saved and restarted."
       },
       {
-        "audio": "The archive reading room will be open as usual next week, but material from Collection C must be requested at least forty-eight hours in advance because it is being stored off-site during refurbishment. Requests for Collections A and B are unaffected.",
+        "audio": "Students presenting posters at Friday’s conference should upload the final PDF by noon on Thursday. If your poster contains material covered by a confidentiality agreement, do not upload it to the public folder. Instead, contact the conference coordinator for the restricted submission link. Printed posters should still be brought to the registration desk on Friday morning.",
+        "q": "Who needs to contact the coordinator?",
+        "options": [
+          "All students who are printing a poster.",
+          "Students whose posters contain confidential material.",
+          "Students who miss the Thursday deadline.",
+          "Anyone who uploads a PDF before noon."
+        ],
+        "answer": 1,
+        "why": "Only presenters whose posters contain confidential material are told to request the restricted link."
+      },
+      {
+        "audio": "Collection C has been moved from the main library to temporary shelving on the second floor while humidity sensors are replaced. Items can still be borrowed, but requests placed through the catalogue may take up to one working day to process. Collections A and B remain on open shelves and are unaffected by the work.",
         "q": "What is different for Collection C?",
         "options": [
-          "It cannot be consulted during refurbishment.",
-          "It is available only to staff members next week.",
-          "It must be requested forty-eight hours after the reading-room visit.",
-          "It requires earlier advance ordering because it is temporarily stored elsewhere."
+          "Its items can no longer be borrowed.",
+          "It is available only through interlibrary loan.",
+          "It has moved temporarily and catalogue requests may be delayed.",
+          "It is the only collection still on open shelves."
         ],
-        "answer": 3,
-        "why": "The only change is the advance-request requirement created by temporary off-site storage."
+        "answer": 2,
+        "why": "Collection C remains borrowable but is temporarily relocated and slower to retrieve."
       }
     ],
     "talk": [
       {
-        "audio": "When economists describe a rebound effect, they mean that an efficiency improvement can lower the effective cost of using a resource and thereby encourage greater use. Imagine a car that becomes much more fuel efficient. Driving each kilometre now costs less, so the owner may travel farther. The engineering improvement is real, but total fuel use may fall by less than a calculation based on efficiency alone would predict. This does not make efficiency useless. It means behavioural response belongs in the estimate.",
+        "audio": "Researchers often treat measurement error as a problem that merely adds noise, but that description is incomplete. Random error can indeed reduce precision. Systematic error, however, can shift an estimate in a particular direction. Imagine a survey in which people underreport a behaviour more strongly when they believe it is socially disapproved. The error is then connected to the construct being measured, and simply collecting a larger sample will not remove the distortion. More observations can make a biased estimate look very precise. The practical lesson is that precision and validity must be evaluated separately.",
         "q": "What is the lecturer’s main point?",
         "options": [
-          "Behavioural responses can offset part of the resource savings expected from greater efficiency.",
-          "Efficiency improvements normally increase total resource use.",
-          "Engineering calculations are unreliable whenever human behaviour is involved.",
-          "Fuel-efficient cars reduce costs but not emissions."
-        ],
-        "answer": 0,
-        "why": "The lecture defines rebound as partial offset of expected efficiency gains through increased use."
-      },
-      {
-        "audio": "A common metaphor treats memory retrieval as opening a file and reading what was stored. Reconsolidation research complicates that picture. When a memory is reactivated, it can temporarily become susceptible to modification before being stored again. This does not mean recall freely invents the past each time. It does mean retrieval can participate in memory change rather than functioning as a perfectly neutral readout.",
-        "q": "Which claim is the lecturer challenging?",
-        "options": [
-          "Memories can be modified after they are formed.",
-          "Retrieval is simply passive access to an unchanged stored record.",
-          "Reconsolidation occurs only when memories are inaccurate.",
-          "Experimental research cannot distinguish storage from retrieval."
-        ],
-        "answer": 1,
-        "why": "The lecture replaces the passive-readout metaphor with a more dynamic account of retrieval."
-      },
-      {
-        "audio": "People often assume that biodiversity loss reduces ecosystem function in a smooth, proportional way. In practice, the relationship can be nonlinear. If several species perform similar ecological roles, early losses may have little visible effect. Once redundancy is exhausted, however, the loss of another species can cause a much larger functional decline. The absence of an early effect is therefore not evidence that further losses are harmless.",
-        "q": "Why does the lecturer discuss functional redundancy?",
-        "options": [
-          "To argue that biodiversity matters only when every species has a unique role.",
-          "To show that ecosystem function always declines linearly with species loss.",
-          "To explain why early species losses may hide vulnerability that becomes visible only after a threshold.",
-          "To demonstrate that redundant species have no ecological value."
+          "Larger samples always reduce measurement error.",
+          "Measurement error matters only when participants deliberately lie.",
+          "A precise estimate can still be systematically biased, so precision does not guarantee validity.",
+          "Random and systematic measurement error have identical effects."
         ],
         "answer": 2,
-        "why": "Redundancy explains why the system can initially absorb losses but later become much more sensitive."
+        "why": "The talk distinguishes random imprecision from systematic bias and warns that a large sample can precisely estimate the wrong quantity."
       },
       {
-        "audio": "Suppose two schools adopt the same reading programme. One shows a large gain and the other almost none. It is tempting to label the programme inconsistent. But implementation records show that the second school delivered only half the intended sessions. The difference could therefore reflect treatment fidelity rather than a context-specific failure of the programme itself. To distinguish those explanations, we need variation in context among schools that actually implemented the programme as designed.",
-        "q": "What does the lecturer say is needed to test whether context changes effectiveness?",
+        "audio": "A common argument for publishing school performance rankings is that transparency creates accountability. That can happen, but the ranking itself may also change behaviour. If schools are rewarded for a narrow indicator, staff may redirect effort toward students or activities that move that indicator most efficiently. The measured outcome can improve even if the broader educational goal changes little. This does not mean rankings are useless. It means the effect of measurement cannot be separated from the incentives created by making the measure consequential.",
+        "q": "Which claim is the lecturer challenging?",
         "options": [
-          "A comparison of schools with different outcomes regardless of implementation quality.",
-          "A larger number of schools that used fewer than half the intended sessions.",
-          "A redesign of the reading programme so every school has the same baseline scores.",
-          "Evidence from schools that implemented the programme adequately but differ in context."
+          "That public institutions should collect any performance data.",
+          "That transparent rankings simply reveal performance without changing the behaviour being measured.",
+          "That schools respond to incentives.",
+          "That broad educational goals are difficult to measure."
         ],
-        "answer": 3,
-        "why": "The lecturer wants to separate contextual moderation from simple differences in implementation fidelity."
+        "answer": 1,
+        "why": "The lecturer challenges the idea that rankings are passive measurements rather than interventions that can reshape behaviour."
       },
       {
-        "audio": "The headline inflation rate is an average across a basket of goods and services. Households, however, purchase different baskets. A family spending a large share on rent and energy may experience a very different change in living costs from a household spending more on discretionary services. This is why a single national rate can describe the price system accurately while still failing to describe every household’s experience.",
-        "q": "What distinction is the lecturer making?",
+        "audio": "Ecologists sometimes describe an ecosystem as resilient when it continues to perform key functions after a disturbance. But resilience does not require every species to remain unchanged. In some systems, several species can perform overlapping functions. If one declines, another may partly compensate. This is called functional redundancy. The concept matters because an ecosystem can look stable at the level of function while its composition is changing substantially. Whether that stability should count as successful conservation depends on whether the goal is to preserve functions, species, or both.",
+        "q": "Why does the lecturer discuss functional redundancy?",
         "options": [
-          "Between an aggregate price index and heterogeneous exposure to the components of that index.",
-          "Between measurement error in the national index and accurate household budgets.",
-          "Between inflation in essential goods and deflation in discretionary services.",
-          "Between official inflation and household beliefs about prices."
+          "To show that stable ecosystem function can conceal major changes in species composition.",
+          "To argue that species diversity never contributes to resilience.",
+          "To claim that conservation should focus only on ecosystem function.",
+          "To explain why disturbances affect all species equally."
         ],
         "answer": 0,
-        "why": "The lecture explains how a valid aggregate index can coexist with different household-specific experiences because expenditure weights differ."
+        "why": "Functional redundancy explains how function may persist despite compositional change."
+      },
+      {
+        "audio": "Suppose an educational intervention produces strong results in small seminars but weaker results in large lectures. It is tempting to conclude that class size determines effectiveness. Yet class size may be standing in for several mechanisms: instructors in seminars may know students better, students may participate more, or the intervention may be delivered with greater fidelity. To establish that context changes effectiveness, researchers need evidence that distinguishes among these mechanisms rather than merely observing that outcomes differ between settings.",
+        "q": "What does the lecturer say is needed to test whether context changes effectiveness?",
+        "options": [
+          "A larger pooled average across all settings.",
+          "Evidence that separates plausible mechanisms behind the setting difference.",
+          "A statistically significant result in every individual class.",
+          "A measure of student satisfaction only."
+        ],
+        "answer": 1,
+        "why": "The lecturer says the observed setting difference is not enough; mechanisms must be distinguished."
+      },
+      {
+        "audio": "Prediction and explanation are often treated as if they were the same scientific goal. They overlap, but they impose different demands. A model may predict an outcome accurately by exploiting stable correlations without representing the causal process that produces the outcome. Conversely, a causal model can be scientifically informative even when it does not maximise short-term predictive accuracy. The right standard therefore depends on the question. If the goal is to allocate resources next week, prediction may dominate. If the goal is to intervene on a system, understanding what changes what becomes central.",
+        "q": "What distinction is the lecturer making?",
+        "options": [
+          "Between short-term and long-term data collection.",
+          "Between prediction accuracy and causal explanation as different scientific objectives.",
+          "Between qualitative and quantitative research.",
+          "Between simple and complex models."
+        ],
+        "answer": 1,
+        "why": "The lecturer contrasts forecasting outcomes with explaining the causal process, noting that each goal can justify different models."
       }
     ]
   },
@@ -1513,6 +1401,86 @@ window.TOEFL_DATA = {
         "q": "Should universities reward interdisciplinary research even when evaluation becomes less straightforward?",
         "follow": "Distinguish between a practical difficulty and a principled objection."
       }
+    ],
+    "repeatSets": [
+      {
+        "scenario": "You are being trained to welcome new students to a university research centre. Listen to the coordinator and repeat each sentence exactly once.",
+        "sentences": [
+          "The research centre is open to students from every faculty.",
+          "Most workshops take place upstairs in the collaborative learning rooms.",
+          "Please bring your student card because access to the laboratories is restricted.",
+          "If you need specialist software, reserve a workstation before you arrive.",
+          "Students who are new to data analysis can attend the introductory clinic on Wednesday afternoons.",
+          "Although drop-in advice is available, longer consultations should be booked in advance through the online calendar.",
+          "Before using any restricted dataset, make sure that your supervisor has approved the project and that you have completed the required data-protection training."
+        ]
+      },
+      {
+        "scenario": "You are learning to brief participants before an interdisciplinary seminar. Listen to the organiser and repeat each sentence exactly once.",
+        "sentences": [
+          "Today’s seminar brings together researchers from several disciplines.",
+          "The first speaker will discuss how evidence changes when measures become targets.",
+          "Questions are welcome, but please keep them concise enough for other participants to contribute.",
+          "After the second presentation, we will pause for ten minutes before the panel discussion begins.",
+          "If you disagree with a speaker, focus your question on the evidence or reasoning rather than on the person.",
+          "Participants joining online should post technical problems in the support chat instead of interrupting the discussion.",
+          "Because the final session compares methods used in different fields, speakers have been asked to explain specialised terminology before relying on it in their arguments."
+        ]
+      },
+      {
+        "scenario": "You are helping at a student conference registration desk. Listen to the supervisor and repeat each sentence exactly once.",
+        "sentences": [
+          "Registration opens at eight thirty near the main entrance.",
+          "Presenters should collect their badges before taking posters to the exhibition hall.",
+          "Anyone with dietary requirements can confirm them at the information desk beside the café.",
+          "The afternoon workshops have limited capacity, so places will be allocated in order of registration.",
+          "If a session is full, students can join the waiting list and will receive a message if a place becomes available.",
+          "Please remind speakers that presentation computers are provided and that personal laptops cannot be connected during the sessions.",
+          "Participants who need accessibility support should speak to the conference team as early as possible so that room access, seating and materials can be adjusted before the programme begins."
+        ]
+      }
+    ],
+    "interviewSets": [
+      {
+        "title": "Interview · Study spaces",
+        "scenario": "You are taking part in a university research study about how students use study spaces.",
+        "questions": [
+          "Where do you usually do your most demanding academic work, and what makes that place useful for you?",
+          "Describe one situation in which your usual study environment did not work well. What was the problem?",
+          "Some universities are replacing individual study areas with more collaborative spaces. What is one potential benefit and one potential drawback?",
+          "If a university had limited funding, what criterion should it use to decide whether to invest in quiet individual spaces or collaborative areas? Explain your reasoning."
+        ]
+      },
+      {
+        "title": "Interview · Recorded lectures",
+        "scenario": "You are being interviewed for a campus project about lecture recording and access to course materials.",
+        "questions": [
+          "How do you personally use recorded lectures or other replayable course materials, if at all?",
+          "Describe a course in which recording would be especially useful or especially unhelpful. Why?",
+          "Should lecture recording be the default at universities? Give a qualified answer rather than a simple yes or no.",
+          "What is the strongest objection to your position, and what policy could address that objection without abandoning the main benefit you identified?"
+        ]
+      },
+      {
+        "title": "Interview · Generative AI",
+        "scenario": "You are participating in a study about students’ use of generative AI in higher education.",
+        "questions": [
+          "What kind of academic task, if any, do you think generative AI can support without replacing the student’s own thinking?",
+          "Describe one risk that students may underestimate when they use AI-generated explanations or feedback.",
+          "Should universities use the same AI rules for every type of assessment? Explain why or why not.",
+          "Propose one principle that could distinguish legitimate support from unacceptable substitution, and explain how it would work in practice."
+        ]
+      },
+      {
+        "title": "Interview · Research replication",
+        "scenario": "You are being interviewed for a student research programme about how science should allocate attention and funding.",
+        "questions": [
+          "Have you ever changed your view after seeing the same result tested in a different way? Briefly describe the situation.",
+          "Why might repeating an earlier study be useful even when the original result is already well known?",
+          "Some researchers argue that replication is less innovative than producing a new finding. To what extent do you agree?",
+          "If funding is limited, what criteria should determine how much support goes to replication compared with entirely new research?"
+        ]
+      }
     ]
   },
   "writing": {
@@ -1524,7 +1492,8 @@ window.TOEFL_DATA = {
           "because residual confounding",
           "could not be ruled out."
         ],
-        "answer": "Although the association was robust across specifications, the authors stopped short of claiming causality because residual confounding could not be ruled out."
+        "answer": "Although the association was robust across specifications, the authors stopped short of claiming causality because residual confounding could not be ruled out.",
+        "lead": "Did the authors conclude that the observed relationship was causal?"
       },
       {
         "words": [
@@ -1533,7 +1502,8 @@ window.TOEFL_DATA = {
           "turn out to be concentrated",
           "in a single subgroup."
         ],
-        "answer": "Only after the data were disaggregated did the apparent improvement turn out to be concentrated in a single subgroup."
+        "answer": "Only after the data were disaggregated did the apparent improvement turn out to be concentrated in a single subgroup.",
+        "lead": "What happened when the researchers examined the data by subgroup?"
       },
       {
         "words": [
@@ -1542,7 +1512,8 @@ window.TOEFL_DATA = {
           "if its costs fall disproportionately",
           "on households with few alternatives."
         ],
-        "answer": "The policy may be efficient in aggregate, yet still raise serious equity concerns if its costs fall disproportionately on households with few alternatives."
+        "answer": "The policy may be efficient in aggregate, yet still raise serious equity concerns if its costs fall disproportionately on households with few alternatives.",
+        "lead": "Could a policy be efficient overall and still create a serious problem?"
       },
       {
         "words": [
@@ -1551,7 +1522,8 @@ window.TOEFL_DATA = {
           "but that one of its central predictions",
           "is consistent with the observed pattern."
         ],
-        "answer": "What the experiment demonstrates is not that the theory is correct, but that one of its central predictions is consistent with the observed pattern."
+        "answer": "What the experiment demonstrates is not that the theory is correct, but that one of its central predictions is consistent with the observed pattern.",
+        "lead": "Does this experiment prove the entire theory?"
       },
       {
         "words": [
@@ -1560,7 +1532,8 @@ window.TOEFL_DATA = {
           "would substantially overstate",
           "the certainty justified by the data."
         ],
-        "answer": "Were the identifying assumption to fail, the apparent precision of the estimate would substantially overstate the certainty justified by the data."
+        "answer": "Were the identifying assumption to fail, the apparent precision of the estimate would substantially overstate the certainty justified by the data.",
+        "lead": "Why should we be cautious about the apparent precision of the estimate?"
       },
       {
         "words": [
@@ -1569,7 +1542,8 @@ window.TOEFL_DATA = {
           "that the between-site difference",
           "largely reflected treatment fidelity rather than context."
         ],
-        "answer": "Not until the implementation records were examined did the researchers realise that the between-site difference largely reflected treatment fidelity rather than context."
+        "answer": "Not until the implementation records were examined did the researchers realise that the between-site difference largely reflected treatment fidelity rather than context.",
+        "lead": "What explained the difference between the two implementation sites?"
       },
       {
         "words": [
@@ -1578,7 +1552,8 @@ window.TOEFL_DATA = {
           "effects large enough",
           "to matter in practice."
         ],
-        "answer": "The null result would be more informative if the confidence interval excluded effects large enough to matter in practice."
+        "answer": "The null result would be more informative if the confidence interval excluded effects large enough to matter in practice.",
+        "lead": "When is a null result genuinely informative?"
       },
       {
         "words": [
@@ -1587,7 +1562,8 @@ window.TOEFL_DATA = {
           "once people have an incentive",
           "to optimise the proxy itself."
         ],
-        "answer": "Even when a proxy predicts the target well, its validity may deteriorate once people have an incentive to optimise the proxy itself."
+        "answer": "Even when a proxy predicts the target well, its validity may deteriorate once people have an incentive to optimise the proxy itself.",
+        "lead": "Can a predictive proxy remain valid once people are rewarded for improving it?"
       }
     ],
     "email": [
@@ -1595,37 +1571,67 @@ window.TOEFL_DATA = {
         "situation": "A research-methods workshop has been moved to the same time as a compulsory laboratory session. You need a practical solution without sounding accusatory.",
         "recipient": "Programme coordinator",
         "goal": "Explain the clash, show that both sessions matter, and request an alternative way to complete the workshop requirement.",
-        "model": "Dear Programme Coordinator,\n\nI am writing about the research-methods workshop scheduled for Thursday afternoon. The revised time now overlaps with a compulsory laboratory session for my programme, so I cannot attend both in full.\n\nCould you please let me know whether there is an alternative session, recording or equivalent task that would allow me to meet the workshop requirement? I am keen to complete the training and can provide confirmation of the timetable clash if helpful.\n\nThank you for your guidance.\n\nBest regards,"
+        "model": "Dear Programme Coordinator,\n\nI am writing about the research-methods workshop scheduled for Thursday afternoon. The revised time now overlaps with a compulsory laboratory session for my programme, so I cannot attend both in full.\n\nCould you please let me know whether there is an alternative session, recording or equivalent task that would allow me to meet the workshop requirement? I am keen to complete the training and can provide confirmation of the timetable clash if helpful.\n\nThank you for your guidance.\n\nBest regards,",
+        "tasks": [
+          "Explain the scheduling conflict clearly.",
+          "State which session is compulsory and why you cannot attend both.",
+          "Ask for a specific alternative or next step."
+        ]
       },
       {
         "situation": "Your group received feedback stating that a required appendix was missing, but the appendix is present in the version shown in your submission receipt.",
         "recipient": "Course instructor",
         "goal": "Clarify the discrepancy, provide evidence neutrally, and ask how the work should be reviewed.",
-        "model": "Dear Professor,\n\nThank you for the feedback on our submission. I wanted to clarify one point concerning the appendix. The feedback notes that it was missing, whereas the submission receipt appears to show the appendix in the PDF uploaded before the deadline.\n\nWould you be willing to check whether the complete file is visible on your side? I can resend the receipt or the original PDF if that would help resolve the discrepancy.\n\nMany thanks for your time.\n\nBest regards,"
+        "model": "Dear Professor,\n\nThank you for the feedback on our submission. I wanted to clarify one point concerning the appendix. The feedback notes that it was missing, whereas the submission receipt appears to show the appendix in the PDF uploaded before the deadline.\n\nWould you be willing to check whether the complete file is visible on your side? I can resend the receipt or the original PDF if that would help resolve the discrepancy.\n\nMany thanks for your time.\n\nBest regards,",
+        "tasks": [
+          "Refer neutrally to the feedback about the missing appendix.",
+          "Explain what your submission receipt appears to show.",
+          "Ask the recipient to check the submitted file and advise you on the next step."
+        ]
       },
       {
         "situation": "You have been offered a place in a seminar, but the confirmation email gives two different start dates.",
         "recipient": "Seminar administrator",
         "goal": "Identify the inconsistency precisely and request confirmation before arranging travel.",
-        "model": "Dear Seminar Administrator,\n\nThank you for confirming my place. I noticed that the message lists 14 October in the timetable section but 21 October in the joining instructions.\n\nCould you please confirm which date is the first session? I need to finalise travel arrangements, so I would be grateful for clarification when convenient.\n\nBest wishes,"
+        "model": "Dear Seminar Administrator,\n\nThank you for confirming my place. I noticed that the message lists 14 October in the timetable section but 21 October in the joining instructions.\n\nCould you please confirm which date is the first session? I need to finalise travel arrangements, so I would be grateful for clarification when convenient.\n\nBest wishes,",
+        "tasks": [
+          "Point out that the confirmation message gives two different dates.",
+          "Explain why you need the correct date to plan your attendance.",
+          "Ask for confirmation of the actual start date."
+        ]
       },
       {
         "situation": "A supervisor has invited you to join a project meeting, but the agenda suggests that confidential patient-level data will be discussed and you have not yet completed the required data-access training.",
         "recipient": "Research supervisor",
         "goal": "Explain the access issue, show that you still want to contribute, and ask whether you should attend or receive a non-confidential briefing instead.",
-        "model": "Dear Dr Patel,\n\nThank you for inviting me to the project meeting. I noticed that the agenda includes discussion of patient-level data. I have not yet completed the data-access training, so I want to make sure I follow the project’s confidentiality requirements correctly.\n\nWould you prefer me to attend only the non-confidential part of the meeting, or should I receive a separate briefing afterwards? I am happy to follow whichever arrangement is most appropriate.\n\nBest regards,"
+        "model": "Dear Dr Patel,\n\nThank you for inviting me to the project meeting. I noticed that the agenda includes discussion of patient-level data. I have not yet completed the data-access training, so I want to make sure I follow the project’s confidentiality requirements correctly.\n\nWould you prefer me to attend only the non-confidential part of the meeting, or should I receive a separate briefing afterwards? I am happy to follow whichever arrangement is most appropriate.\n\nBest regards,",
+        "tasks": [
+          "Thank the supervisor for the invitation.",
+          "Explain that you have not yet completed the required data-access training.",
+          "Ask whether you should attend only the non-confidential part or complete another step first."
+        ]
       },
       {
         "situation": "You submitted an abstract before the deadline, but the conference portal still shows the status as ‘draft’ even though you received an automated submission email.",
         "recipient": "Conference support team",
         "goal": "Describe the conflicting evidence, avoid claiming that the system is at fault, and ask whether any action is required.",
-        "model": "Dear Conference Support Team,\n\nI am writing to check the status of my abstract submission. I received an automated email confirming submission before the deadline, but the portal currently labels the abstract as ‘draft’.\n\nCould you please confirm whether the submission is complete on your side and let me know if I need to take any further action? I can forward the confirmation email if useful.\n\nThank you for your help.\n\nBest regards,"
+        "model": "Dear Conference Support Team,\n\nI am writing to check the status of my abstract submission. I received an automated email confirming submission before the deadline, but the portal currently labels the abstract as ‘draft’.\n\nCould you please confirm whether the submission is complete on your side and let me know if I need to take any further action? I can forward the confirmation email if useful.\n\nThank you for your help.\n\nBest regards,",
+        "tasks": [
+          "Explain that the portal still shows the abstract as a draft.",
+          "Mention the automated submission confirmation you received before the deadline.",
+          "Ask the organisers to confirm whether the abstract is recorded as submitted."
+        ]
       },
       {
         "situation": "You are part of a research team. A supervisor has asked you to present preliminary findings at a meeting tomorrow, but you have discovered that one subgroup result is highly sensitive to a modelling choice that has not yet been checked.",
         "recipient": "Research supervisor",
         "goal": "Explain the issue, propose a responsible plan for the meeting, and avoid either concealing the result or overstating its reliability.",
-        "model": "Dear Dr Morgan,\n\nWhile preparing tomorrow’s slides, I found that the subgroup result changes substantially when I alter one plausible modelling assumption. The overall pattern is stable, but I do not think we should present the subgroup estimate as settled until the sensitivity analysis is complete.\n\nI suggest keeping the result in the presentation, clearly labelling it as preliminary, and showing the two specifications side by side. I can also explain which assumption drives the difference and complete the additional checks immediately after the meeting. That would allow us to be transparent without giving the impression that the subgroup finding is more robust than the current analysis supports.\n\nBest regards,\nAlex"
+        "model": "Dear Dr Morgan,\n\nWhile preparing tomorrow’s slides, I found that the subgroup result changes substantially when I alter one plausible modelling assumption. The overall pattern is stable, but I do not think we should present the subgroup estimate as settled until the sensitivity analysis is complete.\n\nI suggest keeping the result in the presentation, clearly labelling it as preliminary, and showing the two specifications side by side. I can also explain which assumption drives the difference and complete the additional checks immediately after the meeting. That would allow us to be transparent without giving the impression that the subgroup finding is more robust than the current analysis supports.\n\nBest regards,\nAlex",
+        "tasks": [
+          "Confirm that you can present the preliminary findings.",
+          "Explain the sensitivity of one subgroup result to an unchecked modelling choice.",
+          "Propose a way to present the result without overstating its robustness."
+        ]
       }
     ],
     "discussion": [
@@ -2573,5 +2579,10 @@ window.TOEFL_DATA = {
         "why": "The lexical noun phrase identifies exactly what prior information is being carried forward."
       }
     ]
+  },
+  "meta": {
+    "lastVerified": "2026-09-21",
+    "format": "TOEFL iBT format in use from 21 January 2026",
+    "levelTarget": "C1/C2"
   }
 };
