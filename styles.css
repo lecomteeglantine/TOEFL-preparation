@@ -42,3 +42,7 @@ button:disabled,.btn:disabled{opacity:.48;cursor:not-allowed;transform:none!impo
 .mock-productive{margin-top:1.2rem}.mock-productive .card{box-shadow:none}
 @media(max-width:900px){.test-route-grid{grid-template-columns:1fr}.productive-dashboard{grid-template-columns:1fr}.dashboard-section-head{display:block}.dashboard-section-head p{margin-top:.4rem}}
 @media(max-width:760px){.practice-mode{align-items:stretch}.practice-mode button{flex:1}.test-route-card .btn,.practice-hub-card .btn{width:100%;text-align:center}}
+
+/* V3 audio / accent training */
+.audio-check-card{margin-top:1.2rem;display:grid;grid-template-columns:1.3fr .9fr;gap:1rem 1.5rem;align-items:center}.audio-check-card h2{margin:.45rem 0 .3rem}.audio-check-card p{margin:.2rem 0}.audio-test-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}.audio-test-buttons .btn{width:100%}.voice-status{grid-column:1/-1;padding:.7rem .85rem;border-radius:12px;background:var(--soft);color:var(--muted);font-size:.88rem;font-weight:750}.accent-choice[data-accent="auto"]{font-weight:900}
+@media(max-width:760px){.audio-check-card{grid-template-columns:1fr}.voice-status{grid-column:1}.audio-test-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.accent-note{width:100%;text-align:center}}

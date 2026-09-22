@@ -7,7 +7,7 @@
   <meta name="description" content="Homemade TOEFL Trainer — demanding C1/C2 preparation for the TOEFL iBT format introduced in January 2026: diagnostic, Reading, Listening, Speaking, Writing, academic vocabulary and progress tracking.">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=20260921c">
+  <link rel="stylesheet" href="styles.css?v=20260922v3">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -23,12 +23,14 @@
   </nav>
 </header>
 
-<div class="accent-bar" aria-label="Text-to-speech voice setting">
-  <span>🔊 Voice:</span>
-  <button class="accent-choice is-active" data-accent="en-US" type="button">🇺🇸 US</button>
+<div class="accent-bar" aria-label="Listening voice profile setting">
+  <span>🔊 Voice profile:</span>
+  <button class="accent-choice is-active" data-accent="auto" type="button">🌍 TOEFL Mix</button>
+  <button class="accent-choice" data-accent="en-US" type="button">🇺🇸 US</button>
   <button class="accent-choice" data-accent="en-GB" type="button">🇬🇧 UK</button>
   <button class="accent-choice" data-accent="en-AU" type="button">🇦🇺 AU</button>
-  <span class="accent-note">for device-generated listening practice</span>
+  <button class="accent-choice" data-accent="en-NZ" type="button">🇳🇿 NZ</button>
+  <span class="accent-note">TOEFL Mix rotates accent profiles by exercise when your device provides them</span>
 </div>
 
 <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
@@ -172,7 +174,17 @@
     <div class="practice-mode" id="listeningMode"><span>Mode:</span><button class="is-active" data-listen-mode="practice">Practice</button><button data-listen-mode="exam">Exam conditions</button></div>
     <div class="tab-row" data-tabs="listening"><button class="is-active" data-tab="response">Choose a Response</button><button data-tab="conversation">Conversation</button><button data-tab="announcement">Announcement</button><button data-tab="talk">Academic Talk</button></div>
     <div id="listeningWorkspace" class="practice-workspace"></div>
-    <div class="official-note"><strong>Audio note:</strong> Practice audio is generated locally by your device's text-to-speech engine. Practice mode unlocks replay only after you answer; Exam conditions allows one play. Device voices cannot reproduce official TOEFL acoustics.</div>
+    <div class="card audio-check-card">
+      <div><span class="tag indigo">ACCENT & AUDIO CHECK</span><h2>Test your device before you practise</h2><p>Current TOEFL Listening and Speaking may include native-speaker accents from North America, the UK, Australia and New Zealand. TOEFL Mix rotates those target profiles automatically when your device offers a matching voice.</p></div>
+      <div class="audio-test-buttons" aria-label="Test English voice profiles">
+        <button class="btn secondary" data-test-accent="en-US" type="button">🇺🇸 Test US</button>
+        <button class="btn secondary" data-test-accent="en-GB" type="button">🇬🇧 Test UK</button>
+        <button class="btn secondary" data-test-accent="en-AU" type="button">🇦🇺 Test AU</button>
+        <button class="btn secondary" data-test-accent="en-NZ" type="button">🇳🇿 Test NZ</button>
+      </div>
+      <p class="voice-status" id="voiceStatus">Checking the English voices available on this device…</p>
+    </div>
+    <div class="official-note"><strong>Audio note:</strong> Exercise audio is generated locally by the speech voices installed on your device, so voice quality and exact accent availability vary. Practice mode unlocks replay after you answer; Exam conditions allows one play. If a requested accent is unavailable, the trainer falls back to another English voice rather than failing silently.</div>
   </section>
 
   <section class="view" id="view-speaking" data-view="speaking">
@@ -234,6 +246,8 @@
         <article class="card resource-card"><span class="tag indigo">READING</span><h3>The Conversation</h3><p>Read researchers explaining evidence to non-specialists. Identify the central claim, evidence type, qualifiers and any move from description to evaluation.</p><a class="btn secondary resource-link" href="https://theconversation.com/global" target="_blank" rel="noopener">Open The Conversation</a></article>
         <article class="card resource-card"><span class="tag indigo">SCIENCE INPUT</span><h3>Nature — News & Features</h3><p>Useful for unfamiliar scientific topics and compressed argumentation. Practise deciding what is established, provisional, contested or still unknown.</p><a class="btn secondary resource-link" href="https://www.nature.com/news" target="_blank" rel="noopener">Open Nature</a></article>
         <article class="card resource-card"><span class="tag indigo">LISTEN + TRANSCRIPT</span><h3>TED Talks</h3><p>Listen once without subtitles, reconstruct the line of reasoning, then check the transcript for missed reductions, linking and discourse markers.</p><a class="btn secondary resource-link" href="https://www.ted.com/talks" target="_blank" rel="noopener">Open TED Talks</a></article>
+        <article class="card resource-card"><span class="tag indigo">AUSTRALIAN ENGLISH</span><h3>ABC Radio National</h3><p>Use interviews, science programmes and long-form discussions to train Australian English at natural speed. Listen first for structure; use transcripts only after reconstructing the argument.</p><a class="btn secondary resource-link" href="https://www.abc.net.au/listen/radionational" target="_blank" rel="noopener">Open ABC Radio National</a></article>
+        <article class="card resource-card"><span class="tag indigo">ACCENT RANGE</span><h3>Deliberate accent rotation</h3><p>Do not train only with one familiar voice. Alternate North American, UK, Australian and New Zealand input so that comprehension depends on meaning, not on one pronunciation model.</p><button class="btn secondary" data-nav="listening" type="button">Open the Accent & Audio Check</button></article>
       </div>
     </section>
 
@@ -282,7 +296,7 @@
       <article class="card"><h2>Accessibility</h2><p>The site includes keyboard navigation, text-size controls, high contrast, a readable-font option, reduced motion and focus mode.</p></article>
       <article class="card"><h2>AI assistance</h2><p>© Eglantine Lecomte. The educational concept, pathways and training system were created by Eglantine Lecomte with the assistance of ChatGPT.</p></article>
     </div>
-    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Official information can change, so ETS remains the reference.</p></div>
+    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Version 3 also rotates North American, UK, Australian and New Zealand voice profiles for accent exposure when the device provides them. Official information can change, so ETS remains the reference.</p></div>
   </section>
 </main>
 
@@ -306,8 +320,8 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=20260921c"></script>
-<script src="app.js?v=20260921c"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260921c').then(r=>r.update()).catch(()=>{}));}</script>
+<script src="data.js?v=20260922v3"></script>
+<script src="app.js?v=20260922v3"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260922v3').then(r=>r.update()).catch(()=>{}));}</script>
 </body>
 </html>

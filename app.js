@@ -5,6 +5,7 @@
   const STORAGE_KEY = 'homemadeToeflProgressV5';
   const LEGACY_STORAGE_KEY = 'homemadeToeflProgressV3';
   const ACCESS_KEY = 'homemadeToeflAccessV2';
+  const AUDIO_KEY = 'homemadeToeflAudioV1';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = (s) => String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -70,7 +71,13 @@
   }
 
   let state = loadState();
-  let accent = 'en-US';
+  const ACCENT_PROFILES = {
+    'en-US': { label: 'North American', short: 'US', fallbacks: ['en-US','en-CA','en-GB'] },
+    'en-GB': { label: 'UK', short: 'UK', fallbacks: ['en-GB','en-IE','en-US'] },
+    'en-AU': { label: 'Australian', short: 'AU', fallbacks: ['en-AU','en-NZ','en-GB','en-US'] },
+    'en-NZ': { label: 'New Zealand', short: 'NZ', fallbacks: ['en-NZ','en-AU','en-GB','en-US'] }
+  };
+  let accent = (()=>{try{return localStorage.getItem(AUDIO_KEY)||'auto'}catch{return 'auto'}})();
   let currentTrap = 0;
   let diagIndex = 0, diagAnswers = [], diagLocked = false, diagAudioPlayed = true;
   let readingTab = 'word', readingIndex = 0, dailyQuestion = 0, academicQuestion = 0;
@@ -202,23 +209,53 @@
   const initial = location.hash.replace('#','');
   if ($(`[data-view="${initial}"]`)) navigate(initial);
 
-  // Accent + speech
+  // Accent + speech — TOEFL Mix rotates through accent profiles used in current TOEFL listening/speaking.
+  const accentButtons=$$('.accent-choice');
+  accentButtons.forEach(b=>b.classList.toggle('is-active',b.dataset.accent===accent));
+  if(!accentButtons.some(b=>b.classList.contains('is-active'))){accent='auto';accentButtons.find(b=>b.dataset.accent==='auto')?.classList.add('is-active');}
   $$('.accent-choice').forEach(b => b.addEventListener('click', () => {
     $$('.accent-choice').forEach(x => x.classList.remove('is-active'));
     b.classList.add('is-active'); accent = b.dataset.accent;
-    toast(`${b.textContent.trim()} voice selected`);
+    try{localStorage.setItem(AUDIO_KEY,accent)}catch{}
+    toast(accent==='auto'?'TOEFL Mix selected: accents rotate by exercise.':`${b.textContent.trim()} practice profile selected`);
+    updateVoiceStatus();
   }));
-  function speak(text, rate = .94, onEnd = null) {
+  function textHash(text=''){let h=0;for(let i=0;i<text.length;i++)h=((h<<5)-h+text.charCodeAt(i))|0;return Math.abs(h);}
+  function requestedAccent(text, hintedAccent=null){
+    if(accent!=='auto')return accent;
+    if(hintedAccent && ACCENT_PROFILES[hintedAccent])return hintedAccent;
+    const keys=Object.keys(ACCENT_PROFILES);return keys[textHash(text)%keys.length];
+  }
+  function findVoice(lang){
+    const voices=speechSynthesis.getVoices();
+    const profile=ACCENT_PROFILES[lang]||ACCENT_PROFILES['en-US'];
+    for(const candidate of profile.fallbacks){
+      const exact=voices.find(v=>v.lang?.toLowerCase()===candidate.toLowerCase());if(exact)return {voice:exact,actual:candidate};
+      const prefix=voices.find(v=>v.lang?.toLowerCase().startsWith(candidate.toLowerCase().slice(0,5)));if(prefix)return {voice:prefix,actual:prefix.lang};
+    }
+    const english=voices.find(v=>v.lang?.toLowerCase().startsWith('en'));return {voice:english||null,actual:english?.lang||lang};
+  }
+  function speak(text, rate = .94, onEnd = null, hintedAccent = null) {
     if (!('speechSynthesis' in window)) { toast('Text-to-speech is not available on this device.'); onEnd?.(); return; }
     speechSynthesis.cancel();
     const token = ++speechRunToken;
-    const u = new SpeechSynthesisUtterance(text); u.lang = accent; u.rate = rate;
-    const voices = speechSynthesis.getVoices();
-    const preferred = voices.find(v=>v.lang===accent) || voices.find(v=>v.lang.startsWith(accent.slice(0,2)));
-    if (preferred) u.voice = preferred;
+    const target=requestedAccent(text,hintedAccent);
+    const selected=findVoice(target);
+    const u = new SpeechSynthesisUtterance(text); u.lang = target; u.rate = rate;
+    if (selected.voice) u.voice = selected.voice;
     if (onEnd) u.onend = () => { if (token === speechRunToken) onEnd(); };
+    u.onerror=()=>{if(token===speechRunToken){toast('Audio playback failed on this device. Try another voice profile.');onEnd?.();}};
     speechSynthesis.speak(u);
   }
+  function updateVoiceStatus(){
+    const box=$('#voiceStatus');if(!box||!('speechSynthesis' in window))return;
+    const voices=speechSynthesis.getVoices();
+    if(!voices.length){box.textContent='Voice list is still loading. Try a test button in a moment.';return;}
+    const bits=Object.entries(ACCENT_PROFILES).map(([lang,p])=>{const v=findVoice(lang);const exact=v.voice && v.voice.lang?.toLowerCase().startsWith(lang.toLowerCase().slice(0,5));return `${p.short} ${exact?'✓':'↪ fallback'}`;});
+    box.textContent=`Available on this device: ${bits.join(' · ')}`;
+  }
+  $$('[data-test-accent]').forEach(b=>b.addEventListener('click',()=>{const lang=b.dataset.testAccent;speak(`This is a short ${ACCENT_PROFILES[lang]?.label||'English'} voice check for TOEFL listening practice.`,.94,null,lang);}));
+  if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=updateVoiceStatus;setTimeout(updateVoiceStatus,250);}
 
   // Daily C-level trap (general language control; does not distort one TOEFL skill)
   function renderTrap() {
@@ -258,7 +295,7 @@
     const stim=$('#diagStimulus'); stim.innerHTML='';
     if(item.type==='audio'){
       stim.innerHTML=`<div class="listen-box"><button class="speaker" type="button">▶ Listen once</button><span>One play for a fair diagnostic.</span></div>`;
-      $('.speaker',stim).onclick=()=>{const b=$('.speaker',stim);if(diagAudioPlayed)return;diagAudioPlayed=true;b.disabled=true;b.textContent='Listening…';speak(item.audio,.92,()=>{b.textContent='Played once';});};
+      $('.speaker',stim).onclick=()=>{const b=$('.speaker',stim);if(diagAudioPlayed)return;diagAudioPlayed=true;b.disabled=true;b.textContent='Listening…';speak(item.audio,.92,()=>{b.textContent='Played once';},item.accent);};
     } else if(item.stimulus) stim.innerHTML=`<div class="stimulus">${esc(item.stimulus)}</div>`;
     const ans=$('#diagAnswers'); ans.innerHTML='';
     item.options.forEach((o,i)=>{
@@ -402,12 +439,12 @@
   function renderListening(){
     const arr=D.listening[listeningTab],x=arr[listeningIndex%arr.length],qs=listeningQuestions(x),q=qs[listeningQuestion%qs.length],labels={response:'CHOOSE A RESPONSE',conversation:'CONVERSATION',announcement:'ANNOUNCEMENT',talk:'ACADEMIC TALK'};
     const w=$('#listeningWorkspace'), exam=listeningMode==='exam';
-    w.innerHTML=practiceMCQ(labels[listeningTab],`<div class="listen-box"><button class="speaker" id="playListening">${listeningAudioPlayed?(exam?'Played once':'▶ Replay'):'▶ Listen once'}</button><span>${exam?'Exam conditions: one play for the whole set; feedback stays hidden until the set ends.':'Practice: replay is available after the first answer.'}</span></div>${qs.length>1?`<div class="set-progress">Question ${listeningQuestion+1} / ${qs.length}</div>`:''}<h2>${esc(q.q)}</h2>`,q.options,q.answer,q.why,'listening');
+    w.innerHTML=practiceMCQ(labels[listeningTab],`<div class="listen-box"><button class="speaker" id="playListening">${listeningAudioPlayed?(exam?'Played once':'▶ Replay'):'▶ Listen once'}</button><span>${exam?'Exam conditions: one play for the whole set; feedback stays hidden until the set ends.':'Practice: replay is available after the first answer.'}</span></div>${qs.length>1?`<div class="set-progress">Question ${listeningQuestion+1} / ${qs.length}${!exam&&accent==='auto'&&x.accent?` · ${esc(ACCENT_PROFILES[x.accent]?.label||'English')} profile`:''}</div>`:''}<h2>${esc(q.q)}</h2>`,q.options,q.answer,q.why,'listening');
     w.dataset.answer=q.answer;w.dataset.why=q.why;
     let locked=false;
     const play=$('#playListening');
     play.disabled=exam&&listeningAudioPlayed;
-    play.onclick=()=>{if(exam&&listeningAudioPlayed)return;listeningAudioPlayed=true;play.disabled=true;play.textContent='Listening…';speak(x.audio,listeningTab==='talk'?.90:.93,()=>{play.textContent=exam?'Played once':'▶ Replay';play.disabled=exam;});};
+    play.onclick=()=>{if(exam&&listeningAudioPlayed)return;listeningAudioPlayed=true;play.disabled=true;play.textContent='Listening…';speak(x.audio,listeningTab==='talk'?.90:.93,()=>{play.textContent=exam?'Played once':'▶ Replay';play.disabled=exam;},x.accent);};
     const buttons=$$('.practice-options button',w),fb=$('.practice-feedback',w),next=$('#nextPractice',w);
     buttons.forEach(b=>b.onclick=()=>{
       if(locked)return;if(!listeningAudioPlayed){toast('Listen once before answering.');return;}locked=true;
@@ -441,12 +478,12 @@
     if('speechSynthesis' in window) speechSynthesis.cancel();
     const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length], sentence=set.sentences[repeatSentenceIndex];
     $('#repeatScenario').textContent=set.scenario;
-    $('#repeatProgress').textContent=`Sentence ${repeatSentenceIndex+1} / ${set.sentences.length}`;
+    $('#repeatProgress').textContent=`Sentence ${repeatSentenceIndex+1} / ${set.sentences.length}${accent==='auto'&&set.accent?` · ${ACCENT_PROFILES[set.accent]?.label||'English'} profile`:''}`;
     $('#repeatSentence').textContent='Transcript hidden. You will hear the sentence once, then get 10 seconds to repeat it.';
     $('#revealRepeat').disabled=true; $('#nextRepeatSentence').disabled=true;
     $('#playRepeat').disabled=false; $('#playRepeat').textContent='▶ Listen once';
   }
-  $('#playRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];const btn=$('#playRepeat');btn.disabled=true;btn.textContent='Listening…';speak(set.sentences[repeatSentenceIndex],.91,()=>{let left=10;$('#repeatSentence').textContent=`Repeat now · ${left}s`;activeRepeatTimer=setInterval(()=>{left--;$('#repeatSentence').textContent=left>0?`Repeat now · ${left}s`:'Time. Reveal the transcript and self-check.';if(left<=0){clearInterval(activeRepeatTimer);activeRepeatTimer=null;$('#revealRepeat').disabled=false;}},1000);});});
+  $('#playRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];const btn=$('#playRepeat');btn.disabled=true;btn.textContent='Listening…';speak(set.sentences[repeatSentenceIndex],.91,()=>{let left=10;$('#repeatSentence').textContent=`Repeat now · ${left}s`;activeRepeatTimer=setInterval(()=>{left--;$('#repeatSentence').textContent=left>0?`Repeat now · ${left}s`:'Time. Reveal the transcript and self-check.';if(left<=0){clearInterval(activeRepeatTimer);activeRepeatTimer=null;$('#revealRepeat').disabled=false;}},1000);},set.accent);});
   $('#revealRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];$('#repeatSentence').textContent=set.sentences[repeatSentenceIndex];$('#nextRepeatSentence').disabled=false;});
   $('#nextRepeatSentence')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];if(repeatSentenceIndex<set.sentences.length-1)repeatSentenceIndex++;else{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;}renderRepeat();});
   $('#newRepeat')?.addEventListener('click',()=>{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;renderRepeat();});
@@ -454,7 +491,7 @@
   function renderInterview(){
     const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];
     $('#interviewScenario').textContent=set.scenario;
-    $('#interviewProgress').textContent=`Question ${interviewQuestionIndex+1} / ${set.questions.length}`;
+    $('#interviewProgress').textContent=`Question ${interviewQuestionIndex+1} / ${set.questions.length}${accent==='auto'&&set.accent?` · ${ACCENT_PROFILES[set.accent]?.label||'English'} profile`:''}`;
     $('#interviewQuestion').textContent=set.questions[interviewQuestionIndex];
     $('#speakTimer').textContent='00:45';
     $('#recordingPlayback').classList.add('hidden'); $('#recordingPlayback').removeAttribute('src');
@@ -462,7 +499,7 @@
     $('#nextInterviewQ').disabled=true; $('#logSpeakingReview').disabled=true;
     $$('.speaking-check').forEach(x=>x.checked=false);
   }
-  $('#playInterview')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];speak(set.questions[interviewQuestionIndex],.94);});
+  $('#playInterview')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];speak(set.questions[interviewQuestionIndex],.94,null,set.accent);});
   $('#newInterview')?.addEventListener('click',()=>{stopRecording(true);interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;renderInterview();});
   $('#nextInterviewQ')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];interviewQuestionIndex++;if(interviewQuestionIndex>=set.questions.length){interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;}renderInterview();});
   $('#startRecording')?.addEventListener('click',async()=>{
@@ -546,8 +583,8 @@
 ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     (d.questions||[]).forEach(q=>items.push({section:'Reading',skill:'reading',category:q.category||'daily life',stimulus:d.text,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     const offset=(run*4)%D.listening.response.length;
-    Array.from({length:4},(_,i)=>D.listening.response[(offset+i)%D.listening.response.length]).forEach((x,i)=>items.push({section:'Listening',skill:'listening',category:x.category||'response',group:`response-${i}`,audio:x.audio,q:x.q,options:x.options,answer:x.answer,why:x.why}));
-    [[conv,`conversation-${run}`],[ann,`announcement-${run}`],[talk,`talk-${run}`]].forEach(([x,group])=>(x.questions||[]).forEach(q=>items.push({section:'Listening',skill:'listening',category:q.category||'listening',group,audio:x.audio,q:q.q,options:q.options,answer:q.answer,why:q.why})));
+    Array.from({length:4},(_,i)=>D.listening.response[(offset+i)%D.listening.response.length]).forEach((x,i)=>items.push({section:'Listening',skill:'listening',category:x.category||'response',group:`response-${i}`,audio:x.audio,accent:x.accent,q:x.q,options:x.options,answer:x.answer,why:x.why}));
+    [[conv,`conversation-${run}`],[ann,`announcement-${run}`],[talk,`talk-${run}`]].forEach(([x,group])=>(x.questions||[]).forEach(q=>items.push({section:'Listening',skill:'listening',category:q.category||'listening',group,audio:x.audio,accent:x.accent,q:q.q,options:q.options,answer:q.answer,why:q.why})));
     return items;
   }
   function startMock(){
@@ -557,7 +594,7 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   function renderMockItem(){
     const w=$('#mockRunner'),m=mockState,x=m.items[m.index],isListen=x.skill==='listening';const audioPlayed=!isListen||!!m.playedGroups[x.group];
     w.innerHTML=`<div class="quiz-top"><span class="tag ${isListen?'coral':'teal'}">${x.section.toUpperCase()}</span><strong>${m.index+1} / ${m.items.length}</strong></div><div class="progress"><span style="width:${(m.index/m.items.length)*100}%"></span></div>${isListen?`<div class="listen-box"><button class="speaker" id="mockPlay">${audioPlayed?'Played once':'▶ Listen once'}</button><span>One play per audio set. No feedback until the end.</span></div>`:`<div class="stimulus preserve-lines">${esc(x.stimulus)}</div>`}<h2>${esc(x.q)}</h2><div class="choice-row" id="mockOptions">${x.options.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('')}</div><div class="question-nav"><span>No answer feedback during the simulation.</span><button class="btn primary hidden" id="mockNext">${m.index===m.items.length-1?'Finish objective section →':'Next →'}</button></div>`;
-    if(isListen){$('#mockPlay').disabled=audioPlayed;$('#mockPlay').onclick=()=>{if(m.playedGroups[x.group])return;m.playedGroups[x.group]=true;$('#mockPlay').disabled=true;$('#mockPlay').textContent='Listening…';speak(x.audio,.92,()=>{$('#mockPlay').textContent='Played once';});};}
+    if(isListen){$('#mockPlay').disabled=audioPlayed;$('#mockPlay').onclick=()=>{if(m.playedGroups[x.group])return;m.playedGroups[x.group]=true;$('#mockPlay').disabled=true;$('#mockPlay').textContent='Listening…';speak(x.audio,.92,()=>{$('#mockPlay').textContent='Played once';},x.accent);};}
     $$('#mockOptions button',w).forEach(b=>b.onclick=()=>{if(isListen&&!m.playedGroups[x.group]){toast('Listen once before answering.');return;}$$('#mockOptions button',w).forEach(z=>z.disabled=true);b.classList.add('selected-answer');m.answers.push({index:m.index,selected:Number(b.dataset.i)});$('#mockNext').classList.remove('hidden');});
     $('#mockNext').onclick=()=>{m.index++;if(m.index<m.items.length)renderMockItem();else finishMock();};
   }

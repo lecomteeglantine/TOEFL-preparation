@@ -309,7 +309,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 2,
       "why": "The reservation concerns the distribution of errors in high-cost situations, not the average frequency alone.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-US"
     },
     {
       "skill": "listening",
@@ -324,7 +325,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 3,
       "why": "The extra time is for robustness checking, not for completing the initial analysis.",
-      "category": "purpose"
+      "category": "purpose",
+      "accent": "en-GB"
     },
     {
       "skill": "listening",
@@ -339,7 +341,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 0,
       "why": "The lecturer warns that extreme baseline values can move toward the average even without a treatment effect.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-AU"
     },
     {
       "skill": "listening",
@@ -354,7 +357,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 1,
       "why": "The speaker explicitly concedes a benefit, then limits how much weight it should receive.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-NZ"
     },
     {
       "skill": "listening",
@@ -369,7 +373,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 2,
       "why": "The announcement creates a specific exception for existing 10:30 ticket holders.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-US"
     },
     {
       "skill": "listening",
@@ -384,7 +389,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 3,
       "why": "The eastern comparison weakens a rainfall-only explanation while leaving rainfall potentially relevant.",
-      "category": "inference"
+      "category": "inference",
+      "accent": "en-GB"
     },
     {
       "skill": "listening",
@@ -399,7 +405,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 0,
       "why": "The subgroup analysis reveals heterogeneity hidden by the aggregate statistic.",
-      "category": "purpose"
+      "category": "purpose",
+      "accent": "en-AU"
     },
     {
       "skill": "listening",
@@ -414,7 +421,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 1,
       "why": "The speaker questions whether the replication actually instantiated the intended manipulation strongly enough.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-NZ"
     },
     {
       "skill": "listening",
@@ -429,7 +437,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 2,
       "why": "‘Approved in principle’ plus explicit conditions indicates conditional approval, not rejection or final funding.",
-      "category": "inference"
+      "category": "inference",
+      "accent": "en-US"
     },
     {
       "skill": "listening",
@@ -444,7 +453,8 @@ window.TOEFL_DATA = {
       ],
       "answer": 3,
       "why": "A concurrent shift in task composition provides an alternative contribution to the observed decline.",
-      "category": "detail/control"
+      "category": "detail/control",
+      "accent": "en-GB"
     },
     {
       "skill": "speaking",
@@ -808,6 +818,66 @@ window.TOEFL_DATA = {
         "text": "A lecture hall can be loud enough without making speech easy to understand. Sound reac[[hing]] a list[[ener]] includes both the dir[[ect]] signal from the spea[[ker]] and reflec[[tions]] from wal[[ls]], ceilings and furniture. Some reflection impr[[oves]] audibility, but excessive reverbe[[ration]] blurs succe[[ssive]] syllables and is espec[[ially]] difficult for listeners using a second language. Acoustic design therefore involves more than increasing volume. Designers adjust room shape, surface absorption and amplification so that speech remains clear across different seating positions without creating distracting echoes or uneven loudness.",
         "fullText": "A lecture hall can be loud enough without making speech easy to understand. Sound reaching a listener includes both the direct signal from the speaker and reflections from walls, ceilings and furniture. Some reflection improves audibility, but excessive reverberation blurs successive syllables and is especially difficult for listeners using a second language. Acoustic design therefore involves more than increasing volume. Designers adjust room shape, surface absorption and amplification so that speech remains clear across different seating positions without creating distracting echoes or uneven loudness.",
         "why": "Use syntax, collocation and the paragraph-level argument. The missing ending is recoverable from both form and meaning."
+      },
+      {
+        "title": "C-test · Coral recovery",
+        "text": "Coral reefs can regain living cover after severe disturbance, but recovery is not the same as returning to an earlier state. Juvenile cor[[als]] may settle quic[[kly]] while the orig[[inal]] species compos[[ition]] remains alte[[red]] for decades. Reco[[very]] also depe[[nds]] on local herbi[[vores]], water qual[[ity]] and whether repe[[ated]] heat stress interrupts growth before colonies mature. A reef that appears visually healthy can therefore differ substantially in age structure and ecological function from the community it replaced. Researchers increasingly distinguish rapid surface recovery from deeper recovery of diversity, reproduction and resilience.",
+        "fullText": "Coral reefs can regain living cover after severe disturbance, but recovery is not the same as returning to an earlier state. Juvenile corals may settle quickly while the original species composition remains altered for decades. Recovery also depends on local herbivores, water quality and whether repeated heat stress interrupts growth before colonies mature. A reef that appears visually healthy can therefore differ substantially in age structure and ecological function from the community it replaced. Researchers increasingly distinguish rapid surface recovery from deeper recovery of diversity, reproduction and resilience.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Medieval marginalia",
+        "text": "Margins in medieval manuscripts were not merely empty spaces around an authoritative text. Readers add[[ed]] corrections, symb[[ols]], translations and comm[[ents]] that rev[[eal]] how books we[[re]] used acr[[oss]] generations. So[[me]] marks clar[[ify]] difficult pass[[ages]], whereas oth[[ers]] challenge an argument or connect it with a different work. Because later owners could erase or overwrite earlier notes, the surviving page records a sequence of interactions rather than a single moment of reading. Historians therefore treat marginalia as evidence of interpretation, circulation and changing intellectual priorities, while remaining cautious about assigning anonymous marks to particular readers.",
+        "fullText": "Margins in medieval manuscripts were not merely empty spaces around an authoritative text. Readers added corrections, symbols, translations and comments that reveal how books were used across generations. Some marks clarify difficult passages, whereas others challenge an argument or connect it with a different work. Because later owners could erase or overwrite earlier notes, the surviving page records a sequence of interactions rather than a single moment of reading. Historians therefore treat marginalia as evidence of interpretation, circulation and changing intellectual priorities, while remaining cautious about assigning anonymous marks to particular readers.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Battery recycling",
+        "text": "Recycling lithium-ion batteries is often presented as a straightforward way to reduce demand for newly mined materials. In practice, the econ[[omic]] value of reco[[very]] varies wi[[th]] battery chemi[[stry]], metal pri[[ces]] and the condition of retu[[rned]] cells. Proce[[sses]] designed aro[[und]] cobalt-rich batte[[ries]] may become le[[ss]] profitable as manufacturers adopt chemistries containing less cobalt. At the same time, direct recycling methods that preserve cathode structure could reduce energy use but require cleaner sorting streams. A resilient recycling system must therefore adapt not only to present waste but also to technologies that are still entering the market.",
+        "fullText": "Recycling lithium-ion batteries is often presented as a straightforward way to reduce demand for newly mined materials. In practice, the economic value of recovery varies with battery chemistry, metal prices and the condition of returned cells. Processes designed around cobalt-rich batteries may become less profitable as manufacturers adopt chemistries containing less cobalt. At the same time, direct recycling methods that preserve cathode structure could reduce energy use but require cleaner sorting streams. A resilient recycling system must therefore adapt not only to present waste but also to technologies that are still entering the market.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Bilingual word access",
+        "text": "Bilingual speakers do not necessarily switch one language completely off when using the other. Experiments sh[[ow]] that wor[[ds]] from bo[[th]] languages can bec[[ome]] partially act[[ive]], especially wh[[en]] they sha[[re]] sounds or mean[[ings]]. This para[[llel]] activation can cre[[ate]] competition, but it can also support faster recognition when the languages overlap in helpful ways. The balance changes with proficiency, context and how recently each language has been used. Rather than treating bilingual lexical access as a simple on-off mechanism, researchers model it as a dynamic system in which activation is continuously adjusted.",
+        "fullText": "Bilingual speakers do not necessarily switch one language completely off when using the other. Experiments show that words from both languages can become partially active, especially when they share sounds or meanings. This parallel activation can create competition, but it can also support faster recognition when the languages overlap in helpful ways. The balance changes with proficiency, context and how recently each language has been used. Rather than treating bilingual lexical access as a simple on-off mechanism, researchers model it as a dynamic system in which activation is continuously adjusted.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Bus network redesign",
+        "text": "A bus network can become faster without becoming easier for every passenger to use. Replacing ma[[ny]] indirect rou[[tes]] with few[[er]] frequent tru[[nk]] lines may red[[uce]] waiting tim[[es]], yet it can also requ[[ire]] more trans[[fers]]. For riders wi[[th]] limited mobi[[lity]], small children or unpredictable schedules, an additional transfer may outweigh a shorter average journey. Planners therefore evaluate redesigns using more than system-wide speed. Access to essential destinations, transfer reliability and the distribution of benefits across neighbourhoods can reveal costs that disappear when performance is summarised by a single mean travel time.",
+        "fullText": "A bus network can become faster without becoming easier for every passenger to use. Replacing many indirect routes with fewer frequent trunk lines may reduce waiting times, yet it can also require more transfers. For riders with limited mobility, small children or unpredictable schedules, an additional transfer may outweigh a shorter average journey. Planners therefore evaluate redesigns using more than system-wide speed. Access to essential destinations, transfer reliability and the distribution of benefits across neighbourhoods can reveal costs that disappear when performance is summarised by a single mean travel time.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Exoplanet atmospheres",
+        "text": "Astronomers can infer features of an exoplanet atmosphere when the planet passes in front of its star. A small frac[[tion]] of starlight filt[[ers]] through the atmos[[phere]], where molec[[ules]] absorb parti[[cular]] wavelengths and lea[[ve]] a spectral patt[[ern]]. The signal is extre[[mely]] weak, howe[[ver]], and stellar acti[[vity]] can imitate or obscure atmospheric features. Clouds and hazes add another complication because they flatten parts of the spectrum. Researchers therefore compare repeated observations and competing atmospheric models rather than reading a single spectrum as a direct chemical inventory.",
+        "fullText": "Astronomers can infer features of an exoplanet atmosphere when the planet passes in front of its star. A small fraction of starlight filters through the atmosphere, where molecules absorb particular wavelengths and leave a spectral pattern. The signal is extremely weak, however, and stellar activity can imitate or obscure atmospheric features. Clouds and hazes add another complication because they flatten parts of the spectrum. Researchers therefore compare repeated observations and competing atmospheric models rather than reading a single spectrum as a direct chemical inventory.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Museum labels",
+        "text": "Museum labels influence what visitors notice before they begin to interpret an object for themselves. A label th[[at]] names a mak[[er]], date and mate[[rial]] can orient atten[[tion]] efficiently, whi[[le]] a longer interp[[retive]] text may fra[[me]] the object wit[[hin]] social or polit[[ical]] debates. Yet addit[[ional]] information does not always improve understanding. Dense labels can discourage reading, and authoritative wording may hide uncertainty or contested provenance. Curators increasingly test different label formats, asking not only what information visitors remember but also whether the text invites comparison, questioning and closer observation of the object.",
+        "fullText": "Museum labels influence what visitors notice before they begin to interpret an object for themselves. A label that names a maker, date and material can orient attention efficiently, while a longer interpretive text may frame the object within social or political debates. Yet additional information does not always improve understanding. Dense labels can discourage reading, and authoritative wording may hide uncertainty or contested provenance. Curators increasingly test different label formats, asking not only what information visitors remember but also whether the text invites comparison, questioning and closer observation of the object.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Soil microbiomes",
+        "text": "Soil microbial communities respond rapidly to changes in moisture, temperature and available nutrients. Because thous[[ands]] of microbial ta[[xa]] can coexist in a sma[[ll]] sample, resear[[chers]] often desc[[ribe]] communities usi[[ng]] broad funct[[ional]] categories rat[[her]] than trac[[king]] every orga[[nism]] separately. Similar functions may be performed by different taxa, which means that a community can change composition while maintaining some ecological processes. This functional redundancy can increase resilience, but only up to a point. Extreme or repeated disturbance may remove groups that perform specialised roles, causing effects that become visible only after environmental conditions change again.",
+        "fullText": "Soil microbial communities respond rapidly to changes in moisture, temperature and available nutrients. Because thousands of microbial taxa can coexist in a small sample, researchers often describe communities using broad functional categories rather than tracking every organism separately. Similar functions may be performed by different taxa, which means that a community can change composition while maintaining some ecological processes. This functional redundancy can increase resilience, but only up to a point. Extreme or repeated disturbance may remove groups that perform specialised roles, causing effects that become visible only after environmental conditions change again.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Default choices",
+        "text": "Default options can influence decisions even when people are free to choose something else. One explanation is th[[at]] changing the defa[[ult]] requires eff[[ort]], but defaults can al[[so]] be interpreted as recommen[[dations]] about wh[[at]] is normal or prefe[[rred]]. The same defa[[ult]] may therefore ha[[ve]] different effe[[cts]] depending on trust in the institution that sets it. Researchers distinguish these mechanisms because they have different policy implications. If inertia is dominant, simplifying the switching process may reduce the effect; if endorsement matters, changing how the option is presented may be more important.",
+        "fullText": "Default options can influence decisions even when people are free to choose something else. One explanation is that changing the default requires effort, but defaults can also be interpreted as recommendations about what is normal or preferred. The same default may therefore have different effects depending on trust in the institution that sets it. Researchers distinguish these mechanisms because they have different policy implications. If inertia is dominant, simplifying the switching process may reduce the effect; if endorsement matters, changing how the option is presented may be more important.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
+      },
+      {
+        "title": "C-test · Digital archives",
+        "text": "Digitisation greatly expands access to historical collections, yet a digital archive is never a neutral copy of everything that exists. Institutions dec[[ide]] what to sc[[an]] first, how to desc[[ribe]] it and which sea[[rch]] fields use[[rs]] can query. Frag[[ile]] material may rem[[ain]] offline, whi[[le]] well-catalogued collec[[tions]] become dispropor[[tionately]] visible. Search ranking adds another layer by making some records easier to encounter than others. Scholars using digital archives therefore need to consider the selection and metadata processes that shaped the searchable corpus, particularly when absence from a search result is treated as evidence of historical absence.",
+        "fullText": "Digitisation greatly expands access to historical collections, yet a digital archive is never a neutral copy of everything that exists. Institutions decide what to scan first, how to describe it and which search fields users can query. Fragile material may remain offline, while well-catalogued collections become disproportionately visible. Search ranking adds another layer by making some records easier to encounter than others. Scholars using digital archives therefore need to consider the selection and metadata processes that shaped the searchable corpus, particularly when absence from a search result is treated as evidence of historical absence.",
+        "why": "Use syntax, collocation, discourse logic and word formation together. Do not solve each gap in isolation."
       }
     ],
     "daily": [
@@ -1108,6 +1178,306 @@ window.TOEFL_DATA = {
             "answer": 1,
             "why": "The instruction is explicitly linked to expected temporary cloudiness.",
             "category": "cause"
+          }
+        ]
+      },
+      {
+        "kind": "EMAIL",
+        "text": "Subject: Change to dissertation clinic\nFriday's dissertation clinic will begin at 13:30 rather than 14:00 because the room is needed for an examination later in the afternoon. Students with existing 14:30 appointments have been moved to 13:30 and should reply only if they cannot attend. The online booking page will continue to show the old times until tomorrow morning.",
+        "questions": [
+          {
+            "q": "A student had a 14:30 appointment. What should they assume?",
+            "options": [
+              "Their appointment is now at 13:30 unless they tell the organiser they cannot attend.",
+              "Their appointment is cancelled because the booking page has not changed.",
+              "They should book a new slot tomorrow morning.",
+              "They should arrive at 14:00 because only the clinic start time changed."
+            ],
+            "answer": 0,
+            "why": "The email explicitly says 14:30 appointments have been moved to 13:30 and a reply is needed only if attendance is impossible.",
+            "category": "detail"
+          },
+          {
+            "q": "Why is the online booking page mentioned?",
+            "options": [
+              "To warn students not to rely on its displayed times yet.",
+              "To ask students to delete their bookings.",
+              "To explain how the examination room was allocated.",
+              "To announce that online booking has closed permanently."
+            ],
+            "answer": 0,
+            "why": "The page temporarily contains outdated information, so the email prevents confusion.",
+            "category": "purpose"
+          }
+        ]
+      },
+      {
+        "kind": "SCHEDULE",
+        "text": "CAMPUS SHUTTLE — EXAM WEEK\n07:40 North Gate → Library → Science Park\n08:10 North Gate → Library → Science Park\n08:40 North Gate → Science Park (does not stop at Library)\n09:10 North Gate → Library → Science Park\nAfter 09:10, normal weekday service resumes. Students with 09:00 library examinations should use the 08:10 service; the 08:40 shuttle bypasses the Library.",
+        "questions": [
+          {
+            "q": "Which service is specifically recommended for a 09:00 examination at the Library?",
+            "options": [
+              "08:10",
+              "07:40",
+              "08:40",
+              "09:10"
+            ],
+            "answer": 0,
+            "why": "The final sentence gives the recommended service explicitly.",
+            "category": "scanning"
+          },
+          {
+            "q": "What is unusual about the 08:40 shuttle?",
+            "options": [
+              "It skips the Library stop.",
+              "It begins at the Library.",
+              "It runs only after normal service resumes.",
+              "It terminates at North Gate."
+            ],
+            "answer": 0,
+            "why": "The schedule marks the 08:40 shuttle as not stopping at the Library.",
+            "category": "detail"
+          }
+        ]
+      },
+      {
+        "kind": "TEXT MESSAGE",
+        "text": "Maya: The statistics lab says my booking disappeared.\nJon: Did you confirm it through the email link?\nMaya: I clicked the link this morning, but the page said the confirmation period had expired.\nJon: Then email the lab coordinator. They keep unclaimed slots for ten minutes before releasing them, and someone may still be able to restore yours if the room is not full.\nMaya: I will do that now.",
+        "questions": [
+          {
+            "q": "What most likely caused Maya’s booking problem?",
+            "options": [
+              "She did not confirm within the required period.",
+              "She booked the wrong laboratory.",
+              "The room was closed this morning.",
+              "Jon cancelled the booking."
+            ],
+            "answer": 0,
+            "why": "The expired confirmation message indicates that the confirmation deadline passed.",
+            "category": "inference"
+          },
+          {
+            "q": "Why does Jon recommend emailing the coordinator immediately?",
+            "options": [
+              "The slot may still be recoverable if it has not been taken.",
+              "The coordinator must create all bookings manually.",
+              "The confirmation link can only be reopened by Jon.",
+              "The laboratory never releases unclaimed slots."
+            ],
+            "answer": 0,
+            "why": "Jon says restoration may still be possible if the room is not full.",
+            "category": "purpose"
+          }
+        ]
+      },
+      {
+        "kind": "FORM",
+        "text": "FIELD TRIP ACCESS REQUEST\nComplete this form only if you require an adjustment that is not already recorded in your student support plan. Requests for dietary preferences should be entered on the separate catering form. Submit access requests at least seven working days before departure. If your needs change after the deadline, contact the trip leader directly rather than submitting a second form.",
+        "questions": [
+          {
+            "q": "Who should use this form?",
+            "options": [
+              "A student needing a new access adjustment for the trip.",
+              "A student choosing a vegetarian lunch.",
+              "Every student joining the trip.",
+              "A student whose existing support plan already covers the required adjustment."
+            ],
+            "answer": 0,
+            "why": "The form is only for adjustments not already recorded in the support plan.",
+            "category": "detail"
+          },
+          {
+            "q": "What should a student do if their needs change after the deadline?",
+            "options": [
+              "Contact the trip leader directly.",
+              "Submit the same form twice.",
+              "Use the catering form instead.",
+              "Wait until departure day."
+            ],
+            "answer": 0,
+            "why": "The final instruction gives a different route after the deadline.",
+            "category": "detail"
+          }
+        ]
+      },
+      {
+        "kind": "INVOICE",
+        "text": "EQUIPMENT LOAN STATEMENT\nItem: Portable audio recorder\nReturn due: 18 March\nReturned: 20 March\nLate fee shown: £12\nStatus: ON HOLD — return was scanned during a system outage. Do not pay while the review is pending. If the scan confirms a 20 March return, the fee will be reduced to the standard two-day charge; if an earlier return is verified, it will be removed entirely.",
+        "questions": [
+          {
+            "q": "What should the borrower do now?",
+            "options": [
+              "Wait for the review before paying.",
+              "Pay £12 immediately.",
+              "Return the recorder again.",
+              "Request a new loan period."
+            ],
+            "answer": 0,
+            "why": "The status explicitly says not to pay while the review is pending.",
+            "category": "detail"
+          },
+          {
+            "q": "Why might the fee disappear completely?",
+            "options": [
+              "An earlier return date may be verified.",
+              "The equipment was never borrowed.",
+              "All two-day late fees are automatically cancelled.",
+              "The system outage made late fees illegal."
+            ],
+            "answer": 0,
+            "why": "The statement says the fee will be removed if an earlier return is verified.",
+            "category": "inference"
+          }
+        ]
+      },
+      {
+        "kind": "SOCIAL POST",
+        "text": "STUDENT RESEARCH FORUM\nWe have released ten additional seats for Thursday's poster session. Registration is free, but the new seats are standing-room places and do not include lunch. Students already on the waiting list will receive a private booking link at noon; any remaining places will become public at 16:00. Please do not register through both links, as duplicate bookings will be cancelled.",
+        "questions": [
+          {
+            "q": "Who gets first access to the additional seats?",
+            "options": [
+              "Students already on the waiting list.",
+              "Anyone who visits the public page before noon.",
+              "Students who want lunch included.",
+              "Only poster presenters."
+            ],
+            "answer": 0,
+            "why": "Waiting-list students receive a private link before public release.",
+            "category": "detail"
+          },
+          {
+            "q": "Why does the post warn against using both links?",
+            "options": [
+              "Duplicate registrations will be cancelled.",
+              "The private link charges a fee.",
+              "The public link includes lunch.",
+              "Using both links removes someone from the waiting list."
+            ],
+            "answer": 0,
+            "why": "The stated consequence of duplicate booking is cancellation.",
+            "category": "purpose"
+          }
+        ]
+      },
+      {
+        "kind": "NOTICE",
+        "text": "QUIET FLOOR TRIAL\nFor the next three weeks, Level 4 will operate as a silent study floor from 10:00 to 16:00. Group rooms on that level remain bookable, but conversations must stay inside the rooms with doors closed. Phone calls should be taken on Level 3. The library will review noise reports and occupancy data before deciding whether to make the arrangement permanent.",
+        "questions": [
+          {
+            "q": "What activity is still permitted on Level 4 during the trial?",
+            "options": [
+              "Closed-door conversation inside booked group rooms.",
+              "Phone calls beside the lifts.",
+              "Open discussion at study tables.",
+              "Unrestricted group work anywhere on the floor."
+            ],
+            "answer": 0,
+            "why": "Group-room conversation is explicitly allowed if it remains inside with the doors closed.",
+            "category": "detail"
+          },
+          {
+            "q": "What will influence whether the policy continues?",
+            "options": [
+              "Noise reports and occupancy data.",
+              "Only the number of room bookings.",
+              "The number of phone calls on Level 3.",
+              "Whether students request longer opening hours."
+            ],
+            "answer": 0,
+            "why": "The notice names the evidence that will be reviewed.",
+            "category": "detail"
+          }
+        ]
+      },
+      {
+        "kind": "EMAIL",
+        "text": "Subject: Peer-review workshop — preparation\nPlease upload your 600-word draft by 18:00 on Monday. You will receive a partner's draft automatically on Tuesday morning. Bring written comments to Wednesday's workshop; do not send them to your partner beforehand because the first activity compares readers' initial interpretations. If you miss Monday's upload deadline, you may still attend, but the system cannot guarantee that you will be assigned a draft to review.",
+        "questions": [
+          {
+            "q": "Why should students not send comments before Wednesday?",
+            "options": [
+              "The workshop begins by comparing independent first interpretations.",
+              "The teacher wants to grade the comments privately.",
+              "Partners are assigned only after the workshop.",
+              "Written comments are optional."
+            ],
+            "answer": 0,
+            "why": "The email links delayed sharing to the design of the first activity.",
+            "category": "purpose"
+          },
+          {
+            "q": "What is a consequence of missing the upload deadline?",
+            "options": [
+              "The student may attend but may not receive a draft to review.",
+              "The student is automatically removed from the course.",
+              "The student must submit two drafts.",
+              "The Wednesday workshop is cancelled for that student."
+            ],
+            "answer": 0,
+            "why": "Attendance remains possible, but draft assignment is no longer guaranteed.",
+            "category": "detail"
+          }
+        ]
+      },
+      {
+        "kind": "ADVERTISEMENT",
+        "text": "ACADEMIC ENGLISH CLINIC — DROP-IN PILOT\nBring one paragraph, one slide or one minute of recorded speech. A tutor will work with you for up to twelve minutes on one clearly defined problem: argument structure, sentence control, pronunciation or academic register. The clinic is not a proofreading service and tutors will not edit complete assignments. Arrive before 16:30; the queue closes when all remaining slots are allocated.",
+        "questions": [
+          {
+            "q": "Which request best fits the clinic?",
+            "options": [
+              "Feedback on whether one paragraph makes its argument clear.",
+              "Proofreading an entire dissertation chapter.",
+              "Rewriting a complete assignment before submission.",
+              "Checking every reference in a bibliography."
+            ],
+            "answer": 0,
+            "why": "The clinic targets one defined language problem in a small sample, not full-document editing.",
+            "category": "application"
+          },
+          {
+            "q": "Why might arriving at 16:20 still be too late?",
+            "options": [
+              "The queue can close once all remaining slots are allocated.",
+              "The clinic always closes at 16:00.",
+              "Tutors stop giving pronunciation advice after 16:00.",
+              "Only booked students can attend after 15:00."
+            ],
+            "answer": 0,
+            "why": "The closing condition depends on slot allocation, not only the clock.",
+            "category": "inference"
+          }
+        ]
+      },
+      {
+        "kind": "PORTAL MESSAGE",
+        "text": "MODULE CHOICE UPDATE\nYour first-choice elective is currently full. You have been placed on its waiting list and enrolled provisionally in your second choice so that you keep a complete timetable. If a first-choice place becomes available before 30 September, the system will switch you automatically and remove the provisional module. After that date, changes require approval from both module leaders.",
+        "questions": [
+          {
+            "q": "Why has the student been enrolled in the second-choice module?",
+            "options": [
+              "To preserve a complete timetable while they wait.",
+              "Because the first choice has been permanently rejected.",
+              "Because students must take both modules until 30 September.",
+              "To remove them from the waiting list."
+            ],
+            "answer": 0,
+            "why": "The second-choice enrolment is explicitly provisional while the waiting-list position remains active.",
+            "category": "purpose"
+          },
+          {
+            "q": "What happens if a first-choice place opens before 30 September?",
+            "options": [
+              "The system switches the student automatically.",
+              "The student must obtain approval from both leaders first.",
+              "The student stays in both modules.",
+              "The waiting list is cancelled."
+            ],
+            "answer": 0,
+            "why": "Automatic switching is specified for places that become available before the deadline.",
+            "category": "detail"
           }
         ]
       }
@@ -1772,6 +2142,336 @@ window.TOEFL_DATA = {
             "category": "vocabulary in context"
           }
         ]
+      },
+      {
+        "title": "Soundscapes and ecological monitoring",
+        "text": "Ecologists increasingly use sound recordings to monitor environments that are difficult to survey continuously. A forest soundscape contains biological signals such as bird, insect and amphibian calls, but also wind, rain and human-made noise. Automated recorders can collect thousands of hours of data without a researcher remaining on site, making them attractive for long-term monitoring. The challenge is deciding what features of those recordings actually represent ecological change.\n\nOne approach measures broad acoustic indices, such as how sound energy is distributed across frequencies. These indices can reveal major shifts, but similar numerical values may arise from very different communities. A second approach identifies particular species from their calls. This can provide greater biological specificity, yet it depends on reliable reference libraries and may miss organisms whose calls overlap or vary geographically.\n\nFor this reason, researchers often combine automated acoustic measures with targeted species detection and occasional field surveys. The recordings are valuable not because every sound has an obvious ecological meaning, but because they create a repeatable archive that can be reanalysed as detection methods improve. Long-term acoustic monitoring is therefore strongest when treated as one layer of evidence rather than a direct substitute for ecological observation.",
+        "questions": [
+          {
+            "q": "What is the passage mainly arguing?",
+            "options": [
+              "Acoustic monitoring is useful when interpreted with other evidence rather than treated as a complete substitute for field observation.",
+              "Broad acoustic indices always identify individual species accurately.",
+              "Field surveys are obsolete because automated recorders can run continuously.",
+              "Human-made noise is the most important component of every soundscape."
+            ],
+            "answer": 0,
+            "why": "The passage weighs complementary methods and ends by positioning acoustics as one evidence layer.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why can broad acoustic indices be difficult to interpret?",
+            "options": [
+              "Different ecological communities can produce similar index values.",
+              "They can be calculated only during field surveys.",
+              "They ignore all sound frequencies above human hearing.",
+              "They require every species to have a reference recording."
+            ],
+            "answer": 0,
+            "why": "The passage explicitly warns that similar numerical values can arise from different communities.",
+            "category": "detail"
+          },
+          {
+            "q": "What limitation of species-level detection is mentioned?",
+            "options": [
+              "It depends on reference libraries and can struggle with overlapping or variable calls.",
+              "It works only for amphibians.",
+              "It cannot be automated.",
+              "It produces too little data for long-term monitoring."
+            ],
+            "answer": 0,
+            "why": "Both reference quality and call overlap/variation are named limitations.",
+            "category": "detail"
+          },
+          {
+            "q": "Why does the author call recordings a “repeatable archive”?",
+            "options": [
+              "Old recordings can be analysed again when better detection methods become available.",
+              "Recordings automatically repeat the same species every year.",
+              "Researchers must replay every file during fieldwork.",
+              "Archived recordings eliminate the need for interpretation."
+            ],
+            "answer": 0,
+            "why": "The archive retains raw evidence that can be reprocessed later.",
+            "category": "inference"
+          },
+          {
+            "q": "Which statement best matches the author’s stance?",
+            "options": [
+              "Methodological combination is more defensible than relying on a single acoustic metric.",
+              "Only species identification should be used in serious ecology.",
+              "Acoustic indices are meaningless because they are not species names.",
+              "Field surveys should be used only when recording equipment fails."
+            ],
+            "answer": 0,
+            "why": "The passage consistently favours triangulation rather than one exclusive method.",
+            "category": "stance"
+          }
+        ]
+      },
+      {
+        "title": "Varnish removal in painting conservation",
+        "text": "Old paintings are often covered by varnish layers that were intended to saturate colours and protect the surface. Over time, some varnishes yellow, crack or accumulate dirt, changing how the painting appears. Removing them may reveal colours closer to an earlier state, but the process is not simply a matter of cleaning away an unwanted film. Solvents that dissolve varnish can also affect later retouching, glazes or fragile paint layers.\n\nConservators therefore begin with small tests, using microscopy, ultraviolet imaging and chemical analysis to understand the sequence of materials on the surface. Even when a varnish is clearly discoloured, complete removal may not be the safest or most historically appropriate choice. A later varnish can itself be part of an object’s documented history, and earlier restorations may have altered the paint beneath it.\n\nThe central decision is consequently interpretive as well as technical. Conservators ask what change is reversible, what evidence might be lost, and which historical state the treatment is intended to privilege. A successful treatment is not necessarily the one that makes a painting look newest; it is one whose visual benefits are justified by a careful account of material risk and historical significance.",
+        "questions": [
+          {
+            "q": "What is the main purpose of the passage?",
+            "options": [
+              "To explain why varnish removal is both a technical and interpretive conservation decision.",
+              "To show that old varnish should always be removed completely.",
+              "To compare museum lighting systems.",
+              "To argue that restoration history has no value."
+            ],
+            "answer": 0,
+            "why": "The passage develops the risks, evidence and interpretive choices involved in treatment.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why are small tests performed before treatment?",
+            "options": [
+              "To identify surface layers and how proposed solvents may affect them.",
+              "To make the painting look newer before exhibition.",
+              "To determine the artist’s original market price.",
+              "To remove all later retouching immediately."
+            ],
+            "answer": 0,
+            "why": "Testing is used to understand material sequence and solvent effects.",
+            "category": "purpose"
+          },
+          {
+            "q": "What can make complete varnish removal historically questionable?",
+            "options": [
+              "The varnish or earlier restoration may itself be part of the object’s history.",
+              "All varnishes are original to the artist.",
+              "Ultraviolet imaging works only through varnish.",
+              "Museums are required to preserve dirt on paintings."
+            ],
+            "answer": 0,
+            "why": "The passage explicitly notes the historical value of later interventions.",
+            "category": "detail"
+          },
+          {
+            "q": "What does “privilege” mean in the final paragraph?",
+            "options": [
+              "Treat as the state that treatment aims to emphasise or favour.",
+              "Hide from public view.",
+              "Make legally protected.",
+              "Measure with greater precision."
+            ],
+            "answer": 0,
+            "why": "The term refers to choosing which historical state the intervention gives priority to.",
+            "category": "vocabulary in context"
+          },
+          {
+            "q": "Which treatment would the author most likely favour?",
+            "options": [
+              "One that balances visual improvement against material risk and historical evidence.",
+              "The strongest solvent that removes the most material.",
+              "A treatment that recreates the newest possible appearance.",
+              "Complete removal whenever varnish has yellowed."
+            ],
+            "answer": 0,
+            "why": "The conclusion defines success through justified balance, not maximal removal.",
+            "category": "inference"
+          }
+        ]
+      },
+      {
+        "title": "Remote work and city centres",
+        "text": "The growth of remote and hybrid work has changed weekday activity in many city centres, but the effects are uneven. Office districts that once depended on a large daily commuter population can experience lower demand for lunches, transport and convenience services. Yet fewer commuters do not automatically imply long-term decline. Some central areas contain housing, universities, cultural institutions and tourism that can support different patterns of use.\n\nEconomists therefore distinguish between a reduction in office demand and a broader loss of urban value. Commercial rents may fall before buildings are converted to other purposes, and conversion itself can be costly because deep office floor plates, ventilation systems and planning rules do not always suit housing. At the same time, lower rents can make central locations accessible to organisations that were previously priced out.\n\nThe transition is partly a coordination problem. A neighbourhood may become attractive for residents only after shops, schools and public spaces adapt, but those services may not expand until enough residents arrive. Policy can influence this sequence through zoning, transport and investment in public amenities. The likely future of city centres is therefore not determined by remote work alone, but by how quickly land use and services adjust to new demand.",
+        "questions": [
+          {
+            "q": "What is the author’s central claim?",
+            "options": [
+              "Remote work changes city-centre demand, but outcomes depend on how land use and services adapt.",
+              "Remote work will inevitably empty all city centres.",
+              "Commercial buildings can always be converted cheaply into housing.",
+              "Tourism is the only activity that can replace office work."
+            ],
+            "answer": 0,
+            "why": "The passage repeatedly argues against a single deterministic outcome.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why might office-to-housing conversion be difficult?",
+            "options": [
+              "Building design and regulation may not fit residential use.",
+              "Housing always generates less rent than offices.",
+              "Universities prevent residential development.",
+              "Remote workers are legally barred from city centres."
+            ],
+            "answer": 0,
+            "why": "Floor plates, ventilation and planning rules are given as obstacles.",
+            "category": "detail"
+          },
+          {
+            "q": "What possible benefit of falling rents does the passage mention?",
+            "options": [
+              "Previously excluded organisations may gain access to central locations.",
+              "Transport demand immediately returns to previous levels.",
+              "All empty offices become cultural institutions.",
+              "Housing construction becomes unnecessary."
+            ],
+            "answer": 0,
+            "why": "Lower rents may open central space to users priced out before.",
+            "category": "detail"
+          },
+          {
+            "q": "What is meant by a “coordination problem”?",
+            "options": [
+              "Changes in residents and services may depend on each other and therefore occur slowly.",
+              "Cities lack enough data to count commuters.",
+              "Remote employees cannot coordinate their working hours.",
+              "Planning rules are identical across all neighbourhoods."
+            ],
+            "answer": 0,
+            "why": "The passage describes mutual dependence between residents and supporting services.",
+            "category": "inference"
+          },
+          {
+            "q": "Which factor does the author treat as especially important for future outcomes?",
+            "options": [
+              "The speed and direction of adaptation in land use, amenities and services.",
+              "Whether every employee works remotely five days a week.",
+              "The historical age of office buildings alone.",
+              "The elimination of public transport."
+            ],
+            "answer": 0,
+            "why": "The conclusion makes adaptation central to the future trajectory.",
+            "category": "main idea"
+          }
+        ]
+      },
+      {
+        "title": "Expectation and placebo effects",
+        "text": "Placebo effects are often misunderstood as evidence that symptoms are imaginary. In clinical research, the term refers instead to changes associated with the treatment context rather than with a treatment’s specific active component. Expectations, previous experience, communication with clinicians and the ritual of receiving care can all influence outcomes such as pain or nausea. These effects are real experiences, but they do not imply that expectation can alter every biological process.\n\nResearchers separate placebo-related change from other sources of improvement. Symptoms may fluctuate naturally, patients may seek care when symptoms are unusually severe, and repeated measurement can itself change behaviour. A placebo group captures some of these influences, which is why improvement within that group cannot automatically be attributed to expectation. Studies that compare different treatment contexts, manipulate information or include no-treatment conditions can help isolate particular mechanisms.\n\nThe practical implication is not that clinicians should deceive patients. Research on open-label placebos and communication suggests that context can sometimes be used ethically, for example by setting realistic positive expectations while remaining honest about uncertainty. The scientific task is to identify when contextual effects matter, how large they are, and which outcomes they can plausibly influence.",
+        "questions": [
+          {
+            "q": "What misconception does the passage challenge?",
+            "options": [
+              "That placebo effects mean symptoms are not real.",
+              "That expectations can influence pain.",
+              "That symptoms sometimes fluctuate naturally.",
+              "That treatment context includes clinician communication."
+            ],
+            "answer": 0,
+            "why": "The first sentence explicitly identifies and rejects this misconception.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why is improvement in a placebo group not sufficient proof of an expectation effect?",
+            "options": [
+              "Other processes such as natural fluctuation and regression toward typical symptom levels may contribute.",
+              "Placebo groups never receive any clinical contact.",
+              "Expectation effects occur only in laboratory animals.",
+              "All placebo-group improvement is measurement error."
+            ],
+            "answer": 0,
+            "why": "The passage lists several alternative sources of change.",
+            "category": "inference"
+          },
+          {
+            "q": "What can no-treatment conditions help researchers do?",
+            "options": [
+              "Separate contextual mechanisms from improvement that might have occurred anyway.",
+              "Guarantee that participants have no expectations.",
+              "Replace the need for placebo groups in every design.",
+              "Measure only biological outcomes."
+            ],
+            "answer": 0,
+            "why": "They provide an additional comparison for isolating mechanisms.",
+            "category": "purpose"
+          },
+          {
+            "q": "What position does the passage take on deception?",
+            "options": [
+              "Contextual effects can sometimes be used without deceiving patients.",
+              "Deception is necessary for every placebo effect.",
+              "Clinicians should exaggerate certainty to improve outcomes.",
+              "Open-label placebos are described as impossible."
+            ],
+            "answer": 0,
+            "why": "The final paragraph explicitly rejects deception as a necessary implication.",
+            "category": "stance"
+          },
+          {
+            "q": "The word “plausibly” in the final sentence mainly signals…",
+            "options": [
+              "a need to constrain claims to mechanisms that are credible rather than unlimited.",
+              "certainty that all outcomes are affected.",
+              "a moral judgement about patient honesty.",
+              "a statistical requirement for large samples."
+            ],
+            "answer": 0,
+            "why": "The adverb limits the scope of claims about what context can influence.",
+            "category": "vocabulary in context"
+          }
+        ]
+      },
+      {
+        "title": "Ocean alkalinity and carbon storage",
+        "text": "The ocean already absorbs a substantial fraction of human carbon dioxide emissions, partly because dissolved carbon participates in chemical reactions involving bicarbonate and carbonate ions. This chemistry has led researchers to investigate whether increasing ocean alkalinity could enhance carbon storage. In principle, adding certain alkaline materials can shift seawater chemistry so that more carbon dioxide is drawn from the atmosphere and retained in dissolved form.\n\nThe difficulty is moving from chemical possibility to environmental intervention. Candidate materials differ in mining impacts, energy requirements, dissolution rates and impurities. Adding material locally can also change pH before ocean mixing disperses it, so ecological effects depend on dose and location. Measuring additional carbon uptake is challenging because natural ocean carbon fluxes are large and variable.\n\nFor these reasons, proposals are evaluated using laboratory experiments, modelling and small field trials rather than assuming that a favourable chemical reaction automatically produces a scalable climate solution. The key questions concern net carbon removal, durability, ecological risk and the resources required to deploy the method. Ocean alkalinity enhancement is therefore best understood as a developing research area whose promise depends on system-level accounting rather than on chemistry alone.",
+        "questions": [
+          {
+            "q": "What is the passage mainly about?",
+            "options": [
+              "Why ocean alkalinity enhancement requires system-level evaluation beyond its basic chemistry.",
+              "Why oceans no longer absorb carbon dioxide.",
+              "Why all alkaline minerals have identical environmental effects.",
+              "How to eliminate natural variation in ocean carbon fluxes."
+            ],
+            "answer": 0,
+            "why": "The passage contrasts chemical plausibility with deployment, measurement and ecological constraints.",
+            "category": "main idea"
+          },
+          {
+            "q": "What effect could adding alkaline material have in principle?",
+            "options": [
+              "It could shift seawater chemistry to support additional atmospheric carbon uptake.",
+              "It could prevent seawater from mixing.",
+              "It could stop all ocean acidification instantly.",
+              "It could convert every dissolved ion into carbonate rock."
+            ],
+            "answer": 0,
+            "why": "The first paragraph describes the proposed chemical pathway.",
+            "category": "detail"
+          },
+          {
+            "q": "Why is measuring added carbon uptake difficult?",
+            "options": [
+              "Natural carbon exchanges are already large and variable.",
+              "Carbon dioxide cannot be measured in seawater.",
+              "Field trials are prohibited in all oceans.",
+              "Alkaline materials dissolve at exactly the same rate."
+            ],
+            "answer": 0,
+            "why": "The passage identifies the size and variability of natural fluxes as a measurement challenge.",
+            "category": "detail"
+          },
+          {
+            "q": "Why does the author mention mining impacts and energy requirements?",
+            "options": [
+              "To show that net benefit depends on the full deployment chain, not only seawater chemistry.",
+              "To argue that no mineral should ever be mined.",
+              "To explain why pH cannot change.",
+              "To prove that laboratory experiments are unnecessary."
+            ],
+            "answer": 0,
+            "why": "These upstream costs affect whether the intervention delivers genuine net removal.",
+            "category": "purpose"
+          },
+          {
+            "q": "Which conclusion is best supported?",
+            "options": [
+              "Promising chemistry is necessary but insufficient evidence for a scalable climate intervention.",
+              "The method has already been proven safe at global scale.",
+              "Ecological effects are irrelevant if carbon uptake increases.",
+              "Modelling can replace all field measurements."
+            ],
+            "answer": 0,
+            "why": "The conclusion explicitly resists equating chemical possibility with a proven solution.",
+            "category": "inference"
+          }
+        ]
       }
     ]
   },
@@ -1788,7 +2488,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The response addresses the implied change of plan.",
-        "category": "pragmatic response"
+        "category": "pragmatic response",
+        "accent": "en-US"
       },
       {
         "audio": "Would you mind sending me the figure without the confidence bands?",
@@ -1801,7 +2502,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The reply appropriately resists the request and explains why.",
-        "category": "pragmatic response"
+        "category": "pragmatic response",
+        "accent": "en-GB"
       },
       {
         "audio": "I may have misunderstood the deadline. Was the abstract due today?",
@@ -1814,7 +2516,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 1,
         "why": "It directly clarifies the timeline.",
-        "category": "detail"
+        "category": "detail",
+        "accent": "en-AU"
       },
       {
         "audio": "The seminar room is empty. Has the talk been cancelled?",
@@ -1827,7 +2530,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The reply explains the empty room and implies the talk is still happening.",
-        "category": "inference"
+        "category": "inference",
+        "accent": "en-NZ"
       },
       {
         "audio": "Do we need to read the appendix before tomorrow’s discussion?",
@@ -1840,7 +2544,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It gives a specific requirement and qualification.",
-        "category": "pragmatic response"
+        "category": "pragmatic response",
+        "accent": "en-US"
       },
       {
         "audio": "I’m not sure the conclusion follows from that graph.",
@@ -1853,7 +2558,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The response engages with the concern and identifies a reason.",
-        "category": "stance"
+        "category": "stance",
+        "accent": "en-GB"
       },
       {
         "audio": "Could I borrow your notes from the lecture?",
@@ -1866,7 +2572,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It agrees while adding a relevant limitation.",
-        "category": "pragmatic response"
+        "category": "pragmatic response",
+        "accent": "en-AU"
       },
       {
         "audio": "I was expecting more people at the consultation session.",
@@ -1879,7 +2586,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It provides a plausible explanation tied to the situation.",
-        "category": "inference"
+        "category": "inference",
+        "accent": "en-NZ"
       },
       {
         "audio": "The article says the effect is statistically significant, so is it important?",
@@ -1892,7 +2600,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The reply distinguishes statistical detection from practical importance.",
-        "category": "concept"
+        "category": "concept",
+        "accent": "en-US"
       },
       {
         "audio": "Why did the lecturer spend so long on that failed experiment?",
@@ -1905,7 +2614,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It explains the rhetorical purpose of the example.",
-        "category": "purpose"
+        "category": "purpose",
+        "accent": "en-GB"
       },
       {
         "audio": "I can submit the form tonight, can’t I?",
@@ -1918,7 +2628,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The response accepts one point while adding a deadline condition.",
-        "category": "detail"
+        "category": "detail",
+        "accent": "en-AU"
       },
       {
         "audio": "Wouldn’t a larger sample solve the problem?",
@@ -1931,7 +2642,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The answer distinguishes sampling precision from systematic error.",
-        "category": "concept"
+        "category": "concept",
+        "accent": "en-NZ"
       },
       {
         "audio": "Did the committee reject the proposal?",
@@ -1944,7 +2656,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "“Not exactly” corrects the implied binary interpretation.",
-        "category": "inference"
+        "category": "inference",
+        "accent": "en-US"
       },
       {
         "audio": "I thought the museum closed at five.",
@@ -1957,7 +2670,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It resolves the apparent contradiction with a schedule exception.",
-        "category": "detail"
+        "category": "detail",
+        "accent": "en-GB"
       },
       {
         "audio": "Should we include every result in the presentation?",
@@ -1970,7 +2684,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It gives a selective strategy tied to purpose.",
-        "category": "organisation"
+        "category": "organisation",
+        "accent": "en-AU"
       },
       {
         "audio": "The train is delayed again. Are we going to miss registration?",
@@ -1983,7 +2698,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "It answers the concern using a condition and relevant timing.",
-        "category": "inference"
+        "category": "inference",
+        "accent": "en-NZ"
       },
       {
         "audio": "Why did you remove that quotation from the essay?",
@@ -1996,7 +2712,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The explanation links editing to function and economy.",
-        "category": "purpose"
+        "category": "purpose",
+        "accent": "en-US"
       },
       {
         "audio": "Is the new software difficult to learn?",
@@ -2009,7 +2726,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The response gives a nuanced answer rather than a vague generalisation.",
-        "category": "stance"
+        "category": "stance",
+        "accent": "en-GB"
       },
       {
         "audio": "Could we move the meeting to Friday afternoon?",
@@ -2022,7 +2740,8 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The reply offers conditional availability.",
-        "category": "pragmatic response"
+        "category": "pragmatic response",
+        "accent": "en-AU"
       },
       {
         "audio": "The two studies reach opposite conclusions. Which one is right?",
@@ -2035,7 +2754,288 @@ window.TOEFL_DATA = {
         ],
         "answer": 0,
         "why": "The answer identifies comparability checks before choosing a conclusion.",
-        "category": "evaluation"
+        "category": "evaluation",
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Did the department approve your request to change supervisors?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Not yet. They asked me to explain how the change would affect the project timeline.",
+          "The department is on the second floor.",
+          "My supervisor has published several papers.",
+          "The request form was blue last year."
+        ],
+        "answer": 0,
+        "why": "The response answers the status question and explains the remaining requirement.",
+        "category": "pragmatic response",
+        "accent": "en-US"
+      },
+      {
+        "audio": "I thought the guest lecture was supposed to be in the main theatre.",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "It was, but the audience was smaller than expected, so they moved it to Room 204.",
+          "The main theatre has excellent acoustics.",
+          "Guest lectures usually last about an hour.",
+          "Room 204 is near the stairs."
+        ],
+        "answer": 0,
+        "why": "It directly resolves the apparent change of venue.",
+        "category": "pragmatic response",
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Would you mind sending me the dataset before the meeting?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Of course. I just need to remove the identifying fields first.",
+          "The meeting begins at three.",
+          "The dataset contains several variables.",
+          "I usually take notes during meetings."
+        ],
+        "answer": 0,
+        "why": "The reply accepts the request while stating a necessary condition.",
+        "category": "pragmatic response",
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Why did you leave that result out of the presentation?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Because the estimate changed substantially when we corrected the coding error, and I wanted to verify it first.",
+          "The presentation template was updated yesterday.",
+          "Results are usually shown in the middle slides.",
+          "Coding is taught in the first semester."
+        ],
+        "answer": 0,
+        "why": "It gives a reason for omitting the result.",
+        "category": "pragmatic response",
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Are you still planning to apply for the exchange programme?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Yes, although I am waiting for confirmation that the courses will transfer for credit.",
+          "The exchange office closes at five.",
+          "Applications can be several pages long.",
+          "I studied abroad once before."
+        ],
+        "answer": 0,
+        "why": "It answers yes but qualifies the plan with an unresolved condition.",
+        "category": "pragmatic response",
+        "accent": "en-US"
+      },
+      {
+        "audio": "The library says this article is available online, but I still cannot open it.",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Try signing in through the university portal first; the publisher may not recognise you off campus.",
+          "The article was published in June.",
+          "Online journals have different page layouts.",
+          "The library catalogue is searchable."
+        ],
+        "answer": 0,
+        "why": "It offers a plausible solution to the access problem.",
+        "category": "pragmatic response",
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Didn't we agree to collect another week of observations?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "We did, but the site will be closed for maintenance, so we need to reschedule the final visits.",
+          "The observation sheet has twelve columns.",
+          "A week has seven days.",
+          "Maintenance teams usually work quickly."
+        ],
+        "answer": 0,
+        "why": "It acknowledges the agreement and explains why the plan must change.",
+        "category": "pragmatic response",
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Could I submit the reflection a day late?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Possibly, but you need to ask the module leader because I cannot authorise extensions.",
+          "The reflection is worth ten percent.",
+          "A day late is twenty-four hours.",
+          "The module leader teaches on Mondays."
+        ],
+        "answer": 0,
+        "why": "It responds to the request and identifies the correct authority.",
+        "category": "pragmatic response",
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Why is everyone comparing the two graphs instead of reporting the averages?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Because the averages are similar, but the distributions show very different patterns.",
+          "Graphs are easier to print in colour.",
+          "The averages were calculated in the spreadsheet.",
+          "Reporting results is part of the assignment."
+        ],
+        "answer": 0,
+        "why": "It explains why distributional information matters despite similar means.",
+        "category": "pragmatic response",
+        "accent": "en-US"
+      },
+      {
+        "audio": "Do you think we need to rerun the experiment?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Only if the calibration check confirms that the sensor drifted during the final trials.",
+          "The experiment took two hours.",
+          "Calibration is described in the manual.",
+          "The final trials were on Friday."
+        ],
+        "answer": 0,
+        "why": "It gives a conditional answer tied to evidence.",
+        "category": "pragmatic response",
+        "accent": "en-GB"
+      },
+      {
+        "audio": "I cannot tell whether the professor is criticising the theory or just the evidence.",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "I think the distinction is deliberate: she accepts the theory as plausible but says this study does not isolate its mechanism.",
+          "The professor speaks quite quickly.",
+          "The theory was published twenty years ago.",
+          "Evidence is discussed in most lectures."
+        ],
+        "answer": 0,
+        "why": "It resolves the interpretive distinction in the prompt.",
+        "category": "pragmatic response",
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Should we put the limitation in the abstract?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "If it changes how readers should interpret the main result, I would mention it briefly there.",
+          "The abstract has a strict word limit.",
+          "Limitations are often discussed near the end.",
+          "The main result appears in Table 2."
+        ],
+        "answer": 0,
+        "why": "It gives a principled condition rather than a generic rule.",
+        "category": "pragmatic response",
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Was the workshop cancelled because too few people registered?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "No. Registration was full; the facilitator became unavailable at short notice.",
+          "The workshop was advertised last month.",
+          "Facilitators usually arrive early.",
+          "Registration forms can be completed online."
+        ],
+        "answer": 0,
+        "why": "It directly corrects the proposed explanation.",
+        "category": "pragmatic response",
+        "accent": "en-US"
+      },
+      {
+        "audio": "Can I use the same example in the introduction and the conclusion?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "You can, if the conclusion returns to it for a different purpose rather than simply repeating it.",
+          "Introductions and conclusions are both important.",
+          "Examples should be grammatically complete.",
+          "The conclusion is usually shorter."
+        ],
+        "answer": 0,
+        "why": "It answers the question with a rhetorical qualification.",
+        "category": "pragmatic response",
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Why did the committee postpone the decision?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Two members asked for the cost assumptions to be checked before they voted.",
+          "The committee meets once a month.",
+          "The decision was on the agenda.",
+          "Voting rules are in the handbook."
+        ],
+        "answer": 0,
+        "why": "It supplies the reason for postponement.",
+        "category": "pragmatic response",
+        "accent": "en-AU"
+      },
+      {
+        "audio": "I thought the new software was supposed to save us time.",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "It does for routine cases, but the unusual files still have to be checked manually.",
+          "The software was installed on Monday.",
+          "Routine cases are common.",
+          "Manuals are available online."
+        ],
+        "answer": 0,
+        "why": "It acknowledges the expectation while explaining a limitation.",
+        "category": "pragmatic response",
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Would you say the article supports the policy?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Only cautiously. It reports an association, but the design cannot show that the policy caused the difference.",
+          "The policy was introduced nationally.",
+          "The article has six figures.",
+          "Support can mean several things."
+        ],
+        "answer": 0,
+        "why": "It gives a calibrated interpretation of the evidence.",
+        "category": "pragmatic response",
+        "accent": "en-US"
+      },
+      {
+        "audio": "Do I need to bring my laptop to the seminar?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Not for the discussion, but you will need it for the data exercise in the second half.",
+          "The seminar room has a projector.",
+          "Most laptops are portable.",
+          "The discussion is on the reading list."
+        ],
+        "answer": 0,
+        "why": "It gives the practical distinction the question requires.",
+        "category": "pragmatic response",
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Why are we keeping that variable if it is not statistically significant?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Because it was specified in the analysis plan as a potential confounder, not selected for its p-value.",
+          "The variable is listed in the appendix.",
+          "Statistical software reports many p-values.",
+          "The analysis plan was submitted online."
+        ],
+        "answer": 0,
+        "why": "It explains the inferential reason for retaining the variable.",
+        "category": "pragmatic response",
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Could you look over my email before I send it to the placement coordinator?",
+        "q": "Choose the most appropriate response.",
+        "options": [
+          "Sure. Are you mainly worried about the tone or about whether the request is clear?",
+          "The placement coordinator replied yesterday.",
+          "Emails usually have a subject line.",
+          "I sent a message last week."
+        ],
+        "answer": 0,
+        "why": "It accepts the request and asks a useful clarifying question.",
+        "category": "pragmatic response",
+        "accent": "en-NZ"
       }
     ],
     "conversation": [
@@ -2066,7 +3066,8 @@ window.TOEFL_DATA = {
             "why": "The tutor says a paper can appear wherever it contributes, provided referencing remains clear.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "audio": "Student: The equipment booking page says the microscope is unavailable all week, but my project deadline is Friday. Technician: One unit is being serviced, but the second one is reserved for teaching only until Wednesday afternoon. If the class finishes on time, I can release it for research bookings after four. Student: Should I book another lab now? Technician: Keep the alternative booking for the moment. I will email you by noon Wednesday if the microscope becomes available.",
@@ -2095,7 +3096,8 @@ window.TOEFL_DATA = {
             "why": "The technician explicitly says to keep the alternative booking for now.",
             "category": "detail"
           }
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "audio": "Student: I received feedback saying my proposal is too broad, but I only have six weeks for the project. Adviser: That is exactly why you need to narrow it. At the moment you are asking whether social media changes political participation in general. Choose one platform, one type of participation and a specific population. Student: Would that make the project less interesting? Adviser: Not if the narrower question lets you collect evidence you can actually interpret.",
@@ -2124,7 +3126,8 @@ window.TOEFL_DATA = {
             "why": "The final exchange directly addresses the student’s worry about interest.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "audio": "Student: The library catalogue says the book is available, but it is not on the shelf. Librarian: “Available” can mean it is in the building, including the reshelving area. I can check the return carts. Student: I need only one chapter for tomorrow. Librarian: If we cannot find the print copy, the chapter is also in an e-book package, but access is limited to three simultaneous users. Try the online version first while I search.",
@@ -2153,7 +3156,8 @@ window.TOEFL_DATA = {
             "why": "The librarian proposes a parallel solution: online access while searching.",
             "category": "next action"
           }
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "audio": "Student: I thought my presentation was under the ten-minute limit, but the practice recording is twelve minutes. Friend: The introduction takes nearly three minutes before you reach the question. Student: I wanted to give enough background. Friend: Keep the background that the audience needs to understand the result, but move the history of the debate to a backup slide. Your main result is actually clear once you get there.",
@@ -2182,7 +3186,8 @@ window.TOEFL_DATA = {
             "why": "The advice preserves essential background but relocates the history of the debate.",
             "category": "organisation"
           }
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "audio": "Student: The internship advert says applicants need “experience with data”, but that seems vague. Careers adviser: It is. Do not assume they mean professional employment. Your dissertation, laboratory work and student-society survey all involved data. Student: Should I list all three? Adviser: Select the examples that show different skills, then describe what you actually did rather than merely naming the project.",
@@ -2211,7 +3216,8 @@ window.TOEFL_DATA = {
             "why": "The adviser asks for selective evidence and concrete descriptions.",
             "category": "detail"
           }
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "audio": "Student: My accommodation contract ends two days before the resit exam. Housing officer: We can sometimes extend contracts for academic reasons, but the request has to come from your department. Student: I already have the exam timetable. Is that enough? Housing officer: Send it to your programme office and ask them to confirm the exam date to us. Once we receive that confirmation, I can check whether the room is still available.",
@@ -2240,7 +3246,8 @@ window.TOEFL_DATA = {
             "why": "The conversation distinguishes the student’s evidence from the required institutional confirmation.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "audio": "Student: I used the article you recommended, but its results contradict the paper from last week. Professor: Do they really contradict, or are they answering different questions? Last week’s study estimated the average effect across all schools. This one asks whether the effect differs by prior attainment. Student: So both findings could be true? Professor: Yes. A small average can hide large positive and negative effects in different groups.",
@@ -2269,7 +3276,128 @@ window.TOEFL_DATA = {
             "why": "The final sentence explains how averaging can conceal opposing subgroup effects.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-US"
+      },
+      {
+        "audio": "Student: I am confused by the feedback on my methods section. It says I need to justify the sampling frame, but I already wrote that we recruited volunteers. Tutor: That explains how participants entered the study, not why that group can answer your research question. Who could volunteer, and who was excluded before recruitment even began? Student: So I need to describe the population that had a chance of being sampled, not just the final sample? Tutor: Exactly, and then consider what that means for generalising the results.",
+        "questions": [
+          {
+            "q": "What distinction is the tutor asking the student to make?",
+            "options": [
+              "The difference between the population eligible to be sampled and the people who finally volunteered.",
+              "The difference between qualitative and quantitative methods.",
+              "The difference between sample size and statistical power.",
+              "The difference between recruitment emails and consent forms."
+            ],
+            "answer": 0,
+            "why": "The tutor distinguishes the sampling frame from the eventual volunteers.",
+            "category": "main idea"
+          },
+          {
+            "q": "What does the tutor imply the student should discuss next?",
+            "options": [
+              "How the sampling frame limits generalisation.",
+              "How to increase the number of questionnaire items.",
+              "Why volunteers are always representative.",
+              "How to remove all excluded participants from the report."
+            ],
+            "answer": 0,
+            "why": "The final comment links the sampling frame to the scope of generalisation.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Student: The careers portal says my application is incomplete, but I uploaded the transcript and reference yesterday. Adviser: The portal checks those automatically, so the missing item is probably the eligibility declaration. Student: I thought that was part of the main form. Adviser: It used to be. This year it is a separate page because the placement rules changed. If you complete it today, the status should update overnight. Student: So I do not need to upload the transcript again? Adviser: No, that would only create a duplicate record.",
+        "questions": [
+          {
+            "q": "What is most likely missing from the application?",
+            "options": [
+              "A separate eligibility declaration.",
+              "A new academic transcript.",
+              "A second reference.",
+              "A duplicate application form."
+            ],
+            "answer": 0,
+            "why": "The adviser identifies the declaration as the likely missing item.",
+            "category": "detail"
+          },
+          {
+            "q": "Why does the adviser tell the student not to upload the transcript again?",
+            "options": [
+              "It would create a duplicate rather than solve the actual problem.",
+              "Transcripts are no longer accepted.",
+              "The transcript has expired.",
+              "The placement rules prohibit electronic documents."
+            ],
+            "answer": 0,
+            "why": "The transcript is already present; duplicate upload would be counterproductive.",
+            "category": "purpose"
+          }
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Student: I shortened my presentation to eight minutes, but it still feels rushed. Lecturer: What did you cut? Student: Mostly examples. I kept every definition because I thought the audience needed them. Lecturer: Some definitions are necessary, but several terms are standard for this audience. If you define everything, you spend time on information they already have and leave too little room for your argument. Student: So the solution is not simply to speak faster. Lecturer: Definitely not. Make the hierarchy clearer instead.",
+        "questions": [
+          {
+            "q": "What does the lecturer think is causing the rushed presentation?",
+            "options": [
+              "Too much time is spent defining familiar terms, leaving insufficient time for the argument.",
+              "The student has included too many examples.",
+              "The student is speaking too slowly.",
+              "The audience lacks all background knowledge."
+            ],
+            "answer": 0,
+            "why": "The lecturer specifically questions the need to define standard terms.",
+            "category": "main idea"
+          },
+          {
+            "q": "What does “make the hierarchy clearer” most likely mean?",
+            "options": [
+              "Decide which information is essential and give it more time than background material.",
+              "Arrange the slides in alphabetical order.",
+              "Use a louder voice for every definition.",
+              "Add more examples before the conclusion."
+            ],
+            "answer": 0,
+            "why": "The lecturer wants stronger prioritisation rather than faster delivery.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "Student: The housing office offered me a room, but the contract starts two weeks before my course. I do not want to pay for time I will not use. Adviser: Before declining it, ask whether they can change the start date. Some contracts are fixed, but this residence keeps a small number of flexible rooms for late-arriving international students. Student: The email did not mention that. Adviser: It would not; the flexible allocation is handled individually once an offer has been made.",
+        "questions": [
+          {
+            "q": "What does the adviser recommend first?",
+            "options": [
+              "Ask whether the contract start date can be adjusted.",
+              "Decline the offer immediately.",
+              "Arrive two weeks early.",
+              "Apply to a different university."
+            ],
+            "answer": 0,
+            "why": "The adviser explicitly recommends checking flexibility before declining.",
+            "category": "detail"
+          },
+          {
+            "q": "Why was the flexible-room option not mentioned in the email?",
+            "options": [
+              "It is handled case by case after an offer is made.",
+              "It is available only to staff.",
+              "The adviser invented the option.",
+              "The residence has stopped using flexible rooms."
+            ],
+            "answer": 0,
+            "why": "The adviser explains that flexible allocation is individual rather than part of the standard message.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-US"
       }
     ],
     "announcement": [
@@ -2300,7 +3428,8 @@ window.TOEFL_DATA = {
             "why": "The announcement links the arrival time to the equipment check.",
             "category": "purpose"
           }
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "audio": "Attention students using the north entrance: construction work will close the usual pedestrian path from Monday to Thursday. Please follow the blue signs around the science building and allow an extra five minutes to reach lecture rooms 1.20 through 1.35. Bicycle racks remain accessible from the east gate, but bicycles may not be wheeled through the temporary indoor route.",
@@ -2329,7 +3458,8 @@ window.TOEFL_DATA = {
             "why": "The announcement explicitly advises allowing an extra five minutes.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "audio": "Because of forecast high winds, tomorrow’s coastal field trip will depart at eleven rather than eight. The morning survey has been cancelled, but the afternoon sampling exercise is expected to proceed if conditions improve. Students should check the course platform at nine thirty for a final confirmation before travelling to campus. Do not assume that the delayed departure means the trip is definitely going ahead.",
@@ -2358,7 +3488,8 @@ window.TOEFL_DATA = {
             "why": "It explicitly prevents interpreting the delay as final confirmation.",
             "category": "purpose"
           }
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "audio": "Library users are reminded that the silent reading floor will close at six this Friday for electrical testing. The ground-floor study area will remain open until midnight, and existing room bookings on floors two and three are unaffected. If you need a completely quiet space after six, the medical library has extended access until ten with a valid university card.",
@@ -2387,7 +3518,8 @@ window.TOEFL_DATA = {
             "why": "The medical library is identified as the quiet alternative.",
             "category": "next action"
           }
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "audio": "Students presenting at the undergraduate conference should upload slides by five p.m. Wednesday. You may still revise your spoken presentation after that deadline, but the version displayed in the lecture theatre will be the file uploaded to the conference portal. If your talk contains video, use the compatibility checker before submission; staff cannot replace presentation files from personal USB drives on the day.",
@@ -2416,7 +3548,8 @@ window.TOEFL_DATA = {
             "why": "The checker is a precaution because last-minute file replacement is unavailable.",
             "category": "purpose"
           }
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "audio": "The language centre’s Friday conversation groups are changing rooms this week. The intermediate group will meet in 2.08, while the advanced group will use 2.14. Times are unchanged. Students who registered for one-to-one tutoring should ignore this announcement; individual appointments remain in the tutoring offices listed in your confirmation email.",
@@ -2445,7 +3578,128 @@ window.TOEFL_DATA = {
             "why": "The announcement explicitly says times are unchanged.",
             "category": "detail"
           }
-        ]
+        ],
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "A reminder for students using the fabrication lab this week: the laser cutter is operational again, but bookings are limited to thirty minutes until the replacement cooling unit has completed its trial period. Existing one-hour bookings will remain visible in the calendar; staff will contact those users directly to divide the slots. The 3D printers and electronics benches are unaffected. Please do not shorten your own reservation in the system unless a technician asks you to do so.",
+        "questions": [
+          {
+            "q": "What temporary restriction applies to the laser cutter?",
+            "options": [
+              "Bookings are limited to thirty minutes.",
+              "Only staff may use it.",
+              "It is available only for one-hour bookings.",
+              "It can be used without a reservation."
+            ],
+            "answer": 0,
+            "why": "The announcement states the temporary thirty-minute limit.",
+            "category": "detail"
+          },
+          {
+            "q": "Why are students told not to edit existing bookings themselves?",
+            "options": [
+              "Staff will manage the necessary changes directly.",
+              "The booking system is permanently closed.",
+              "The other equipment uses the same booking.",
+              "Students must pay for any change."
+            ],
+            "answer": 0,
+            "why": "Technicians will contact affected users and divide slots.",
+            "category": "purpose"
+          }
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "audio": "Tomorrow's field methods class will begin at the river entrance rather than outside the teaching building. The footpath from the south gate is closed after overnight flooding, so use the north gate and allow an extra ten minutes to walk from the bus stop. The weather forecast is dry, but the ground remains saturated; waterproof footwear is required. If river levels rise again before 7 a.m., the department will post a cancellation notice on the course page.",
+        "questions": [
+          {
+            "q": "What has changed about the class?",
+            "options": [
+              "The meeting point has moved to the river entrance.",
+              "The class has already been cancelled.",
+              "Students must use the south gate.",
+              "The class will begin ten minutes later."
+            ],
+            "answer": 0,
+            "why": "The meeting point changes; the extra ten minutes is walking allowance, not a new start time.",
+            "category": "detail"
+          },
+          {
+            "q": "When would students learn about a possible cancellation?",
+            "options": [
+              "If river levels rise, a notice will be posted before the class.",
+              "Only after they arrive at the river entrance.",
+              "At the end of the class.",
+              "Through the bus company."
+            ],
+            "answer": 0,
+            "why": "The department will post on the course page if conditions worsen before 7 a.m.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-GB"
+      },
+      {
+        "audio": "Students registered for the academic writing retreat should note that lunch is no longer included because the caterer has withdrawn from the event. The registration fee has been reduced automatically, and you do not need to request a refund. You may bring food into the common room, but not into the computer lab. The retreat programme and tutor appointments are unchanged. Anyone with a dietary accommodation already arranged will receive a separate email today.",
+        "questions": [
+          {
+            "q": "What financial change will happen automatically?",
+            "options": [
+              "The registration fee will be reduced.",
+              "The full fee will be refunded.",
+              "Students will receive a lunch voucher.",
+              "Tutor appointments will cost extra."
+            ],
+            "answer": 0,
+            "why": "The fee reduction requires no separate refund request.",
+            "category": "detail"
+          },
+          {
+            "q": "Who will receive an additional message?",
+            "options": [
+              "Students who had already arranged a dietary accommodation.",
+              "Everyone using the computer lab.",
+              "Only students who cancel the retreat.",
+              "Students without tutor appointments."
+            ],
+            "answer": 0,
+            "why": "The final sentence identifies this group.",
+            "category": "detail"
+          }
+        ],
+        "accent": "en-NZ"
+      },
+      {
+        "audio": "The library's citation manager workshop on Thursday is now a hybrid session. If you booked an in-person place, your reservation is unchanged. Students on the waiting list have been offered online places and should use the link sent this morning; joining online does not remove you from the waiting list for a future in-person workshop. Because the trainer will demonstrate browser extensions, online participants should join from a laptop rather than a phone or tablet.",
+        "questions": [
+          {
+            "q": "What happens to existing in-person bookings?",
+            "options": [
+              "They remain valid.",
+              "They are converted to online places.",
+              "They move to a future workshop.",
+              "They must be confirmed again."
+            ],
+            "answer": 0,
+            "why": "The announcement explicitly says in-person reservations are unchanged.",
+            "category": "detail"
+          },
+          {
+            "q": "Why are online participants advised to use a laptop?",
+            "options": [
+              "The workshop will demonstrate browser extensions.",
+              "The video platform does not work on tablets.",
+              "Laptops are required for the waiting list.",
+              "The library lends phones only."
+            ],
+            "answer": 0,
+            "why": "The device advice is linked to the planned demonstration.",
+            "category": "purpose"
+          }
+        ],
+        "accent": "en-US"
       }
     ],
     "talk": [
@@ -2500,7 +3754,8 @@ window.TOEFL_DATA = {
             "why": "The conclusion asks planners to align outcomes with the intended mechanism.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "audio": "In medieval manuscripts, marginal notes were not always private comments made by individual readers. Some were copied deliberately from one manuscript to another. A note explaining a difficult phrase could become part of a tradition of commentary, while another note might identify a disagreement between authorities. This matters because a crowded margin does not necessarily tell us that one reader was unusually active. The annotations may accumulate across generations of copying. Scholars therefore compare handwriting, ink, placement and parallel manuscripts to estimate when a note entered the textual tradition. If the same comment appears in several manuscripts that descend from a common exemplar, it may have been inherited rather than independently invented. Marginalia can still reveal reading practices, but only when researchers distinguish the history of the note from the history of the physical page on which it survives.",
@@ -2553,7 +3808,8 @@ window.TOEFL_DATA = {
             "why": "The talk distinguishes history of the note from history of the page.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "audio": "A common intuition is that a stronger incentive should always produce more of the desired behaviour. That is not necessarily true when the incentive changes how people interpret the activity. Suppose volunteers are offered a very small payment for a task they previously performed without compensation. The payment may signal that the task is unpleasant work rather than a contribution to a shared cause. In that case, participation can fall even though the financial reward is positive. Economists and psychologists describe several mechanisms that can produce this kind of crowding out, including changes in social norms and self-perception. The practical lesson is not that money always reduces motivation. Larger payments can still matter, and context varies. The lesson is that incentives carry information as well as purchasing power. Policy design should therefore consider what a payment communicates, not merely its monetary size.",
@@ -2606,7 +3862,8 @@ window.TOEFL_DATA = {
             "why": "The conclusion asks designers to consider communicative meaning.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "audio": "When scientists reconstruct past climates from tree rings, ice cores or lake sediments, they are not reading thermometers preserved from the past. They are using proxies: measurable features that vary with climate but can also respond to other influences. Tree-ring width, for example, may reflect temperature, rainfall, soil conditions and competition between trees. Researchers therefore calibrate a proxy against periods for which instrumental records exist and often combine several independent proxies. Agreement across different archives can increase confidence, especially when the archives have different sources of error. Disagreement is also informative because it may reveal local effects or a breakdown in the assumed relationship between proxy and climate. The key point is that a proxy is not valuable because it is a perfect substitute for direct measurement. It is valuable because its relationship to the target can be modelled, tested and compared with other evidence.",
@@ -2659,7 +3916,8 @@ window.TOEFL_DATA = {
             "why": "The talk treats disagreement as diagnostic rather than simply failure.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "audio": "Musical expectation depends partly on exposure. Listeners become sensitive to recurring patterns in the music they hear, so a sequence can feel stable, surprising or incomplete because it fits—or violates—learned regularities. This learning does not require formal training. Infants and non-musicians can show sensitivity to statistical patterns, although expertise can refine what listeners notice. Cross-cultural studies are especially important here. A listener raised primarily with one musical system may find another system less predictable, not because it lacks structure but because the listener has had less opportunity to learn its conventions. Researchers therefore need to separate universal perceptual tendencies from familiarity with a particular style. Comparing groups with different musical histories can reveal which expectations transfer broadly and which depend on experience.",
@@ -2712,7 +3970,8 @@ window.TOEFL_DATA = {
             "why": "The talk explicitly warns against equating unfamiliarity with lack of structure.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "audio": "A city can reduce water use without reducing demand for the services that water provides. Low-flow fixtures, leak detection and industrial recycling can produce the same hygiene, cooling or manufacturing output with less water. This distinction between water use and water service matters when evaluating conservation. If households install efficient appliances but then increase the frequency of use, some of the expected saving can disappear. Economists call this a rebound effect. The rebound does not imply that efficiency measures fail completely; rather, behavioural responses can offset part of the technical saving. Good evaluation therefore compares expected engineering savings with actual consumption over time and asks whether behaviour changed after efficiency improved. The wider lesson applies beyond water: an intervention that lowers the resource cost of an activity can sometimes encourage more of that activity.",
@@ -2765,7 +4024,8 @@ window.TOEFL_DATA = {
             "why": "The final sentence generalises the rebound mechanism.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "audio": "Early printed books often imitated features of handwritten manuscripts rather than immediately developing a completely new visual style. Printers used typefaces that resembled familiar scripts, left spaces for decorated initials, and sometimes added colour by hand after printing. This was partly practical: readers already knew how to navigate manuscript pages. It was also commercial, because buyers did not necessarily want a book that looked radically unfamiliar. Over time, printing developed conventions of its own, including more standardised title pages and page numbering. The transition therefore shows how a new technology can begin by borrowing the appearance of an older medium. Innovation is not always visible as immediate rupture; it can emerge through gradual changes in form while the underlying production process has already changed dramatically.",
@@ -2818,7 +4078,8 @@ window.TOEFL_DATA = {
             "why": "The conclusion generalises the mismatch between production change and visual continuity.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "audio": "River deltas are built from sediment, so it might seem that measuring shoreline position is enough to tell whether a delta is growing or shrinking. The problem is that a delta can lose elevation without its shoreline moving much. Groundwater extraction can cause subsidence, while dams upstream reduce the supply of new sediment. At the same time, embankments may temporarily hold the shoreline in place. From above, the coast can therefore look stable even as the land surface sinks relative to sea level. Researchers increasingly combine satellite maps with elevation surveys and measurements of sediment movement. The goal is to distinguish horizontal change from vertical vulnerability. For communities living on deltas, that distinction matters because flood risk can rise long before dramatic coastal retreat becomes visible.",
@@ -2871,7 +4132,224 @@ window.TOEFL_DATA = {
             "why": "The final sentence states that risk can rise before visible retreat.",
             "category": "inference"
           }
-        ]
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "audio": "When archaeologists reconstruct ancient diets, they cannot simply list the animal bones found at a site and assume those animals were eaten in the same proportions. Different bones survive differently, but human decisions also shape the assemblage long before burial. Large animals may be butchered away from the settlement, so only selected parts arrive. Small fish can disappear if excavated soil is not screened through fine mesh. Even after deposition, carnivores, soil chemistry and later construction can remove or redistribute remains. Researchers therefore compare anatomical parts, cut marks, burning, age profiles and recovery methods. They may also use stable isotopes from human remains, which record aspects of long-term diet rather than individual meals. None of these sources is complete. Their value comes from the different biases they contain. If bone distributions, isotopic evidence and plant residues point in similar directions, the dietary interpretation becomes stronger. When they disagree, the disagreement can reveal seasonal variation, social differences or a methodological problem that would be invisible in a single dataset.",
+        "questions": [
+          {
+            "q": "What is the lecturer’s main point?",
+            "options": [
+              "Ancient diet is best reconstructed by combining evidence sources with different biases.",
+              "Animal bones directly reveal exact food proportions.",
+              "Stable isotopes identify every individual meal.",
+              "Fine screening removes the need for other methods."
+            ],
+            "answer": 0,
+            "why": "The talk centres on triangulating incomplete evidence.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why might large-animal bones be underrepresented at a settlement?",
+            "options": [
+              "Butchering may have occurred elsewhere and only selected parts were transported.",
+              "Large bones always dissolve faster than fish bones.",
+              "Ancient people never ate large animals.",
+              "Stable isotopes remove large bones from the soil."
+            ],
+            "answer": 0,
+            "why": "The talk gives off-site butchery as a source of assemblage bias.",
+            "category": "detail"
+          },
+          {
+            "q": "What contrast is made between isotopes and food remains?",
+            "options": [
+              "Isotopes can reflect longer-term dietary patterns rather than single meals.",
+              "Isotopes are visible only with fine mesh.",
+              "Food remains always survive better than isotopes.",
+              "Isotopes identify cooking techniques directly."
+            ],
+            "answer": 0,
+            "why": "The lecturer explicitly contrasts long-term signals with individual meals.",
+            "category": "detail"
+          },
+          {
+            "q": "What can disagreement among evidence sources indicate?",
+            "options": [
+              "Real variation or a methodological problem worth investigating.",
+              "That all evidence should be discarded.",
+              "That only bone evidence is trustworthy.",
+              "That ancient diets were identical across groups."
+            ],
+            "answer": 0,
+            "why": "The final sentence treats disagreement as informative rather than merely inconvenient.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-GB"
+      },
+      {
+        "audio": "A common assumption in memory research is that forgetting reflects the gradual loss of stored information. But retrieval failure offers another possibility: information can remain available while the cues needed to access it become ineffective. This distinction helps explain why a fact that seems inaccessible in one setting can return when the original context is reinstated. Context, however, should not be treated as a magic key. If learning is strongly dependent on a narrow set of cues, performance can become fragile when those cues change. That is one reason varied practice often improves transfer. Studying the same idea through different examples, locations or question formats can make retrieval less dependent on one pathway. The short-term experience may feel harder because the learner cannot rely on familiar surface features, yet the resulting memory can be more flexible. Researchers therefore distinguish performance during practice from learning that survives delay and context change. Easy retrieval today is not always the best predictor of accessible knowledge next month.",
+        "questions": [
+          {
+            "q": "What distinction does the lecturer emphasise?",
+            "options": [
+              "Stored information may remain even when current retrieval cues fail.",
+              "All forgetting is caused by permanent storage loss.",
+              "Context always improves memory.",
+              "Short-term performance is identical to long-term learning."
+            ],
+            "answer": 0,
+            "why": "The talk contrasts loss of information with failure to access it.",
+            "category": "main idea"
+          },
+          {
+            "q": "Why can varied practice improve transfer?",
+            "options": [
+              "It reduces dependence on one narrow set of retrieval cues.",
+              "It makes every practice attempt feel easier.",
+              "It eliminates the need for delayed testing.",
+              "It ensures the original context never changes."
+            ],
+            "answer": 0,
+            "why": "Variation builds multiple pathways rather than one context-specific route.",
+            "category": "detail"
+          },
+          {
+            "q": "Why does the lecturer say context is not a “magic key”?",
+            "options": [
+              "Reliance on specific context can make performance fragile when circumstances change.",
+              "Context has no effect on retrieval.",
+              "Only physical locations count as context.",
+              "Learners should always study in one place."
+            ],
+            "answer": 0,
+            "why": "The lecturer immediately explains the danger of cue dependence.",
+            "category": "purpose"
+          },
+          {
+            "q": "What follows from the final comparison?",
+            "options": [
+              "Smooth practice performance can overstate how durable learning will be.",
+              "Difficult practice necessarily prevents learning.",
+              "Long-term memory should be tested only in the original setting.",
+              "Accessible knowledge always becomes less flexible with time."
+            ],
+            "answer": 0,
+            "why": "The talk warns that easy immediate retrieval is not a reliable measure of durable learning.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-US"
+      },
+      {
+        "audio": "Cities often evaluate flood risk using maps that show the probability of water reaching different locations. These maps are useful, but they can create a false sense of precision if users treat the boundary between two risk zones as a physical line in the landscape. Modelled flood extent depends on assumptions about rainfall, drainage capacity, river flow and topography, each of which contains uncertainty. Climate change adds another complication because probabilities estimated from historical records may no longer describe future conditions. This does not make flood maps useless. It changes how they should be read. Rather than asking whether one building is definitely inside or outside a coloured zone, planners can combine mapped probability with information about vulnerable residents, critical infrastructure and the consequences of failure. A hospital just outside a high-risk boundary may still justify protection if access roads are exposed. Risk management therefore requires attention to uncertainty and consequence, not only to the apparent sharpness of a modelled line.",
+        "questions": [
+          {
+            "q": "What is the lecturer’s main argument?",
+            "options": [
+              "Flood maps are valuable but should be interpreted with uncertainty and consequences in mind.",
+              "Flood maps should be abandoned because models are uncertain.",
+              "Historical rainfall records are always more accurate than models.",
+              "Risk boundaries correspond to exact physical lines."
+            ],
+            "answer": 0,
+            "why": "The talk rejects both overconfidence and dismissal, advocating contextual interpretation.",
+            "category": "main idea"
+          },
+          {
+            "q": "Which source of uncertainty is mentioned?",
+            "options": [
+              "Assumptions about drainage capacity.",
+              "The colour chosen for the map.",
+              "Hospital staffing levels.",
+              "The number of planners in a city."
+            ],
+            "answer": 0,
+            "why": "Drainage capacity is one of the explicit modelling assumptions.",
+            "category": "detail"
+          },
+          {
+            "q": "Why is climate change mentioned?",
+            "options": [
+              "Historical probabilities may become less representative of future conditions.",
+              "It makes topography irrelevant.",
+              "It guarantees that every flood will be larger.",
+              "It removes uncertainty from rainfall estimates."
+            ],
+            "answer": 0,
+            "why": "The historical basis of estimated probabilities may shift.",
+            "category": "purpose"
+          },
+          {
+            "q": "Why might a hospital outside a high-risk zone still merit protection?",
+            "options": [
+              "Consequences and access routes can create serious vulnerability beyond the building footprint.",
+              "Hospitals always receive protection regardless of location.",
+              "The map boundary is legally invalid.",
+              "Hospitals cause local flooding."
+            ],
+            "answer": 0,
+            "why": "The example shows why consequence and network exposure matter alongside mapped location.",
+            "category": "inference"
+          }
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "audio": "In art history, attribution means deciding who made a work, but attribution is rarely based on visual resemblance alone. Connoisseurs traditionally compared details such as brushwork, anatomy and the handling of drapery with securely documented works. Today, those observations can be combined with technical evidence. Infrared imaging may reveal an underdrawing, while pigment analysis can show whether a material was available during the proposed period. Provenance records can also connect an object with collections or workshops. None of these methods is automatically decisive. A pigment introduced after an artist's death can strongly challenge an attribution, but the absence of that pigment proves little. Likewise, a familiar drawing style may indicate a workshop rather than the master personally. Strong attribution therefore depends on how independent lines of evidence fit together and on whether alternative explanations have been considered. The goal is not to collect as many supporting clues as possible, but to test which historical account best explains both the matches and the anomalies.",
+        "questions": [
+          {
+            "q": "What is the lecturer’s main point?",
+            "options": [
+              "Attribution is strongest when multiple independent forms of evidence are evaluated together.",
+              "Visual style is no longer relevant to attribution.",
+              "Pigment analysis can identify an artist with certainty.",
+              "Provenance records are always complete."
+            ],
+            "answer": 0,
+            "why": "The talk emphasises integration and alternative explanations.",
+            "category": "main idea"
+          },
+          {
+            "q": "What can infrared imaging reveal?",
+            "options": [
+              "An underdrawing beneath the visible paint.",
+              "The exact market price of the work.",
+              "Every previous owner of the painting.",
+              "Whether a museum label is accurate."
+            ],
+            "answer": 0,
+            "why": "The talk names underdrawing as a technical clue.",
+            "category": "detail"
+          },
+          {
+            "q": "Why is a posthumous pigment potentially powerful evidence?",
+            "options": [
+              "It may contradict the proposed date of authorship.",
+              "It proves the work was painted by an assistant.",
+              "It shows the artist preferred unusual colours.",
+              "It guarantees the provenance is false."
+            ],
+            "answer": 0,
+            "why": "A material unavailable during the artist’s lifetime can strongly challenge attribution.",
+            "category": "inference"
+          },
+          {
+            "q": "What does the lecturer say about supporting clues?",
+            "options": [
+              "They should be tested against anomalies and competing explanations, not merely accumulated.",
+              "The greatest number of clues always determines authorship.",
+              "Only visual clues count as independent evidence.",
+              "Anomalies should be excluded from analysis."
+            ],
+            "answer": 0,
+            "why": "The final sentence explicitly rejects simple accumulation of favourable clues.",
+            "category": "stance"
+          }
+        ],
+        "accent": "en-NZ"
       }
     ]
   },
@@ -2957,7 +4435,8 @@ window.TOEFL_DATA = {
           "Students who are new to data analysis can attend the introductory clinic on Wednesday afternoons.",
           "Although drop-in advice is available, longer consultations should be booked in advance through the online calendar.",
           "Before using any restricted dataset, make sure that your supervisor has approved the project and that you have completed the required data-protection training."
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "scenario": "You are helping visitors prepare for a museum conservation tour. Repeat the guide’s instructions exactly.",
@@ -2969,7 +4448,8 @@ window.TOEFL_DATA = {
           "If you have questions, wait until the conservator has finished handling the object.",
           "Although the pigments are centuries old, several remain chemically reactive and must be protected from strong light.",
           "At the end of the tour, you will see how imaging techniques can reveal earlier drawings beneath the visible paint without removing the surface layer."
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "scenario": "You are attending an orientation for a coastal ecology field course. Repeat the safety briefing exactly.",
@@ -2981,7 +4461,8 @@ window.TOEFL_DATA = {
           "If weather conditions deteriorate, return directly to the meeting point beside the lifeboat station.",
           "Because mobile reception is unreliable on the eastern shore, report any change of route to the field leader before leaving your assigned sector.",
           "Samples collected from protected areas must remain sealed until they reach the teaching laboratory, where they will be logged and processed under the course permit."
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "scenario": "You are joining a student conference team. Repeat the organiser’s instructions exactly.",
@@ -2993,7 +4474,8 @@ window.TOEFL_DATA = {
           "Questions will be taken after all three speakers have finished rather than after each individual talk.",
           "Although the afternoon sessions are held in different buildings, student volunteers will guide participants between venues during the lunch break.",
           "Before leaving the conference, presenters should upload any revised handouts to the shared folder so that attendees can access the final versions after the event."
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "scenario": "You are being briefed before a study-abroad information session. Repeat each sentence exactly.",
@@ -3005,7 +4487,47 @@ window.TOEFL_DATA = {
           "Students applying outside Europe may need additional documents for immigration or health requirements.",
           "If your transcript is still missing a current-semester grade, upload the official record you have and explain the expected update in the notes section.",
           "Although the mobility office can advise you on procedure, responsibility for meeting passport, visa and insurance requirements remains with the student."
-        ]
+        ],
+        "accent": "en-US"
+      },
+      {
+        "scenario": "You are helping at an international student orientation. Listen to the coordinator and repeat each sentence exactly once.",
+        "sentences": [
+          "The welcome desk opens thirty minutes before the first campus tour.",
+          "Students who have not collected their cards should go to the registration hall first.",
+          "The library tour includes the silent floors, group rooms and equipment-loan desk.",
+          "If a student misses a scheduled tour, do not add them to another group without checking capacity.",
+          "Several buildings use card access after six in the evening, so new students should test their cards before staff leave.",
+          "Although the online map is useful, construction work has temporarily changed the pedestrian route between the science buildings and the main library.",
+          "Before directing anyone to an academic adviser, ask which programme they are enrolled in and whether their question concerns module choice, assessment or administrative registration."
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "scenario": "You are shadowing a coordinator in a university innovation hub. Listen and repeat each instruction exactly once.",
+        "sentences": [
+          "The prototype room is available only to students who have completed the safety induction.",
+          "Most hand tools can be borrowed at the desk with a student card.",
+          "Materials left on shared benches at closing time will be moved to the labelled storage shelves.",
+          "If your project produces dust or fumes, check the extraction requirements before you begin.",
+          "Students may work independently on approved equipment, but first-time users should ask a technician to observe the setup.",
+          "Because several machines are booked for teaching on Thursday, independent project access will be restricted until the final class has finished.",
+          "When you reserve specialist equipment, include enough setup and cleaning time in the booking so that the next user is not delayed by unfinished work."
+        ],
+        "accent": "en-GB"
+      },
+      {
+        "scenario": "You are assisting with a research conference. Listen to the organiser and repeat each sentence exactly once.",
+        "sentences": [
+          "Poster presenters should arrive before the morning keynote to collect mounting materials.",
+          "The smaller seminar rooms are reserved for parallel sessions after lunch.",
+          "Speakers who need adapters should test their laptops at the technical desk before their session.",
+          "If a chairperson is delayed, the first speaker should wait for a replacement rather than starting independently.",
+          "Questions from online participants will appear on the moderator screen and should be taken alongside questions from the room.",
+          "Although sessions are tightly scheduled, chairs may allow a short extension when a technical problem has reduced a speaker’s available presentation time.",
+          "At the end of each panel, remind participants to remove personal belongings promptly because the rooms must be reset before the next group arrives."
+        ],
+        "accent": "en-NZ"
       }
     ],
     "interviewSets": [
@@ -3017,7 +4539,8 @@ window.TOEFL_DATA = {
           "Describe one situation in which your usual study environment did not work well. What was the problem?",
           "Some universities are replacing individual study areas with more collaborative spaces. What is one potential benefit and one potential drawback?",
           "If a university had limited funding, what criterion should it use to decide whether to invest in quiet individual spaces or collaborative areas? Explain your reasoning."
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "title": "Interview · Recorded lectures",
@@ -3027,7 +4550,8 @@ window.TOEFL_DATA = {
           "Describe one situation in which a recording helped—or would have helped—you understand a course better.",
           "What is one risk of making every lecture recording permanently available?",
           "Should recording be the default, or should lecturers decide case by case? Give a criterion for your answer."
-        ]
+        ],
+        "accent": "en-AU"
       },
       {
         "title": "Interview · Group assessment",
@@ -3037,7 +4561,8 @@ window.TOEFL_DATA = {
           "Describe a group task that worked particularly well or badly. What caused that outcome?",
           "Some students argue that group grades are unfair because contribution is unequal. How could a course address that problem?",
           "If you could change one rule about assessed group work, what would you change and why?"
-        ]
+        ],
+        "accent": "en-NZ"
       },
       {
         "title": "Interview · Campus sustainability",
@@ -3047,7 +4572,8 @@ window.TOEFL_DATA = {
           "Describe one behaviour that students could realistically change without major inconvenience.",
           "Should universities use financial incentives to encourage sustainable choices? Give one benefit and one risk.",
           "If only one intervention could be funded next year, what evidence should decision-makers use to choose it?"
-        ]
+        ],
+        "accent": "en-US"
       },
       {
         "title": "Interview · Artificial intelligence",
@@ -3057,7 +4583,8 @@ window.TOEFL_DATA = {
           "Describe one situation in which using AI could interfere with learning rather than support it.",
           "Would mandatory disclosure of AI use solve most academic-integrity concerns? Why or why not?",
           "What principle should a university use to distinguish acceptable assistance from unacceptable substitution of student work?"
-        ]
+        ],
+        "accent": "en-GB"
       },
       {
         "title": "Interview · Public transport",
@@ -3067,7 +4594,52 @@ window.TOEFL_DATA = {
           "Describe one transport problem that has affected your studies or punctuality.",
           "Some cities reduce student fares while others invest in more frequent service. Which approach has the stronger advantage?",
           "If the city could measure only one outcome after changing transport policy, what should it measure and why?"
-        ]
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "title": "Interview · Feedback",
+        "scenario": "You are taking part in a study about how university students use feedback.",
+        "questions": [
+          "What kind of feedback has been most useful to you in learning a difficult skill, and why?",
+          "Describe a time when feedback was accurate but still difficult to use. What made it difficult?",
+          "Some courses provide very detailed written feedback, while others prioritise a short conversation with the teacher. What are the strengths and limitations of each approach?",
+          "If a department could improve only one aspect of feedback—speed, detail, consistency or opportunities to discuss it—which should it choose, and what trade-off would you accept?"
+        ],
+        "accent": "en-GB"
+      },
+      {
+        "title": "Interview · Technology choices",
+        "scenario": "You are being interviewed about the role of digital tools in university study.",
+        "questions": [
+          "Which digital tool genuinely improves the way you study, rather than simply making a task faster?",
+          "Describe a situation in which technology made an academic task more complicated instead of easier.",
+          "Universities sometimes require one standard platform for all courses. What is one advantage and one disadvantage of that policy?",
+          "If students were allowed to use AI tools for some assignments, what principle should determine where their use is acceptable? Explain your reasoning."
+        ],
+        "accent": "en-US"
+      },
+      {
+        "title": "Interview · Assessment",
+        "scenario": "A university teaching team is researching student views of assessment.",
+        "questions": [
+          "Which type of assessment best shows what you can really do, and what does it capture that other formats miss?",
+          "Describe an assessment for which your preparation strategy did not work as expected. What did you learn from that?",
+          "Some teachers prefer frequent low-stakes tasks, while others use fewer high-stakes assessments. Compare the effects these approaches might have on learning.",
+          "If you could redesign one assessment rule to make grading fairer without making the course easier, what would you change and why?"
+        ],
+        "accent": "en-AU"
+      },
+      {
+        "title": "Interview · Campus sustainability",
+        "scenario": "You are contributing to a campus consultation about sustainability priorities.",
+        "questions": [
+          "Which environmental change on a university campus would students notice most in their everyday routines?",
+          "Describe one sustainability initiative that sounds attractive but might have unintended consequences.",
+          "Should universities focus first on changing individual behaviour or on changing infrastructure? Explain the case for both sides.",
+          "If the university could fund only one major sustainability project, what evidence should decision-makers require before choosing it?"
+        ],
+        "accent": "en-NZ"
       }
     ]
   },
@@ -3232,6 +4804,86 @@ window.TOEFL_DATA = {
         ],
         "answer": "If the apparent trend were caused only by inflation, we would expect the real value to remain stable after prices were adjusted.",
         "lead": "How could the inflation explanation be tested?"
+      },
+      {
+        "words": [
+          "Because the archive is incomplete,",
+          "the absence of a record",
+          "cannot be treated as proof",
+          "that the event never occurred."
+        ],
+        "answer": "Because the archive is incomplete, the absence of a record cannot be treated as proof that the event never occurred.",
+        "lead": "Can the researchers conclude that an undocumented event did not happen?"
+      },
+      {
+        "words": [
+          "The intervention reduced average waiting time,",
+          "but the improvement was concentrated",
+          "in clinics that already had",
+          "the greatest staffing flexibility."
+        ],
+        "answer": "The intervention reduced average waiting time, but the improvement was concentrated in clinics that already had the greatest staffing flexibility.",
+        "lead": "Was the improvement distributed evenly across clinics?"
+      },
+      {
+        "words": [
+          "Had the researchers relied on the headline estimate alone,",
+          "they would have missed",
+          "the substantial variation",
+          "between age groups."
+        ],
+        "answer": "Had the researchers relied on the headline estimate alone, they would have missed the substantial variation between age groups.",
+        "lead": "Why did the subgroup analysis matter?"
+      },
+      {
+        "words": [
+          "What initially appeared to be a stable preference",
+          "changed once participants",
+          "were given more information",
+          "about the costs of each option."
+        ],
+        "answer": "What initially appeared to be a stable preference changed once participants were given more information about the costs of each option.",
+        "lead": "Did participants’ original preferences remain unchanged?"
+      },
+      {
+        "words": [
+          "The committee approved the pilot",
+          "on the condition that",
+          "an independent review be completed",
+          "before any wider rollout."
+        ],
+        "answer": "The committee approved the pilot on the condition that an independent review be completed before any wider rollout.",
+        "lead": "Was the pilot approved without conditions?"
+      },
+      {
+        "words": [
+          "Not until the measurements were repeated",
+          "did the team realise",
+          "that the apparent trend",
+          "was caused by sensor drift."
+        ],
+        "answer": "Not until the measurements were repeated did the team realise that the apparent trend was caused by sensor drift.",
+        "lead": "When did the team identify the source of the trend?"
+      },
+      {
+        "words": [
+          "Although both explanations fit the initial observations,",
+          "only the second predicts",
+          "what should happen",
+          "when the boundary condition changes."
+        ],
+        "answer": "Although both explanations fit the initial observations, only the second predicts what should happen when the boundary condition changes.",
+        "lead": "How can the two explanations be distinguished?"
+      },
+      {
+        "words": [
+          "The report recommends expanding the programme,",
+          "provided that implementation costs",
+          "are monitored separately",
+          "from short-term participation rates."
+        ],
+        "answer": "The report recommends expanding the programme, provided that implementation costs are monitored separately from short-term participation rates.",
+        "lead": "Is the recommendation unconditional?"
       }
     ],
     "email": [
@@ -3322,6 +4974,50 @@ window.TOEFL_DATA = {
           "Explain the time-sensitive academic need.",
           "Ask for both a location check and an appropriate alternative access route."
         ]
+      },
+      {
+        "situation": "You were assigned to a laboratory group that meets at the same time as a compulsory language class. You noticed the conflict only after groups were finalised.",
+        "recipient": "Laboratory coordinator",
+        "goal": "Explain the conflict responsibly, acknowledge that groups are already organised, and request a feasible solution.",
+        "model": "Dear Laboratory Coordinator,\n\nI am writing about my laboratory group allocation for next week. I have just realised that the assigned session overlaps with a compulsory language class on my timetable. I apologise for not identifying the conflict before the groups were finalised.\n\nWould it be possible to join another laboratory group, or to complete an equivalent session at a different time? I understand that places may be limited, so I am happy to take any available slot and can provide my timetable if useful.\n\nThank you for your help.\n\nBest regards,",
+        "tasks": [
+          "State the timetable conflict clearly.",
+          "Acknowledge that the allocation process is already complete.",
+          "Ask for a realistic alternative and show flexibility."
+        ]
+      },
+      {
+        "situation": "A university society advertised a paid student assistant role as requiring eight hours per week, but the interview invitation now mentions twelve. You are still interested but need clarification before accepting the interview.",
+        "recipient": "Society project manager",
+        "goal": "Ask for clarification without sounding confrontational, explain why the difference matters, and confirm continued interest.",
+        "model": "Dear Project Manager,\n\nThank you for inviting me to interview for the student assistant role. I remain very interested in the position. Before I confirm the interview, could I clarify the expected weekly commitment? The original advertisement stated approximately eight hours per week, while the invitation refers to twelve.\n\nThe distinction matters because I am planning the role around my taught timetable, and I want to make sure I could meet the expected hours reliably. Could you let me know whether twelve hours is now the standard commitment or whether the schedule varies by week?\n\nMany thanks for your guidance.\n\nBest regards,",
+        "tasks": [
+          "Refer neutrally to the difference between the advertisement and invitation.",
+          "Explain why the weekly hours affect your decision.",
+          "Ask a precise clarification while confirming your interest."
+        ]
+      },
+      {
+        "situation": "You submitted a group project file before the deadline, but the learning platform now shows no submission. You have a confirmation email and do not want to accuse anyone of losing the file.",
+        "recipient": "Module leader",
+        "goal": "Report the discrepancy, provide evidence, and ask what action you should take.",
+        "model": "Dear Module Leader,\n\nI am writing about the group project submission. We uploaded the final file before the deadline and received an automated confirmation email, but the learning platform is now showing the assignment as not submitted.\n\nI have kept the confirmation email and can forward it, along with the exact file that was uploaded. Could you please advise whether we should upload the file again or wait while the original submission record is checked? We would like to avoid creating duplicate versions unless that is necessary.\n\nThank you for your help.\n\nBest regards,",
+        "tasks": [
+          "Describe the discrepancy without assigning blame.",
+          "Mention the evidence you have.",
+          "Ask whether to resubmit or wait for verification."
+        ]
+      },
+      {
+        "situation": "You want to attend a specialist workshop that is officially limited to doctoral students, but its topic directly supports your master’s dissertation.",
+        "recipient": "Workshop organiser",
+        "goal": "Explain why the workshop is relevant, recognise the stated eligibility rule, and ask whether an exception or waiting-list place might be possible.",
+        "model": "Dear Workshop Organiser,\n\nI am writing to ask about the upcoming workshop on research data visualisation. I understand that registration is currently limited to doctoral students. I am completing a master’s dissertation that uses the same type of longitudinal data, so the workshop is directly relevant to the analysis I am beginning this term.\n\nIf space remains after doctoral registrations have been confirmed, would it be possible to join the session or be placed on a waiting list? I completely understand if the eligibility rule needs to be maintained, but I wanted to ask before making alternative arrangements.\n\nThank you for considering my request.\n\nBest regards,",
+        "tasks": [
+          "Acknowledge the eligibility restriction.",
+          "Explain the specific academic relevance to you.",
+          "Ask politely about an exception or waiting-list option."
+        ]
       }
     ],
     "discussion": [
@@ -3380,6 +5076,34 @@ window.TOEFL_DATA = {
         "studentB": "Removing parking could create difficulties for people with mobility needs and for businesses receiving deliveries.",
         "prompt": "State your position, respond to at least one concern above, and propose one design feature or evaluation criterion.",
         "model": "I would support the cycle lanes, but only with explicit provision for users who cannot simply switch modes. Student A’s safety argument is strong because perceived danger is itself a barrier to cycling. However, Student B is right that removing every loading or accessible space would shift costs onto people with fewer alternatives. The design should therefore preserve strategically placed accessible bays and timed loading zones, then evaluate not only cyclist counts but also collision risk, delivery disruption and access for disabled users. That approach treats the project as a transport redesign rather than a competition between cyclists and drivers."
+      },
+      {
+        "teacher": "A university is considering recording every lecture automatically and keeping the recordings available for the full academic year.",
+        "studentA": "Permanent recordings would help students review difficult explanations and support those who miss class for legitimate reasons.",
+        "studentB": "If every lecture is recorded, students may attend less often, and teachers may become more cautious about spontaneous discussion.",
+        "prompt": "Contribute your own position. Engage with at least one idea above, add a distinct criterion, and avoid treating attendance as the only outcome.",
+        "model": "I would support routine recording, but only if the university treats recordings as a supplement rather than a substitute for course design. Student A identifies a genuine accessibility benefit, especially when students need to revisit dense explanations. Student B is also right that recording can alter classroom behaviour, although lower attendance is not necessarily the most serious risk. My main criterion would be whether the recording policy preserves activities that depend on participation, confidentiality or rapid feedback. A seminar discussion, for example, may need different rules from a large lecture. The strongest policy would therefore allow default recording while giving instructors a transparent way to pause it for clearly justified parts of a session."
+      },
+      {
+        "teacher": "Some departments are replacing long reading lists with a smaller set of compulsory texts plus optional extension reading.",
+        "studentA": "A shorter core list would make it more likely that students read the essential material carefully.",
+        "studentB": "Reducing the compulsory list could narrow students’ exposure to competing perspectives.",
+        "prompt": "Give your view. Respond to one of the positions above and introduce a criterion for judging whether the redesign improves learning.",
+        "model": "A smaller compulsory list can improve learning if the reduction creates time for deeper comparison rather than simply lowering workload. Student A is persuasive about attention: assigning twenty texts is pointless if most are skimmed superficially. However, Student B’s concern about intellectual range is important, particularly in subjects where disagreement is part of the content. I would judge the redesign by whether students can explain not only the core argument but also at least one serious alternative. That could be achieved by keeping a concise common foundation and assigning different extension texts to small groups for comparison. The relevant question is therefore not how many readings are compulsory, but whether the course still produces informed engagement with competing positions."
+      },
+      {
+        "teacher": "A university wants to replace some individual assignments with collaborative projects because employers value teamwork.",
+        "studentA": "Group projects reflect the way many professional problems are solved and force students to explain ideas to others.",
+        "studentB": "Group marks can hide unequal contributions and make it difficult to know what each student has learned.",
+        "prompt": "Contribute a nuanced position. Address the assessment problem and explain what evidence would show that collaboration is genuinely helping learning.",
+        "model": "Collaborative projects are useful when collaboration is part of the learning objective, but they should not replace evidence of individual understanding. Student A is right that explaining decisions to others can deepen reasoning, while Student B identifies a real assessment problem. A practical design would combine a shared project outcome with a short individual defence in which each student explains the group’s choices and responds to a new question. That creates an incentive to participate in the whole process rather than specialising so narrowly that one member understands only one section. I would judge the approach successful if individual explanations improve as well as the quality of the group product; a polished project alone would not be enough."
+      },
+      {
+        "teacher": "A university is deciding whether first-year students should be allowed to choose most of their modules or follow a largely fixed curriculum.",
+        "studentA": "More choice lets students build motivation by pursuing topics that match their interests.",
+        "studentB": "A fixed first year ensures that everyone develops the foundations needed for later study.",
+        "prompt": "State your position, engage with both ideas if useful, and identify one trade-off that the university should make explicit.",
+        "model": "I would favour a structured first year with a limited but meaningful element of choice. Student A is right that early autonomy can increase engagement, yet Student B’s argument becomes stronger when later modules assume knowledge that students may not realise they need. The key trade-off is between flexibility now and option value later. Too much early freedom can unintentionally close advanced pathways if students miss prerequisites, while a completely fixed curriculum may make the programme feel disconnected from individual goals. One solution is to define a common academic core and reserve one or two modules for exploration, accompanied by clear maps showing how each choice affects later options. That preserves foundations without treating all students’ interests as identical."
       }
     ]
   },
@@ -3943,6 +5667,566 @@ window.TOEFL_DATA = {
       "temporary rather than persistent",
       "Often contrasts short-lived responses with durable effects.",
       "The initial increase in participation proved transient."
+    ],
+    [
+      "abstract from",
+      "/əbˈstrækt frəm/",
+      "to consider a feature separately from the specific context in which it appears",
+      "Use when moving from a case to a more general principle.",
+      "The model abstracts from short-term price fluctuations to focus on structural demand."
+    ],
+    [
+      "albeit",
+      "/ɔːlˈbiːɪt/",
+      "although; used to introduce a qualification",
+      "Use for compact concession in formal writing.",
+      "The effect was consistent, albeit smaller than originally predicted."
+    ],
+    [
+      "at odds with",
+      "/ət ˈɒdz wɪð/",
+      "in conflict or disagreement with",
+      "Use to compare evidence, claims or interpretations.",
+      "The survey results are at odds with the administrative records."
+    ],
+    [
+      "bear on",
+      "/beər ɒn/",
+      "to be relevant to or influence a question",
+      "Use to connect evidence to an argument.",
+      "The new evidence bears directly on the proposed mechanism."
+    ],
+    [
+      "bounded",
+      "/ˈbaʊndɪd/",
+      "limited within particular conditions or ranges",
+      "Use to avoid treating a finding as universal.",
+      "The conclusion is bounded by the age range represented in the sample."
+    ],
+    [
+      "by the same token",
+      "/baɪ ðə seɪm ˈtəʊkən/",
+      "for the same reason",
+      "Use to extend a line of reasoning to a related case.",
+      "Small samples can exaggerate positive effects; by the same token, they can also miss meaningful negative ones."
+    ],
+    [
+      "circumvent",
+      "/ˌsɜːkəmˈvent/",
+      "to avoid a problem or rule by finding another route",
+      "Use when a method bypasses a constraint.",
+      "The design circumvents recall bias by using contemporaneous records."
+    ],
+    [
+      "coincide with",
+      "/ˌkəʊɪnˈsaɪd wɪð/",
+      "to occur at the same time as or match",
+      "Do not imply causation simply from coincidence.",
+      "The decline coincided with a change in reporting rules."
+    ],
+    [
+      "compelling",
+      "/kəmˈpelɪŋ/",
+      "highly persuasive because the evidence or reasoning is strong",
+      "Use selectively; explain what makes evidence compelling.",
+      "The natural experiment provides compelling evidence against the simplest alternative."
+    ],
+    [
+      "converge on",
+      "/kənˈvɜːdʒ ɒn/",
+      "to move toward the same conclusion or value",
+      "Use when independent evidence points in a similar direction.",
+      "Three methods converge on a similar estimate."
+    ],
+    [
+      "credible",
+      "/ˈkredəbəl/",
+      "believable or methodologically plausible",
+      "Use for assumptions, intervals, mechanisms or threats.",
+      "The authors consider several credible alternative explanations."
+    ],
+    [
+      "discrete",
+      "/dɪˈskriːt/",
+      "separate and distinct",
+      "Use for categories, stages or events.",
+      "The process is continuous rather than a set of discrete stages."
+    ],
+    [
+      "downstream",
+      "/ˌdaʊnˈstriːm/",
+      "occurring later in a causal or operational chain",
+      "Use for later consequences.",
+      "A coding error created several downstream discrepancies in the analysis."
+    ],
+    [
+      "elicit",
+      "/ɪˈlɪsɪt/",
+      "to draw out a response or reaction",
+      "Use for interviews, tasks or stimuli.",
+      "The question was designed to elicit comparison rather than simple recall."
+    ],
+    [
+      "generalisable",
+      "/ˈdʒenərəlaɪzəbəl/",
+      "applicable beyond the specific sample or setting studied",
+      "Use when discussing external validity.",
+      "The findings may not be generalisable to smaller institutions."
+    ],
+    [
+      "hinge on",
+      "/hɪndʒ ɒn/",
+      "to depend critically on",
+      "Use to identify a decisive assumption or condition.",
+      "The conclusion hinges on whether the comparison group is truly comparable."
+    ],
+    [
+      "in aggregate",
+      "/ɪn ˈæɡrɪɡət/",
+      "when considered as a combined total",
+      "Use to contrast overall and subgroup patterns.",
+      "In aggregate, demand changed little, but individual sectors moved sharply."
+    ],
+    [
+      "in light of",
+      "/ɪn laɪt əv/",
+      "taking particular evidence or circumstances into account",
+      "Use to introduce reconsideration.",
+      "The recommendation was revised in light of the new safety data."
+    ],
+    [
+      "incumbent on",
+      "/ɪnˈkʌmbənt ɒn/",
+      "required as a responsibility",
+      "Use in formal argument about burden or duty.",
+      "It is incumbent on the authors to justify the exclusion criterion."
+    ],
+    [
+      "instantiate",
+      "/ɪnˈstænʃieɪt/",
+      "to provide a concrete instance of an abstract idea",
+      "Use in theoretical or technical contexts.",
+      "The case study instantiates a broader coordination problem."
+    ],
+    [
+      "interplay",
+      "/ˈɪntəpleɪ/",
+      "the way two or more factors influence one another",
+      "Use when effects are interactive rather than independent.",
+      "The outcome reflects an interplay between incentives and social norms."
+    ],
+    [
+      "nuance",
+      "/ˈnjuːɑːns/",
+      "a subtle distinction that makes an interpretation more precise",
+      "Use as noun; as a verb, prefer “qualify” or “add nuance to” in formal prose.",
+      "The subgroup analysis adds important nuance to the overall result."
+    ],
+    [
+      "pervasive",
+      "/pəˈveɪsɪv/",
+      "spread widely throughout a system or context",
+      "Use when a feature is extensive, not merely common.",
+      "Measurement error was pervasive across several data sources."
+    ],
+    [
+      "premise",
+      "/ˈpremɪs/",
+      "an assumption or proposition on which an argument is based",
+      "Use to expose the starting point of reasoning.",
+      "The argument rests on the premise that demand is relatively stable."
+    ],
+    [
+      "propensity",
+      "/prəˈpensəti/",
+      "a tendency or likelihood to behave in a particular way",
+      "Use for tendencies, often in statistical contexts.",
+      "The groups differed in their initial propensity to seek treatment."
+    ],
+    [
+      "residual",
+      "/rɪˈzɪdjuəl/",
+      "remaining after the main part has been removed or accounted for",
+      "Use for remaining risk, variation or confounding.",
+      "Residual confounding cannot be ruled out."
+    ],
+    [
+      "scrutinise",
+      "/ˈskruːtənaɪz/",
+      "to examine closely and critically",
+      "Use for methods, assumptions or evidence.",
+      "Reviewers scrutinised the assumptions behind the forecast."
+    ],
+    [
+      "upstream",
+      "/ˌʌpˈstriːm/",
+      "occurring earlier in a causal or operational chain",
+      "Use for earlier causes or process stages.",
+      "The team traced the discrepancy to an upstream data-import error."
+    ],
+    [
+      "valid",
+      "/ˈvælɪd/",
+      "well-founded for a particular interpretation or use",
+      "Avoid using it vaguely; specify what is valid for what purpose.",
+      "The measure is valid for ranking broad exposure groups, not for estimating exact dose."
+    ],
+    [
+      "variability",
+      "/ˌveəriəˈbɪləti/",
+      "the extent to which values or outcomes differ",
+      "Use when spread itself matters.",
+      "Average improvement increased, but variability between sites also widened."
+    ],
+    [
+      "confound",
+      "/kənˈfaʊnd/",
+      "to mix the effect of interest with another factor that can explain the association",
+      "Use as verb; “confounder” is the variable.",
+      "Age can confound the association if it affects both exposure and outcome."
+    ],
+    [
+      "calibration",
+      "/ˌkælɪˈbreɪʃən/",
+      "the agreement between predicted probabilities and observed frequencies, or the adjustment of an instrument",
+      "Interpret according to technical context.",
+      "The model ranked cases well but showed poor probability calibration."
+    ],
+    [
+      "internal validity",
+      "/ɪnˈtɜːnəl vəˈlɪdəti/",
+      "the extent to which a study supports a trustworthy conclusion about the relationship studied",
+      "Use when discussing bias and causal identification.",
+      "Random allocation strengthens internal validity by reducing selection differences."
+    ],
+    [
+      "mechanism",
+      "/ˈmekənɪzəm/",
+      "the process through which an effect is produced",
+      "Distinguish evidence for an effect from evidence for its mechanism.",
+      "The trial shows an effect but does not isolate the mechanism."
+    ],
+    [
+      "benchmark",
+      "/ˈbentʃmɑːk/",
+      "a standard or reference point used for comparison",
+      "Use for performance or evaluation.",
+      "The simple baseline provides a useful benchmark for the complex model."
+    ],
+    [
+      "criterion",
+      "/kraɪˈtɪəriən/",
+      "a standard used to judge or decide something",
+      "Plural: criteria.",
+      "The primary criterion was whether the intervention improved retention."
+    ],
+    [
+      "constraint",
+      "/kənˈstreɪnt/",
+      "a limitation that restricts possible actions or interpretations",
+      "Use for practical or analytical limits.",
+      "Time was a major constraint on the data-collection strategy."
+    ],
+    [
+      "distributional",
+      "/ˌdɪstrɪˈbjuːʃənəl/",
+      "relating to how effects or resources are spread across people or groups",
+      "Use when averages are insufficient.",
+      "The reform had favourable average effects but important distributional costs."
+    ],
+    [
+      "incremental",
+      "/ˌɪŋkrəˈmentəl/",
+      "occurring through small additions or changes",
+      "Use for added value relative to a baseline.",
+      "The new biomarker provided little incremental predictive value."
+    ],
+    [
+      "reframe",
+      "/ˌriːˈfreɪm/",
+      "to present or interpret an issue from a different perspective",
+      "Use when changing the question rather than simply answering it.",
+      "The author reframes the debate as a problem of access rather than motivation."
+    ],
+    [
+      "sensitivity analysis",
+      "/ˌsensəˈtɪvəti əˈnæləsɪs/",
+      "an analysis testing whether conclusions change under alternative assumptions or specifications",
+      "Use when assessing robustness.",
+      "A sensitivity analysis showed that the result depended on one exclusion rule."
+    ],
+    [
+      "understate",
+      "/ˌʌndəˈsteɪt/",
+      "to present something as smaller or less important than it is",
+      "Use when a measure or description misses part of an effect.",
+      "The annual average may understate short periods of extreme exposure."
+    ],
+    [
+      "unwarranted",
+      "/ʌnˈwɒrəntɪd/",
+      "not justified by the evidence or circumstances",
+      "Use for claims, certainty or extrapolation that goes too far.",
+      "The small sample makes such precise subgroup claims unwarranted."
+    ],
+    [
+      "adduce",
+      "/əˈdjuːs/",
+      "to present evidence or reasons in support of an argument",
+      "Use in formal evaluation of claims.",
+      "The authors adduce three independent sources of evidence."
+    ],
+    [
+      "adjudicate",
+      "/əˈdʒuːdɪkeɪt/",
+      "to make a formal judgement between competing claims or options",
+      "Use when evidence is used to decide between explanations.",
+      "The experiment was designed to adjudicate between two rival mechanisms."
+    ],
+    [
+      "aggregate",
+      "/ˈæɡrɪɡeɪt/",
+      "to combine separate observations into a total or summary",
+      "Use when moving from individual data to a higher level.",
+      "Aggregating the data by region concealed substantial local variation."
+    ],
+    [
+      "ascertain",
+      "/ˌæsəˈteɪn/",
+      "to determine something with reasonable confidence",
+      "Use for questions resolved through evidence or checking.",
+      "The team could not ascertain whether the change preceded the intervention."
+    ],
+    [
+      "bifurcate",
+      "/ˈbaɪfəkeɪt/",
+      "to divide into two branches or pathways",
+      "Use for processes or classifications that split.",
+      "The response begins to bifurcate once participants receive different information."
+    ],
+    [
+      "cohere",
+      "/kəʊˈhɪə/",
+      "to fit together into a consistent whole",
+      "Use when separate observations support a unified account.",
+      "The qualitative and quantitative findings cohere around the same explanation."
+    ],
+    [
+      "decouple",
+      "/diːˈkʌpəl/",
+      "to separate two processes that were previously linked",
+      "Use for systems, indicators or trends.",
+      "Productivity growth became decoupled from total hours worked."
+    ],
+    [
+      "derive from",
+      "/dɪˈraɪv frəm/",
+      "to originate from or be obtained from",
+      "Use to identify a source, mechanism or calculation.",
+      "The estimate is derived from repeated household surveys."
+    ],
+    [
+      "deviate from",
+      "/ˈdiːvieɪt frəm/",
+      "to differ from an expected pattern, rule or value",
+      "Use for departures that require explanation.",
+      "Observed behaviour began to deviate from the model at high prices."
+    ],
+    [
+      "diffuse",
+      "/dɪˈfjuːz/",
+      "to spread through a population, system or area",
+      "Use for ideas, innovations, gases or effects that spread.",
+      "The innovation diffused rapidly through tightly connected networks."
+    ],
+    [
+      "exogenous",
+      "/ekˈsɒdʒənəs/",
+      "originating outside the system being analysed",
+      "Use for shocks or variation treated as external.",
+      "The analysis exploits an exogenous change in eligibility rules."
+    ],
+    [
+      "facilitate",
+      "/fəˈsɪlɪteɪt/",
+      "to make a process easier or more likely to occur",
+      "Use instead of vague claims that something “helps”.",
+      "Shared standards facilitate comparison across laboratories."
+    ],
+    [
+      "falsifiable",
+      "/ˈfɔːlsɪfaɪəbəl/",
+      "capable of being tested in a way that could show it to be wrong",
+      "Use for scientific hypotheses.",
+      "A useful hypothesis should generate falsifiable predictions."
+    ],
+    [
+      "finite",
+      "/ˈfaɪnaɪt/",
+      "limited in size, amount or duration",
+      "Use for resources, samples or sets with clear limits.",
+      "The policy must allocate a finite budget across competing priorities."
+    ],
+    [
+      "frame",
+      "/freɪm/",
+      "to present or define an issue in a particular way",
+      "Use when analysing how a question is constructed.",
+      "The article frames congestion as a pricing problem rather than a capacity problem."
+    ],
+    [
+      "inferential",
+      "/ˌɪnfəˈrenʃəl/",
+      "relating to conclusions drawn from evidence rather than direct observation",
+      "Use for limits or strength of reasoning.",
+      "The missing comparison group creates an inferential problem."
+    ],
+    [
+      "juxtapose",
+      "/ˌdʒʌkstəˈpəʊz/",
+      "to place things side by side to highlight a contrast or relationship",
+      "Use in textual or visual analysis.",
+      "The exhibition juxtaposes official portraits with private sketches."
+    ],
+    [
+      "longitudinal",
+      "/ˌlɒndʒɪˈtjuːdɪnəl/",
+      "following the same units or phenomenon over time",
+      "Use for study design and repeated observation.",
+      "The longitudinal data reveal changes that a cross-sectional snapshot misses."
+    ],
+    [
+      "non-trivial",
+      "/ˌnɒn ˈtrɪviəl/",
+      "large or important enough not to be dismissed as negligible",
+      "Use when an effect is meaningful even if not dominant.",
+      "The implementation cost is non-trivial and should be included in the comparison."
+    ],
+    [
+      "opaque",
+      "/əʊˈpeɪk/",
+      "difficult to understand or inspect",
+      "Use for methods, algorithms or decision processes.",
+      "The ranking procedure remains opaque to applicants."
+    ],
+    [
+      "operationalise",
+      "/ˌɒpəˈreɪʃənəlaɪz/",
+      "to define how an abstract concept will be measured or implemented",
+      "Use in methods sections.",
+      "The study operationalised engagement as active contribution rather than simple attendance."
+    ],
+    [
+      "perturb",
+      "/pəˈtɜːb/",
+      "to disturb a system from its current state",
+      "Use in technical discussion of experiments and models.",
+      "Researchers perturbed the system to test how quickly it returned to equilibrium."
+    ],
+    [
+      "replicate",
+      "/ˈreplɪkeɪt/",
+      "to repeat a study or result under comparable conditions",
+      "Use for reproducibility and validation.",
+      "The effect failed to replicate in the larger follow-up sample."
+    ],
+    [
+      "scope condition",
+      "/skəʊp kənˈdɪʃən/",
+      "a condition defining where a claim or theory is expected to apply",
+      "Use to limit generalisation explicitly.",
+      "The authors treat high institutional capacity as a scope condition for the theory."
+    ],
+    [
+      "spurious",
+      "/ˈspjʊəriəs/",
+      "appearing to be related or meaningful when the relationship is not genuine",
+      "Use for misleading associations.",
+      "Seasonality created a spurious correlation between the two time series."
+    ],
+    [
+      "stochastic",
+      "/stəˈkæstɪk/",
+      "involving randomness or probability",
+      "Use for processes that are partly random.",
+      "The model treats migration as a stochastic process."
+    ],
+    [
+      "stratify",
+      "/ˈstrætɪfaɪ/",
+      "to divide a sample or population into meaningful subgroups",
+      "Use in sampling and analysis.",
+      "The researchers stratified the sample by region before recruitment."
+    ],
+    [
+      "traceable",
+      "/ˈtreɪsəbəl/",
+      "able to be followed back to a source or decision",
+      "Use for data lineage and transparent reasoning.",
+      "Every transformation in the dataset should be traceable to a documented rule."
+    ],
+    [
+      "validate",
+      "/ˈvælɪdeɪt/",
+      "to test whether a measure, model or procedure works for its intended use",
+      "Use with a specified purpose or population.",
+      "The questionnaire was validated in a separate student sample."
+    ],
+    [
+      "variance",
+      "/ˈveəriəns/",
+      "the degree of spread in a set of values; in statistics, the mean squared deviation from the mean",
+      "Use when variability is analytically important.",
+      "The groups had similar means but very different variances."
+    ],
+    [
+      "weighted",
+      "/ˈweɪtɪd/",
+      "adjusted so that some observations contribute more than others",
+      "Use for averages, scores or samples.",
+      "The national estimate is a weighted average of regional results."
+    ],
+    [
+      "empirical regularity",
+      "/ɪmˈpɪrɪkəl ˌreɡjəˈlærəti/",
+      "a recurring pattern observed in data, without necessarily explaining why it occurs",
+      "Use to distinguish description from mechanism.",
+      "The relationship is a robust empirical regularity, but its mechanism remains disputed."
+    ],
+    [
+      "causal pathway",
+      "/ˈkɔːzəl ˈpɑːθweɪ/",
+      "a sequence of mechanisms linking a cause to an outcome",
+      "Use when discussing mediation and process.",
+      "The survey captures the outcome but not the causal pathway that produced it."
+    ],
+    [
+      "measurement invariance",
+      "/ˈmeʒəmənt ɪnˈveəriəns/",
+      "the property that a measure represents the same construct across groups or time",
+      "Use in advanced measurement discussion.",
+      "Without measurement invariance, score differences may not reflect true group differences."
+    ],
+    [
+      "base rate",
+      "/ˈbeɪs reɪt/",
+      "the underlying frequency of an event before case-specific evidence is considered",
+      "Use in prediction and diagnostic reasoning.",
+      "A rare outcome can produce many false alarms when the base rate is low."
+    ],
+    [
+      "ceiling effect",
+      "/ˈsiːlɪŋ ɪˌfekt/",
+      "a loss of measurement sensitivity because many scores cluster near the maximum",
+      "Use when a task is too easy for part of the sample.",
+      "The advanced group showed a ceiling effect on the basic vocabulary test."
+    ],
+    [
+      "floor effect",
+      "/ˈflɔːr ɪˌfekt/",
+      "a loss of measurement sensitivity because many scores cluster near the minimum",
+      "Use when a task is too difficult for part of the sample.",
+      "A floor effect made it hard to distinguish performance among beginners."
     ]
   ],
   "lab": {
@@ -4491,6 +6775,7 @@ window.TOEFL_DATA = {
     "lastVerified": "2026-09-21",
     "format": "TOEFL iBT format in use from 21 January 2026",
     "levelTarget": "C1/C2",
-    "version": "2.0 pedagogical rebuild"
+    "version": "3.0 expanded banks + TOEFL accent mix",
+    "audio": "Device-generated speech with deterministic North American, UK, Australian and New Zealand accent profiles when available."
   }
 };
