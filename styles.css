@@ -27,3 +27,18 @@ button:disabled,.btn:disabled{opacity:.48;cursor:not-allowed;transform:none!impo
 .diagnostic-review{margin-top:1.2rem}.diagnostic-review summary{cursor:pointer}.review-item{padding:1rem 0;border-top:1px solid rgba(26,31,54,.1)}
 .review-item:first-of-type{margin-top:1rem}.skill-progress p{min-height:2.8rem}.skill-progress .text-btn{margin-top:.25rem}
 @media(max-width:760px){.ctest-passage{line-height:2.3}.ctest-input{max-width:6rem}.speaking-card .cta-row{align-items:stretch}.speaking-card .cta-row>*{width:100%;justify-content:center}.diagnostic-review{padding:1rem}}
+
+/* Pedagogical rebuild · v2 */
+.test-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.4rem 0}
+.test-route-card{display:flex;flex-direction:column;align-items:flex-start}.test-route-card .btn{margin-top:auto}
+.practice-hub{align-items:stretch}.practice-hub-card{display:flex;flex-direction:column}.practice-hub-card .btn{margin-top:auto;align-self:flex-start}
+.dashboard-section{margin:1.2rem 0}.dashboard-section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:.8rem}.dashboard-section-head h2{margin:.3rem 0 0}.dashboard-section-head p{max-width:620px;margin:0;color:var(--muted)}
+.productive-dashboard{grid-template-columns:repeat(2,1fr)}.self-review-card .meter span{background:linear-gradient(90deg,var(--coral),var(--indigo))}
+.dashboard-lower{margin-top:1.2rem}.dashboard-lower .route-card{margin-top:0}
+.weakness-row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem .9rem;margin:.5rem 0;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left}.weakness-row:hover{border-color:var(--indigo);background:var(--soft)}.weakness-row span{display:flex;flex-direction:column}.weakness-row small{color:var(--muted)}.weakness-row b{font-size:1.25rem;color:var(--coral)}
+.empty-state{color:var(--muted);padding:1rem;border:1px dashed var(--line);border-radius:14px}
+.practice-mode{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin:.8rem 0}.practice-mode>span{font-size:.82rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.practice-mode button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5rem .8rem;font-weight:800;color:var(--muted)}.practice-mode button.is-active{background:var(--navy);border-color:var(--navy);color:#fff}
+.set-progress{display:inline-block;margin:.6rem 0;padding:.25rem .6rem;border-radius:999px;background:var(--soft);color:var(--indigo);font-size:.8rem;font-weight:900}.daily-life-stimulus{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.96rem}
+.mock-productive{margin-top:1.2rem}.mock-productive .card{box-shadow:none}
+@media(max-width:900px){.test-route-grid{grid-template-columns:1fr}.productive-dashboard{grid-template-columns:1fr}.dashboard-section-head{display:block}.dashboard-section-head p{margin-top:.4rem}}
+@media(max-width:760px){.practice-mode{align-items:stretch}.practice-mode button{flex:1}.test-route-card .btn,.practice-hub-card .btn{width:100%;text-align:center}}

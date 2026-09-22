@@ -1,83 +1,50 @@
 # Homemade TOEFL Trainer — C1/C2
 
-A static, GitHub Pages-ready TOEFL iBT training site for advanced learners aiming at CEFR C1/C2.
+An independent, browser-based TOEFL iBT practice site designed for advanced learners targeting C-level English.
 
-## Audited build
+## Deploy on GitHub Pages
 
-**Audit date:** 21 September 2026
+Upload the files in this folder to the root of the GitHub repository used for the site. Keep `index.html`, `styles.css`, `data.js`, `app.js`, `manifest.webmanifest` and `sw.js` together at the root.
 
-This build includes a functional and pedagogical audit of the previous C1/C2 version. The training tasks are original and the site is independent from ETS.
+After deployment, reload the public page. This build uses versioned JavaScript/CSS URLs and a network-first service worker so new deployments should replace older cached files more reliably.
 
 ## What is included
 
-- English-only interface and instructions
-- TOEFL iBT structure currently in use after the January 2026 update
-- 40-item C1/C2-oriented diagnostic: 10 items per skill
-- Diagnostic feedback withheld until the end, with an error-review panel
-- Progress dashboard combining the diagnostic baseline with recent scored practice
-- Reading:
-  - Complete the Words as 10-gap paragraph-level C-test practice
-  - Read in Daily Life
-  - Read an Academic Passage
-- Listening:
-  - Choose a Response
-  - Conversation
-  - Announcement
-  - Academic Talk
-- Speaking:
-  - Listen and Repeat in seven-sentence scenario sets
-  - Take an Interview in four-question contextualised sets
-  - 45-second local microphone recording and playback
-  - structured C1/C2 self-check
-- Writing:
-  - Build a Sentence with an intact lead-in
-  - Write an Email with three explicit communicative requirements
-  - Academic Discussion
-  - 7-minute and 10-minute practice timers
-  - structured self-check and model responses
-- 51-item advanced academic vocabulary bank with pronunciation and My Words
-- C-Level Lab: hedging, nominalisation, complex syntax, paraphrase, stance and cohesion
-- Resources page with official ETS links, advanced English websites, and Lyon 1 BU/SCEL resources
-- Accessibility controls: text size, high contrast, readable font, reduced motion and focus mode
-- Responsive smartphone layout
-- Local JSON export/import of learner progress
-- Network-first service worker with cache-busting on the main CSS/JS files
+- 40-item C-level baseline diagnostic: 10 items per skill.
+- Reading practice: Complete the Words, Read in Daily Life and Read an Academic Passage.
+- Listening practice: Choose a Response, Conversation, Announcement and Academic Talk.
+- Practice and Exam Conditions for Listening.
+- Speaking: 7-sentence Listen & Repeat sets and 4-question interviews, with local browser recording when supported.
+- Writing: Build a Sentence, timed Email and Academic Discussion practice.
+- Objective accuracy separated from Speaking/Writing self-review.
+- Error log and personalised recommended practice route.
+- Focused Reading/Listening simulation with feedback withheld until the end.
+- 80 C1/C2 vocabulary and collocation cards with browser text-to-speech.
+- C-Level Lab for hedging, nominalisation, syntax, paraphrase, stance and cohesion.
+- Resources page with official ETS material, academic-English resources and Lyon 1 library/SCEL links.
+- Local progress storage plus JSON export/import.
+- Accessibility controls and responsive layout.
 
-## Important scoring note
+## Current practice bank
 
-The diagnostic and dashboard provide **internal pedagogical estimates only**. They do not reproduce ETS scoring. Speaking and Writing cannot be validly assessed through multiple-choice questions alone, so the diagnostic treats those items as language-control proxies and the practice sections use structured self-assessment for productive work.
+- 10 Complete the Words C-tests (10 gaps each)
+- 10 Daily Life sets (2 questions each)
+- 10 Academic Passages (5 questions each)
+- 20 Choose a Response items
+- 8 Conversations (2 questions each)
+- 6 Announcements (2 questions each)
+- 8 Academic Talks (4 questions each)
+- 5 Listen & Repeat scenarios (7 sentences each)
+- 6 Interview scenarios (4 questions each)
+- 16 Build a Sentence tasks
+- 8 Email prompts
+- 8 Academic Discussion prompts
+- 80 vocabulary/collocation cards
 
-## GitHub Pages deployment
+## Important limitations
 
-1. Upload **all files in this folder to the repository root**.
-2. Replace the existing files with these audited versions.
-3. In GitHub, open **Settings → Pages** and deploy from `main` / root if this is not already configured.
-4. After deployment, reload the public site. This build uses versioned CSS/JS URLs and a network-first service worker to reduce stale-cache problems after updates.
+This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce the adaptive ETS scoring algorithm, and does not issue official TOEFL scores. The diagnostic band is an internal baseline only. Speaking and extended Writing are self-reviewed with criteria because reliable automated scoring is not claimed.
 
-## Required files
+Audio in the trainer is generated with the browser's text-to-speech engine, so voice quality and accent availability depend on the device and browser.
 
-- `index.html`
-- `styles.css`
-- `data.js`
-- `app.js`
-- `manifest.webmanifest`
-- `sw.js`
-
-`AUDIT-NOTES.md` is documentation only and may remain in the repository.
-
-## Privacy and local data
-
-Progress is stored in the learner's browser with `localStorage`. No account, server or database is required. Speaking recording uses the browser `MediaRecorder` API and requires microphone permission. Recordings are created locally and are not uploaded by this site.
-
-## Current-format references
-
-The site was rechecked in September 2026 against current public ETS information. Always verify ETS before a real test date because test specifications can change.
-
-- https://www.ets.org/toefl/test-takers/ibt/about/content.html
-- https://www.ets.org/toefl/test-takers/ibt/about/content/reading.html
-- https://www.ets.org/toefl/test-takers/ibt/about/content/speaking.html
-- https://www.ets.org/toefl/test-takers/ibt/scores/understand-scores.html
-
-TOEFL and ETS are registered trademarks of ETS. All practice tasks in this site are original.
-
-Designed and developed by Eglantine Lecomte — Claude Bernard Lyon 1 University — with the assistance of ChatGPT.
+TOEFL and ETS are registered trademarks of ETS.

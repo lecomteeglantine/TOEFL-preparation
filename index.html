@@ -7,7 +7,7 @@
   <meta name="description" content="Homemade TOEFL Trainer — demanding C1/C2 preparation for the TOEFL iBT format introduced in January 2026: diagnostic, Reading, Listening, Speaking, Writing, academic vocabulary and progress tracking.">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=20260921a">
+  <link rel="stylesheet" href="styles.css?v=20260921c">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -34,15 +34,9 @@
 <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
 <nav class="main-nav" id="mainNav" aria-label="Main navigation">
   <button data-nav="home" class="is-active">Home</button>
-  <button data-nav="test">Test Format</button>
-  <button data-nav="diagnostic">Diagnostic</button>
+  <button data-nav="test">Test</button>
+  <button data-nav="practice">Practice</button>
   <button data-nav="dashboard">My Progress</button>
-  <button data-nav="reading">Reading</button>
-  <button data-nav="listening">Listening</button>
-  <button data-nav="speaking">Speaking</button>
-  <button data-nav="writing">Writing</button>
-  <button data-nav="vocabulary">Vocabulary</button>
-  <button data-nav="clevel">C-Level Lab</button>
   <button data-nav="resources">Resources</button>
   <button data-nav="examday">Test Day</button>
 </nav>
@@ -77,8 +71,8 @@
       <div class="grid four">
         <article class="step-card"><b>1</b><h3>Know the current test</h3><p>Learn the post-January-2026 task types, multistage Reading/Listening and 1–6 score scale.</p><button class="text-btn" data-nav="test">📘 View the format</button></article>
         <article class="step-card"><b>2</b><h3>Take a harder diagnostic</h3><p>40 C-oriented items test inference, discourse, stance, syntax, lexical precision and response quality.</p><button class="text-btn" data-nav="diagnostic">⚡ Start diagnostic</button></article>
-        <article class="step-card"><b>3</b><h3>Follow your weak skill</h3><p>Your dashboard ranks the four skills and points you towards the weakest current area.</p><button class="text-btn" data-nav="dashboard">📊 Open progress</button></article>
-        <article class="step-card"><b>4</b><h3>Train academic control</h3><p>Practise calibrated claims, compression, syntactic control, cohesion, paraphrase and evaluation.</p><button class="text-btn" data-nav="clevel">🚀 Enter the C-Level Lab</button></article>
+        <article class="step-card"><b>3</b><h3>Follow your weak skill</h3><p>Your dashboard separates objective accuracy from productive self-review and identifies recurring error types.</p><button class="text-btn" data-nav="dashboard">📊 Open progress</button></article>
+        <article class="step-card"><b>4</b><h3>Train academic control</h3><p>Practise calibrated claims, compression, syntactic control, cohesion, paraphrase and evaluation.</p><button class="text-btn" data-nav="practice">🚀 Choose practice</button></article>
       </div>
     </section>
 
@@ -110,8 +104,37 @@
       <article class="skill-card"><div class="skill-icon">🎙️</div><h2>Speaking</h2><p class="metric">up to 11 items · up to 8 min</p><ul><li>Listen and Repeat</li><li>Take an Interview</li></ul></article>
     </div>
     <div class="card info-card"><h2>What changes at C1/C2?</h2><div class="grid two"><div><h3>Comprehension</h3><p>You must follow implicit relationships, rhetorical purpose, qualification, speaker stance, local contrast and the limits of a claim—not merely identify explicit facts.</p></div><div><h3>Production</h3><p>You need direct task fulfilment, controlled complexity, precise vocabulary, natural cohesion, proportionate hedging and enough fluency to make the structure easy to follow under time pressure.</p></div></div></div>
+    <section class="test-route-grid">
+      <article class="card test-route-card"><span class="tag teal">BASELINE</span><h2>C-Level Diagnostic</h2><p>40 difficult items. No answer feedback until the end. Use it to locate weaknesses before you start drilling.</p><button class="btn primary" data-nav="diagnostic">Start diagnostic</button></article>
+      <article class="card test-route-card"><span class="tag coral">NO FEEDBACK</span><h2>Practice Simulation</h2><p>A representative, non-adaptive simulation using current task families. Reading and Listening answers stay hidden until the focused simulation ends.</p><button class="btn primary" data-nav="mock">Open simulation</button></article>
+      <article class="card test-route-card"><span class="tag indigo">TARGETED</span><h2>Skill Practice</h2><p>Train one task family at a time, inspect explanations and build an error log by question type.</p><button class="btn secondary" data-nav="practice">Choose a skill</button></article>
+    </section>
     <div class="official-note"><strong>Important:</strong> This is an independent educational site and is not affiliated with ETS. Test structure and score information are based on public ETS information checked in September 2026. Always verify the official ETS website before registering.</div>
     <div class="cta-row"><button class="btn primary" data-nav="diagnostic">Take the diagnostic</button><button class="btn secondary" data-nav="resources">Open official resources</button></div>
+  </section>
+
+  <section class="view" id="view-practice" data-view="practice">
+    <div class="page-head"><span class="section-kicker">PRACTICE</span><h1>Choose the skill you need—not the one you like</h1><p>Practice is grouped by purpose. Objective items feed the error log; productive Speaking and Writing tasks are kept separate as structured self-review.</p></div>
+    <div class="grid three practice-hub">
+      <article class="skill-card practice-hub-card"><div class="skill-icon">📖</div><h2>Reading</h2><p>C-tests, daily-life texts and 200-word academic passages with linked question sets.</p><button class="btn secondary" data-nav="reading">Open Reading</button></article>
+      <article class="skill-card practice-hub-card"><div class="skill-icon">🎧</div><h2>Listening</h2><p>Choose a Response, two-question conversations and announcements, four-question academic talks.</p><button class="btn secondary" data-nav="listening">Open Listening</button></article>
+      <article class="skill-card practice-hub-card"><div class="skill-icon">🎙️</div><h2>Speaking</h2><p>One-listen repetition sets and four-question interviews with local recording and self-review.</p><button class="btn secondary" data-nav="speaking">Open Speaking</button></article>
+      <article class="skill-card practice-hub-card"><div class="skill-icon">✍️</div><h2>Writing</h2><p>Sentence building plus timed email and academic discussion tasks.</p><button class="btn secondary" data-nav="writing">Open Writing</button></article>
+      <article class="skill-card practice-hub-card"><div class="skill-icon">🧠</div><h2>Vocabulary</h2><p>Advanced academic vocabulary with pronunciation, definition, usage note and example.</p><button class="btn secondary" data-nav="vocabulary">Open Vocabulary</button></article>
+      <article class="skill-card practice-hub-card"><div class="skill-icon">🚀</div><h2>C-Level Lab</h2><p>Hedging, synthesis, cohesion, complex syntax, stance and calibrated evaluation.</p><button class="btn secondary" data-nav="clevel">Open C-Level Lab</button></article>
+    </div>
+  </section>
+
+  <section class="view" id="view-mock" data-view="mock">
+    <div class="page-head"><span class="section-kicker">PRACTICE SIMULATION</span><h1>Exam conditions without pretending to be ETS</h1><p>This is a focused, non-adaptive Reading/Listening practice simulation. It uses original tasks and does not reproduce ETS adaptive routing or scoring. Objective answers are withheld until the simulation ends.</p></div>
+    <div id="mockIntro" class="card centered">
+      <div class="diag-ring">≈20</div><h2>Focused simulation</h2>
+      <p>Work through selected Academic and Daily-Life Reading sets, then a sequence of Listening tasks. Productive Speaking and Writing practice is offered after the objective results. Use headphones and do not use a dictionary.</p>
+      <div class="score-banner"><span>Reading · no feedback</span><span>Listening · one play</span><span>Writing/Speaking · self-review only</span></div>
+      <button class="btn primary" id="startMock">Start simulation</button>
+    </div>
+    <div id="mockRunner" class="quiz-shell hidden"></div>
+    <div id="mockResult" class="hidden"></div>
   </section>
 
   <section class="view" id="view-diagnostic" data-view="diagnostic">
@@ -122,16 +145,20 @@
   </section>
 
   <section class="view" id="view-dashboard" data-view="dashboard">
-    <div class="page-head"><span class="section-kicker">PROGRESS</span><h1>Your route to a 5–6 band</h1><p>Your dashboard combines your diagnostic baseline with recent scored practice saved in this browser. Productive Speaking and Writing tasks use structured self-checks.</p></div>
+    <div class="page-head"><span class="section-kicker">PROGRESS</span><h1>Evidence, not one fake “TOEFL score”</h1><p>The dashboard now separates your diagnostic baseline, objective practice accuracy and productive self-review. Only ETS can issue an official TOEFL score.</p></div>
     <div class="dashboard-top">
-      <article class="score-card"><span>Training estimate</span><strong id="overallBand">—</strong><small id="overallCefr">Take the diagnostic</small></article>
+      <article class="score-card"><span>Diagnostic baseline</span><strong id="overallBand">—</strong><small id="overallCefr">Take the diagnostic</small></article>
       <article class="target-card"><span>Your target</span><label>Band <select id="targetBand"><option value="5">5.0</option><option value="5.5" selected>5.5</option><option value="6">6.0</option></select></label><button class="btn secondary small" id="saveTarget">Save target</button></article>
       <article class="streak-card"><span>Practice streak</span><strong id="streakValue">0</strong><small>days</small></article>
       <article class="words-card"><span>My Words</span><strong id="savedWordsCount">0</strong><small>saved items</small></article>
     </div>
-    <div class="skill-dashboard" id="skillDashboard"></div>
-    <div class="card route-card"><h2>Recommended order</h2><p>The weakest current skill comes first. Do not spend all your time polishing your strongest section.</p><div id="recommendedRoute"></div></div>
-    <div class="card stats-card"><h2>Practice data</h2><div class="grid three"><div><strong id="questionsDone">0</strong><span>questions answered</span></div><div><strong id="practiceMinutes">0</strong><span>timed production minutes</span></div><div><button class="btn secondary" id="exportProgress">Export progress</button><label class="btn secondary file-label">Import progress<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Reset</button></div></div></div>
+    <section class="dashboard-section"><div class="dashboard-section-head"><div><span class="tag teal">MEASURED</span><h2>Objective practice</h2></div><p>Accuracy from items with a defined correct answer. Productive self-ratings are excluded.</p></div><div class="skill-dashboard" id="skillDashboard"></div></section>
+    <section class="dashboard-section"><div class="dashboard-section-head"><div><span class="tag coral">SELF-REVIEW</span><h2>Productive skills</h2></div><p>Speaking and extended Writing use criteria-based self-review. These are not converted into a TOEFL band.</p></div><div class="skill-dashboard productive-dashboard" id="productiveDashboard"></div></section>
+    <div class="grid two dashboard-lower">
+      <div class="card route-card"><h2>Recurring weaknesses</h2><p>Your error log ranks question types with enough practice data. Work on the pattern, not just the section.</p><div id="weaknessList"></div></div>
+      <div class="card route-card"><h2>Recommended next</h2><p>Recommendations prioritise low objective accuracy and repeated error types.</p><div id="recommendedRoute"></div></div>
+    </div>
+    <div class="card stats-card"><h2>Practice data</h2><div class="grid three"><div><strong id="questionsDone">0</strong><span>objective questions answered</span></div><div><strong id="practiceMinutes">0</strong><span>timed production minutes</span></div><div><button class="btn secondary" id="exportProgress">Export progress</button><label class="btn secondary file-label">Import progress<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Reset</button></div></div></div>
   </section>
 
   <section class="view" id="view-reading" data-view="reading">
@@ -142,9 +169,10 @@
 
   <section class="view" id="view-listening" data-view="listening">
     <div class="page-head"><span class="section-kicker">LISTENING</span><h1>Track what the speaker is doing</h1><p>Listen for implication, correction, concession, speaker commitment, purpose and the relationship between examples and claims.</p></div>
+    <div class="practice-mode" id="listeningMode"><span>Mode:</span><button class="is-active" data-listen-mode="practice">Practice</button><button data-listen-mode="exam">Exam conditions</button></div>
     <div class="tab-row" data-tabs="listening"><button class="is-active" data-tab="response">Choose a Response</button><button data-tab="conversation">Conversation</button><button data-tab="announcement">Announcement</button><button data-tab="talk">Academic Talk</button></div>
     <div id="listeningWorkspace" class="practice-workspace"></div>
-    <div class="official-note"><strong>Audio note:</strong> Practice audio is generated locally by your device's text-to-speech engine. It is useful for comprehension and response work, but it cannot reproduce the exact voices or acoustics of an official TOEFL test.</div>
+    <div class="official-note"><strong>Audio note:</strong> Practice audio is generated locally by your device's text-to-speech engine. Practice mode unlocks replay only after you answer; Exam conditions allows one play. Device voices cannot reproduce official TOEFL acoustics.</div>
   </section>
 
   <section class="view" id="view-speaking" data-view="speaking">
@@ -278,8 +306,8 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=20260921a"></script>
-<script src="app.js?v=20260921a"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260921a').then(r=>r.update()).catch(()=>{}));}</script>
+<script src="data.js?v=20260921c"></script>
+<script src="app.js?v=20260921c"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260921c').then(r=>r.update()).catch(()=>{}));}</script>
 </body>
 </html>
