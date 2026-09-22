@@ -1,7 +1,7 @@
 {
   "name": "Homemade TOEFL + C-Level Trainer",
   "short_name": "TOEFL + C",
-  "description": "TOEFL iBT preparation plus Beyond-TOEFL C1/C2 development in precision, fluency, nuance, argumentation, synthesis, mediation and pronunciation.",
+  "description": "TOEFL iBT preparation plus CEFR-informed C1/C2 development, study planning, mediation, online interaction and a revision portfolio.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
@@ -9,5 +9,24 @@
   "display": "standalone",
   "background_color": "#f7f8fc",
   "theme_color": "#101a3d",
-  "icons": []
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

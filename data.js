@@ -6233,7 +6233,7 @@ window.TOEFL_DATA = {
     "lastVerified": "2026-09-22",
     "format": "TOEFL iBT format in use from 21 January 2026",
     "levelTarget": "C1/C2",
-    "version": "6.0 · deep consistency audit, persistent rotation and Beyond-TOEFL reliability fixes",
+    "version": "7.0 · study planning, CEFR-informed mapping, mistake recycling, productive studios and revision portfolio",
     "audio": "Device-generated speech with deterministic North American, UK, Australian and New Zealand accent profiles when available."
   }
 };

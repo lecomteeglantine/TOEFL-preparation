@@ -4,10 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a3d">
-  <meta name="description" content="Homemade TOEFL Trainer — demanding TOEFL iBT preparation plus a Beyond-TOEFL Reach C Level pathway for genuine C1/C2 development in precision, range, fluency, nuance, argumentation, synthesis, mediation and pronunciation.">
+  <meta name="description" content="Homemade TOEFL Trainer — TOEFL iBT preparation plus a CEFR-informed C1/C2 pathway with study planning, mediation, online interaction, revision portfolios and targeted error recycling.">
+  <link rel="canonical" href="https://lecomteeglantine.github.io/homemade-toefl-trainer/">
+  <meta property="og:title" content="Homemade TOEFL Trainer — TOEFL + C1/C2">
+  <meta property="og:description" content="TOEFL preparation plus a CEFR-informed pathway for genuine C-level precision, interaction, mediation, synthesis and revision.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lecomteeglantine.github.io/homemade-toefl-trainer/">
+  <meta property="og:image" content="https://lecomteeglantine.github.io/homemade-toefl-trainer/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Homemade TOEFL Trainer — TOEFL + C1/C2">
+  <meta name="twitter:description" content="TOEFL preparation plus a CEFR-informed pathway for genuine C-level precision, interaction, mediation, synthesis and revision.">
+  <meta name="twitter:image" content="https://lecomteeglantine.github.io/homemade-toefl-trainer/social-preview.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=20260922v6">
+  <link rel="stylesheet" href="styles.css?v=20260922v7">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -23,15 +37,17 @@
   </nav>
 </header>
 
-<div class="accent-bar" aria-label="Listening voice profile setting">
-  <span>🔊 Voice profile:</span>
-  <button class="accent-choice is-active" data-accent="auto" type="button">🌍 TOEFL Mix</button>
-  <button class="accent-choice" data-accent="en-US" type="button">🇺🇸 US</button>
-  <button class="accent-choice" data-accent="en-GB" type="button">🇬🇧 UK</button>
-  <button class="accent-choice" data-accent="en-AU" type="button">🇦🇺 AU</button>
-  <button class="accent-choice" data-accent="en-NZ" type="button">🇳🇿 NZ</button>
-  <span class="accent-note">TOEFL Mix rotates accent profiles by exercise when your device provides them</span>
-</div>
+<details class="accent-bar" aria-label="Listening voice profile setting">
+  <summary>🔊 Audio settings <span class="accent-current">TOEFL Mix</span></summary>
+  <div class="accent-panel">
+    <button class="accent-choice is-active" data-accent="auto" type="button">🌍 TOEFL Mix</button>
+    <button class="accent-choice" data-accent="en-US" type="button">🇺🇸 US</button>
+    <button class="accent-choice" data-accent="en-GB" type="button">🇬🇧 UK</button>
+    <button class="accent-choice" data-accent="en-AU" type="button">🇦🇺 AU</button>
+    <button class="accent-choice" data-accent="en-NZ" type="button">🇳🇿 NZ</button>
+    <span class="accent-note">TOEFL Mix rotates available voice profiles by exercise. The exact installed voices depend on your device.</span>
+  </div>
+</details>
 
 <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
 <nav class="main-nav" id="mainNav" aria-label="Main navigation">
@@ -52,7 +68,7 @@
         <h1>Do not practise easy.<br><span>Train for C.</span></h1>
         <p>A demanding platform for students already around upper-B2/C1: prepare for the current TOEFL iBT <strong>and</strong> build the wider C-level abilities a test cannot fully measure — precision, range, fluency, nuance, argumentation, synthesis, mediation and pronunciation.</p>
         <div class="hero-badges"><span>🎯 TOEFL 5–6</span><span>🧠 C1/C2</span><span>🌐 Beyond TOEFL</span><span>🔒 Local progress</span></div>
-        <div class="cta-row"><button class="btn primary" data-nav="diagnostic">⚡ Take the TOEFL Diagnostic</button><button class="btn secondary" data-nav="reachc">🚀 Reach C Level</button><button class="btn secondary" data-nav="resources">Open Resources</button></div>
+        <div class="cta-row"><button class="btn primary" data-cplus-jump="plan">🧭 Build my study plan</button><button class="btn secondary" data-nav="reachc">🚀 Reach C Level</button></div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="score-orbit"><div class="score-core"><strong>5.5</strong><span>C1 target</span></div><span class="orbit o1">READ</span><span class="orbit o2">LISTEN</span><span class="orbit o3">SPEAK</span><span class="orbit o4">WRITE</span></div>
@@ -161,6 +177,21 @@
       <div class="card route-card"><h2>Recurring weaknesses</h2><p>Your error log gives priority to recent attempts once enough data exists, so an old mistake does not follow you forever.</p><div id="weaknessList"></div></div>
       <div class="card route-card"><h2>Recommended next</h2><p>Recommendations prioritise recent objective accuracy and repeated error types.</p><div id="recommendedRoute"></div></div>
     </div>
+    <section class="dashboard-section study-plan-zone" id="studyPlanZone">
+      <div class="dashboard-section-head"><div><span class="tag indigo">PERSONAL ROUTE</span><h2>My Study Plan</h2></div><p>Create a rolling 2–8 week plan from your available time, goal and current evidence. It stays entirely on this device.</p></div>
+      <div class="plan-builder card">
+        <label><span>TOEFL test date <small>(optional)</small></span><input id="planTestDate" type="date"></label>
+        <label><span>Sessions per week</span><select id="planSessions"><option value="2">2 sessions</option><option value="3" selected>3 sessions</option><option value="4">4 sessions</option></select></label>
+        <label><span>Emphasis</span><select id="planFocus"><option value="balanced" selected>Balanced: TOEFL + C level</option><option value="toefl">Mostly TOEFL</option><option value="clevel">Mostly C-level development</option></select></label>
+        <label><span>Target</span><select id="planTarget"><option value="5.0 / C1">TOEFL 5.0 / C1</option><option value="5.5 / strong C1" selected>TOEFL 5.5 / strong C1</option><option value="6.0 / C2">TOEFL 6.0 / C2</option><option value="C1 beyond TOEFL">C1 beyond TOEFL</option><option value="C2 beyond TOEFL">C2 beyond TOEFL</option></select></label>
+        <button class="btn primary" id="generatePlan">Generate / refresh my plan</button>
+      </div>
+      <div id="studyPlanOutput" class="study-plan-output"></div>
+    </section>
+    <section class="dashboard-section recycler-zone">
+      <div class="dashboard-section-head"><div><span class="tag coral">SPACED REPAIR</span><h2>Mistake Recycler</h2></div><p>Weak patterns return through fresh practice instead of the exact item you memorised. Recent performance gradually replaces old errors.</p></div>
+      <div id="mistakeRecycler" class="mistake-recycler"></div>
+    </section>
     <section class="dashboard-section c-dashboard-section"><div class="dashboard-section-head"><div><span class="tag indigo">BEYOND TOEFL</span><h2>C-Level development</h2></div><p>A separate profile for real-world advanced English. These results never feed the TOEFL readiness figures above.</p></div><div id="dashboardCLevel" class="c-dashboard-mini"></div><button class="text-btn" data-nav="reachc">Open the full C-Level profile →</button></section>
     <div class="card simulation-history-card"><div><span class="tag indigo">SIMULATION HISTORY</span><h2>Recent practice simulations</h2><p>Accuracy and completion time are stored locally. These are practice results, not ETS scores.</p></div><div id="mockHistoryList" class="simulation-history-list"></div></div>
     <div class="card stats-card"><h2>Practice data</h2><div class="grid three"><div><strong id="questionsDone">0</strong><span>objective questions answered</span></div><div><strong id="practiceMinutes">0</strong><span>timed production minutes</span></div><div><button class="btn secondary" id="exportProgress">Export progress</button><label class="btn secondary file-label">Import progress<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Reset</button></div></div></div>
@@ -207,12 +238,12 @@
 
   <section class="view" id="view-vocabulary" data-view="vocabulary">
     <div class="page-head"><span class="section-kicker">ACADEMIC VOCABULARY</span><h1>Use advanced words accurately—or do not use them</h1><p>Search by word, definition, usage note or example. The emphasis is on collocation, scope and register rather than translation.</p></div>
-    <div class="search-row"><input id="vocabSearch" type="search" placeholder="Search a word, definition, usage note or example…"><button class="btn secondary" id="showSavedWords">⭐ My Words</button></div>
+    <div class="search-row"><input id="vocabSearch" type="search" aria-label="Search vocabulary" placeholder="Search a word, definition, usage note or example…"><button class="btn secondary" id="showSavedWords">⭐ My Words</button></div>
     <div id="vocabGrid" class="vocab-grid"></div>
   </section>
 
 <section class="view" id="view-reachc" data-view="reachc">
-    <div class="page-head reachc-head"><span class="section-kicker">BEYOND TOEFL</span><h1>Reach C Level — not just a test score</h1><p>This pathway develops advanced English beyond the TOEFL format. It tracks eight C-level abilities separately so that strong exam technique cannot hide weak mediation, register, argumentation or spoken discourse control.</p></div>
+    <div class="page-head reachc-head"><span class="section-kicker">BEYOND TOEFL</span><h1>Reach C Level — not just a test score</h1><p>This pathway develops advanced English beyond the TOEFL format. It tracks eight core control abilities separately, then adds CEFR-informed portfolio evidence for online interaction and revised productive work so that strong exam technique cannot hide weak mediation, register, argumentation or discourse control.</p></div>
 
     <div class="c-summary-strip" id="cLevelSummary"><div><strong>—</strong><span>C-Level Check</span></div><div><strong>—</strong><span>recent objective</span></div><div><strong>—</strong><span>mission self-review</span></div></div>
 
@@ -222,7 +253,9 @@
       <div id="cCheckResult" class="hidden"></div>
     </section>
 
-    <section class="section-block c-profile-zone"><span class="section-kicker">YOUR C-LEVEL PROFILE</span><h2>Eight abilities — deliberately kept separate</h2><p class="resource-lead">Objective accuracy and productive mission self-review are shown separately. A high score in one area does not compensate for a weakness in another.</p><div id="cLevelDashboard" class="c-skill-grid"></div></section>
+    <section class="section-block c-profile-zone"><span class="section-kicker">YOUR C-LEVEL PROFILE</span><h2>Eight core control abilities — deliberately kept separate</h2><p class="resource-lead">Objective accuracy and productive mission self-review are shown separately. Online interaction is evidenced in the portfolio rather than forced into an artificial multiple-choice score.</p><div id="cLevelDashboard" class="c-skill-grid"></div></section>
+
+    <section class="section-block cefr-zone" id="cefrMapZone"><span class="section-kicker">CEFR-INFORMED MAP</span><h2>Connect practice to real communicative abilities</h2><p class="resource-lead">This map adapts the logic of the Council of Europe CEFR Companion Volume. The statements below are pedagogical paraphrases, not official certification descriptors. Use them to interpret evidence from the site.</p><div id="cefrMap" class="cefr-map"></div><p class="micro-note">For the official searchable descriptors, use the Council of Europe link in Resources. Online Interaction is tracked through portfolio evidence rather than an automatically scored objective band.</p></section>
 
     <section class="section-block"><span class="section-kicker">CONTROL LABS</span><h2>Train the distinction that breaks at C level</h2><div class="c-module-grid">
       <button class="c-module-card is-active" data-cmodule="precision"><span>🎯</span><strong>Precision & Register</strong><small>Meaning, audience, collocation</small></button>
@@ -248,7 +281,13 @@
       <button class="mission-card" data-mission="expertminute"><span>⏱️</span><strong>The One-Minute Expert</strong><small>Explain complexity to a non-specialist</small></button>
     </div><div id="missionWorkspace" class="card mission-workspace hidden"></div></section>
 
-    <section class="card c-weekly-plan"><span class="tag teal">WEEKLY ROUTE</span><h2>A realistic path from upper-B2 to C1/C2</h2><div class="grid four"><div><strong>2 × Control Lab</strong><p>Do 8 objective items in your two weakest dimensions. Read every explanation, including correct answers.</p></div><div><strong>1 × Upgrade Machine</strong><p>Complete 4 rewrites, then improve one sentence from your own work using the same principle.</p></div><div><strong>2 × Missions</strong><p>Do one spoken and one written mission. Repeat each after self-review instead of merely moving on.</p></div><div><strong>1 × Authentic input</strong><p>Read or listen outside your field. Produce a 60-word synthesis and explain it aloud to a non-specialist.</p></div></div></section>
+    <section class="section-block productive-studios" id="onlineInteractionZone"><span class="section-kicker">ONLINE INTERACTION</span><h2>Respond to people, not just prompts</h2><p class="resource-lead">Advanced online interaction means integrating earlier contributions, repairing misunderstandings, managing tone and helping a group reach the next decision.</p><div id="onlineWorkspace" class="card studio-workspace"></div></section>
+
+    <section class="section-block productive-studios" id="mediationStudioZone"><span class="section-kicker">MEDIATION 2.0</span><h2>Make complex meaning usable for somebody else</h2><p class="resource-lead">Restructure, simplify, synthesise or reframe information for a new audience without deleting uncertainty or inventing meaning.</p><div id="mediationWorkspace" class="card studio-workspace"></div></section>
+
+    <section class="section-block portfolio-zone" id="portfolioZone"><span class="section-kicker">MY C-LEVEL PORTFOLIO</span><h2>Keep evidence of revision, not just scores</h2><p class="resource-lead">Save a first attempt, review explicit criteria, write a second version and explain what changed. Everything remains in this browser unless you export it.</p><div id="portfolioSummary" class="portfolio-summary"></div><div class="portfolio-actions"><button class="btn secondary" id="exportPortfolioCsv">Export portfolio CSV</button></div><details class="card portfolio-capture"><summary><strong>Add a revision from any TOEFL or C-Level task</strong></summary><p>Use this for a TOEFL Writing draft, speaking notes/transcript, a C-Level Mission or authentic work completed elsewhere. Do not paste confidential or personal material.</p><div class="portfolio-capture-grid"><label><span>Task type</span><select id="portfolioManualType"><option>TOEFL Writing</option><option>TOEFL Speaking</option><option>C-Level Mission</option><option>Other</option></select></label><label><span>Primary C-level dimension</span><select id="portfolioManualDimension"><option value="precision">Precision & Register</option><option value="range">Grammar & Range</option><option value="fluency">Natural English & Fluency</option><option value="nuance">Nuance & Implicit Meaning</option><option value="argumentation">Argumentation</option><option value="synthesis">Synthesis</option><option value="mediation">Mediation</option><option value="pronunciation">Pronunciation & Discourse</option><option value="online">Online Interaction</option></select></label></div><label class="draft-label"><strong>Task title</strong><input id="portfolioManualTitle" type="text" maxlength="120" placeholder="e.g. Academic Discussion — transport policy"></label><label class="draft-label"><strong>First attempt / first performance notes</strong><textarea id="portfolioManualFirst" class="writing-area" placeholder="Paste the first written version, a transcript, or concise notes on the first oral attempt…"></textarea></label><label class="draft-label"><strong>Revised attempt / second performance notes</strong><textarea id="portfolioManualRevised" class="writing-area" placeholder="Record what changed in the second attempt…"></textarea></label><label class="draft-label"><strong>Reflection</strong><textarea id="portfolioManualReflection" class="reflection-area" placeholder="What did you change, and why?"></textarea></label><button class="btn primary" id="saveManualPortfolio">Save revision evidence</button><div id="manualPortfolioFeedback" class="feedback" aria-live="polite"></div></details><div id="portfolioList" class="portfolio-list"></div></section>
+
+    <section class="card c-weekly-plan"><span class="tag teal">NO-PLAN OPTION</span><h2>Prefer not to generate a plan? Use this weekly minimum.</h2><div class="grid four"><div><strong>2 × Control Lab</strong><p>Do 8 objective items in your two weakest dimensions. Read every explanation, including correct answers.</p></div><div><strong>1 × Upgrade Machine</strong><p>Complete 4 rewrites, then improve one sentence from your own work using the same principle.</p></div><div><strong>2 × Missions</strong><p>Do one spoken and one written mission. Repeat each after self-review instead of merely moving on.</p></div><div><strong>1 × Authentic input</strong><p>Read or listen outside your field. Produce a 60-word synthesis and explain it aloud to a non-specialist.</p></div></div></section>
   </section>
 
   <section class="view" id="view-resources" data-view="resources">
@@ -258,7 +297,8 @@
       <h2>1. Official TOEFL resources — check these first</h2>
       <div class="grid three resource-grid">
         <article class="card resource-card"><span class="tag teal">ETS · CURRENT FORMAT</span><h3>TOEFL iBT Test Content and Structure</h3><p>Verify the current task families, approximate timing and adaptive Reading/Listening structure before relying on a book or third-party simulator.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/about/content.html" target="_blank" rel="noopener">Check the current format</a></article>
-        <article class="card resource-card"><span class="tag teal">ETS · OFFICIAL PRACTICE</span><h3>TOEFL preparation and TestReady</h3><p>Use official samples and practice alongside this trainer so that you remain familiar with the live test interface and official task expectations.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/prepare.html" target="_blank" rel="noopener">Open official preparation</a></article>
+        <article class="card resource-card"><span class="tag teal">ETS · OFFICIAL PRACTICE</span><h3>TOEFL TestReady</h3><p>Use ETS TestReady alongside this trainer for official full-length practice, rotating daily activities, performance feedback and a tailored study plan.</p><a class="btn secondary resource-link" href="https://testready.ets.org/" target="_blank" rel="noopener">Open TOEFL TestReady</a></article>
+        <article class="card resource-card"><span class="tag teal">ETS · SAMPLE TEST</span><h3>40-minute TOEFL iBT Sample</h3><p>Use the official self-paced sample to experience authentic past questions from all four skills and check Reading/Listening answers in an ETS environment.</p><a class="btn secondary resource-link" href="https://www.eu.ets.org/toefl/test-takers/ibt/prepare/sample-test.html" target="_blank" rel="noopener">Open the official sample</a></article>
         <article class="card resource-card"><span class="tag teal">ETS · SCORES</span><h3>Understand the 1–6 scale</h3><p>The current score report uses a 1–6 scale in half-band increments. For C-level work, this trainer targets 5.0–5.5 for C1 and 6.0 for C2.</p><a class="btn secondary resource-link" href="https://www.ets.org/toefl/test-takers/ibt/scores/understand-scores.html" target="_blank" rel="noopener">Open score guidance</a></article>
       </div>
       <div class="official-note"><strong>Important for books and older websites:</strong> the TOEFL iBT changed substantially on 21 January 2026. Older materials can still be useful for academic English, note-taking, reading and listening, but do not trust their task sequence, timing or scoring unless the edition explicitly covers the current format.</div>
@@ -281,8 +321,17 @@
       </div>
     </section>
 
+    <section class="resource-section">
+      <h2>3. Official CEFR references — understand what “C level” means</h2>
+      <div class="grid three resource-grid">
+        <article class="card resource-card"><span class="tag indigo">COUNCIL OF EUROPE</span><h3>CEFR searchable descriptors</h3><p>Check the official “can-do” descriptor scales rather than treating C1/C2 as a vocabulary list or a single percentage.</p><a class="btn secondary resource-link" href="https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors" target="_blank" rel="noopener">Open CEFR descriptors</a></article>
+        <article class="card resource-card"><span class="tag indigo">MEDIATION</span><h3>CEFR mediation</h3><p>Explore mediating a text, mediating concepts and mediating communication — the basis for the site’s Mediation Studio.</p><a class="btn secondary resource-link" href="https://www.coe.int/en/web/common-european-framework-reference-languages/mediation" target="_blank" rel="noopener">Open mediation guidance</a></article>
+        <article class="card resource-card"><span class="tag indigo">ONLINE INTERACTION</span><h3>CEFR online interaction</h3><p>See how the CEFR treats synchronous and asynchronous digital interaction as a distinct advanced communicative activity.</p><a class="btn secondary resource-link" href="https://www.coe.int/en/web/common-european-framework-reference-languages/online-interaction" target="_blank" rel="noopener">Open online-interaction guidance</a></article>
+      </div>
+    </section>
+
     <section class="resource-section lyon-resource">
-      <h2>3. Claude Bernard Lyon 1 University — borrow, consult and practise</h2>
+      <h2>4. Claude Bernard Lyon 1 University — borrow, consult and practise</h2>
       <p class="resource-lead">The University Library and the SCEL do not provide exactly the same service. The cards below distinguish catalogue items, resources explicitly listed as borrowable, online subscriptions and materials for on-site consultation.</p>
       <div class="grid two resource-grid">
         <article class="card resource-card"><span class="tag teal">BU LYON 1 · TOEFL</span><h3>TOEFL preparation books in the library selection</h3><p>The BU Languages page has a dedicated <strong>“Prepare for the TOEFL”</strong> catalogue selection. Use the live record to check the exact edition, holding library, availability and loan status before travelling.</p><div class="resource-status"><strong>Best use:</strong> strategy reference, extra academic practice, vocabulary and note-taking.</div><a class="btn primary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a><p class="micro-note">On that page, open the dedicated TOEFL preparation catalogue selection. For any pre-2026 book, ignore old timing, scoring and task sequence.</p></article>
@@ -326,7 +375,7 @@
       <article class="card"><h2>Accessibility</h2><p>The site includes keyboard navigation, text-size controls, high contrast, a readable-font option, reduced motion and focus mode.</p></article>
       <article class="card"><h2>AI assistance</h2><p>© Eglantine Lecomte. The educational concept, pathways and training system were created by Eglantine Lecomte with the assistance of ChatGPT.</p></article>
     </div>
-    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Version 6 includes a separate Beyond-TOEFL “Reach C Level” pathway, while continuing to rotate North American, UK, Australian and New Zealand voice profiles when the device provides them. TOEFL readiness and wider C-level development are deliberately tracked separately. Official information can change, so ETS remains the reference.</p></div>
+    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Version 7 adds a CEFR-informed descriptor map, study planning, mistake recycling, online interaction, mediation and a revision portfolio, while continuing to rotate North American, UK, Australian and New Zealand voice profiles when the device provides them. TOEFL readiness and wider C-level development are deliberately tracked separately. Official information can change, so ETS remains the reference.</p></div>
   </section>
 </main>
 
@@ -350,10 +399,12 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=20260922v6"></script>
-<script src="clevel-data.js?v=20260922v6"></script>
-<script src="app.js?v=20260922v6"></script>
-<script src="clevel.js?v=20260922v6"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260922v6').then(r=>r.update()).catch(()=>{}));}</script>
+<script src="data.js?v=20260922v7"></script>
+<script src="clevel-data.js?v=20260922v7"></script>
+<script src="cplus-data.js?v=20260922v7"></script>
+<script src="app.js?v=20260922v7"></script>
+<script src="clevel.js?v=20260922v7"></script>
+<script src="cplus.js?v=20260922v7"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260922v7').then(r=>r.update()).catch(()=>{}));}</script>
 </body>
 </html>

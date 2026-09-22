@@ -1,6 +1,6 @@
-# Homemade TOEFL Trainer + Reach C Level · V6
+# Homemade TOEFL Trainer + Reach C Level · V7
 
-An independent browser-based platform for advanced learners. V6 keeps the TOEFL iBT 2026 practice pathway and the separate **Beyond TOEFL — Reach C Level** pathway, while fixing the state, progression and scoring inconsistencies found in a deep internal audit of V5.
+An independent browser-based platform for advanced learners. V7 keeps the current TOEFL iBT pathway and extends the separate **Reach C Level** pathway into a broader C1/C2 learning environment with study planning, error recycling, CEFR-informed interpretation, online interaction, mediation and revision evidence.
 
 ## Deploy on GitHub Pages
 
@@ -10,107 +10,132 @@ Upload these files together at the root of the repository, replacing the previou
 - `styles.css`
 - `data.js`
 - `clevel-data.js`
+- `cplus-data.js`
 - `app.js`
 - `clevel.js`
+- `cplus.js`
 - `manifest.webmanifest`
 - `sw.js`
+- `favicon.svg`
+- `icon-192.png`
+- `icon-512.png`
+- `social-preview.png`
 
-The site uses versioned assets and a network-first service worker. V6 uses a new cache version, so the latest assets replace older cached copies after deployment.
+The service worker uses a V7 cache and a network-first strategy. Existing V5/V6 learner progress is migrated where compatible.
 
-## What V6 fixes
+## What V7 adds
 
-### Persistent progression
+### Personal study plan
 
-V5 contained large practice banks, but several modules kept their current position only in JavaScript memory. Reloading the page could therefore send a learner back to the first exercise. V6 persists the current position and selected sub-section for Reading, Listening, Speaking, Writing and Reach C Level.
+Learners can build a local 1–8 week plan using an optional TOEFL date, weekly availability, target and emphasis. When enough evidence exists, the plan uses the learner's TOEFL error log and C-Level profile. A rolling six-week plan is available without a test date.
 
-### Simulation rotation
+### Mistake Recycler
 
-Practice Simulation history is still limited to the 10 most recent results for a clean dashboard, but the total simulation-run counter is now stored separately. This prevents the simulation content from becoming stuck once the visible history reaches 10 attempts.
+Recurring objective weaknesses in Reading and Listening are surfaced as targeted categories. The learner is routed to a fresh item that practises the weak pattern rather than simply repeating the same question.
 
-### Reach C Level consistency
+### CEFR-informed map
 
-- The hidden legacy C-Level Lab has been removed completely. There is now one C-level pathway only: **Reach C Level**.
-- C-Level Check retakes rotate through alternative items where the bank allows instead of always repeating the first form.
-- Module, Upgrade Machine and mission positions survive reloads.
-- Mission timers and recordings are cleaned up when the learner changes prompt, resets progress or imports a file.
-- Productive missions now use **dimension-specific review criteria and scores** instead of applying one generic total to every dimension.
-- Pronunciation & Discourse is evaluated through stress/chunking, pacing/linking/articulation and meaningful intonation rather than through unrelated criteria.
+The site now interprets practice evidence through nine advanced communicative strands, including precision, range, fluency, nuance, argumentation, synthesis, mediation, phonological/discourse control and online interaction. The statements are pedagogical paraphrases, **not official CEFR certification descriptors**. Official Council of Europe descriptors remain the reference.
 
-### Content consistency
+Online Interaction is deliberately tracked through portfolio evidence rather than an invented automatically scored objective band.
 
-A misleading use of `allege` as a neutral academic reporting verb was replaced by `argue`. TOEFL overview figures and version labels have also been brought into line with the current V6 content.
+### Online Interaction Studio
 
-## Two deliberately separate pathways
+Eight scenarios train advanced written/digital interaction: integrating earlier contributions, repairing misunderstandings, managing disagreement, moderating discussion and helping a group reach a next decision.
+
+Each task follows:
+
+1. first attempt;
+2. explicit strategy/rubric review;
+3. revised attempt;
+4. reflection;
+5. optional portfolio save.
+
+### Mediation 2.0
+
+Eight scenarios train audience adaptation, specialist-to-non-specialist explanation, data mediation, neutral synthesis, cultural misunderstanding repair, genre transformation and multilingual mediation.
+
+### C-Level Portfolio
+
+Learners can save first and revised attempts from the new studios, or manually archive revision evidence from TOEFL Writing, TOEFL Speaking, C-Level Missions or authentic work completed elsewhere. The site stores the material locally in the current browser unless the learner exports it.
+
+Portfolio evidence is not treated as an official TOEFL or CEFR score.
+
+### Sharing and PWA polish
+
+V7 includes:
+
+- canonical URL and OpenGraph/Twitter metadata;
+- 1200 × 630 social preview;
+- SVG favicon;
+- 192 × 192 and 512 × 512 app icons;
+- updated web app manifest;
+- V7 service-worker cache.
+
+## Existing pathways retained
 
 ### TOEFL preparation
 
-Diagnostic, Reading, Listening, Speaking, Writing, vocabulary, focused simulation, error log and TOEFL-oriented progress. Objective scores and productive self-review remain separate.
-
-### Reach C Level — Beyond TOEFL
-
-Eight abilities are tracked separately:
-
-1. Precision & Register
-2. Advanced Grammar & Range
-3. Natural English & Fluency
-4. Nuance, Hedging & Implicit Meaning
-5. Argumentation & Counterargument
-6. Synthesis
-7. Mediation
-8. Pronunciation & Discourse
-
-The C-Level profile never changes TOEFL readiness figures.
-
-## Content banks
-
-### TOEFL
-
-- 20 Complete the Words C-tests (10 gaps each)
+- 40-item diagnostic
+- 20 Complete the Words C-tests
 - 20 Daily Life sets
-- 15 Academic Passages (5 questions each)
+- 15 Academic Passages
 - 40 Choose a Response items
-- 12 Conversations (2 questions each)
-- 10 Announcements (2 questions each)
-- 12 Academic Talks (4 questions each)
-- 8 Listen & Repeat scenarios (7 sentences each)
-- 10 Interview scenarios (4 questions each)
+- 12 Conversations
+- 10 Announcements
+- 12 Academic Talks
+- 8 Listen & Repeat sets
+- 10 Interview sets
 - 24 Build a Sentence tasks
 - 12 Email prompts
 - 12 Academic Discussion prompts
 - 160 vocabulary/collocation cards
+- focused non-adaptive practice simulation
+- objective error log and progress dashboard
 
 ### Reach C Level
 
 - 24-item rotating C-Level Check
 - 64 objective C-level control drills
 - 12 Upgrade Machine tasks
-- 8 C-Level Missions with 32 rotating prompts
-- Dimension-specific productive review rubrics
-- Local audio recording for oral missions where supported by the browser
+- 8 C-Level Missions / 32 rotating prompts
+- dimension-specific productive review rubrics
+- local recording support where the browser permits it
 
-## V6 audit status
+## Final V7 consistency fixes
 
-After the final V6 patch, the production code passed **98/98 automated checks** across four suites:
+The release package also corrects four small inconsistencies found during final packaging:
 
-- 30/30 static/data integrity checks
-- 20/20 TOEFL browser interaction checks
-- 30/30 deep navigation/C-Level/mobile checks
-- 18/18 persistence, migration, timer, rotation and dimension-scoring checks
+- the internal data version now reports V7 rather than V6;
+- the Study Plan no longer refers to the removed legacy “C-Level Lab”;
+- a TOEFL date within seven days generates a one-week plan rather than an impossible two-week plan;
+- the vocabulary search field now has an explicit accessible label.
 
-The checks cover duplicate IDs, internal navigation, bank structure, answer ranges, timers, one-play audio logic, mobile overflow, C-Level retakes, mission cleanup, progress persistence after reload, V5→V6 migration, simulation rotation beyond 10 attempts, reset/import behaviour and runtime console errors.
+The CEFR-informed map also explicitly explains that Online Interaction is portfolio-evidence based.
 
-See `V6-AUDIT-NOTES.md` for the detailed findings and corrections.
+## External references checked on 22 September 2026
 
-## Progress migration
+Core links were rechecked against current public pages, including:
 
-V6 automatically reads the previous V5/V6 TOEFL progress formats and the V1 Reach C Level format. Existing scores and history are retained while the new cursor/rotation fields are initialised safely.
+- ETS TOEFL content and structure
+- ETS 40-minute sample test
+- ETS score guidance
+- Council of Europe CEFR descriptors
+- Council of Europe mediation guidance
+- Council of Europe online-interaction guidance
+- Lyon 1 BU Languages
+- Lyon 1 Espace Langues-Cargo
+- Lyon 1 language tutoring
+- Lyon 1 TOEFL preparation
+
+The direct TestReady portal can reject automated crawlers, so the site treats ETS as the authoritative source if an official page or portal changes.
 
 ## Important limitations
 
 This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce ETS adaptive routing or official scoring, and does not issue official TOEFL or CEFR certification.
 
-The C-Level Check is a training snapshot, not an official CEFR assessment. Spoken and extended written production use structured learner self-review rather than pretending to provide automated human-level evaluation.
+The C-Level Check and portfolio are learning tools, not formal CEFR assessment. Extended Speaking and Writing use structured learner self-review rather than pretending to reproduce official human or automated scoring.
 
-Audio voices depend on the speech voices installed on the learner's device; accent availability therefore varies by browser and operating system.
+Audio uses browser/device speech synthesis. Accent-profile availability therefore varies by operating system and browser.
 
 TOEFL and ETS are registered trademarks of ETS.

@@ -268,11 +268,14 @@
   const accentButtons=$$('.accent-choice');
   accentButtons.forEach(b=>b.classList.toggle('is-active',b.dataset.accent===accent));
   if(!accentButtons.some(b=>b.classList.contains('is-active'))){accent='auto';accentButtons.find(b=>b.dataset.accent==='auto')?.classList.add('is-active');}
+  function updateAccentCurrent(){const el=$('.accent-current');if(!el)return;const b=accentButtons.find(x=>x.dataset.accent===accent);el.textContent=(b?.textContent||'TOEFL Mix').replace(/^[^A-Za-z]+/,'').trim();}
+  updateAccentCurrent();
   $$('.accent-choice').forEach(b => b.addEventListener('click', () => {
     $$('.accent-choice').forEach(x => x.classList.remove('is-active'));
     b.classList.add('is-active'); accent = b.dataset.accent;
     try{localStorage.setItem(AUDIO_KEY,accent)}catch{}
     toast(accent==='auto'?'TOEFL Mix selected: accents rotate by exercise.':`${b.textContent.trim()} practice profile selected`);
+    updateAccentCurrent();
     updateVoiceStatus();
   }));
   function textHash(text=''){let h=0;for(let i=0;i<text.length;i++)h=((h<<5)-h+text.charCodeAt(i))|0;return Math.abs(h);}
@@ -456,6 +459,7 @@
       $$('[data-go]',route).forEach(b=>b.onclick=()=>navigate(b.dataset.go));
     }
     const hist=$('#mockHistoryList');if(hist){const rows=(state.mockHistory||[]).slice(-5).reverse();hist.innerHTML=rows.length?rows.map(x=>`<div class="simulation-row"><span><strong>${new Date(x.date).toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'})}</strong><small>${x.elapsedSeconds?formatDuration(x.elapsedSeconds):'time not recorded'}</small></span><b>${x.correct}/${x.total} · ${Math.round(x.correct/x.total*100)}%</b></div>`).join(''):'<p class="empty-state">No practice simulation completed yet.</p>';}
+    window.CPLUS_APP?.refresh?.();
   }
   $('#saveTarget')?.addEventListener('click',()=>{state.target=Number($('#targetBand').value);saveState();toast(`Target saved: ${state.target.toFixed(1)}`);});
 
@@ -707,6 +711,7 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   // Home drill routes — each card opens the task type it promises.
   function findReadingQuestion(category){for(let pi=0;pi<D.reading.academic.length;pi++){const qi=D.reading.academic[pi].questions.findIndex(q=>String(q.category||'').toLowerCase().includes(category));if(qi>=0)return {pi,qi};}return {pi:0,qi:0};}
   function findListeningQuestion(category){for(let pi=0;pi<D.listening.talk.length;pi++){const qi=D.listening.talk[pi].questions.findIndex(q=>String(q.category||'').toLowerCase().includes(category));if(qi>=0)return {pi,qi};}return {pi:0,qi:0};}
+  function openWeakness(skill,category='general'){const cat=String(category||'').toLowerCase();if(skill==='reading'){for(const tab of ['academic','daily']){const sets=D.reading[tab]||[];for(let pi=0;pi<sets.length;pi++){const qs=sets[pi].questions||[];const qi=qs.findIndex(q=>String(q.category||'').toLowerCase()===cat||String(q.category||'').toLowerCase().includes(cat)||cat.includes(String(q.category||'').toLowerCase()));if(qi>=0){readingTab=tab;if(tab==='academic'){readingIndex.academic=pi;academicQuestion=qi;}else{readingIndex.daily=pi;dailyQuestion=qi;}$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab===tab));persistPracticePositions();navigate('reading');renderReading();return;}}}navigate('reading');return;}if(skill==='listening'){for(const tab of ['talk','conversation','announcement','response']){const sets=D.listening[tab]||[];for(let pi=0;pi<sets.length;pi++){const qs=listeningQuestions(sets[pi]);const qi=qs.findIndex(q=>String(q.category||'').toLowerCase()===cat||String(q.category||'').toLowerCase().includes(cat)||cat.includes(String(q.category||'').toLowerCase()));if(qi>=0){listeningTab=tab;listeningIndex[tab]=pi;listeningQuestion=qi;listeningAudioPlayed=false;listeningExamAnswers=[];$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab===tab));persistPracticePositions();navigate('listening');renderListening();return;}}}navigate('listening');return;}if(skill==='writing'){writingTab='sentence';$$('[data-tabs="writing"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='sentence'));persistPracticePositions();navigate('writing');renderWriting();return;}navigate(skill||'practice');}
   $$('[data-drill]').forEach(b=>b.onclick=()=>{
     const d=b.dataset.drill;
     if(d==='inference'){
@@ -721,22 +726,26 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   function loadAccess(){let a={};try{a=JSON.parse(localStorage.getItem(ACCESS_KEY)||'{}')}catch{}applyAccess(a);if($('#highContrast'))$('#highContrast').checked=!!a.highContrast;if($('#readableFont'))$('#readableFont').checked=!!a.readableFont;if($('#reduceMotion'))$('#reduceMotion').checked=!!a.reduceMotion;if($('#focusMode'))$('#focusMode').checked=!!a.focusMode;}
   function applyAccess(a){const h=document.documentElement;h.classList.toggle('high-contrast',!!a.highContrast);h.classList.toggle('readable-font',!!a.readableFont);h.classList.toggle('reduce-motion',!!a.reduceMotion);h.classList.toggle('focus-mode',!!a.focusMode);h.classList.remove('font-large','font-xlarge');if(a.font==='large')h.classList.add('font-large');if(a.font==='xlarge')h.classList.add('font-xlarge');}
   function saveAccess(){const a={highContrast:$('#highContrast')?.checked,readableFont:$('#readableFont')?.checked,reduceMotion:$('#reduceMotion')?.checked,focusMode:$('#focusMode')?.checked,font:document.documentElement.classList.contains('font-xlarge')?'xlarge':document.documentElement.classList.contains('font-large')?'large':'normal'};try{localStorage.setItem(ACCESS_KEY,JSON.stringify(a));}catch{}applyAccess(a);}
-  $('#accessibilityBtn')?.addEventListener('click',()=>$('#accessibilityModal').classList.remove('hidden'));
-  $('#closeAccess')?.addEventListener('click',()=>$('#accessibilityModal').classList.add('hidden'));
+  let modalReturnFocus=null;
+  function modalFocusables(modal){return $$('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])',modal).filter(x=>!x.disabled&&!x.closest('.hidden'));}
+  function openModal(modal,trigger){if(!modal)return;modalReturnFocus=trigger||document.activeElement;modal.classList.remove('hidden');setTimeout(()=>{(modal.querySelector('.modal-close')||modalFocusables(modal)[0])?.focus();},0);}
+  function closeModal(modal){if(!modal)return;modal.classList.add('hidden');const back=modalReturnFocus;modalReturnFocus=null;if(back&&typeof back.focus==='function')back.focus();}
+  $('#accessibilityBtn')?.addEventListener('click',e=>openModal($('#accessibilityModal'),e.currentTarget));
+  $('#closeAccess')?.addEventListener('click',()=>closeModal($('#accessibilityModal')));
   ['highContrast','readableFont','reduceMotion','focusMode'].forEach(id=>{if($('#'+id))$('#'+id).onchange=saveAccess;});
   $$('[data-font]').forEach(b=>b.onclick=()=>{document.documentElement.classList.remove('font-large','font-xlarge');if(b.dataset.font==='large')document.documentElement.classList.add('font-large');if(b.dataset.font==='xlarge')document.documentElement.classList.add('font-xlarge');saveAccess();});
   loadAccess();
 
   // Export/import
-  function exportProgress(){const payload={...state,cLevelData:window.CLEVEL_APP?.exportState?.()||null,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-clevel-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
-  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());cleanupTransient();state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);restorePracticePositions();if(x.cLevelData&&window.CLEVEL_APP?.importState)window.CLEVEL_APP.importState(x.cLevelData);saveState();updateDashboard();renderVocabulary();window.CLEVEL_APP?.refresh?.();toast(Number(x.version)>=5?'Progress imported — TOEFL and C-Level data restored where available.':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
+  function exportProgress(){const payload={...state,cLevelData:window.CLEVEL_APP?.exportState?.()||null,cPlusData:window.CPLUS_APP?.exportState?.()||null,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-clevel-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
+  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());cleanupTransient();state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);restorePracticePositions();if(x.cLevelData&&window.CLEVEL_APP?.importState)window.CLEVEL_APP.importState(x.cLevelData);if(x.cPlusData&&window.CPLUS_APP?.importState)window.CPLUS_APP.importState(x.cPlusData);saveState();updateDashboard();renderVocabulary();window.CLEVEL_APP?.refresh?.();window.CPLUS_APP?.refresh?.();toast(Number(x.version)>=5?'Progress imported — TOEFL, C-Level and portfolio data restored where available.':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
   $('#exportProgress')?.addEventListener('click',exportProgress);$('#exportProgressModal')?.addEventListener('click',exportProgress);
   $('#importProgress')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});$('#importProgressModal')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});
-  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all TOEFL and C-Level progress saved on this device?')){cleanupTransient();state=defaultState();restorePracticePositions();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}window.CLEVEL_APP?.reset?.();saveState();updateDashboard();renderVocabulary();toast('All progress reset');}});
-  $('#saveBtn')?.addEventListener('click',()=>$('#saveModal').classList.remove('hidden'));$('#closeSave')?.addEventListener('click',()=>$('#saveModal').classList.add('hidden'));
-  $$('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.add('hidden');}));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal-backdrop').forEach(m=>m.classList.add('hidden'));});
+  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all TOEFL and C-Level progress saved on this device?')){cleanupTransient();state=defaultState();restorePracticePositions();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}window.CLEVEL_APP?.reset?.();window.CPLUS_APP?.reset?.();saveState();updateDashboard();renderVocabulary();toast('All progress reset');}});
+  $('#saveBtn')?.addEventListener('click',e=>openModal($('#saveModal'),e.currentTarget));$('#closeSave')?.addEventListener('click',()=>closeModal($('#saveModal')));
+  $$('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m);}));
+  document.addEventListener('keydown',e=>{const open=$$('.modal-backdrop').find(m=>!m.classList.contains('hidden'));if(!open)return;if(e.key==='Escape'){e.preventDefault();closeModal(open);return;}if(e.key==='Tab'){const f=modalFocusables(open);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 
-  window.TOEFL_APP={markActivity:()=>{markActivity();updateDashboard();},refresh:updateDashboard};
+  window.TOEFL_APP={markActivity:()=>{markActivity();updateDashboard();},refresh:()=>{updateDashboard();window.CPLUS_APP?.refresh?.();},getState:()=>JSON.parse(JSON.stringify(state)),navigate,openWeakness};
   updateDashboard();
 })();
