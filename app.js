@@ -31,6 +31,7 @@
 
   function mergeState(a, b = {}) {
     const out = { ...a, ...b, version: 6 };
+    delete out.cLevelData; delete out.exportedAt;
     out.target = [5,5.5,6].includes(Number(b.target)) ? Number(b.target) : a.target;
     out.stats = {
       questions: finite0(b.stats?.questions),
@@ -684,7 +685,7 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     const d=b.dataset.drill;
     if(d==='inference'){
       const hit=findReadingQuestion('inference');readingTab='academic';readingIndex.academic=hit.pi;academicQuestion=hit.qi;$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='academic'));navigate('reading');renderReading();
-    }else if(d==='hedging'){navigate('clevel');currentLab='hedging';renderLab('hedging');}
+    }else if(d==='hedging'){navigate('reachc');setTimeout(()=>window.CLEVEL_APP?.openModule?.('nuance'),0);}
     else{
       const hit=findListeningQuestion('purpose');listeningTab='talk';listeningIndex.talk=hit.pi;listeningQuestion=hit.qi;listeningAudioPlayed=false;listeningExamAnswers=[];$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='talk'));navigate('listening');renderListening();
     }
@@ -701,14 +702,15 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   loadAccess();
 
   // Export/import
-  function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
-  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);saveState();updateDashboard();renderVocabulary();toast(Number(x.version)>=5?'Progress imported':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
+  function exportProgress(){const payload={...state,cLevelData:window.CLEVEL_APP?.exportState?.()||null,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-clevel-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
+  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);if(x.cLevelData&&window.CLEVEL_APP?.importState)window.CLEVEL_APP.importState(x.cLevelData);saveState();updateDashboard();renderVocabulary();window.CLEVEL_APP?.refresh?.();toast(Number(x.version)>=5?'Progress imported — TOEFL and C-Level data restored where available.':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
   $('#exportProgress')?.addEventListener('click',exportProgress);$('#exportProgressModal')?.addEventListener('click',exportProgress);
   $('#importProgress')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});$('#importProgressModal')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});
-  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all progress saved on this device?')){state=defaultState();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}saveState();updateDashboard();renderVocabulary();toast('Progress reset');}});
+  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all TOEFL and C-Level progress saved on this device?')){state=defaultState();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}window.CLEVEL_APP?.reset?.();saveState();updateDashboard();renderVocabulary();toast('All progress reset');}});
   $('#saveBtn')?.addEventListener('click',()=>$('#saveModal').classList.remove('hidden'));$('#closeSave')?.addEventListener('click',()=>$('#saveModal').classList.add('hidden'));
   $$('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.add('hidden');}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal-backdrop').forEach(m=>m.classList.add('hidden'));});
 
+  window.TOEFL_APP={markActivity:()=>{markActivity();updateDashboard();},refresh:updateDashboard};
   updateDashboard();
 })();

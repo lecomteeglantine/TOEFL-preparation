@@ -1,33 +1,64 @@
-# Homemade TOEFL Trainer — C1/C2 · V4 audited build
+# Homemade TOEFL Trainer + Reach C Level · V5
 
-An independent, browser-based TOEFL iBT practice site for advanced learners targeting C-level English.
+An independent browser-based platform for advanced learners. V5 keeps the audited TOEFL iBT 2026 practice system and adds a separate **Beyond TOEFL — Reach C Level** pathway for genuine C1/C2 development.
 
 ## Deploy on GitHub Pages
 
-Upload the production files from this package to the root of the GitHub repository used for the site. Keep `index.html`, `styles.css`, `data.js`, `app.js`, `manifest.webmanifest` and `sw.js` together at the root.
+Upload these files together at the root of the repository:
 
-After deployment, reload the public page. V4 uses versioned CSS/JavaScript URLs plus a network-first service worker so corrected files replace stale cached versions more reliably.
+- `index.html`
+- `styles.css`
+- `data.js`
+- `clevel-data.js`
+- `app.js`
+- `clevel.js`
+- `manifest.webmanifest`
+- `sw.js`
 
-## What V4 fixes
+V5 uses versioned assets and a network-first service worker. After replacing the files on GitHub, reload the public page so the new service worker can refresh cached assets.
 
-- Listening Practice now really keeps replay locked until the learner has answered once.
-- Listening, diagnostic and simulation audio only count as “played” after playback completes successfully.
-- Listen & Repeat now uses the current 8-second response window.
-- Local streaks use the learner's local calendar date rather than UTC.
-- Reading, Listening and Writing task families advance independently instead of sharing one index.
-- Build a Sentence cannot be checked before every chunk is used; Clear no longer reshuffles the task.
-- Complete the Words items now follow the current C-test construction rule used by the trainer: first sentence intact, then the second half of every second word removed until 10 gaps are produced.
-- The dashboard prioritises recent objective accuracy while keeping all-time totals visible.
-- Speaking/Writing self-review remains separate from objectively marked practice.
-- The error log gives recent attempts priority, so old mistakes do not permanently dominate recommendations.
-- Practice-simulation history is now visible and stores completion time.
-- Repeat and recording object URLs/timers are cleaned up correctly when navigating away.
-- Readable Font now applies to the full interface.
-- Mobile header/navigation have been tightened and tested at 390 px without horizontal overflow.
-- Dynamic practice buttons no longer create duplicate DOM IDs.
-- Local progress import/export/reset is more defensive, with migration from earlier local-storage versions.
+## Two deliberately separate pathways
 
-## Current practice bank
+### TOEFL preparation
+
+The existing system remains focused on the TOEFL iBT format in use since January 2026: diagnostic, Reading, Listening, Speaking, Writing, vocabulary, focused simulation, error log and TOEFL-oriented progress.
+
+### Reach C Level — Beyond TOEFL
+
+The new pathway tracks eight abilities separately:
+
+1. Precision & Register
+2. Advanced Grammar & Range
+3. Natural English & Fluency
+4. Nuance, Hedging & Implicit Meaning
+5. Argumentation & Counterargument
+6. Synthesis
+7. Mediation
+8. Pronunciation & Discourse
+
+The C-Level profile never changes the TOEFL readiness figures. Objective accuracy and productive self-review also remain separate.
+
+## New V5 content
+
+- 24-item **C-Level Check** with no feedback until the end
+- 64 objective C-level control drills
+- 12 **Upgrade Machine** tasks turning B2 wording into controlled C-level English
+- 8 C-Level Missions with 32 rotating prompts:
+  - The Expert Panel
+  - The Devil’s Advocate
+  - The Diplomat
+  - The Editor
+  - The Impostor
+  - The Spin Doctor
+  - The Translator’s Trap
+  - The One-Minute Expert
+- Local audio recording for spoken C-Level Missions where supported by the browser
+- Separate C-Level dashboard: objective accuracy + mission self-review
+- Unified export/import: one JSON file now carries both TOEFL and Reach C Level progress
+- C-Level work contributes to the general practice streak without contaminating TOEFL scores
+- 100% English interface and task content
+
+## Existing TOEFL bank retained
 
 - 20 Complete the Words C-tests (10 gaps each)
 - 20 Daily Life sets
@@ -43,16 +74,29 @@ After deployment, reload the public page. V4 uses versioned CSS/JavaScript URLs 
 - 12 Academic Discussion prompts
 - 160 vocabulary/collocation cards
 
-## V4 audit status
+## V5 audit status
 
-The release package passed the internal static/data audit with 0 errors and 0 warnings. It also passed 20 Chromium interaction checks covering Reading, linked Listening sets, Practice/Exam audio locking, Speaking timing, Build a Sentence state, simulation history, mobile navigation and horizontal overflow.
+V5 passed:
 
-See `V4-AUDIT-NOTES.md` for the detailed checks and known limitations.
+- JavaScript syntax checks on all data/application files
+- static HTML/CSS/asset integrity checks
+- 0 duplicate DOM IDs
+- 0 broken internal navigation targets
+- C-Level data validation: 8 dimensions, 64 drills, 24-item check, 12 upgrades, 32 mission prompts
+- **20/20 TOEFL regression interaction checks** from the V4 audit suite
+- **32/32 Reach C Level interaction checks**
+- mobile layout check at 390 px with no horizontal overflow
+- unified export test confirming C-Level data is included
+- reset/import round-trip confirming C-Level progress is restored correctly
+
+See `V5-UPGRADE-NOTES.md` for the detailed changes.
 
 ## Important limitations
 
-This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce ETS adaptive routing or official scoring, and does not issue official TOEFL scores. The diagnostic is an internal baseline only. Speaking and extended Writing use learner self-review criteria rather than claiming automated official-style scoring.
+This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce ETS adaptive routing or official scoring, and does not issue official TOEFL or CEFR certification.
 
-Audio uses the English speech voices available on the learner's device. Accent selection is therefore exposure practice, not a guarantee that every device can provide every requested accent.
+The C-Level Check is a training snapshot, not an official CEFR assessment. Spoken and extended written production use structured learner self-review rather than pretending to provide automated human-level evaluation.
+
+Audio voices for TOEFL listening/speaking practice depend on the speech voices installed on the learner’s device.
 
 TOEFL and ETS are registered trademarks of ETS.

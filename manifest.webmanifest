@@ -1,7 +1,7 @@
 {
-  "name": "Homemade TOEFL Trainer",
-  "short_name": "TOEFL Trainer",
-  "description": "C1/C2 practice for the TOEFL iBT format introduced in January 2026.",
+  "name": "Homemade TOEFL + C-Level Trainer",
+  "short_name": "TOEFL + C",
+  "description": "TOEFL iBT preparation plus Beyond-TOEFL C1/C2 development in precision, fluency, nuance, argumentation, synthesis, mediation and pronunciation.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
