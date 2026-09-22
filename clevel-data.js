@@ -80,7 +80,7 @@ window.CLEVEL_DATA = {
           "category": "lexical precision"
         },
         {
-          "q": "Which verb best fits: “The authors ___ that the policy caused the decline, but the design cannot establish causation.”",
+          "q": "Which verb best fits a neutral academic report: “The authors ___ that the policy caused the decline, but the design cannot establish causation.”",
           "options": [
             "allege",
             "chat",
@@ -88,7 +88,7 @@ window.CLEVEL_DATA = {
             "guess"
           ],
           "answer": 0,
-          "why": "“Allege” reports a contested claim without endorsing it; the other choices are inappropriate in register or meaning.",
+          "why": "“Argue” is a neutral academic reporting verb here; the other choices are inappropriate in register or meaning.",
           "category": "reporting verbs"
         },
         {

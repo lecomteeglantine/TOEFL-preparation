@@ -1,4 +1,4 @@
-const CACHE = 'homemade-toefl-v8-20260922-v5';
+const CACHE = 'homemade-toefl-20260922-v6';
 const CORE = ['./','./index.html','./styles.css','./data.js','./clevel-data.js','./app.js','./clevel.js','./manifest.webmanifest'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));

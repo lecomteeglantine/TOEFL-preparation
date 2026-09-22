@@ -2,8 +2,8 @@
   'use strict';
 
   const D = window.TOEFL_DATA;
-  const STORAGE_KEY = 'homemadeToeflProgressV6';
-  const LEGACY_STORAGE_KEYS = ['homemadeToeflProgressV5','homemadeToeflProgressV3'];
+  const STORAGE_KEY = 'homemadeToeflProgressV7';
+  const LEGACY_STORAGE_KEYS = ['homemadeToeflProgressV6','homemadeToeflProgressV5','homemadeToeflProgressV3'];
   const ACCESS_KEY = 'homemadeToeflAccessV2';
   const AUDIO_KEY = 'homemadeToeflAudioV1';
   const $ = (s, r = document) => r.querySelector(s);
@@ -15,14 +15,20 @@
 
   const defaultSkill = () => ({ done: 0, correct: 0, recent: [] });
   const defaultState = () => ({
-    version: 6,
+    version: 7,
     target: 5.5,
     diagnostic: null,
     stats: { questions: 0, correct: 0, minutes: 0 },
     skills: { reading: defaultSkill(), listening: defaultSkill(), speaking: defaultSkill(), writing: defaultSkill() },
     selfReviews: { speaking: [], writing: [] },
     errorLog: {},
-    mockHistory: [],
+    mockHistory: [], mockRuns: 0,
+    positions: {
+      reading: { word: 0, daily: 0, academic: 0, dailyQuestion: 0, academicQuestion: 0, tab: 'word' },
+      listening: { response: 0, conversation: 0, announcement: 0, talk: 0, question: 0, tab: 'response', mode: 'practice' },
+      writing: { sentence: 0, email: 0, discussion: 0, tab: 'sentence' },
+      speaking: { repeatSet: 0, repeatSentence: 0, interviewSet: 0, interviewQuestion: 0 }
+    },
     savedWords: [], streak: 0, activityDates: []
   });
   const finite0 = v => Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : 0;
@@ -30,7 +36,7 @@
   const validDateKey = x => /^\d{4}-\d{2}-\d{2}$/.test(String(x||''));
 
   function mergeState(a, b = {}) {
-    const out = { ...a, ...b, version: 6 };
+    const out = { ...a, ...b, version: 7 };
     delete out.cLevelData; delete out.exportedAt;
     out.target = [5,5.5,6].includes(Number(b.target)) ? Number(b.target) : a.target;
     out.stats = {
@@ -59,6 +65,15 @@
     out.mockHistory = (Array.isArray(b.mockHistory) ? b.mockHistory : []).slice(-10).map(x => ({
       date:String(x?.date||''), correct:finite0(x?.correct), total:finite0(x?.total), elapsedSeconds:finite0(x?.elapsedSeconds)
     })).filter(x=>x.total>0);
+    out.mockRuns = Math.max(finite0(b.mockRuns), out.mockHistory.length);
+    const int0 = v => Math.max(0, Math.floor(finite0(v)));
+    const bp=b.positions||{};
+    out.positions={
+      reading:{word:int0(bp.reading?.word),daily:int0(bp.reading?.daily),academic:int0(bp.reading?.academic),dailyQuestion:int0(bp.reading?.dailyQuestion),academicQuestion:int0(bp.reading?.academicQuestion),tab:['word','daily','academic'].includes(bp.reading?.tab)?bp.reading.tab:'word'},
+      listening:{response:int0(bp.listening?.response),conversation:int0(bp.listening?.conversation),announcement:int0(bp.listening?.announcement),talk:int0(bp.listening?.talk),question:int0(bp.listening?.question),tab:['response','conversation','announcement','talk'].includes(bp.listening?.tab)?bp.listening.tab:'response',mode:['practice','exam'].includes(bp.listening?.mode)?bp.listening.mode:'practice'},
+      writing:{sentence:int0(bp.writing?.sentence),email:int0(bp.writing?.email),discussion:int0(bp.writing?.discussion),tab:['sentence','email','discussion'].includes(bp.writing?.tab)?bp.writing.tab:'sentence'},
+      speaking:{repeatSet:int0(bp.speaking?.repeatSet),repeatSentence:int0(bp.speaking?.repeatSentence),interviewSet:int0(bp.speaking?.interviewSet),interviewQuestion:int0(bp.speaking?.interviewQuestion)}
+    };
     const vocabSet=new Set((D.vocabulary||[]).map(v=>v[0]));
     out.savedWords = [...new Set(Array.isArray(b.savedWords) ? b.savedWords.map(String) : [])].filter(w=>vocabSet.has(w));
     out.activityDates = [...new Set(Array.isArray(b.activityDates) ? b.activityDates.filter(validDateKey) : [])].sort().slice(-90);
@@ -84,7 +99,7 @@
       for(const key of LEGACY_STORAGE_KEYS){
         const raw=localStorage.getItem(key); if(!raw)continue;
         const parsed=JSON.parse(raw);
-        const migrated=key.endsWith('V5')?mergeState(defaultState(),parsed):migrateLegacy(parsed);
+        const migrated=(key.endsWith('V6')||key.endsWith('V5'))?mergeState(defaultState(),parsed):migrateLegacy(parsed);
         try{localStorage.setItem(STORAGE_KEY,JSON.stringify(migrated));}catch{}
         return migrated;
       }
@@ -102,13 +117,12 @@
   let accent = (()=>{try{return localStorage.getItem(AUDIO_KEY)||'auto'}catch{return 'auto'}})();
   let currentTrap = dailyTrapIndex();
   let diagIndex = 0, diagAnswers = [], diagLocked = false, diagAudioPlayed = true;
-  let readingTab = 'word', readingIndex = {word:0,daily:0,academic:0}, dailyQuestion = 0, academicQuestion = 0;
-  let listeningTab = 'response', listeningIndex = {response:0,conversation:0,announcement:0,talk:0}, listeningQuestion = 0, listeningMode = 'practice', listeningAudioPlayed = false, listeningExamAnswers = [];
-  let writingTab = 'sentence', writingIndex = {sentence:0,email:0,discussion:0}, buildSelection = [];
-  let currentLab = 'hedging', labIndex = 0;
+  let readingTab = state.positions.reading.tab, readingIndex = {word:state.positions.reading.word,daily:state.positions.reading.daily,academic:state.positions.reading.academic}, dailyQuestion = state.positions.reading.dailyQuestion, academicQuestion = state.positions.reading.academicQuestion;
+  let listeningTab = state.positions.listening.tab, listeningIndex = {response:state.positions.listening.response,conversation:state.positions.listening.conversation,announcement:state.positions.listening.announcement,talk:state.positions.listening.talk}, listeningQuestion = state.positions.listening.question, listeningMode = state.positions.listening.mode, listeningAudioPlayed = false, listeningExamAnswers = [];
+  let writingTab = state.positions.writing.tab, writingIndex = {sentence:state.positions.writing.sentence,email:state.positions.writing.email,discussion:state.positions.writing.discussion}, buildSelection = [];
   let savedOnly = false;
-  let repeatSetIndex = 0, repeatSentenceIndex = 0;
-  let interviewSetIndex = 0, interviewQuestionIndex = 0;
+  let repeatSetIndex = state.positions.speaking.repeatSet, repeatSentenceIndex = state.positions.speaking.repeatSentence;
+  let interviewSetIndex = state.positions.speaking.interviewSet, interviewQuestionIndex = state.positions.speaking.interviewQuestion;
   let mediaRecorder = null, mediaChunks = [], recordingTimer = null, recordingSeconds = 0, activeStream = null, discardRecording = false, recordingObjectUrl = null;
   let activeWriteTimer = null, activeWriteStartedAt = null;
   let activeRepeatTimer = null, speechRunToken = 0, activeSpeechCancel = null;
@@ -145,6 +159,21 @@
     state.streak = streak;
   }
   function saveState() { updateStreak(); saveStateRaw(); }
+  function persistPracticePositions(){
+    state.positions={
+      reading:{word:readingIndex.word,daily:readingIndex.daily,academic:readingIndex.academic,dailyQuestion,academicQuestion,tab:readingTab},
+      listening:{response:listeningIndex.response,conversation:listeningIndex.conversation,announcement:listeningIndex.announcement,talk:listeningIndex.talk,question:listeningQuestion,tab:listeningTab,mode:listeningMode},
+      writing:{sentence:writingIndex.sentence,email:writingIndex.email,discussion:writingIndex.discussion,tab:writingTab},
+      speaking:{repeatSet:repeatSetIndex,repeatSentence:repeatSentenceIndex,interviewSet:interviewSetIndex,interviewQuestion:interviewQuestionIndex}
+    };
+    saveStateRaw();
+  }
+  function restorePracticePositions(){
+    readingTab=state.positions.reading.tab;readingIndex={word:state.positions.reading.word,daily:state.positions.reading.daily,academic:state.positions.reading.academic};dailyQuestion=state.positions.reading.dailyQuestion;academicQuestion=state.positions.reading.academicQuestion;
+    listeningTab=state.positions.listening.tab;listeningMode=state.positions.listening.mode;listeningIndex={response:state.positions.listening.response,conversation:state.positions.listening.conversation,announcement:state.positions.listening.announcement,talk:state.positions.listening.talk};listeningQuestion=state.positions.listening.question;listeningAudioPlayed=false;listeningExamAnswers=[];
+    writingTab=state.positions.writing.tab;writingIndex={sentence:state.positions.writing.sentence,email:state.positions.writing.email,discussion:state.positions.writing.discussion};
+    repeatSetIndex=state.positions.speaking.repeatSet;repeatSentenceIndex=state.positions.speaking.repeatSentence;interviewSetIndex=state.positions.speaking.interviewSet;interviewQuestionIndex=state.positions.speaking.interviewQuestion;
+  }
   updateStreak();
   function recordQuestion(skill, correct, category='general') {
     state.stats.questions += 1;
@@ -209,6 +238,7 @@
     if (activeRepeatTimer) clearInterval(activeRepeatTimer);
     activeRepeatTimer = null;
     if (recordingTimer || activeStream) stopRecording(true);
+    if (recordingObjectUrl) { try { URL.revokeObjectURL(recordingObjectUrl); } catch {} recordingObjectUrl=null; }
     cancelSpeech();
   }
 
@@ -216,7 +246,7 @@
   function navigate(view) {
     cleanupTransient();
     $$('.view').forEach(v => v.classList.toggle('is-active', v.dataset.view === view));
-    const navGroup=['reading','listening','speaking','writing','vocabulary','clevel'].includes(view)?'practice':['diagnostic','mock'].includes(view)?'test':view;
+    const navGroup=['reading','listening','speaking','writing','vocabulary'].includes(view)?'practice':['diagnostic','mock'].includes(view)?'test':view;
     $$('.main-nav [data-nav]').forEach(b => b.classList.toggle('is-active', b.dataset.nav === navGroup));
     $('#mainNav')?.classList.remove('open');
     $('#menuToggle')?.setAttribute('aria-expanded','false');
@@ -231,7 +261,8 @@
     $('#menuToggle').setAttribute('aria-expanded', open);
   });
   const initial = location.hash.replace('#','');
-  if ($(`[data-view="${initial}"]`)) navigate(initial);
+  if (initial==='clevel') navigate('reachc');
+  else if ($(`[data-view="${initial}"]`)) navigate(initial);
 
   // Accent + speech — TOEFL Mix rotates through accent profiles used in current TOEFL listening/speaking.
   const accentButtons=$$('.accent-choice');
@@ -446,7 +477,8 @@
   }
 
   // Reading
-  $$('[data-tabs="reading"] button').forEach(b=>b.onclick=()=>{readingTab=b.dataset.tab;$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderReading();});
+  $$('[data-tabs="reading"] button').forEach(b=>b.onclick=()=>{readingTab=b.dataset.tab;persistPracticePositions();$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderReading();});
+  $$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab===readingTab));
   function renderReading(){const w=$('#readingWorkspace'); if(readingTab==='word')renderCtest(w);else if(readingTab==='daily')renderReadingDaily(w);else renderAcademic(w);}
   function parseCtest(text){
     const answers=[]; let idx=0;
@@ -463,23 +495,25 @@
       $('#ctestFeedback').textContent=`${correct}/10 correct. ${x.why}`;$('#ctestFeedback').className='feedback '+(correct>=8?'good':'bad');
       $('#checkCtest').disabled=true;$('#nextCtest').classList.remove('hidden');
     };
-    $('#nextCtest').onclick=()=>{readingIndex.word++;renderCtest(w)};
+    $('#nextCtest').onclick=()=>{readingIndex.word++;persistPracticePositions();renderCtest(w)};
   }
   function renderReadingDaily(w){
     const x=D.reading.daily[readingIndex.daily%D.reading.daily.length], qs=x.questions || [x], q=qs[dailyQuestion%qs.length];
     w.innerHTML=practiceMCQ(`READ IN DAILY LIFE · ${esc(x.kind||'TEXT')}`,`<div class="stimulus preserve-lines daily-life-stimulus">${esc(x.text)}</div><div class="set-progress">Question ${dailyQuestion+1} / ${qs.length}</div><h2>${esc(q.q)}</h2>`,q.options,q.answer,q.why,'reading');
-    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'daily-life comprehension',onNext:()=>{dailyQuestion++;if(dailyQuestion>=qs.length){dailyQuestion=0;readingIndex.daily++;}renderReadingDaily(w)}});
+    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'daily-life comprehension',onNext:()=>{dailyQuestion++;if(dailyQuestion>=qs.length){dailyQuestion=0;readingIndex.daily++;}persistPracticePositions();renderReadingDaily(w)}});
   }
   function renderAcademic(w){
     const p=D.reading.academic[readingIndex.academic%D.reading.academic.length], q=p.questions[academicQuestion%p.questions.length];
     w.innerHTML=practiceMCQ('READ AN ACADEMIC PASSAGE',`<h2>${esc(p.title)}</h2><div class="stimulus preserve-lines">${esc(p.text)}</div><div class="set-progress">Question ${academicQuestion+1} / ${p.questions.length}</div><h3>${esc(q.q)}</h3>`,q.options,q.answer,q.why,'reading');
-    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'academic reading',onNext:()=>{academicQuestion++;if(academicQuestion>=p.questions.length){academicQuestion=0;readingIndex.academic++;}renderAcademic(w)}});
+    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'academic reading',onNext:()=>{academicQuestion++;if(academicQuestion>=p.questions.length){academicQuestion=0;readingIndex.academic++;}persistPracticePositions();renderAcademic(w)}});
   }
   renderReading();
 
   // Listening — linked question sets, with a genuine one-play exam mode
-  $$('[data-tabs="listening"] button').forEach(b=>b.onclick=()=>{listeningTab=b.dataset.tab;listeningQuestion=0;listeningAudioPlayed=false;listeningExamAnswers=[];$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderListening();});
-  $$('[data-listen-mode]').forEach(b=>b.onclick=()=>{listeningMode=b.dataset.listenMode;$$('[data-listen-mode]').forEach(x=>x.classList.toggle('is-active',x===b));listeningQuestion=0;listeningAudioPlayed=false;listeningExamAnswers=[];renderListening();});
+  $$('[data-tabs="listening"] button').forEach(b=>b.onclick=()=>{listeningTab=b.dataset.tab;listeningQuestion=0;listeningAudioPlayed=false;listeningExamAnswers=[];persistPracticePositions();$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderListening();});
+  $$('[data-listen-mode]').forEach(b=>b.onclick=()=>{listeningMode=b.dataset.listenMode;$$('[data-listen-mode]').forEach(x=>x.classList.toggle('is-active',x===b));listeningQuestion=0;listeningAudioPlayed=false;listeningExamAnswers=[];persistPracticePositions();renderListening();});
+  $$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab===listeningTab));
+  $$('[data-listen-mode]').forEach(x=>x.classList.toggle('is-active',x.dataset.listenMode===listeningMode));
   function listeningQuestions(x){return x.questions || [{q:x.q,options:x.options,answer:x.answer,why:x.why,category:x.category||'listening comprehension'}];}
   function renderListening(){
     const arr=D.listening[listeningTab],x=arr[listeningIndex[listeningTab]%arr.length],qs=listeningQuestions(x),q=qs[listeningQuestion%qs.length],labels={response:'CHOOSE A RESPONSE',conversation:'CONVERSATION',announcement:'ANNOUNCEMENT',talk:'ACADEMIC TALK'};
@@ -503,7 +537,7 @@
       if(exam&&listeningQuestion===qs.length-1){renderListeningExamReview(x,qs);return;}
       listeningQuestion++;
       if(listeningQuestion>=qs.length){listeningQuestion=0;listeningIndex[listeningTab]++;listeningAudioPlayed=false;listeningExamAnswers=[];}
-      renderListening();
+      persistPracticePositions();renderListening();
     };
   }
   function renderListeningExamReview(x,qs){
@@ -511,7 +545,7 @@
     const correct=listeningExamAnswers.filter((a,i)=>a.chosen===qs[i].answer).length;
     listeningExamAnswers.forEach((a,i)=>recordQuestion('listening',a.chosen===qs[i].answer,qs[i].category||'listening comprehension'));
     w.innerHTML=`<article class="practice-card"><span class="tag coral">SET REVIEW</span><h2>${correct}/${qs.length} correct</h2><p class="micro-note">Feedback appears only now because you used Exam conditions.</p>${qs.map((q,i)=>`<div class="review-item"><h3>${i+1}. ${esc(q.q)}</h3><p><strong>Correct answer:</strong> ${esc(q.options[q.answer])}</p><p>${esc(q.why)}</p></div>`).join('')}<div class="cta-row"><button class="btn primary" id="nextListeningSet">Next audio set →</button></div></article>`;
-    $('#nextListeningSet').onclick=()=>{listeningQuestion=0;listeningIndex[listeningTab]++;listeningAudioPlayed=false;listeningExamAnswers=[];renderListening();};
+    $('#nextListeningSet').onclick=()=>{listeningQuestion=0;listeningIndex[listeningTab]++;listeningAudioPlayed=false;listeningExamAnswers=[];persistPracticePositions();renderListening();};
   }
   renderListening();
 
@@ -529,8 +563,8 @@
   }
   $('#playRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];const btn=$('#playRepeat');btn.disabled=true;btn.textContent='Listening…';speak(set.sentences[repeatSentenceIndex],.91,()=>{let left=8;$('#repeatSentence').textContent=`Repeat now · ${left}s`;activeRepeatTimer=setInterval(()=>{left--;$('#repeatSentence').textContent=left>0?`Repeat now · ${left}s`:'Time. Reveal the transcript and self-check.';if(left<=0){clearInterval(activeRepeatTimer);activeRepeatTimer=null;$('#revealRepeat').disabled=false;}},1000);},set.accent,()=>{btn.disabled=false;btn.textContent='▶ Listen once';$('#repeatSentence').textContent='Audio did not complete. Try again or change the voice profile.';});});
   $('#revealRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];$('#repeatSentence').textContent=set.sentences[repeatSentenceIndex];$('#nextRepeatSentence').disabled=false;});
-  $('#nextRepeatSentence')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];if(repeatSentenceIndex<set.sentences.length-1)repeatSentenceIndex++;else{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;}renderRepeat();});
-  $('#newRepeat')?.addEventListener('click',()=>{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;renderRepeat();});
+  $('#nextRepeatSentence')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];if(repeatSentenceIndex<set.sentences.length-1)repeatSentenceIndex++;else{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;}persistPracticePositions();renderRepeat();});
+  $('#newRepeat')?.addEventListener('click',()=>{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;persistPracticePositions();renderRepeat();});
 
   function renderInterview(){
     if(recordingObjectUrl){try{URL.revokeObjectURL(recordingObjectUrl);}catch{}recordingObjectUrl=null;}
@@ -545,8 +579,8 @@
     $$('.speaking-check').forEach(x=>x.checked=false);
   }
   $('#playInterview')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];speak(set.questions[interviewQuestionIndex],.94,null,set.accent);});
-  $('#newInterview')?.addEventListener('click',()=>{stopRecording(true);interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;renderInterview();});
-  $('#nextInterviewQ')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];interviewQuestionIndex++;if(interviewQuestionIndex>=set.questions.length){interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;}renderInterview();});
+  $('#newInterview')?.addEventListener('click',()=>{stopRecording(true);interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;persistPracticePositions();renderInterview();});
+  $('#nextInterviewQ')?.addEventListener('click',()=>{const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];interviewQuestionIndex++;if(interviewQuestionIndex>=set.questions.length){interviewSetIndex=(interviewSetIndex+1)%D.speaking.interviewSets.length;interviewQuestionIndex=0;}persistPracticePositions();renderInterview();});
   $('#startRecording')?.addEventListener('click',async()=>{
     if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder){toast('Audio recording is not supported in this browser.');return;}
     try{
@@ -571,7 +605,8 @@
   renderRepeat();renderInterview();
 
   // Writing
-  $$('[data-tabs="writing"] button').forEach(b=>b.onclick=()=>{clearWriteTimer();writingTab=b.dataset.tab;$$('[data-tabs="writing"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderWriting();});
+  $$('[data-tabs="writing"] button').forEach(b=>b.onclick=()=>{clearWriteTimer();writingTab=b.dataset.tab;persistPracticePositions();$$('[data-tabs="writing"] button').forEach(x=>x.classList.toggle('is-active',x===b));renderWriting();});
+  $$('[data-tabs="writing"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab===writingTab));
   function renderWriting(){const w=$('#writingWorkspace');if(writingTab==='sentence')renderBuild(w);else renderLongWriting(w,writingTab);}
   function normaliseSentence(s){return s.toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim();}
   function renderBuild(w){
@@ -589,7 +624,7 @@
     clear.onclick=()=>{buildSelection=[];target.innerHTML='';sourceButtons.forEach(b=>b.disabled=false);$('#buildFeedback').textContent='';$('#buildFeedback').className='feedback';sync();};
     let checked=false;
     check.onclick=()=>{if(checked||buildSelection.length!==x.words.length)return;checked=true;const built=normaliseSentence(buildSelection.map(z=>z.text).join(' ')),ans=normaliseSentence(x.answer),ok=built===ans;$('#buildFeedback').textContent=ok?'✓ Correct.':`✗ Model: ${x.answer}`;$('#buildFeedback').className='feedback '+(ok?'good':'bad');recordQuestion('writing',ok,'sentence building');check.disabled=true;clear.disabled=true;$$('.word-chip',w).forEach(b=>b.disabled=true);$('#nextBuild').classList.remove('hidden');};
-    $('#nextBuild').onclick=()=>{writingIndex.sentence++;renderBuild(w)};
+    $('#nextBuild').onclick=()=>{writingIndex.sentence++;persistPracticePositions();renderBuild(w)};
   }
   function renderLongWriting(w,type){
     clearWriteTimer();
@@ -611,14 +646,13 @@
       $('#logWritingCheck').onclick=()=>{const n=$$('.writing-check',w).filter(c=>c.checked).length;recordSelfReview('writing',n,type);$('#logWritingCheck').disabled=true;toast(`Writing self-check saved: ${n}/6 criteria`);};
       $('#nextWriting').classList.remove('hidden');
     };
-    $('#nextWriting').onclick=()=>{clearWriteTimer();writingIndex[type]++;renderLongWriting(w,type)};
+    $('#nextWriting').onclick=()=>{clearWriteTimer();writingIndex[type]++;persistPracticePositions();renderLongWriting(w,type)};
   }
   function countWords(s){return (s.trim().match(/\b[\w’'-]+\b/g)||[]).length;}
   renderWriting();
 
   // Focused practice simulation: objective answers are withheld until section end.
-  function buildMockItems(){
-    const run=state.mockHistory.length;
+  function buildMockItems(run=state.mockRuns){
     const r=D.reading.academic[run%D.reading.academic.length];
     const d=D.reading.daily[run%D.reading.daily.length];
     const conv=D.listening.conversation[run%D.listening.conversation.length];
@@ -635,7 +669,7 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     return items;
   }
   function startMock(){
-    const run=state.mockHistory.length;mockState={items:buildMockItems(),index:0,answers:[],playedGroups:{},run,startedAt:Date.now()};
+    const run=state.mockRuns;mockState={items:buildMockItems(run),index:0,answers:[],playedGroups:{},run,startedAt:Date.now()};
     $('#mockIntro').classList.add('hidden');$('#mockResult').classList.add('hidden');$('#mockRunner').classList.remove('hidden');renderMockItem();
   }
   function renderMockItem(){
@@ -648,7 +682,7 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   function finishMock(){
     const m=mockState;let correct=0;const by={Reading:{c:0,n:0},Listening:{c:0,n:0}};const missed=[];
     m.answers.forEach(a=>{const x=m.items[a.index],ok=a.selected===x.answer;if(ok)correct++;by[x.section].n++;if(ok)by[x.section].c++;else missed.push({...x,selected:a.selected});recordQuestion(x.skill,ok,x.category);});
-    const pct=m.items.length?correct/m.items.length:0,elapsedSeconds=Math.max(0,Math.round((Date.now()-m.startedAt)/1000));state.mockHistory.push({date:new Date().toISOString(),correct,total:m.items.length,elapsedSeconds});state.mockHistory=state.mockHistory.slice(-10);saveState();
+    const pct=m.items.length?correct/m.items.length:0,elapsedSeconds=Math.max(0,Math.round((Date.now()-m.startedAt)/1000));state.mockHistory.push({date:new Date().toISOString(),correct,total:m.items.length,elapsedSeconds});state.mockHistory=state.mockHistory.slice(-10);state.mockRuns=Math.max(state.mockRuns,m.run+1);saveState();
     $('#mockRunner').classList.add('hidden');const r=$('#mockResult');r.classList.remove('hidden');
     const email=D.writing.email[m.run%D.writing.email.length], interview=D.speaking.interviewSets[m.run%D.speaking.interviewSets.length];
     r.innerHTML=`<div class="result-hero"><span>Objective simulation</span><strong>${correct}/${m.items.length}</strong><h2>${Math.round(pct*100)}% correct</h2><p>This is practice accuracy, not an ETS band. Completed in ${formatDuration(elapsedSeconds)}.</p></div><div class="result-grid">${Object.entries(by).map(([k,v])=>`<article class="result-skill"><span>${k}</span><strong>${v.n?Math.round(v.c/v.n*100):0}%</strong><small>${v.c}/${v.n}</small></article>`).join('')}</div><div class="grid two mock-productive"><article class="card"><span class="tag coral">WRITING CONTINUATION</span><h2>Timed email</h2><p>${esc(email.situation)}</p><button class="btn secondary" data-go="writing">Open Writing practice →</button></article><article class="card"><span class="tag coral">SPEAKING CONTINUATION</span><h2>Four-question interview</h2><p>${esc(interview.scenario)}</p><button class="btn secondary" data-go="speaking">Open Speaking practice →</button></article></div>${missed.length?`<details class="card diagnostic-review"><summary><strong>Review ${missed.length} missed objective item${missed.length===1?'':'s'}</strong></summary>${missed.map(x=>`<div class="review-item"><span class="tag">${esc(x.section)}</span><h3>${esc(x.q)}</h3><p><strong>Correct answer:</strong> ${esc(x.options[x.answer])}</p><p>${esc(x.why)}</p></div>`).join('')}</details>`:''}<div class="cta-row"><button class="btn primary" id="restartMock">Run another simulation</button><button class="btn secondary" data-go="dashboard">Open progress</button></div>`;
@@ -669,14 +703,6 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   $('#vocabSearch')?.addEventListener('input',()=>renderVocabulary(savedOnly));
   $('#showSavedWords')?.addEventListener('click',()=>{savedOnly=!savedOnly;$('#showSavedWords').textContent=savedOnly?'📚 All words':'⭐ My Words';renderVocabulary(savedOnly);});
   renderVocabulary();
-
-  // C-Level Lab — general language training, not counted as one TOEFL section
-  $$('[data-lab]').forEach(b=>b.onclick=()=>{currentLab=b.dataset.lab;labIndex=0;renderLab(currentLab);$('#labWorkspace').scrollIntoView({behavior:'smooth',block:'center'});});
-  function renderLab(key){
-    const arr=D.lab[key],x=arr[labIndex%arr.length],names={hedging:'Hedging & caution',nominalisation:'Nominalisation',complex:'Complex sentences',paraphrase:'Paraphrase',stance:'Stance & evaluation',cohesion:'Cohesion'};
-    const w=$('#labWorkspace');w.innerHTML=practiceMCQ(names[key],`<h3>${esc(x.q)}</h3>`,x.options,x.answer,x.why,null,'nextLab');w.dataset.answer=x.answer;w.dataset.why=x.why;
-    wirePractice(w,{skill:null,nextId:'nextLab',onNext:()=>{labIndex++;renderLab(key);}});
-  }
 
   // Home drill routes — each card opens the task type it promises.
   function findReadingQuestion(category){for(let pi=0;pi<D.reading.academic.length;pi++){const qi=D.reading.academic[pi].questions.findIndex(q=>String(q.category||'').toLowerCase().includes(category));if(qi>=0)return {pi,qi};}return {pi:0,qi:0};}
@@ -703,10 +729,10 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
 
   // Export/import
   function exportProgress(){const payload={...state,cLevelData:window.CLEVEL_APP?.exportState?.()||null,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-clevel-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
-  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);if(x.cLevelData&&window.CLEVEL_APP?.importState)window.CLEVEL_APP.importState(x.cLevelData);saveState();updateDashboard();renderVocabulary();window.CLEVEL_APP?.refresh?.();toast(Number(x.version)>=5?'Progress imported — TOEFL and C-Level data restored where available.':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
+  async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());cleanupTransient();state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);restorePracticePositions();if(x.cLevelData&&window.CLEVEL_APP?.importState)window.CLEVEL_APP.importState(x.cLevelData);saveState();updateDashboard();renderVocabulary();window.CLEVEL_APP?.refresh?.();toast(Number(x.version)>=5?'Progress imported — TOEFL and C-Level data restored where available.':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
   $('#exportProgress')?.addEventListener('click',exportProgress);$('#exportProgressModal')?.addEventListener('click',exportProgress);
   $('#importProgress')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});$('#importProgressModal')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});
-  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all TOEFL and C-Level progress saved on this device?')){state=defaultState();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}window.CLEVEL_APP?.reset?.();saveState();updateDashboard();renderVocabulary();toast('All progress reset');}});
+  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all TOEFL and C-Level progress saved on this device?')){cleanupTransient();state=defaultState();restorePracticePositions();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}window.CLEVEL_APP?.reset?.();saveState();updateDashboard();renderVocabulary();toast('All progress reset');}});
   $('#saveBtn')?.addEventListener('click',()=>$('#saveModal').classList.remove('hidden'));$('#closeSave')?.addEventListener('click',()=>$('#saveModal').classList.add('hidden'));
   $$('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.add('hidden');}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal-backdrop').forEach(m=>m.classList.add('hidden'));});
