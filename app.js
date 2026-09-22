@@ -2,8 +2,8 @@
   'use strict';
 
   const D = window.TOEFL_DATA;
-  const STORAGE_KEY = 'homemadeToeflProgressV5';
-  const LEGACY_STORAGE_KEY = 'homemadeToeflProgressV3';
+  const STORAGE_KEY = 'homemadeToeflProgressV6';
+  const LEGACY_STORAGE_KEYS = ['homemadeToeflProgressV5','homemadeToeflProgressV3'];
   const ACCESS_KEY = 'homemadeToeflAccessV2';
   const AUDIO_KEY = 'homemadeToeflAudioV1';
   const $ = (s, r = document) => r.querySelector(s);
@@ -15,7 +15,7 @@
 
   const defaultSkill = () => ({ done: 0, correct: 0, recent: [] });
   const defaultState = () => ({
-    version: 5,
+    version: 6,
     target: 5.5,
     diagnostic: null,
     stats: { questions: 0, correct: 0, minutes: 0 },
@@ -25,47 +25,68 @@
     mockHistory: [],
     savedWords: [], streak: 0, activityDates: []
   });
+  const finite0 = v => Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : 0;
+  const clamp = (n,min,max) => Math.min(max,Math.max(min,Number(n)||0));
+  const validDateKey = x => /^\d{4}-\d{2}-\d{2}$/.test(String(x||''));
 
   function mergeState(a, b = {}) {
-    const out = { ...a, ...b, version: 5 };
-    out.stats = { ...a.stats, ...(b.stats || {}) };
+    const out = { ...a, ...b, version: 6 };
+    out.target = [5,5.5,6].includes(Number(b.target)) ? Number(b.target) : a.target;
+    out.stats = {
+      questions: finite0(b.stats?.questions),
+      correct: Math.min(finite0(b.stats?.correct), finite0(b.stats?.questions)),
+      minutes: finite0(b.stats?.minutes)
+    };
     out.skills = {};
     Object.keys(a.skills).forEach(k => {
       const incoming = b.skills?.[k] || {};
-      out.skills[k] = {
-        ...a.skills[k],
-        ...incoming,
-        recent: Array.isArray(incoming.recent) ? incoming.recent.slice(-30).map(Boolean) : []
-      };
+      const done = finite0(incoming.done), correct = Math.min(finite0(incoming.correct), done);
+      out.skills[k] = { done, correct, recent: Array.isArray(incoming.recent) ? incoming.recent.slice(-30).map(Boolean) : [] };
     });
-    out.selfReviews = {
-      speaking: Array.isArray(b.selfReviews?.speaking) ? b.selfReviews.speaking.slice(-30) : [],
-      writing: Array.isArray(b.selfReviews?.writing) ? b.selfReviews.writing.slice(-30) : []
-    };
-    out.errorLog = b.errorLog && typeof b.errorLog === 'object' ? b.errorLog : {};
-    out.mockHistory = Array.isArray(b.mockHistory) ? b.mockHistory.slice(-10) : [];
-    out.savedWords = Array.isArray(b.savedWords) ? [...new Set(b.savedWords)] : [];
-    out.activityDates = Array.isArray(b.activityDates) ? [...new Set(b.activityDates)].slice(-90) : [];
+    out.selfReviews = {};
+    ['speaking','writing'].forEach(k => {
+      out.selfReviews[k] = (Array.isArray(b.selfReviews?.[k]) ? b.selfReviews[k] : []).slice(-30).map(x => ({
+        score: clamp(x?.score,0,6), task: String(x?.task||'practice'), date: String(x?.date||'')
+      }));
+    });
+    out.errorLog = {};
+    if (b.errorLog && typeof b.errorLog === 'object') Object.entries(b.errorLog).forEach(([key,x]) => {
+      if (!x || typeof x !== 'object') return;
+      const done=finite0(x.done), correct=Math.min(finite0(x.correct),done);
+      out.errorLog[key]={skill:String(x.skill||key.split(':')[0]||'reading'),category:String(x.category||'general'),done,correct,recent:Array.isArray(x.recent)?x.recent.slice(-20).map(Boolean):[]};
+    });
+    out.mockHistory = (Array.isArray(b.mockHistory) ? b.mockHistory : []).slice(-10).map(x => ({
+      date:String(x?.date||''), correct:finite0(x?.correct), total:finite0(x?.total), elapsedSeconds:finite0(x?.elapsedSeconds)
+    })).filter(x=>x.total>0);
+    const vocabSet=new Set((D.vocabulary||[]).map(v=>v[0]));
+    out.savedWords = [...new Set(Array.isArray(b.savedWords) ? b.savedWords.map(String) : [])].filter(w=>vocabSet.has(w));
+    out.activityDates = [...new Set(Array.isArray(b.activityDates) ? b.activityDates.filter(validDateKey) : [])].sort().slice(-90);
+    out.streak = finite0(b.streak);
     return out;
   }
 
   function migrateLegacy(raw) {
     const fresh=defaultState();
     if(!raw || typeof raw!=='object')return fresh;
-    fresh.target=Number(raw.target)||5.5;
+    fresh.target=[5,5.5,6].includes(Number(raw.target))?Number(raw.target):5.5;
     fresh.diagnostic=raw.diagnostic||null;
     fresh.savedWords=Array.isArray(raw.savedWords)?raw.savedWords:[];
     fresh.activityDates=Array.isArray(raw.activityDates)?raw.activityDates:[];
-    fresh.streak=Number(raw.streak)||0;
-    fresh.stats.minutes=Number(raw.stats?.minutes)||0;
-    return fresh;
+    fresh.streak=finite0(raw.streak);
+    fresh.stats.minutes=finite0(raw.stats?.minutes);
+    return mergeState(defaultState(),fresh);
   }
   function loadState() {
     try {
       const currentRaw=localStorage.getItem(STORAGE_KEY);
       if(currentRaw)return mergeState(defaultState(),JSON.parse(currentRaw));
-      const legacyRaw=localStorage.getItem(LEGACY_STORAGE_KEY);
-      if(legacyRaw){const migrated=migrateLegacy(JSON.parse(legacyRaw));try{localStorage.setItem(STORAGE_KEY,JSON.stringify(migrated));}catch{}return migrated;}
+      for(const key of LEGACY_STORAGE_KEYS){
+        const raw=localStorage.getItem(key); if(!raw)continue;
+        const parsed=JSON.parse(raw);
+        const migrated=key.endsWith('V5')?mergeState(defaultState(),parsed):migrateLegacy(parsed);
+        try{localStorage.setItem(STORAGE_KEY,JSON.stringify(migrated));}catch{}
+        return migrated;
+      }
       return defaultState();
     } catch { return defaultState(); }
   }
@@ -78,49 +99,52 @@
     'en-NZ': { label: 'New Zealand', short: 'NZ', fallbacks: ['en-NZ','en-AU','en-GB','en-US'] }
   };
   let accent = (()=>{try{return localStorage.getItem(AUDIO_KEY)||'auto'}catch{return 'auto'}})();
-  let currentTrap = 0;
+  let currentTrap = dailyTrapIndex();
   let diagIndex = 0, diagAnswers = [], diagLocked = false, diagAudioPlayed = true;
-  let readingTab = 'word', readingIndex = 0, dailyQuestion = 0, academicQuestion = 0;
-  let listeningTab = 'response', listeningIndex = 0, listeningQuestion = 0, listeningMode = 'practice', listeningAudioPlayed = false, listeningExamAnswers = [];
-  let writingTab = 'sentence', writingIndex = 0, buildSelection = [];
+  let readingTab = 'word', readingIndex = {word:0,daily:0,academic:0}, dailyQuestion = 0, academicQuestion = 0;
+  let listeningTab = 'response', listeningIndex = {response:0,conversation:0,announcement:0,talk:0}, listeningQuestion = 0, listeningMode = 'practice', listeningAudioPlayed = false, listeningExamAnswers = [];
+  let writingTab = 'sentence', writingIndex = {sentence:0,email:0,discussion:0}, buildSelection = [];
   let currentLab = 'hedging', labIndex = 0;
   let savedOnly = false;
   let repeatSetIndex = 0, repeatSentenceIndex = 0;
   let interviewSetIndex = 0, interviewQuestionIndex = 0;
-  let mediaRecorder = null, mediaChunks = [], recordingTimer = null, recordingSeconds = 0, activeStream = null, discardRecording = false;
+  let mediaRecorder = null, mediaChunks = [], recordingTimer = null, recordingSeconds = 0, activeStream = null, discardRecording = false, recordingObjectUrl = null;
   let activeWriteTimer = null, activeWriteStartedAt = null;
-  let activeRepeatTimer = null, speechRunToken = 0;
+  let activeRepeatTimer = null, speechRunToken = 0, activeSpeechCancel = null;
   let mockState = null;
 
   function saveStateRaw() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
   }
+  function localDateKey(d=new Date()) {
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function dailyTrapIndex(d=new Date()) {
+    const start=Date.UTC(d.getFullYear(),0,1), now=Date.UTC(d.getFullYear(),d.getMonth(),d.getDate());
+    return Math.floor((now-start)/86400000) % Math.max(1,D.traps.length);
+  }
+  function localDateFromKey(key) {
+    const [y,m,d]=String(key).split('-').map(Number); return new Date(y,m-1,d,12,0,0,0);
+  }
   function markActivity() {
-    const d = new Date().toISOString().slice(0,10);
+    const d = localDateKey();
     if (!state.activityDates.includes(d)) state.activityDates.push(d);
-    state.activityDates = state.activityDates.slice(-90);
-    updateStreak();
-    saveStateRaw();
+    state.activityDates = [...new Set(state.activityDates)].sort().slice(-90);
+    updateStreak(); saveStateRaw();
   }
   function updateStreak() {
-    const dates = [...new Set(state.activityDates)].sort();
+    const dates = [...new Set(state.activityDates)].filter(validDateKey).sort();
     let streak = 0;
     if (dates.length) {
-      const now = new Date();
-      const today = now.toISOString().slice(0,10);
-      const y = new Date(now); y.setDate(y.getDate()-1);
-      const yesterday = y.toISOString().slice(0,10);
-      let cursor = dates.includes(today) ? new Date(today) : dates.includes(yesterday) ? new Date(yesterday) : null;
-      while (cursor) {
-        const key = cursor.toISOString().slice(0,10);
-        if (!dates.includes(key)) break;
-        streak++;
-        cursor.setDate(cursor.getDate()-1);
-      }
+      const today=localDateKey(); const y=new Date(); y.setDate(y.getDate()-1); const yesterday=localDateKey(y);
+      const startKey=dates.includes(today)?today:dates.includes(yesterday)?yesterday:null;
+      let cursor=startKey?localDateFromKey(startKey):null;
+      while(cursor){const key=localDateKey(cursor);if(!dates.includes(key))break;streak++;cursor.setDate(cursor.getDate()-1);}
     }
     state.streak = streak;
   }
   function saveState() { updateStreak(); saveStateRaw(); }
+  updateStreak();
   function recordQuestion(skill, correct, category='general') {
     state.stats.questions += 1;
     if (correct) state.stats.correct += 1;
@@ -131,8 +155,8 @@
       sk.recent.push(!!correct);
       sk.recent = sk.recent.slice(-30);
       const key = `${skill}:${category || 'general'}`;
-      const log = state.errorLog[key] || { skill, category: category || 'general', done: 0, correct: 0 };
-      log.done += 1; if (correct) log.correct += 1; state.errorLog[key] = log;
+      const log = state.errorLog[key] || { skill, category: category || 'general', done: 0, correct: 0, recent: [] };
+      log.done += 1; if (correct) log.correct += 1; log.recent=(Array.isArray(log.recent)?log.recent:[]);log.recent.push(!!correct);log.recent=log.recent.slice(-20);state.errorLog[key] = log;
     }
     markActivity();
     updateDashboard();
@@ -184,8 +208,7 @@
     if (activeRepeatTimer) clearInterval(activeRepeatTimer);
     activeRepeatTimer = null;
     if (recordingTimer || activeStream) stopRecording(true);
-    speechRunToken++;
-    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    cancelSpeech();
   }
 
   // Navigation
@@ -230,22 +253,30 @@
     const voices=speechSynthesis.getVoices();
     const profile=ACCENT_PROFILES[lang]||ACCENT_PROFILES['en-US'];
     for(const candidate of profile.fallbacks){
-      const exact=voices.find(v=>v.lang?.toLowerCase()===candidate.toLowerCase());if(exact)return {voice:exact,actual:candidate};
+      const exact=voices.find(v=>v.lang?.toLowerCase()===candidate.toLowerCase());if(exact)return {voice:exact,actual:exact.lang||candidate};
       const prefix=voices.find(v=>v.lang?.toLowerCase().startsWith(candidate.toLowerCase().slice(0,5)));if(prefix)return {voice:prefix,actual:prefix.lang};
     }
     const english=voices.find(v=>v.lang?.toLowerCase().startsWith('en'));return {voice:english||null,actual:english?.lang||lang};
   }
-  function speak(text, rate = .94, onEnd = null, hintedAccent = null) {
-    if (!('speechSynthesis' in window)) { toast('Text-to-speech is not available on this device.'); onEnd?.(); return; }
-    speechSynthesis.cancel();
+  function cancelSpeech(){
+    const cb=activeSpeechCancel;activeSpeechCancel=null;try{cb?.();}catch{}
+    speechRunToken++;
+    if('speechSynthesis' in window)try{speechSynthesis.cancel();}catch{}
+  }
+  function speak(text, rate = .94, onEnd = null, hintedAccent = null, onError = null) {
+    if (!('speechSynthesis' in window)) { toast('Text-to-speech is not available on this device.'); onError?.('unsupported'); return; }
+    cancelSpeech();
     const token = ++speechRunToken;
-    const target=requestedAccent(text,hintedAccent);
-    const selected=findVoice(target);
-    const u = new SpeechSynthesisUtterance(text); u.lang = target; u.rate = rate;
+    const target=requestedAccent(text,hintedAccent), selected=findVoice(target);
+    const u = new SpeechSynthesisUtterance(text); u.lang = selected.voice?.lang || selected.actual || target; u.rate = rate;
     if (selected.voice) u.voice = selected.voice;
-    if (onEnd) u.onend = () => { if (token === speechRunToken) onEnd(); };
-    u.onerror=()=>{if(token===speechRunToken){toast('Audio playback failed on this device. Try another voice profile.');onEnd?.();}};
-    speechSynthesis.speak(u);
+    let settled=false;
+    const settle=(ok,reason='')=>{if(settled)return;settled=true;if(activeSpeechCancel===abort)activeSpeechCancel=null;if(token!==speechRunToken)return;ok?onEnd?.():onError?.(reason);};
+    const abort=()=>{if(settled)return;settled=true;onError?.('cancelled');};
+    activeSpeechCancel=abort;
+    u.onend=()=>settle(true);
+    u.onerror=()=>{toast('Audio playback failed on this device. Try another voice profile.');settle(false,'error');};
+    try{speechSynthesis.speak(u);}catch{toast('Audio playback failed on this device.');settle(false,'error');}
   }
   function updateVoiceStatus(){
     const box=$('#voiceStatus');if(!box||!('speechSynthesis' in window))return;
@@ -295,7 +326,7 @@
     const stim=$('#diagStimulus'); stim.innerHTML='';
     if(item.type==='audio'){
       stim.innerHTML=`<div class="listen-box"><button class="speaker" type="button">▶ Listen once</button><span>One play for a fair diagnostic.</span></div>`;
-      $('.speaker',stim).onclick=()=>{const b=$('.speaker',stim);if(diagAudioPlayed)return;diagAudioPlayed=true;b.disabled=true;b.textContent='Listening…';speak(item.audio,.92,()=>{b.textContent='Played once';},item.accent);};
+      $('.speaker',stim).onclick=()=>{const b=$('.speaker',stim);if(diagAudioPlayed||b.disabled)return;b.disabled=true;b.textContent='Listening…';speak(item.audio,.92,()=>{diagAudioPlayed=true;b.textContent='Played once';b.disabled=true;},item.accent,()=>{diagAudioPlayed=false;b.textContent='▶ Listen once';b.disabled=false;});};
     } else if(item.stimulus) stim.innerHTML=`<div class="stimulus">${esc(item.stimulus)}</div>`;
     const ans=$('#diagAnswers'); ans.innerHTML='';
     item.options.forEach((o,i)=>{
@@ -347,6 +378,18 @@
     if (!arr.length) return null;
     return arr.reduce((sum,x)=>sum+Number(x.score||0),0)/arr.length;
   }
+  function recentAccuracy(sk,min=5){
+    const r=Array.isArray(sk?.recent)?sk.recent:[];
+    if(r.length<min)return null; return r.filter(Boolean).length/r.length;
+  }
+  function logAccuracy(log,min=5){
+    const r=Array.isArray(log?.recent)?log.recent:[];
+    if(r.length>=min)return {acc:r.filter(Boolean).length/r.length,n:r.length,label:'recent'};
+    return {acc:log?.done?log.correct/log.done:null,n:log?.done||0,label:'all-time'};
+  }
+  function formatDuration(seconds){
+    const s=Math.max(0,Math.round(Number(seconds)||0)),m=Math.floor(s/60),r=s%60;return m?`${m}m ${String(r).padStart(2,'0')}s`:`${r}s`;
+  }
   function updateDashboard() {
     const overall=state.diagnostic?.overall ?? null;
     $('#overallBand').textContent=overall==null?'—':overall.toFixed(1);
@@ -359,36 +402,37 @@
     const objective=[['reading','Reading'],['listening','Listening'],['writing','Writing · language control']];
     const grid=$('#skillDashboard'); if(grid){
       grid.innerHTML=objective.map(([k,label])=>{
-        const sk=state.skills[k], p=sk.done?sk.correct/sk.done:null;
-        return `<article class="skill-progress"><div class="skill-progress-head"><h3>${label}</h3><strong>${p==null?'—':Math.round(p*100)+'%'}</strong></div><div class="meter"><span style="width:${p==null?0:Math.round(p*100)}%"></span></div><p>${sk.done?`${sk.correct}/${sk.done} objectively scored items`:'No scored practice yet'}</p><button class="text-btn" data-go="${k}">Practise ${cap(k)} →</button></article>`;
+        const sk=state.skills[k], recent=recentAccuracy(sk), all=sk.done?sk.correct/sk.done:null, p=recent??all;
+        const detail=sk.done?(recent==null?`${sk.correct}/${sk.done} objectively scored items`:`Last ${sk.recent.length}: ${sk.recent.filter(Boolean).length}/${sk.recent.length} · all-time ${sk.correct}/${sk.done}`):'No scored practice yet';
+        return `<article class="skill-progress"><div class="skill-progress-head"><h3>${label}</h3><strong>${p==null?'—':Math.round(p*100)+'%'}</strong></div><div class="meter"><span style="width:${p==null?0:Math.round(p*100)}%"></span></div><p>${detail}</p><button class="text-btn" data-go="${k}">Practise ${cap(k)} →</button></article>`;
       }).join('');
       $$('[data-go]',grid).forEach(b=>b.onclick=()=>navigate(b.dataset.go));
     }
     const prod=$('#productiveDashboard'); if(prod){
-      prod.innerHTML=['speaking','writing'].map(k=>{const avg=averageSelfReview(k), n=state.selfReviews[k]?.length||0;return `<article class="skill-progress self-review-card"><div class="skill-progress-head"><h3>${cap(k)}</h3><strong>${avg==null?'—':avg.toFixed(1)+'/6'}</strong></div><div class="meter"><span style="width:${avg==null?0:(avg/6)*100}%"></span></div><p>${n?`${n} criteria-based self-review${n===1?'':'s'}`:'No productive self-review saved yet'}</p><button class="text-btn" data-go="${k}">Open ${cap(k)} →</button></article>`}).join('');
+      prod.innerHTML=['speaking','writing'].map(k=>{const arr=state.selfReviews[k]||[], recent=arr.slice(-5), avg=recent.length?recent.reduce((s,x)=>s+Number(x.score||0),0)/recent.length:null, n=arr.length;return `<article class="skill-progress self-review-card"><div class="skill-progress-head"><h3>${cap(k)}</h3><strong>${avg==null?'—':avg.toFixed(1)+'/6'}</strong></div><div class="meter"><span style="width:${avg==null?0:(avg/6)*100}%"></span></div><p>${n?`Last ${Math.min(5,n)} self-review${Math.min(5,n)===1?'':'s'} · ${n} saved total`:'No productive self-review saved yet'}</p><button class="text-btn" data-go="${k}">Open ${cap(k)} →</button></article>`}).join('');
       $$('[data-go]',prod).forEach(b=>b.onclick=()=>navigate(b.dataset.go));
     }
-    const logs=Object.values(state.errorLog||{}).filter(x=>x.done>=2).map(x=>({...x,acc:x.correct/x.done})).sort((a,b)=>a.acc-b.acc||b.done-a.done).slice(0,6);
-    const weak=$('#weaknessList'); if(weak){weak.innerHTML=logs.length?logs.map(x=>`<button class="weakness-row" data-go="${x.skill}"><span><strong>${cap(x.category)}</strong><small>${cap(x.skill)} · ${x.done} attempts</small></span><b>${Math.round(x.acc*100)}%</b></button>`).join(''):'<p class="empty-state">Answer a few practice items and your recurring error types will appear here.</p>';$$('[data-go]',weak).forEach(b=>b.onclick=()=>navigate(b.dataset.go));}
+    const logs=Object.values(state.errorLog||{}).filter(x=>x.done>=2).map(x=>({...x,...logAccuracy(x)})).filter(x=>x.acc!=null).sort((a,b)=>a.acc-b.acc||b.done-a.done).slice(0,6);
+    const weak=$('#weaknessList'); if(weak){weak.innerHTML=logs.length?logs.map(x=>`<button class="weakness-row" data-go="${x.skill}"><span><strong>${cap(x.category)}</strong><small>${cap(x.skill)} · ${x.label==='recent'?`last ${x.n}`:`${x.done} attempts`}</small></span><b>${Math.round(x.acc*100)}%</b></button>`).join(''):'<p class="empty-state">Answer a few practice items and your recurring error types will appear here.</p>';$$('[data-go]',weak).forEach(b=>b.onclick=()=>navigate(b.dataset.go));}
     const route=$('#recommendedRoute'); if(route){
-      const skillData=['reading','listening','writing'].map(k=>{const sk=state.skills[k];return {k,acc:sk.done?sk.correct/sk.done:null,done:sk.done}}).sort((a,b)=>(a.acc??2)-(b.acc??2));
-      const topWeak=logs[0];
-      const items=[];
-      if(topWeak) items.push({go:topWeak.skill,title:`Fix ${topWeak.category}`,note:`${Math.round(topWeak.acc*100)}% across ${topWeak.done} attempts`});
-      skillData.slice(0,2).forEach(x=>items.push({go:x.k,title:`${cap(x.k)} practice`,note:x.acc==null?'Not measured yet':`${Math.round(x.acc*100)}% objective accuracy`}));
+      const skillData=['reading','listening','writing'].map(k=>{const sk=state.skills[k],recent=recentAccuracy(sk),all=sk.done?sk.correct/sk.done:null;return {k,acc:recent??all,done:sk.done,recent:recent!=null};}).sort((a,b)=>(a.acc??2)-(b.acc??2));
+      const topWeak=logs[0],items=[];
+      if(topWeak) items.push({go:topWeak.skill,title:`Fix ${topWeak.category}`,note:`${Math.round(topWeak.acc*100)}% · ${topWeak.label==='recent'?`last ${topWeak.n}`:`${topWeak.done} attempts`}`});
+      skillData.slice(0,2).forEach(x=>items.push({go:x.k,title:`${cap(x.k)} practice`,note:x.acc==null?'Not measured yet':`${Math.round(x.acc*100)}% ${x.recent?'recent':'all-time'} objective accuracy`}));
       if(!state.selfReviews.speaking?.length)items.push({go:'speaking',title:'Record one interview answer',note:'No speaking self-review yet'});
       route.innerHTML=items.slice(0,4).map((x,i)=>`<button class="route-step" data-go="${x.go}"><b>${i+1}</b><span>${esc(x.title)}</span><small>${esc(x.note)}</small></button>`).join('');
       $$('[data-go]',route).forEach(b=>b.onclick=()=>navigate(b.dataset.go));
     }
+    const hist=$('#mockHistoryList');if(hist){const rows=(state.mockHistory||[]).slice(-5).reverse();hist.innerHTML=rows.length?rows.map(x=>`<div class="simulation-row"><span><strong>${new Date(x.date).toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'})}</strong><small>${x.elapsedSeconds?formatDuration(x.elapsedSeconds):'time not recorded'}</small></span><b>${x.correct}/${x.total} · ${Math.round(x.correct/x.total*100)}%</b></div>`).join(''):'<p class="empty-state">No practice simulation completed yet.</p>';}
   }
   $('#saveTarget')?.addEventListener('click',()=>{state.target=Number($('#targetBand').value);saveState();toast(`Target saved: ${state.target.toFixed(1)}`);});
 
   // Reusable MCQ
   function practiceMCQ(title, stimulus, options, answer, why, skill, nextId='nextPractice') {
-    return `<article class="practice-card"><span class="tag teal">${esc(title)}</span>${stimulus}<div class="choice-row practice-options">${options.map((o,i)=>`<button data-answer="${i}">${esc(o)}</button>`).join('')}</div><div class="feedback practice-feedback"></div><div class="question-nav"><span></span><button class="btn primary hidden" id="${nextId}">Next →</button></div></article>`;
+    return `<article class="practice-card"><span class="tag teal">${esc(title)}</span>${stimulus}<div class="choice-row practice-options">${options.map((o,i)=>`<button data-answer="${i}">${esc(o)}</button>`).join('')}</div><div class="feedback practice-feedback"></div><div class="question-nav"><span></span><button class="btn primary hidden practice-next" data-next="${esc(nextId)}">Next →</button></div></article>`;
   }
   function wirePractice(container, {skill=null,category='general',onNext=null,nextId='nextPractice'}={}) {
-    const buttons=$$('.practice-options button',container), fb=$('.practice-feedback',container), next=$('#'+nextId,container);
+    const buttons=$$('.practice-options button',container), fb=$('.practice-feedback',container), next=$('.practice-next',container);
     let locked=false;
     buttons.forEach(b=>b.onclick=()=>{
       if(locked)return;locked=true;
@@ -409,7 +453,7 @@
     return {html,answers};
   }
   function renderCtest(w){
-    const x=D.reading.word[readingIndex%D.reading.word.length], parsed=parseCtest(x.text);
+    const x=D.reading.word[readingIndex.word%D.reading.word.length], parsed=parseCtest(x.text);
     w.innerHTML=`<article class="practice-card"><span class="tag teal">COMPLETE THE WORDS · C-TEST</span><h2>${esc(x.title)}</h2><p class="micro-note">Complete all 10 missing word endings. Use grammar, collocation and the argument as a whole.</p><div class="stimulus ctest-passage">${parsed.html}</div><div class="feedback" id="ctestFeedback"></div><div class="cta-row"><button class="btn primary" id="checkCtest">Check all 10</button><button class="btn secondary hidden" id="nextCtest">Next text →</button></div></article>`;
     let checked=false;
     $('#checkCtest').onclick=()=>{
@@ -418,17 +462,17 @@
       $('#ctestFeedback').textContent=`${correct}/10 correct. ${x.why}`;$('#ctestFeedback').className='feedback '+(correct>=8?'good':'bad');
       $('#checkCtest').disabled=true;$('#nextCtest').classList.remove('hidden');
     };
-    $('#nextCtest').onclick=()=>{readingIndex++;renderCtest(w)};
+    $('#nextCtest').onclick=()=>{readingIndex.word++;renderCtest(w)};
   }
   function renderReadingDaily(w){
-    const x=D.reading.daily[readingIndex%D.reading.daily.length], qs=x.questions || [x], q=qs[dailyQuestion%qs.length];
+    const x=D.reading.daily[readingIndex.daily%D.reading.daily.length], qs=x.questions || [x], q=qs[dailyQuestion%qs.length];
     w.innerHTML=practiceMCQ(`READ IN DAILY LIFE · ${esc(x.kind||'TEXT')}`,`<div class="stimulus preserve-lines daily-life-stimulus">${esc(x.text)}</div><div class="set-progress">Question ${dailyQuestion+1} / ${qs.length}</div><h2>${esc(q.q)}</h2>`,q.options,q.answer,q.why,'reading');
-    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'daily-life comprehension',onNext:()=>{dailyQuestion++;if(dailyQuestion>=qs.length){dailyQuestion=0;readingIndex++;}renderReadingDaily(w)}});
+    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'daily-life comprehension',onNext:()=>{dailyQuestion++;if(dailyQuestion>=qs.length){dailyQuestion=0;readingIndex.daily++;}renderReadingDaily(w)}});
   }
   function renderAcademic(w){
-    const p=D.reading.academic[readingIndex%D.reading.academic.length], q=p.questions[academicQuestion%p.questions.length];
+    const p=D.reading.academic[readingIndex.academic%D.reading.academic.length], q=p.questions[academicQuestion%p.questions.length];
     w.innerHTML=practiceMCQ('READ AN ACADEMIC PASSAGE',`<h2>${esc(p.title)}</h2><div class="stimulus preserve-lines">${esc(p.text)}</div><div class="set-progress">Question ${academicQuestion+1} / ${p.questions.length}</div><h3>${esc(q.q)}</h3>`,q.options,q.answer,q.why,'reading');
-    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'academic reading',onNext:()=>{academicQuestion++;if(academicQuestion>=p.questions.length){academicQuestion=0;readingIndex++;}renderAcademic(w)}});
+    w.dataset.answer=q.answer;w.dataset.why=q.why;wirePractice(w,{skill:'reading',category:q.category||'academic reading',onNext:()=>{academicQuestion++;if(academicQuestion>=p.questions.length){academicQuestion=0;readingIndex.academic++;}renderAcademic(w)}});
   }
   renderReading();
 
@@ -437,15 +481,15 @@
   $$('[data-listen-mode]').forEach(b=>b.onclick=()=>{listeningMode=b.dataset.listenMode;$$('[data-listen-mode]').forEach(x=>x.classList.toggle('is-active',x===b));listeningQuestion=0;listeningAudioPlayed=false;listeningExamAnswers=[];renderListening();});
   function listeningQuestions(x){return x.questions || [{q:x.q,options:x.options,answer:x.answer,why:x.why,category:x.category||'listening comprehension'}];}
   function renderListening(){
-    const arr=D.listening[listeningTab],x=arr[listeningIndex%arr.length],qs=listeningQuestions(x),q=qs[listeningQuestion%qs.length],labels={response:'CHOOSE A RESPONSE',conversation:'CONVERSATION',announcement:'ANNOUNCEMENT',talk:'ACADEMIC TALK'};
+    const arr=D.listening[listeningTab],x=arr[listeningIndex[listeningTab]%arr.length],qs=listeningQuestions(x),q=qs[listeningQuestion%qs.length],labels={response:'CHOOSE A RESPONSE',conversation:'CONVERSATION',announcement:'ANNOUNCEMENT',talk:'ACADEMIC TALK'};
     const w=$('#listeningWorkspace'), exam=listeningMode==='exam';
     w.innerHTML=practiceMCQ(labels[listeningTab],`<div class="listen-box"><button class="speaker" id="playListening">${listeningAudioPlayed?(exam?'Played once':'▶ Replay'):'▶ Listen once'}</button><span>${exam?'Exam conditions: one play for the whole set; feedback stays hidden until the set ends.':'Practice: replay is available after the first answer.'}</span></div>${qs.length>1?`<div class="set-progress">Question ${listeningQuestion+1} / ${qs.length}${!exam&&accent==='auto'&&x.accent?` · ${esc(ACCENT_PROFILES[x.accent]?.label||'English')} profile`:''}</div>`:''}<h2>${esc(q.q)}</h2>`,q.options,q.answer,q.why,'listening');
     w.dataset.answer=q.answer;w.dataset.why=q.why;
     let locked=false;
     const play=$('#playListening');
     play.disabled=exam&&listeningAudioPlayed;
-    play.onclick=()=>{if(exam&&listeningAudioPlayed)return;listeningAudioPlayed=true;play.disabled=true;play.textContent='Listening…';speak(x.audio,listeningTab==='talk'?.90:.93,()=>{play.textContent=exam?'Played once':'▶ Replay';play.disabled=exam;},x.accent);};
-    const buttons=$$('.practice-options button',w),fb=$('.practice-feedback',w),next=$('#nextPractice',w);
+    play.onclick=()=>{if((exam&&listeningAudioPlayed)||play.disabled)return;play.disabled=true;play.textContent='Listening…';speak(x.audio,listeningTab==='talk'?.90:.93,()=>{listeningAudioPlayed=true;play.textContent=exam?'Played once':'Played once · answer to unlock replay';play.disabled=true;},x.accent,()=>{listeningAudioPlayed=false;play.textContent='▶ Listen once';play.disabled=false;});};
+    const buttons=$$('.practice-options button',w),fb=$('.practice-feedback',w),next=$('.practice-next',w);
     buttons.forEach(b=>b.onclick=()=>{
       if(locked)return;if(!listeningAudioPlayed){toast('Listen once before answering.');return;}locked=true;
       const chosen=Number(b.dataset.answer),ok=chosen===q.answer;
@@ -457,7 +501,7 @@
     next.onclick=()=>{
       if(exam&&listeningQuestion===qs.length-1){renderListeningExamReview(x,qs);return;}
       listeningQuestion++;
-      if(listeningQuestion>=qs.length){listeningQuestion=0;listeningIndex++;listeningAudioPlayed=false;listeningExamAnswers=[];}
+      if(listeningQuestion>=qs.length){listeningQuestion=0;listeningIndex[listeningTab]++;listeningAudioPlayed=false;listeningExamAnswers=[];}
       renderListening();
     };
   }
@@ -466,7 +510,7 @@
     const correct=listeningExamAnswers.filter((a,i)=>a.chosen===qs[i].answer).length;
     listeningExamAnswers.forEach((a,i)=>recordQuestion('listening',a.chosen===qs[i].answer,qs[i].category||'listening comprehension'));
     w.innerHTML=`<article class="practice-card"><span class="tag coral">SET REVIEW</span><h2>${correct}/${qs.length} correct</h2><p class="micro-note">Feedback appears only now because you used Exam conditions.</p>${qs.map((q,i)=>`<div class="review-item"><h3>${i+1}. ${esc(q.q)}</h3><p><strong>Correct answer:</strong> ${esc(q.options[q.answer])}</p><p>${esc(q.why)}</p></div>`).join('')}<div class="cta-row"><button class="btn primary" id="nextListeningSet">Next audio set →</button></div></article>`;
-    $('#nextListeningSet').onclick=()=>{listeningQuestion=0;listeningIndex++;listeningAudioPlayed=false;listeningExamAnswers=[];renderListening();};
+    $('#nextListeningSet').onclick=()=>{listeningQuestion=0;listeningIndex[listeningTab]++;listeningAudioPlayed=false;listeningExamAnswers=[];renderListening();};
   }
   renderListening();
 
@@ -474,21 +518,21 @@
   function renderRepeat(){
     if(activeRepeatTimer) clearInterval(activeRepeatTimer);
     activeRepeatTimer=null;
-    speechRunToken++;
-    if('speechSynthesis' in window) speechSynthesis.cancel();
+    cancelSpeech();
     const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length], sentence=set.sentences[repeatSentenceIndex];
     $('#repeatScenario').textContent=set.scenario;
     $('#repeatProgress').textContent=`Sentence ${repeatSentenceIndex+1} / ${set.sentences.length}${accent==='auto'&&set.accent?` · ${ACCENT_PROFILES[set.accent]?.label||'English'} profile`:''}`;
-    $('#repeatSentence').textContent='Transcript hidden. You will hear the sentence once, then get 10 seconds to repeat it.';
+    $('#repeatSentence').textContent='Transcript hidden. You will hear the sentence once, then get 8 seconds to repeat it.';
     $('#revealRepeat').disabled=true; $('#nextRepeatSentence').disabled=true;
     $('#playRepeat').disabled=false; $('#playRepeat').textContent='▶ Listen once';
   }
-  $('#playRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];const btn=$('#playRepeat');btn.disabled=true;btn.textContent='Listening…';speak(set.sentences[repeatSentenceIndex],.91,()=>{let left=10;$('#repeatSentence').textContent=`Repeat now · ${left}s`;activeRepeatTimer=setInterval(()=>{left--;$('#repeatSentence').textContent=left>0?`Repeat now · ${left}s`:'Time. Reveal the transcript and self-check.';if(left<=0){clearInterval(activeRepeatTimer);activeRepeatTimer=null;$('#revealRepeat').disabled=false;}},1000);},set.accent);});
+  $('#playRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];const btn=$('#playRepeat');btn.disabled=true;btn.textContent='Listening…';speak(set.sentences[repeatSentenceIndex],.91,()=>{let left=8;$('#repeatSentence').textContent=`Repeat now · ${left}s`;activeRepeatTimer=setInterval(()=>{left--;$('#repeatSentence').textContent=left>0?`Repeat now · ${left}s`:'Time. Reveal the transcript and self-check.';if(left<=0){clearInterval(activeRepeatTimer);activeRepeatTimer=null;$('#revealRepeat').disabled=false;}},1000);},set.accent,()=>{btn.disabled=false;btn.textContent='▶ Listen once';$('#repeatSentence').textContent='Audio did not complete. Try again or change the voice profile.';});});
   $('#revealRepeat')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];$('#repeatSentence').textContent=set.sentences[repeatSentenceIndex];$('#nextRepeatSentence').disabled=false;});
   $('#nextRepeatSentence')?.addEventListener('click',()=>{const set=D.speaking.repeatSets[repeatSetIndex%D.speaking.repeatSets.length];if(repeatSentenceIndex<set.sentences.length-1)repeatSentenceIndex++;else{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;}renderRepeat();});
   $('#newRepeat')?.addEventListener('click',()=>{repeatSetIndex=(repeatSetIndex+1)%D.speaking.repeatSets.length;repeatSentenceIndex=0;renderRepeat();});
 
   function renderInterview(){
+    if(recordingObjectUrl){try{URL.revokeObjectURL(recordingObjectUrl);}catch{}recordingObjectUrl=null;}
     const set=D.speaking.interviewSets[interviewSetIndex%D.speaking.interviewSets.length];
     $('#interviewScenario').textContent=set.scenario;
     $('#interviewProgress').textContent=`Question ${interviewQuestionIndex+1} / ${set.questions.length}${accent==='auto'&&set.accent?` · ${ACCENT_PROFILES[set.accent]?.label||'English'} profile`:''}`;
@@ -512,7 +556,7 @@
         if(activeStream)activeStream.getTracks().forEach(t=>t.stop());activeStream=null;
         $('#stopRecording').classList.add('hidden');$('#startRecording').disabled=false;
         if(discardRecording){discardRecording=false;mediaChunks=[];return;}
-        if(mediaChunks.length){const blob=new Blob(mediaChunks,{type:mediaRecorder.mimeType||'audio/webm'});const url=URL.createObjectURL(blob);$('#recordingPlayback').src=url;$('#recordingPlayback').classList.remove('hidden');}
+        if(mediaChunks.length){const blob=new Blob(mediaChunks,{type:mediaRecorder.mimeType||'audio/webm'});recordingObjectUrl=URL.createObjectURL(blob);$('#recordingPlayback').src=recordingObjectUrl;$('#recordingPlayback').classList.remove('hidden');}
         $('#nextInterviewQ').disabled=false;$('#logSpeakingReview').disabled=false;
         addTimedMinutes(recordingSeconds/60);
       };
@@ -530,23 +574,25 @@
   function renderWriting(){const w=$('#writingWorkspace');if(writingTab==='sentence')renderBuild(w);else renderLongWriting(w,writingTab);}
   function normaliseSentence(s){return s.toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim();}
   function renderBuild(w){
-    const x=D.writing.sentence[writingIndex%D.writing.sentence.length];buildSelection=[];
+    const x=D.writing.sentence[writingIndex.sentence%D.writing.sentence.length];buildSelection=[];
     const shuffled=shuffle(x.words.map((text,id)=>({text,id})));
-    w.innerHTML=`<article class="practice-card"><span class="tag teal">BUILD A SENTENCE</span><h2>Complete the response</h2><div class="stimulus"><strong>Lead-in:</strong> ${esc(x.lead||'Complete the response.')}</div><p>Build the most natural response from all the chunks.</p><div class="build-words">${shuffled.map(o=>`<button class="word-chip" data-id="${o.id}">${esc(o.text)}</button>`).join('')}</div><div class="sentence-build" id="sentenceBuild"></div><div class="feedback" id="buildFeedback"></div><div class="cta-row"><button class="btn secondary" id="clearBuild">Clear</button><button class="btn primary" id="checkBuild">Check</button><button class="btn primary hidden" id="nextBuild">Next →</button></div></article>`;
-    $$('.word-chip',w).forEach(b=>b.onclick=()=>{
+    w.innerHTML=`<article class="practice-card"><span class="tag teal">BUILD A SENTENCE</span><h2>Complete the response</h2><div class="stimulus"><strong>Lead-in:</strong> ${esc(x.lead||'Complete the response.')}</div><p>Build the most natural response from all the chunks.</p><div class="build-words">${shuffled.map(o=>`<button class="word-chip" data-id="${o.id}">${esc(o.text)}</button>`).join('')}</div><div class="sentence-build" id="sentenceBuild"></div><div class="feedback" id="buildFeedback"></div><div class="cta-row"><button class="btn secondary" id="clearBuild">Clear</button><button class="btn primary" id="checkBuild" disabled>Check</button><button class="btn primary hidden" id="nextBuild">Next →</button></div></article>`;
+    const sourceButtons=$$('.build-words .word-chip',w),check=$('#checkBuild'),clear=$('#clearBuild'),target=$('#sentenceBuild');
+    const sync=()=>{check.disabled=buildSelection.length!==x.words.length;};
+    sourceButtons.forEach(b=>b.onclick=()=>{
       const item={id:Number(b.dataset.id),text:b.textContent};buildSelection.push(item);b.disabled=true;
       const c=document.createElement('button');c.className='word-chip';c.textContent=item.text;c.dataset.id=item.id;
-      c.onclick=()=>{buildSelection=buildSelection.filter(x=>x.id!==item.id);b.disabled=false;c.remove();};
-      $('#sentenceBuild').appendChild(c);
+      c.onclick=()=>{buildSelection=buildSelection.filter(z=>z.id!==item.id);b.disabled=false;c.remove();sync();};
+      target.appendChild(c);sync();
     });
-    $('#clearBuild').onclick=()=>renderBuild(w);
+    clear.onclick=()=>{buildSelection=[];target.innerHTML='';sourceButtons.forEach(b=>b.disabled=false);$('#buildFeedback').textContent='';$('#buildFeedback').className='feedback';sync();};
     let checked=false;
-    $('#checkBuild').onclick=()=>{if(checked)return;checked=true;const built=normaliseSentence(buildSelection.map(x=>x.text).join(' ')),ans=normaliseSentence(x.answer),ok=built===ans;$('#buildFeedback').textContent=ok?'✓ Correct.':`✗ Model: ${x.answer}`;$('#buildFeedback').className='feedback '+(ok?'good':'bad');recordQuestion('writing',ok,'sentence building');$('#checkBuild').disabled=true;$$('.word-chip',w).forEach(b=>b.disabled=true);$('#nextBuild').classList.remove('hidden');};
-    $('#nextBuild').onclick=()=>{writingIndex++;renderBuild(w)};
+    check.onclick=()=>{if(checked||buildSelection.length!==x.words.length)return;checked=true;const built=normaliseSentence(buildSelection.map(z=>z.text).join(' ')),ans=normaliseSentence(x.answer),ok=built===ans;$('#buildFeedback').textContent=ok?'✓ Correct.':`✗ Model: ${x.answer}`;$('#buildFeedback').className='feedback '+(ok?'good':'bad');recordQuestion('writing',ok,'sentence building');check.disabled=true;clear.disabled=true;$$('.word-chip',w).forEach(b=>b.disabled=true);$('#nextBuild').classList.remove('hidden');};
+    $('#nextBuild').onclick=()=>{writingIndex.sentence++;renderBuild(w)};
   }
   function renderLongWriting(w,type){
     clearWriteTimer();
-    const arr=D.writing[type],x=arr[writingIndex%arr.length],seconds=(type==='email'?7:10)*60;
+    const arr=D.writing[type],x=arr[writingIndex[type]%arr.length],seconds=(type==='email'?7:10)*60;
     let prompt='';
     if(type==='email')prompt=`<p><strong>Situation:</strong> ${esc(x.situation)}</p><div class="score-banner"><span>Recipient: ${esc(x.recipient)}</span><span>Goal: ${esc(x.goal)}</span></div>${x.tasks?.length?`<ul class="task-list">${x.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}`;
     else prompt=`<div class="stimulus"><p>${esc(x.teacher)}</p><p><strong>Student A:</strong> ${esc(x.studentA)}</p><p><strong>Student B:</strong> ${esc(x.studentB)}</p></div><p><strong>Your task:</strong> ${esc(x.prompt)}</p><p class="micro-note">For this trainer, aim for at least 100 words so you have enough space to develop and qualify your contribution.</p>`;
@@ -564,7 +610,7 @@
       $('#logWritingCheck').onclick=()=>{const n=$$('.writing-check',w).filter(c=>c.checked).length;recordSelfReview('writing',n,type);$('#logWritingCheck').disabled=true;toast(`Writing self-check saved: ${n}/6 criteria`);};
       $('#nextWriting').classList.remove('hidden');
     };
-    $('#nextWriting').onclick=()=>{clearWriteTimer();writingIndex++;renderLongWriting(w,type)};
+    $('#nextWriting').onclick=()=>{clearWriteTimer();writingIndex[type]++;renderLongWriting(w,type)};
   }
   function countWords(s){return (s.trim().match(/\b[\w’'-]+\b/g)||[]).length;}
   renderWriting();
@@ -588,23 +634,23 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     return items;
   }
   function startMock(){
-    mockState={items:buildMockItems(),index:0,answers:[],playedGroups:{}};
+    const run=state.mockHistory.length;mockState={items:buildMockItems(),index:0,answers:[],playedGroups:{},run,startedAt:Date.now()};
     $('#mockIntro').classList.add('hidden');$('#mockResult').classList.add('hidden');$('#mockRunner').classList.remove('hidden');renderMockItem();
   }
   function renderMockItem(){
     const w=$('#mockRunner'),m=mockState,x=m.items[m.index],isListen=x.skill==='listening';const audioPlayed=!isListen||!!m.playedGroups[x.group];
     w.innerHTML=`<div class="quiz-top"><span class="tag ${isListen?'coral':'teal'}">${x.section.toUpperCase()}</span><strong>${m.index+1} / ${m.items.length}</strong></div><div class="progress"><span style="width:${(m.index/m.items.length)*100}%"></span></div>${isListen?`<div class="listen-box"><button class="speaker" id="mockPlay">${audioPlayed?'Played once':'▶ Listen once'}</button><span>One play per audio set. No feedback until the end.</span></div>`:`<div class="stimulus preserve-lines">${esc(x.stimulus)}</div>`}<h2>${esc(x.q)}</h2><div class="choice-row" id="mockOptions">${x.options.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('')}</div><div class="question-nav"><span>No answer feedback during the simulation.</span><button class="btn primary hidden" id="mockNext">${m.index===m.items.length-1?'Finish objective section →':'Next →'}</button></div>`;
-    if(isListen){$('#mockPlay').disabled=audioPlayed;$('#mockPlay').onclick=()=>{if(m.playedGroups[x.group])return;m.playedGroups[x.group]=true;$('#mockPlay').disabled=true;$('#mockPlay').textContent='Listening…';speak(x.audio,.92,()=>{$('#mockPlay').textContent='Played once';},x.accent);};}
+    if(isListen){$('#mockPlay').disabled=audioPlayed;$('#mockPlay').onclick=()=>{const p=$('#mockPlay');if(m.playedGroups[x.group]||p.disabled)return;p.disabled=true;p.textContent='Listening…';speak(x.audio,.92,()=>{m.playedGroups[x.group]=true;p.textContent='Played once';p.disabled=true;},x.accent,()=>{m.playedGroups[x.group]=false;p.textContent='▶ Listen once';p.disabled=false;});};}
     $$('#mockOptions button',w).forEach(b=>b.onclick=()=>{if(isListen&&!m.playedGroups[x.group]){toast('Listen once before answering.');return;}$$('#mockOptions button',w).forEach(z=>z.disabled=true);b.classList.add('selected-answer');m.answers.push({index:m.index,selected:Number(b.dataset.i)});$('#mockNext').classList.remove('hidden');});
     $('#mockNext').onclick=()=>{m.index++;if(m.index<m.items.length)renderMockItem();else finishMock();};
   }
   function finishMock(){
     const m=mockState;let correct=0;const by={Reading:{c:0,n:0},Listening:{c:0,n:0}};const missed=[];
     m.answers.forEach(a=>{const x=m.items[a.index],ok=a.selected===x.answer;if(ok)correct++;by[x.section].n++;if(ok)by[x.section].c++;else missed.push({...x,selected:a.selected});recordQuestion(x.skill,ok,x.category);});
-    const pct=m.items.length?correct/m.items.length:0;state.mockHistory.push({date:new Date().toISOString(),correct,total:m.items.length});state.mockHistory=state.mockHistory.slice(-10);saveState();
+    const pct=m.items.length?correct/m.items.length:0,elapsedSeconds=Math.max(0,Math.round((Date.now()-m.startedAt)/1000));state.mockHistory.push({date:new Date().toISOString(),correct,total:m.items.length,elapsedSeconds});state.mockHistory=state.mockHistory.slice(-10);saveState();
     $('#mockRunner').classList.add('hidden');const r=$('#mockResult');r.classList.remove('hidden');
-    const email=D.writing.email[0], interview=D.speaking.interviewSets[0];
-    r.innerHTML=`<div class="result-hero"><span>Objective simulation</span><strong>${correct}/${m.items.length}</strong><h2>${Math.round(pct*100)}% correct</h2><p>This is practice accuracy, not an ETS band.</p></div><div class="result-grid">${Object.entries(by).map(([k,v])=>`<article class="result-skill"><span>${k}</span><strong>${v.n?Math.round(v.c/v.n*100):0}%</strong><small>${v.c}/${v.n}</small></article>`).join('')}</div><div class="grid two mock-productive"><article class="card"><span class="tag coral">WRITING CONTINUATION</span><h2>Timed email</h2><p>${esc(email.situation)}</p><button class="btn secondary" data-go="writing">Open Writing practice →</button></article><article class="card"><span class="tag coral">SPEAKING CONTINUATION</span><h2>Four-question interview</h2><p>${esc(interview.scenario)}</p><button class="btn secondary" data-go="speaking">Open Speaking practice →</button></article></div>${missed.length?`<details class="card diagnostic-review"><summary><strong>Review ${missed.length} missed objective item${missed.length===1?'':'s'}</strong></summary>${missed.map(x=>`<div class="review-item"><span class="tag">${esc(x.section)}</span><h3>${esc(x.q)}</h3><p><strong>Correct answer:</strong> ${esc(x.options[x.answer])}</p><p>${esc(x.why)}</p></div>`).join('')}</details>`:''}<div class="cta-row"><button class="btn primary" id="restartMock">Run another simulation</button><button class="btn secondary" data-go="dashboard">Open progress</button></div>`;
+    const email=D.writing.email[m.run%D.writing.email.length], interview=D.speaking.interviewSets[m.run%D.speaking.interviewSets.length];
+    r.innerHTML=`<div class="result-hero"><span>Objective simulation</span><strong>${correct}/${m.items.length}</strong><h2>${Math.round(pct*100)}% correct</h2><p>This is practice accuracy, not an ETS band. Completed in ${formatDuration(elapsedSeconds)}.</p></div><div class="result-grid">${Object.entries(by).map(([k,v])=>`<article class="result-skill"><span>${k}</span><strong>${v.n?Math.round(v.c/v.n*100):0}%</strong><small>${v.c}/${v.n}</small></article>`).join('')}</div><div class="grid two mock-productive"><article class="card"><span class="tag coral">WRITING CONTINUATION</span><h2>Timed email</h2><p>${esc(email.situation)}</p><button class="btn secondary" data-go="writing">Open Writing practice →</button></article><article class="card"><span class="tag coral">SPEAKING CONTINUATION</span><h2>Four-question interview</h2><p>${esc(interview.scenario)}</p><button class="btn secondary" data-go="speaking">Open Speaking practice →</button></article></div>${missed.length?`<details class="card diagnostic-review"><summary><strong>Review ${missed.length} missed objective item${missed.length===1?'':'s'}</strong></summary>${missed.map(x=>`<div class="review-item"><span class="tag">${esc(x.section)}</span><h3>${esc(x.q)}</h3><p><strong>Correct answer:</strong> ${esc(x.options[x.answer])}</p><p>${esc(x.why)}</p></div>`).join('')}</details>`:''}<div class="cta-row"><button class="btn primary" id="restartMock">Run another simulation</button><button class="btn secondary" data-go="dashboard">Open progress</button></div>`;
     $$('[data-go]',r).forEach(b=>b.onclick=()=>navigate(b.dataset.go));$('#restartMock').onclick=()=>{r.classList.add('hidden');$('#mockIntro').classList.remove('hidden');};updateDashboard();
   }
   $('#startMock')?.addEventListener('click',startMock);
@@ -631,8 +677,18 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
     wirePractice(w,{skill:null,nextId:'nextLab',onNext:()=>{labIndex++;renderLab(key);}});
   }
 
-  // Home drill routes
-  $$('[data-drill]').forEach(b=>b.onclick=()=>{const d=b.dataset.drill;if(d==='inference'){readingTab='academic';$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='academic'));navigate('reading');renderReading();}else if(d==='hedging'){navigate('clevel');currentLab='hedging';renderLab('hedging');}else{listeningTab='talk';$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='talk'));navigate('listening');renderListening();}});
+  // Home drill routes — each card opens the task type it promises.
+  function findReadingQuestion(category){for(let pi=0;pi<D.reading.academic.length;pi++){const qi=D.reading.academic[pi].questions.findIndex(q=>String(q.category||'').toLowerCase().includes(category));if(qi>=0)return {pi,qi};}return {pi:0,qi:0};}
+  function findListeningQuestion(category){for(let pi=0;pi<D.listening.talk.length;pi++){const qi=D.listening.talk[pi].questions.findIndex(q=>String(q.category||'').toLowerCase().includes(category));if(qi>=0)return {pi,qi};}return {pi:0,qi:0};}
+  $$('[data-drill]').forEach(b=>b.onclick=()=>{
+    const d=b.dataset.drill;
+    if(d==='inference'){
+      const hit=findReadingQuestion('inference');readingTab='academic';readingIndex.academic=hit.pi;academicQuestion=hit.qi;$$('[data-tabs="reading"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='academic'));navigate('reading');renderReading();
+    }else if(d==='hedging'){navigate('clevel');currentLab='hedging';renderLab('hedging');}
+    else{
+      const hit=findListeningQuestion('purpose');listeningTab='talk';listeningIndex.talk=hit.pi;listeningQuestion=hit.qi;listeningAudioPlayed=false;listeningExamAnswers=[];$$('[data-tabs="listening"] button').forEach(x=>x.classList.toggle('is-active',x.dataset.tab==='talk'));navigate('listening');renderListening();
+    }
+  });
 
   // Accessibility
   function loadAccess(){let a={};try{a=JSON.parse(localStorage.getItem(ACCESS_KEY)||'{}')}catch{}applyAccess(a);if($('#highContrast'))$('#highContrast').checked=!!a.highContrast;if($('#readableFont'))$('#readableFont').checked=!!a.readableFont;if($('#reduceMotion'))$('#reduceMotion').checked=!!a.reduceMotion;if($('#focusMode'))$('#focusMode').checked=!!a.focusMode;}
@@ -645,11 +701,11 @@ ${r.text}`,q:q.q,options:q.options,answer:q.answer,why:q.why}));
   loadAccess();
 
   // Export/import
-  function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-progress-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
+  function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`homemade-toefl-progress-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
   async function importProgress(file){if(!file)return;try{const x=JSON.parse(await file.text());state=Number(x.version)>=5?mergeState(defaultState(),x):migrateLegacy(x);saveState();updateDashboard();renderVocabulary();toast(Number(x.version)>=5?'Progress imported':'Older progress imported; diagnostic and saved words kept, mixed legacy practice scores reset.');}catch{toast('Invalid progress file');}}
   $('#exportProgress')?.addEventListener('click',exportProgress);$('#exportProgressModal')?.addEventListener('click',exportProgress);
-  $('#importProgress')?.addEventListener('change',e=>importProgress(e.target.files[0]));$('#importProgressModal')?.addEventListener('change',e=>importProgress(e.target.files[0]));
-  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all progress saved on this device?')){state=defaultState();saveState();updateDashboard();renderVocabulary();toast('Progress reset');}});
+  $('#importProgress')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});$('#importProgressModal')?.addEventListener('change',async e=>{await importProgress(e.target.files[0]);e.target.value='';});
+  $('#resetProgress')?.addEventListener('click',()=>{if(confirm('Delete all progress saved on this device?')){state=defaultState();try{LEGACY_STORAGE_KEYS.forEach(k=>localStorage.removeItem(k));}catch{}saveState();updateDashboard();renderVocabulary();toast('Progress reset');}});
   $('#saveBtn')?.addEventListener('click',()=>$('#saveModal').classList.remove('hidden'));$('#closeSave')?.addEventListener('click',()=>$('#saveModal').classList.add('hidden'));
   $$('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.add('hidden');}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal-backdrop').forEach(m=>m.classList.add('hidden'));});

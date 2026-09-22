@@ -7,7 +7,7 @@
   <meta name="description" content="Homemade TOEFL Trainer — demanding C1/C2 preparation for the TOEFL iBT format introduced in January 2026: diagnostic, Reading, Listening, Speaking, Writing, academic vocabulary and progress tracking.">
   <title>Homemade TOEFL Trainer — C1/C2</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=20260922v3">
+  <link rel="stylesheet" href="styles.css?v=20260922v4">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -84,7 +84,7 @@
       <div class="grid three">
         <article class="game-card game-indigo"><span>READING</span><h3>🔎 Inference Lab</h3><p>Distinguish warranted inference from attractive overinterpretation.</p><button class="btn ghost" data-drill="inference">Launch</button></article>
         <article class="game-card game-teal"><span>WRITING</span><h3>🧪 Calibration Duel</h3><p>Match the strength of a claim to the strength of the evidence.</p><button class="btn ghost" data-drill="hedging">Launch</button></article>
-        <article class="game-card game-coral"><span>LISTENING</span><h3>🗺 Lecture Mapper</h3><p>Track concession, correction, example, limitation and conclusion in a short academic talk.</p><button class="btn ghost" data-drill="lecture">Launch</button></article>
+        <article class="game-card game-coral"><span>LISTENING</span><h3>🧭 Lecture Purpose Lab</h3><p>Identify why the speaker introduces an example, correction, concession or limitation in an academic talk.</p><button class="btn ghost" data-drill="lecture">Launch</button></article>
       </div>
     </section>
 
@@ -157,9 +157,10 @@
     <section class="dashboard-section"><div class="dashboard-section-head"><div><span class="tag teal">MEASURED</span><h2>Objective practice</h2></div><p>Accuracy from items with a defined correct answer. Productive self-ratings are excluded.</p></div><div class="skill-dashboard" id="skillDashboard"></div></section>
     <section class="dashboard-section"><div class="dashboard-section-head"><div><span class="tag coral">SELF-REVIEW</span><h2>Productive skills</h2></div><p>Speaking and extended Writing use criteria-based self-review. These are not converted into a TOEFL band.</p></div><div class="skill-dashboard productive-dashboard" id="productiveDashboard"></div></section>
     <div class="grid two dashboard-lower">
-      <div class="card route-card"><h2>Recurring weaknesses</h2><p>Your error log ranks question types with enough practice data. Work on the pattern, not just the section.</p><div id="weaknessList"></div></div>
-      <div class="card route-card"><h2>Recommended next</h2><p>Recommendations prioritise low objective accuracy and repeated error types.</p><div id="recommendedRoute"></div></div>
+      <div class="card route-card"><h2>Recurring weaknesses</h2><p>Your error log gives priority to recent attempts once enough data exists, so an old mistake does not follow you forever.</p><div id="weaknessList"></div></div>
+      <div class="card route-card"><h2>Recommended next</h2><p>Recommendations prioritise recent objective accuracy and repeated error types.</p><div id="recommendedRoute"></div></div>
     </div>
+    <div class="card simulation-history-card"><div><span class="tag indigo">SIMULATION HISTORY</span><h2>Recent practice simulations</h2><p>Accuracy and completion time are stored locally. These are practice results, not ETS scores.</p></div><div id="mockHistoryList" class="simulation-history-list"></div></div>
     <div class="card stats-card"><h2>Practice data</h2><div class="grid three"><div><strong id="questionsDone">0</strong><span>objective questions answered</span></div><div><strong id="practiceMinutes">0</strong><span>timed production minutes</span></div><div><button class="btn secondary" id="exportProgress">Export progress</button><label class="btn secondary file-label">Import progress<input id="importProgress" type="file" accept="application/json" hidden></label><button class="btn danger" id="resetProgress">Reset</button></div></div></div>
   </section>
 
@@ -190,7 +191,7 @@
   <section class="view" id="view-speaking" data-view="speaking">
     <div class="page-head"><span class="section-kicker">SPEAKING</span><h1>Precision under pressure</h1><p>Use the current task families, but train above the minimum: longer clauses for repetition and interview questions that require qualification, comparison and prioritisation.</p></div>
     <div class="grid two">
-      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Seven-sentence precision set</h2><p id="repeatScenario" class="speaking-scenario"></p><div id="repeatProgress" class="speaking-progress"></div><p id="repeatSentence" class="transcript-hidden">Transcript hidden. Listen first.</p><div class="cta-row"><button class="btn primary" id="playRepeat">▶ Listen</button><button class="btn secondary" id="revealRepeat">Reveal transcript</button><button class="btn secondary" id="nextRepeatSentence">Next sentence →</button><button class="text-btn" id="newRepeat">New scenario</button></div><p class="micro-note">Repeat each sentence exactly. The sequence becomes progressively longer; focus on wording, thought groups, stress, linking and final consonants.</p></article>
+      <article class="card speaking-card"><span class="tag teal">LISTEN & REPEAT</span><h2>Seven-sentence precision set</h2><p id="repeatScenario" class="speaking-scenario"></p><div id="repeatProgress" class="speaking-progress"></div><p id="repeatSentence" class="transcript-hidden">Transcript hidden. Listen first.</p><div class="cta-row"><button class="btn primary" id="playRepeat">▶ Listen</button><button class="btn secondary" id="revealRepeat">Reveal transcript</button><button class="btn secondary" id="nextRepeatSentence">Next sentence →</button><button class="text-btn" id="newRepeat">New scenario</button></div><p class="micro-note">Repeat each sentence exactly. After playback, the trainer gives you 8 seconds to respond. The sequence becomes progressively longer; focus on wording, thought groups, stress, linking and final consonants.</p></article>
       <article class="card speaking-card"><span class="tag coral">TAKE AN INTERVIEW</span><h2>Four-question interview</h2><p id="interviewScenario" class="speaking-scenario"></p><div id="interviewProgress" class="speaking-progress"></div><h3 id="interviewQuestion">Load an interview question.</h3><div class="timer-display" id="speakTimer">00:45</div><div class="cta-row"><button class="btn secondary" id="playInterview">▶ Hear question</button><button class="btn primary" id="startRecording">🎙️ Record 45 s</button><button class="btn danger hidden" id="stopRecording">■ Stop</button><button class="btn secondary" id="nextInterviewQ">Next question →</button><button class="text-btn" id="newInterview">New interview</button></div><audio id="recordingPlayback" class="hidden" controls></audio></article>
     </div>
     <div class="card rubric"><h2>C1/C2 speaking self-check</h2><p class="micro-note">After recording an interview answer, tick the criteria you genuinely met and save the self-check. This produces an internal practice signal, not an automated TOEFL score.</p><div class="rubric-grid"><label><input type="checkbox" class="speaking-check"> I answer the precise question before expanding.</label><label><input type="checkbox" class="speaking-check"> I distinguish my main claim from qualifications and examples.</label><label><input type="checkbox" class="speaking-check"> My lexical choices are precise rather than merely sophisticated.</label><label><input type="checkbox" class="speaking-check"> I use complex syntax without losing control of the sentence.</label><label><input type="checkbox" class="speaking-check"> Hesitation does not obscure the argument or force repeated restarts.</label><label><input type="checkbox" class="speaking-check"> Stress and intonation make the information structure easy to follow.</label></div><button class="btn secondary" id="logSpeakingReview" disabled>Save this self-check</button></div>
@@ -222,7 +223,7 @@
   </section>
 
   <section class="view" id="view-resources" data-view="resources">
-    <div class="page-head"><span class="section-kicker">RESOURCES</span><h1>Use resources that make C1/C2 students think</h1><p>This page separates official TOEFL preparation, serious C-level English input, and resources available through Claude Bernard Lyon 1 University. Use each source for a precise training purpose.</p></div>
+    <div class="page-head"><span class="section-kicker">RESOURCES</span><h1>Use resources that make C1/C2 students think</h1><p>This page separates official TOEFL preparation, serious C-level English input, and resources available through Claude Bernard Lyon 1 University. Use each source for a precise training purpose.</p><p class="verification-note">Links and institutional claims last checked: 22 September 2026.</p></div>
 
     <section class="resource-section">
       <h2>1. Official TOEFL resources — check these first</h2>
@@ -261,7 +262,7 @@
         <article class="card resource-card"><span class="tag indigo">LYON 1 ONLINE</span><h3>Vocable & Europresse</h3><p>Use Vocable for guided language work and Europresse to search authentic press in English. At C1/C2, compare how two outlets frame the same event and note changes in stance, attribution and lexical choice.</p><div class="resource-status"><strong>Access:</strong> online with Lyon 1 authentication.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Open the BU Languages page</a></article>
         <article class="card resource-card"><span class="tag teal">BU SCIENCES · PRINT</span><h3>Scientific and general-interest magazines</h3><p>The BU Languages page lists print access at BU Sciences to titles including <strong>New Scientist, American Scientist, Discover</strong> and <strong>Time</strong>. These are excellent for timed reading outside your field.</p><div class="resource-status"><strong>Use:</strong> check current availability and any lending restrictions before assuming an issue can leave the library.</div><a class="btn secondary resource-link" href="https://portaildoc.univ-lyon1.fr/les-collections/explorer-par-themes/langues" target="_blank" rel="noopener">Check BU language collections</a></article>
         <article class="card resource-card"><span class="tag teal">SCEL · ON SITE</span><h3>Language Space — Cargo, Quai 43</h3><p>The SCEL states that the Language Space is a multimedia language-resource centre where students can consult <strong>TOEFL and TOEIC preparation methods, grammar books, language-learning software, films and series</strong> and speak with language tutors.</p><div class="resource-status"><strong>Where:</strong> Building Quai 43, Room 218, Doua campus, 28 avenue Gaston Berger, Villeurbanne.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/espace-langues-cargo" target="_blank" rel="noopener">Open Language Space information</a></article>
-        <article class="card resource-card"><span class="tag teal">SCEL · COACHING</span><h3>Language tutoring and individual coaching</h3><p>Lyon 1 language tutoring is a useful place to rehearse high-level speaking: defend a qualified position, receive correction, then repeat the answer with tighter structure and more controlled prosody. Check the current SCEL tutoring page for locations and schedules.</p><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/tutorat" target="_blank" rel="noopener">Open tutoring information</a></article>
+        <article class="card resource-card"><span class="tag teal">SCEL · COACHING</span><h3>Language tutoring and individual coaching</h3><p>Lyon 1 states that language tutoring is <strong>free for registered Lyon 1 students and university staff</strong>. Use it to rehearse a qualified C1/C2 response, get targeted correction, then repeat the answer with tighter structure and more controlled prosody. Check the current SCEL page for locations and schedules.</p><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/tutorat" target="_blank" rel="noopener">Open tutoring information</a></article>
         <article class="card resource-card"><span class="tag coral">LYON 1 · TOEFL COURSE</span><h3>TOEFL preparation for mobility students</h3><p>The SCEL currently describes two 20-hour preparation sessions at the <strong>Rockefeller site</strong>, organised as four hours per week for five weeks from October to December. The course is reserved for students with an approved mobility project.</p><div class="resource-status"><strong>Registration:</strong> through your mobility coordinator; Lyon 1 also directs students preparing for TOEFL as part of an approved mobility project to International Relations.</div><a class="btn secondary resource-link" href="https://scel.univ-lyon1.fr/apprendre/preparation-au-toefl" target="_blank" rel="noopener">Open TOEFL course information</a></article>
       </div>
       <div class="official-note"><strong>Before you borrow:</strong> catalogue holdings and loan status can change. For TOEFL books, check the publication date and the live BU record. A pre-2026 book can still be useful for language development, but it is not a reliable model of the current exam.</div>
@@ -272,7 +273,7 @@
       <div class="grid four">
         <div><strong>Reading · 2 × 30 min</strong><p>Read outside your field. Write a 60-word synthesis, one limitation and one supported inference that is not explicitly stated.</p></div>
         <div><strong>Listening · 2 × 30 min</strong><p>Listen once without a transcript. Reconstruct the lecture map: thesis, concessions, examples, correction and conclusion. Then verify.</p></div>
-        <div><strong>Speaking · 3 × 10 min</strong><p>Record one 60-second answer. Repeat it twice: first for clearer structure, then for better stress, linking and lexical precision.</p></div>
+        <div><strong>Speaking · 3 × 10 min</strong><p>Record one 45-second interview answer. Repeat it twice: first for clearer structure, then for better stress, linking and lexical precision.</p></div>
         <div><strong>Writing · 2 × 20 min</strong><p>Rewrite one paragraph for scope, stance and compression. Remove one overclaim, one vague reference and one unnecessary connector.</p></div>
       </div>
     </section>
@@ -296,7 +297,7 @@
       <article class="card"><h2>Accessibility</h2><p>The site includes keyboard navigation, text-size controls, high contrast, a readable-font option, reduced motion and focus mode.</p></article>
       <article class="card"><h2>AI assistance</h2><p>© Eglantine Lecomte. The educational concept, pathways and training system were created by Eglantine Lecomte with the assistance of ChatGPT.</p></article>
     </div>
-    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Version 3 also rotates North American, UK, Australian and New Zealand voice profiles for accent exposure when the device provides them. Official information can change, so ETS remains the reference.</p></div>
+    <div class="card"><h2>About the 2026 format</h2><p>The site is built around the TOEFL iBT format in use since 21 January 2026, including multistage Reading/Listening, the 1–6 score scale and the current task families. Version 4 also rotates North American, UK, Australian and New Zealand voice profiles for accent exposure when the device provides them, while keeping measured accuracy separate from productive self-review. Official information can change, so ETS remains the reference.</p></div>
   </section>
 </main>
 
@@ -320,8 +321,8 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=20260922v3"></script>
-<script src="app.js?v=20260922v3"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260922v3').then(r=>r.update()).catch(()=>{}));}</script>
+<script src="data.js?v=20260922v4"></script>
+<script src="app.js?v=20260922v4"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=20260922v4').then(r=>r.update()).catch(()=>{}));}</script>
 </body>
 </html>

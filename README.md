@@ -1,36 +1,36 @@
-# Homemade TOEFL Trainer — C1/C2 · V3
+# Homemade TOEFL Trainer — C1/C2 · V4 audited build
 
-An independent, browser-based TOEFL iBT practice site designed for advanced learners targeting C-level English.
+An independent, browser-based TOEFL iBT practice site for advanced learners targeting C-level English.
 
 ## Deploy on GitHub Pages
 
-Upload the files in this folder to the root of the GitHub repository used for the site. Keep `index.html`, `styles.css`, `data.js`, `app.js`, `manifest.webmanifest` and `sw.js` together at the root.
+Upload the production files from this package to the root of the GitHub repository used for the site. Keep `index.html`, `styles.css`, `data.js`, `app.js`, `manifest.webmanifest` and `sw.js` together at the root.
 
-After deployment, reload the public page. This build uses versioned JavaScript/CSS URLs and a network-first service worker so new deployments should replace older cached files more reliably.
+After deployment, reload the public page. V4 uses versioned CSS/JavaScript URLs plus a network-first service worker so corrected files replace stale cached versions more reliably.
 
-## What is included
+## What V4 fixes
 
-- 40-item C-level baseline diagnostic: 10 items per skill.
-- Reading practice: Complete the Words, Read in Daily Life and Read an Academic Passage.
-- Listening practice: Choose a Response, Conversation, Announcement and Academic Talk.
-- Practice and Exam Conditions for Listening.
-- TOEFL Mix audio mode: North American, UK, Australian and New Zealand target voice profiles rotate by exercise when the learner's device provides them.
-- On-page Accent & Audio Check with four test buttons and device voice-status feedback.
-- Speaking: 7-sentence Listen & Repeat sets and 4-question interviews, with local browser recording when supported.
-- Writing: Build a Sentence, timed Email and Academic Discussion practice.
-- Objective accuracy separated from Speaking/Writing self-review.
-- Error log and personalised recommended practice route.
-- Focused Reading/Listening simulation with feedback withheld until the end.
-- 160 C1/C2 vocabulary and collocation cards with pronunciation playback.
-- C-Level Lab for hedging, nominalisation, syntax, paraphrase, stance and cohesion.
-- Resources page with official ETS material, C-level academic-English resources, accent-exposure resources and Lyon 1 library/SCEL links.
-- Local progress storage plus JSON export/import.
-- Accessibility controls and responsive layout.
+- Listening Practice now really keeps replay locked until the learner has answered once.
+- Listening, diagnostic and simulation audio only count as “played” after playback completes successfully.
+- Listen & Repeat now uses the current 8-second response window.
+- Local streaks use the learner's local calendar date rather than UTC.
+- Reading, Listening and Writing task families advance independently instead of sharing one index.
+- Build a Sentence cannot be checked before every chunk is used; Clear no longer reshuffles the task.
+- Complete the Words items now follow the current C-test construction rule used by the trainer: first sentence intact, then the second half of every second word removed until 10 gaps are produced.
+- The dashboard prioritises recent objective accuracy while keeping all-time totals visible.
+- Speaking/Writing self-review remains separate from objectively marked practice.
+- The error log gives recent attempts priority, so old mistakes do not permanently dominate recommendations.
+- Practice-simulation history is now visible and stores completion time.
+- Repeat and recording object URLs/timers are cleaned up correctly when navigating away.
+- Readable Font now applies to the full interface.
+- Mobile header/navigation have been tightened and tested at 390 px without horizontal overflow.
+- Dynamic practice buttons no longer create duplicate DOM IDs.
+- Local progress import/export/reset is more defensive, with migration from earlier local-storage versions.
 
 ## Current practice bank
 
 - 20 Complete the Words C-tests (10 gaps each)
-- 20 Daily Life sets (2 questions each)
+- 20 Daily Life sets
 - 15 Academic Passages (5 questions each)
 - 40 Choose a Response items
 - 12 Conversations (2 questions each)
@@ -43,16 +43,16 @@ After deployment, reload the public page. This build uses versioned JavaScript/C
 - 12 Academic Discussion prompts
 - 160 vocabulary/collocation cards
 
-## Audio design
+## V4 audit status
 
-The current TOEFL can expose test takers to native-speaker English accents from North America, the UK, Australia and New Zealand. V3 therefore assigns one of those target profiles to Listening and Speaking sets and uses a `TOEFL Mix` mode by default.
+The release package passed the internal static/data audit with 0 errors and 0 warnings. It also passed 20 Chromium interaction checks covering Reading, linked Listening sets, Practice/Exam audio locking, Speaking timing, Build a Sentence state, simulation history, mobile navigation and horizontal overflow.
 
-The site remains server-free: exercise audio is generated by the speech voices installed on the learner's device. If the exact requested accent is unavailable, the trainer falls back to another English voice and reports this in the Audio Check. Voice quality therefore differs across Windows, macOS, Android, iOS and browsers.
-
-This build deliberately does **not** bundle low-quality synthetic MP3 files simply to claim that it contains recorded audio. High-quality human or licensed recordings can be added later if appropriate source audio is available.
+See `V4-AUDIT-NOTES.md` for the detailed checks and known limitations.
 
 ## Important limitations
 
-This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce the adaptive ETS routing/scoring algorithm, and does not issue official TOEFL scores. The diagnostic band is an internal baseline only. Speaking and extended Writing are self-reviewed with criteria because reliable automated scoring is not claimed.
+This is an independent pedagogical resource. It is not affiliated with ETS, does not reproduce ETS adaptive routing or official scoring, and does not issue official TOEFL scores. The diagnostic is an internal baseline only. Speaking and extended Writing use learner self-review criteria rather than claiming automated official-style scoring.
+
+Audio uses the English speech voices available on the learner's device. Accent selection is therefore exposure practice, not a guarantee that every device can provide every requested accent.
 
 TOEFL and ETS are registered trademarks of ETS.

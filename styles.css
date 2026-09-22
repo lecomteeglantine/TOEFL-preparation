@@ -46,3 +46,12 @@ button:disabled,.btn:disabled{opacity:.48;cursor:not-allowed;transform:none!impo
 /* V3 audio / accent training */
 .audio-check-card{margin-top:1.2rem;display:grid;grid-template-columns:1.3fr .9fr;gap:1rem 1.5rem;align-items:center}.audio-check-card h2{margin:.45rem 0 .3rem}.audio-check-card p{margin:.2rem 0}.audio-test-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}.audio-test-buttons .btn{width:100%}.voice-status{grid-column:1/-1;padding:.7rem .85rem;border-radius:12px;background:var(--soft);color:var(--muted);font-size:.88rem;font-weight:750}.accent-choice[data-accent="auto"]{font-weight:900}
 @media(max-width:760px){.audio-check-card{grid-template-columns:1fr}.voice-status{grid-column:1}.audio-test-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.accent-note{width:100%;text-align:center}}
+
+/* V4 internal-audit fixes */
+.readable-font body,.readable-font button,.readable-font input,.readable-font select,.readable-font textarea{font-family:Arial,Verdana,sans-serif!important;letter-spacing:.01em}
+.verification-note{font-size:.84rem!important;color:var(--muted);font-weight:700}
+.simulation-history-card{margin-top:1rem;display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:1.2rem;align-items:start}
+.simulation-history-card h2{margin:.35rem 0}.simulation-history-card p{color:var(--muted)}
+.simulation-history-list{display:grid;gap:.55rem}.simulation-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem .85rem;border:1px solid var(--line);border-radius:13px;background:#fbfbfd}.simulation-row span{display:grid}.simulation-row small{color:var(--muted)}.simulation-row b{white-space:nowrap;color:var(--navy)}
+@media(max-width:760px){.simulation-history-card{grid-template-columns:1fr}.simulation-row{align-items:flex-start}}
+@media(max-width:480px){.topbar{gap:.35rem;padding:.55rem .65rem}.brand{gap:.5rem;min-width:0}.brand-mark{width:38px;height:38px;border-radius:11px;flex:0 0 auto}.brand strong{font-size:.88rem;line-height:1.1}.brand small{display:none}.top-actions{gap:0}.icon-btn{padding:.45rem .5rem}.accent-bar{gap:.3rem;padding:.4rem .55rem}.accent-bar>span:first-child{width:100%;text-align:center}.accent-choice{padding:.22rem .52rem;font-size:.8rem}}
